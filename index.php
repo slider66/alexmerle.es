@@ -1,5 +1,5 @@
-<!-- Final Deploy Test: 2025-12-23 21:05 -->
-<html lang="es">
+<!-- Last Attempt: 2025-12-23 21:10 -->
+<!DOCTYPE html>
 
 <head>
     <meta charset="UTF-8">
