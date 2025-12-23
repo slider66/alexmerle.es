@@ -20,17 +20,29 @@ async function loadProjects() {
 
         // Custom overrides for specific projects
         const projectOverrides = {
-            'alexmerle.es': {
-                description: 'Portfolio personal, objetivo enseñar proyectos realizados por Alejandro Merle y conseguir contactos con personas y empresas interesadas en contratar servicios digitales. Desarrollado con PHP, Vanilla JS y Glassmorphism UI.',
+            'Autodesk-Full-Cleaner': {
+                description: 'Script automatizado en PowerShell para limpieza profunda de software Autodesk en Windows. Elimina claves de registro y residuos persistentes para permitir reinstalaciones limpias.',
                 highlight: true
             },
-            'merle.es': {
-                description: 'Plataforma web de Suministros Merle, S.L. Empresa dedicada a la ferralla desde 1993. Desarrollado con WordPress.',
+            'ijornada': {
+                description: 'Gestión de asistencia moderna con Next.js y Prisma. Panel de administración y modo Kiosk para cumplimiento normativo laboral con experiencia de usuario optimizada.',
                 highlight: true
             },
-            'metal-line.es': {
-                description: 'Proyecto web para la marca Metal Line, propiedad de Suministos Merle, S.L, para la venta de productos metálicos creados con corte laser y soldadura. Desarrollado con WordPress y WooCommerce.',
+            'SM': {
+                description: 'Sitio web corporativo de Suministros Merle (merle.es). Desarrollado con Next.js 15, React 19 y Tailwind CSS 4 para máximo rendimiento y SEO.',
                 highlight: true
+            },
+            'Riot_force_uninstall': {
+                description: 'Herramienta avanzada para la eliminación total de juegos de Riot (Valorant, LoL). Limpia drivers de kernel y entradas ocultas del registro.',
+                highlight: false
+            },
+            'menu_contextual_W11_to_W10': {
+                description: 'Utilidad en Python para restaurar el menú contextual clásico en Windows 11, eliminando pasos extra y mejorando la productividad.',
+                highlight: false
+            },
+            'Full_clean_adesk': {
+                description: 'Alternativa en Python para la limpieza técnica de residuos de Autodesk tras desinstalaciones fallidas.',
+                highlight: false
             }
         };
 

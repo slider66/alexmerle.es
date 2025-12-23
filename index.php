@@ -23,9 +23,8 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>Transformo ideas en <span class="gradient-text">soluciones digitales</span> de alto impacto.</h1>
-                <p>Especialista en desarrollo web y automatización. Ayudo a marcas y empresas a escalar su presencia
-                    online.</p>
+                <h1>Especialista en <span class="gradient-text">Digital Risk Protection</span> y Soluciones Digitales.</h1>
+                <p>Ayudo a empresas a mitigar riesgos tecnológicos y a transformar ideas complejas en realidades digitales seguras y eficientes.</p>
                 <div class="cta-group">
                     <a href="#portfolio" class="btn-primary">Ver mi trabajo</a>
                     <a href="#contacto" class="btn-secondary">Contactar ahora</a>
@@ -38,10 +37,9 @@
                 <div class="about-content">
                     <div class="about-text">
                         <h2>Sobre <span class="gradient-text">Mí</span></h2>
-                        <p>Soy <strong>Alejandro Merle</strong>, Desarrollador y Consultor Tecnológico. Me especializo
-                            en transformar ideas complejas en soluciones digitales elegantes y eficientes.</p>
-                        <p>Mi enfoque combina una fuerte base técnica con una visión estratégica de negocio, ayudando a
-                            empresas a automatizar procesos y escalar su presencia digital.</p>
+                        <p>Soy <strong>Alejandro Merle</strong>, profesional especializado en <strong>Digital Risk Protection</strong> con trayectoria en ciberseguridad y análisis de riesgos tecnológicos.</p>
+                        <p>Mi formación y experiencia en entornos como Telefónica me permiten combinar una sólida base técnica en seguridad con una visión estratégica de consultoría IT.</p>
+                        <p>Acompaño a empresas en la automatización de procesos y el escalado de su presencia digital, siempre priorizando la integridad y la eficiencia de sus infraestructuras.</p>
                         <a href="https://es.linkedin.com/in/alejandromerle" target="_blank" class="btn-linkedin">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="currentColor">
