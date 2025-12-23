@@ -65,7 +65,45 @@
                 </div>
             </div>
         </section>
+        <section id="contacto" class="contact">
+            <div class="container">
+                <h2>¿Tienes un <span class="gradient-text">Proyecto</span> en mente?</h2>
+                <p class="subtitle">Hablemos sobre cómo puedo ayudarte a alcanzar tus objetivos.</p>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <div class="icon">✉️</div>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:hola@alexmerle.es">hola@alexmerle.es</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="icon">📱</div>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <p><a href="https://es.linkedin.com/in/alejandromerle" target="_blank">linkedin.com/in/alejandromerle</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">AM<span>.</span></div>
+                <p>&copy; 2024 Alex Merle. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#portfolio">Proyectos</a>
+                    <a href="#sobre-mi">Sobre Mí</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>
