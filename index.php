@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Last Update: 2025-12-23 20:44 -->
 <html lang="es">
 
 <head>
@@ -82,7 +83,8 @@
                             <div class="icon">📱</div>
                             <div>
                                 <h4>LinkedIn</h4>
-                                <p><a href="https://es.linkedin.com/in/alejandromerle" target="_blank">linkedin.com/in/alejandromerle</a></p>
+                                <p><a href="https://es.linkedin.com/in/alejandromerle"
+                                        target="_blank">linkedin.com/in/alejandromerle</a></p>
                             </div>
                         </div>
                     </div>
