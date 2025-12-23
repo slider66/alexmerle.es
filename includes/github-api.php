@@ -3,7 +3,7 @@ header('Content-Type: application/json');
 
 // Configuration
 // TODO: Confirm the exact GitHub username. Using 'alexmerle' as a placeholder based on domain.
-$username = 'alexmerle';
+$username = 'slider66';
 $cacheFile = __DIR__ . '/../repo-cache.json'; // Store cache in root or appropriate folder
 $cacheTime = 3600; // 1 hour
 
