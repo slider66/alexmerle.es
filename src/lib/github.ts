@@ -1,7 +1,7 @@
 import { Octokit } from "octokit";
 
 const octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN, // Optional: for higher rate limits
+  auth: process.env.GITHUB_TOKEN,
 });
 
 export interface Repository {
@@ -18,23 +18,30 @@ export interface Repository {
   order?: number;
 }
 
-const projectOverrides: Record<string, { description: string; highlight: boolean; previewImage?: string; hideLink?: boolean; order?: number; extraTopics?: string[] }> = {
-  'merle.es': {
-    description: 'Sitio web corporativo de Hierros Merle. Mi proyecto más ambicioso hasta la fecha, optimizado para conversión y SEO.',
-    highlight: true,
-    previewImage: '/previews/merle_es.png',
-    order: 1,
-    extraTopics: ['Next.js 15', 'React 19', 'Tailwind CSS 4', 'SEO Strategy', 'Industrial UI']
-  },
+// Configuración de proyectos manuales o con overrides
+const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: string[] }> = {
   'fotografia-aerea-madrid': {
+    id: 999997,
     description: 'Servicios de drones certificados AESA en Madrid. Especializado en fotografía y videografía aérea profesional HDR y 4K vertical.',
+    html_url: 'https://fotografiaaereamadrid.vercel.app/',
     highlight: true,
     previewImage: '/previews/fotografia_aerea_madrid.png',
     order: 0,
     extraTopics: ['Next.js', 'Vercel', 'Drones', 'AESA Certified', 'Photography']
   },
+  'merle.es': {
+    id: 999998,
+    description: 'Sitio web corporativo de Hierros Merle. Mi proyecto más ambicioso hasta la fecha, optimizado para conversión y SEO.',
+    html_url: 'https://merle.es',
+    highlight: true,
+    previewImage: '/previews/merle_es.png',
+    order: 1,
+    extraTopics: ['Next.js 15', 'React 19', 'Tailwind CSS 4', 'SEO Strategy', 'Industrial UI']
+  },
   'metal-line.es': {
+    id: 999999,
     description: 'Plataforma corporativa para Metal Line. Enfoque en ingeniería de precisión y transformación metálica.',
+    html_url: 'https://metal-line.es',
     highlight: true,
     previewImage: '/previews/metal_line_es.png',
     order: 2,
@@ -57,25 +64,17 @@ const projectOverrides: Record<string, { description: string; highlight: boolean
 };
 
 export async function getRepositories(username: string = 'slider66'): Promise<Repository[]> {
+  let repos: Repository[] = [];
+
   try {
     const response = await octokit.request('GET /users/{username}/repos', {
       username,
       sort: 'updated',
-      per_page: 20,
-      headers: {
-        'X-GitHub-Api-Version': '2022-11-28'
-      }
+      per_page: 30, // Aumentado ligeramente para dar margen al filtrado
+      headers: { 'X-GitHub-Api-Version': '2022-11-28' }
     });
 
-    const repos: Repository[] = (response.data as Array<{
-      id: number;
-      name: string;
-      description: string | null;
-      html_url: string;
-      stargazers_count: number;
-      topics?: string[];
-      updated_at: string;
-    }>).map((repo) => ({
+    repos = response.data.map((repo: any) => ({
       id: repo.id,
       name: repo.name,
       description: repo.description,
@@ -84,67 +83,36 @@ export async function getRepositories(username: string = 'slider66'): Promise<Re
       topics: repo.topics || [],
       updated_at: repo.updated_at
     }));
-
-    // Inject metal-line.es if not found in GitHub
-    if (!repos.find(r => r.name === 'metal-line.es')) {
-      repos.push({
-        id: 999999,
-        name: 'metal-line.es',
-        description: null,
-        html_url: 'https://metal-line.es',
-        stargazers_count: 0,
-        topics: ['web', 'nextjs', 'industrial'],
-        updated_at: new Date().toISOString()
-      });
-    }
-
-    // Inject merle.es if not found in GitHub
-    if (!repos.find(r => r.name === 'merle.es')) {
-      repos.push({
-        id: 999998,
-        name: 'merle.es',
-        description: null,
-        html_url: 'https://merle.es',
-        stargazers_count: 0,
-        topics: ['nextjs', 'react', 'tailwind', 'industrial'],
-        updated_at: new Date().toISOString()
-      });
-    }
-
-    // Inject fotografia-aerea-madrid if not found in GitHub
-    if (!repos.find(r => r.name === 'fotografia-aerea-madrid')) {
-      repos.push({
-        id: 999997,
-        name: 'fotografia-aerea-madrid',
-        description: null,
-        html_url: 'https://fotografiaaereamadrid.vercel.app/',
-        stargazers_count: 0,
-        topics: ['photography', 'drones', 'madrid'],
-        updated_at: new Date().toISOString()
-      });
-    }
-
-    // Apply overrides and sorting
-    return repos.map(repo => {
-      const override = projectOverrides[repo.name];
-      if (override) {
-        return {
-          ...repo,
-          description: override.description,
-          highlight: override.highlight,
-          previewImage: override.previewImage,
-          hideLink: override.hideLink,
-          order: override.order || 99,
-          topics: [...new Set([...repo.topics, ...(override.extraTopics || [])])]
-        };
-      }
-      return { ...repo, highlight: false, order: 99 };
-    }).sort((a: Repository, b: Repository) => {
-      return ((a.order || 99) - (b.order || 99)) || (b.stargazers_count - a.stargazers_count);
-    });
-
   } catch (error) {
-    console.error("Error fetching repositories:", error);
-    return [];
+    console.error("Error fetching GitHub repos, proceeding with manual entries:", error);
+    // No retornamos [] aquí para permitir que los overrides manuales se muestren
   }
+
+  // Mezclar datos de GitHub con Overrides y Proyectos Manuales
+  const finalReposMap = new Map<string, Repository>();
+
+  // Primero añadimos lo que vino de GitHub
+  repos.forEach(repo => finalReposMap.set(repo.name, repo));
+
+  // Luego aplicamos overrides e insertamos los que falten
+  Object.entries(projectOverrides).forEach(([name, override]) => {
+    const existing = finalReposMap.get(name);
+    
+    finalReposMap.set(name, {
+      id: existing?.id ?? override.id ?? Math.floor(Math.random() * 100000),
+      name: name,
+      description: override.description ?? existing?.description ?? null,
+      html_url: override.html_url ?? existing?.html_url ?? '#',
+      stargazers_count: existing?.stargazers_count ?? 0,
+      topics: [...new Set([...(existing?.topics || []), ...(override.extraTopics || [])])],
+      updated_at: existing?.updated_at ?? new Date().toISOString(),
+      highlight: override.highlight ?? false,
+      previewImage: override.previewImage,
+      hideLink: override.hideLink,
+      order: override.order ?? 99
+    });
+  });
+
+  return Array.from(finalReposMap.values())
+    .sort((a, b) => (a.order! - b.order!) || (b.stargazers_count - a.stargazers_count));
 }
