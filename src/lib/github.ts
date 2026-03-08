@@ -46,6 +46,13 @@ const projectOverrides: Record<string, { description: string; highlight: boolean
     highlight: true,
     order: 4,
     extraTopics: ['PowerShell', 'Automation', 'Windows API', 'System Admin']
+  },
+  'fotografia-aerea-madrid': {
+    description: 'Servicios de drones certificados AESA en Madrid. Especializado en fotografía y videografía aérea profesional HDR y 4K vertical.',
+    highlight: true,
+    previewImage: '/previews/fotografia_aerea_madrid.png',
+    order: 0,
+    extraTopics: ['Next.js', 'Vercel', 'Drones', 'AESA Certified', 'Photography']
   }
 };
 
@@ -100,6 +107,19 @@ export async function getRepositories(username: string = 'slider66'): Promise<Re
         html_url: 'https://merle.es',
         stargazers_count: 0,
         topics: ['nextjs', 'react', 'tailwind', 'industrial'],
+        updated_at: new Date().toISOString()
+      });
+    }
+
+    // Inject fotografia-aerea-madrid if not found in GitHub
+    if (!repos.find(r => r.name === 'fotografia-aerea-madrid')) {
+      repos.push({
+        id: 999997,
+        name: 'fotografia-aerea-madrid',
+        description: null,
+        html_url: 'https://fotografiaaereamadrid.vercel.app/',
+        stargazers_count: 0,
+        topics: ['photography', 'drones', 'madrid'],
         updated_at: new Date().toISOString()
       });
     }

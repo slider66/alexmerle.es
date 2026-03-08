@@ -1,53 +1,100 @@
 @import "tailwindcss";
 
 :root {
-  --background: #050505;
-  --foreground: #ffffff;
-  --accent: #3b82f6;
-  --accent-secondary: #2dd4bf;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --card-border: rgba(255, 255, 255, 0.1);
+  --background: 240 10% 2%;
+  --foreground: 0 0% 100%;
+  --accent: 217 91% 60%;
+  --accent-secondary: 171 66% 50%;
+  --card-bg: 0 0% 100% / 0.03;
+  --card-border: 0 0% 100% / 0.08;
+  --glass-blur: 16px;
 }
 
 @theme {
-  --color-brand-blue: #3b82f6;
-  --color-brand-teal: #2dd4bf;
-  --color-glass-bg: var(--card-bg);
-  --color-glass-border: var(--card-border);
+  --color-brand-blue: hsl(217 91% 60%);
+  --color-brand-teal: hsl(171 66% 50%);
+  --color-glass-bg: hsla(0 0% 100% / 0.03);
+  --color-glass-border: hsla(0 0% 100% / 0.08);
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-secondary)));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .glass-card {
-  background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--card-border);
-  border-radius: 1rem;
-  transition: all 0.3s ease;
+  background: hsla(0 0% 100% / 0.03);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid hsla(0 0% 100% / 0.08);
+  border-radius: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    hsla(0, 0%, 100%, 0.1) 0%,
+    transparent 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
 .glass-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
-  transform: translateY(-4px);
+  border-color: hsla(217, 91%, 60%, 0.3);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 
+              0 0 20px rgba(59, 130, 246, 0.1);
+  transform: translateY(-8px);
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+.section-container {
+  @apply max-w-7xl mx-auto px-6 py-32;
+}
+
+.premium-heading {
+  @apply text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1];
+}
+
+.sub-heading {
+  @apply text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed font-medium;
 }
 
 @layer base {
   * {
     @apply border-white/5;
   }
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
