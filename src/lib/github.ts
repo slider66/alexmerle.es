@@ -26,6 +26,13 @@ const projectOverrides: Record<string, { description: string; highlight: boolean
     order: 1,
     extraTopics: ['Next.js 15', 'React 19', 'Tailwind CSS 4', 'SEO Strategy', 'Industrial UI']
   },
+  'fotografia-aerea-madrid': {
+    description: 'Servicios de drones certificados AESA en Madrid. Especializado en fotografía y videografía aérea profesional HDR y 4K vertical.',
+    highlight: true,
+    previewImage: '/previews/fotografia_aerea_madrid.png',
+    order: 0,
+    extraTopics: ['Next.js', 'Vercel', 'Drones', 'AESA Certified', 'Photography']
+  },
   'metal-line.es': {
     description: 'Plataforma corporativa para Metal Line. Enfoque en ingeniería de precisión y transformación metálica.',
     highlight: true,
@@ -46,13 +53,6 @@ const projectOverrides: Record<string, { description: string; highlight: boolean
     highlight: true,
     order: 4,
     extraTopics: ['PowerShell', 'Automation', 'Windows API', 'System Admin']
-  },
-  'fotografia-aerea-madrid': {
-    description: 'Servicios de drones certificados AESA en Madrid. Especializado en fotografía y videografía aérea profesional HDR y 4K vertical.',
-    highlight: true,
-    previewImage: '/previews/fotografia_aerea_madrid.png',
-    order: 0,
-    extraTopics: ['Next.js', 'Vercel', 'Drones', 'AESA Certified', 'Photography']
   }
 };
 
