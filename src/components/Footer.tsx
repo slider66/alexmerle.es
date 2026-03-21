@@ -18,7 +18,7 @@ export default function Footer() {
             Consultor informático independiente en el norte de Madrid. Servicios de diseño web,
             SEO local y consultoría IT para negocios y autónomos en San Agustín de Guadalix,
             San Sebastián de los Reyes, El Molar, Las Tablas, Paracuellos de Jarama,
-            Algete, Cobeña, Fuente el Saz de Jarama y alrededores.
+            Alcobendas, Algete, Cobeña, Fuente el Saz de Jarama y alrededores.
           </p>
         </div>
 

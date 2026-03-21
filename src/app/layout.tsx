@@ -42,12 +42,14 @@ export const metadata: Metadata = {
     siteName: "Alejandro Merle",
     locale: "es_ES",
     type: "website",
+    images: [{ url: "/alex.png", width: 800, height: 1000, alt: "Alejandro Merle — Consultor IT Norte de Madrid" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Alejandro Merle · Consultor IT Norte de Madrid",
     description:
       "Webs profesionales y SEO local para negocios del norte de Madrid desde 390€.",
+    images: ["/alex.png"],
   },
   robots: {
     index: true,
@@ -65,6 +67,7 @@ const jsonLd = {
       "@type": "Person",
       "@id": "https://alexmerle.es/#person",
       name: "Alejandro Merle",
+      image: "https://alexmerle.es/alex.png",
       jobTitle: "Consultor Informático",
       description:
         "Consultor IT independiente especializado en presencia digital, SEO local y automatización con IA para pequeñas empresas del norte de Madrid. Analista de ciberseguridad en Telefónica. Formación en electrónica, telecomunicaciones e informática. Certificado CompTIA.",
@@ -105,6 +108,7 @@ const jsonLd = {
         "El Molar",
         "Las Tablas",
         "Paracuellos de Jarama",
+        "Alcobendas",
         "Norte de Madrid",
       ],
       hasOfferCatalog: {

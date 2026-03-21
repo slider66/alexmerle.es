@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: "¿Qué zona de Madrid cubres?",
-    a: "Me muevo principalmente por el norte: San Agustín de Guadalix, El Molar, San Sebastián de los Reyes, Las Tablas, Paracuellos de Jarama y alrededores. Buena parte del trabajo también se puede hacer a distancia, así que si eres de otra zona y encaja, hablamos.",
+    a: "Me muevo principalmente por el norte: San Agustín de Guadalix, Alcobendas, El Molar, San Sebastián de los Reyes, Las Tablas, Paracuellos de Jarama y alrededores. Buena parte del trabajo también se puede hacer a distancia, así que si eres de otra zona y encaja, hablamos.",
   },
   {
     q: "¿Trabajas solo o hay una empresa detrás?",

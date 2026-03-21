@@ -124,7 +124,7 @@ export default function Home() {
                 </p>
                 <p className="flex items-center gap-2 text-white/40 text-sm">
                   <MapPin size={14} className="text-brand-teal shrink-0" />
-                  San Agustín de Guadalix · SSReyes · Las Tablas · Paracuellos · El Molar
+                  San Agustín de Guadalix · Alcobendas · SSReyes · Las Tablas · Paracuellos · El Molar
                 </p>
               </div>
 
@@ -154,18 +154,20 @@ export default function Home() {
             </div>
           </BlurReveal>
 
-          {/* Visual decorativo */}
+          {/* Foto */}
           <BlurReveal delay={0.15}>
-            <div className="relative aspect-square max-w-lg mx-auto lg:ml-auto">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 rounded-full blur-[100px] animate-pulse" />
-              <div className="relative h-full w-full glass-card flex items-center justify-center p-16 overflow-hidden border-white/10">
-                <div className="grid grid-cols-4 gap-6 opacity-10">
-                  {[...Array(16)].map((_, i) => (
-                    <div key={i} className="w-16 h-16 border border-white/40 rounded-2xl rotate-45" />
-                  ))}
-                </div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12rem] font-black text-white/5 select-none tracking-tighter">
-                  AM
+            <div className="relative max-w-sm mx-auto lg:ml-auto">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 rounded-3xl blur-[60px]" />
+              <div className="relative glass-card overflow-hidden border-white/10 rounded-3xl aspect-[4/5]">
+                <img
+                  src="/alex.png"
+                  alt="Alejandro Merle — Consultor IT Norte de Madrid"
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <p className="text-xs font-black uppercase tracking-widest text-white/60">Alejandro Merle</p>
+                  <p className="text-[10px] text-white/30 uppercase tracking-widest">Consultor IT · Norte de Madrid</p>
                 </div>
               </div>
             </div>
