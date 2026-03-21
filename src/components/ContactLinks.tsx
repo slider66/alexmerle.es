@@ -1,0 +1,71 @@
+"use client";
+
+import { Phone, Globe, MapPin, ArrowRight } from "lucide-react";
+
+export function ContactLinks() {
+  return (
+    <div className="space-y-4">
+      <p className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-6">
+        O si prefieres contactar directo
+      </p>
+
+      {/* Teléfono — obfuscado, no aparece como tel: en el HTML */}
+      <button
+        onClick={() => {
+          window.location.href = ["tel", ":", "+34600367217"].join("");
+        }}
+        className="group w-full glass-card p-6 flex items-center gap-5 bg-[#080808]/40 hover:border-brand-teal/40 transition-colors duration-300 text-left"
+      >
+        <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-brand-teal group-hover:bg-brand-teal/10 transition-colors shrink-0">
+          <Phone size={20} strokeWidth={1.5} />
+        </div>
+        <div>
+          <p className="text-[9px] font-black uppercase tracking-widest text-white/30 mb-0.5">
+            Llamada directa
+          </p>
+          <p className="text-lg font-bold text-white">+34 600 367 217</p>
+        </div>
+        <ArrowRight
+          size={14}
+          className="ml-auto text-white/20 group-hover:text-brand-teal group-hover:translate-x-1 transition-all"
+        />
+      </button>
+
+      {/* Email — obfuscado */}
+      <button
+        onClick={() => {
+          const em = ["alex", "@", "merle", ".es"].join("");
+          window.location.href = ["mailto", ":", em].join("");
+        }}
+        className="group w-full glass-card p-6 flex items-center gap-5 bg-[#080808]/40 hover:border-brand-blue/40 transition-colors duration-300 text-left"
+      >
+        <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue/10 transition-colors shrink-0">
+          <Globe size={20} strokeWidth={1.5} />
+        </div>
+        <div>
+          <p className="text-[9px] font-black uppercase tracking-widest text-white/30 mb-0.5">
+            Email
+          </p>
+          <p className="text-lg font-bold text-white">alex&#64;merle.es</p>
+        </div>
+        <ArrowRight
+          size={14}
+          className="ml-auto text-white/20 group-hover:text-brand-blue group-hover:translate-x-1 transition-all"
+        />
+      </button>
+
+      <div className="glass-card p-6 bg-[#080808]/40 space-y-3">
+        <p className="text-[9px] font-black uppercase tracking-widest text-white/30">
+          Zona de actuación
+        </p>
+        <div className="flex items-start gap-2">
+          <MapPin size={14} className="text-brand-teal shrink-0 mt-0.5" />
+          <p className="text-sm text-white/50 leading-relaxed">
+            Norte de Madrid: San Agustín de Guadalix, El Molar, San Sebastián de los Reyes, Las Tablas,
+            Paracuellos de Jarama y alrededores.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}

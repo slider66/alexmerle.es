@@ -20,17 +20,23 @@ export default function Navbar() {
         <Link href="/" className="text-2xl font-extrabold tracking-tighter">
           AM<span className="text-brand-blue">.</span>
         </Link>
-        <div className="flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-8">
+          <Link href="#servicios" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
+            Servicios
+          </Link>
+          <Link href="#precios" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
+            Precios
+          </Link>
           <Link href="#portfolio" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
             Proyectos
-          </Link>
-          <Link href="#sobre-mi" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
-            Sobre Mí
           </Link>
           <Link href="#contacto" className="px-5 py-2 bg-brand-blue text-white rounded-full text-sm font-bold hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all hover:-translate-y-0.5">
             Hablemos
           </Link>
         </div>
+        <Link href="#contacto" className="md:hidden px-5 py-2 bg-brand-blue text-white rounded-full text-sm font-bold">
+          Hablemos
+        </Link>
       </nav>
     </header>
   );

@@ -5,13 +5,13 @@ import Link from "next/link";
 import { SplitText } from "@/components/ui/SplitText";
 
 const titleLine1 = [
-  { text: "Building", gradient: false },
-  { text: "Secure", gradient: true },
+  { text: "Tu negocio", gradient: false },
+  { text: "local,", gradient: false },
 ];
 
 const titleLine2 = [
-  { text: "Digital", gradient: false },
-  { text: "Realities.", gradient: false },
+  { text: "visible", gradient: true },
+  { text: "online.", gradient: false },
 ];
 
 export default function Hero() {
@@ -39,7 +39,7 @@ export default function Hero() {
           className="mb-8"
         >
           <span className="shiny-badge">
-            Especialista en Ciberseguridad &amp; IT
+            Consultor IT · Norte de Madrid
           </span>
         </motion.div>
 
@@ -59,7 +59,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.8, ease: "easeOut" }}
         >
-          Digital Risk Protection &amp; Estrategia Tecnológica para empresas que buscan excelencia y seguridad.
+          Webs profesionales, encargos online y SEO local para negocios del norte de Madrid.
         </motion.p>
 
         <motion.div
@@ -69,16 +69,16 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 1, ease: "easeOut" }}
         >
           <Link
-            href="#portfolio"
+            href="#precios"
             className="w-full sm:w-auto px-10 py-5 bg-brand-blue text-white font-black uppercase text-xs tracking-widest rounded-full hover:shadow-[0_20px_40px_rgba(59,130,246,0.3)] transition-all hover:-translate-y-1 active:scale-95"
           >
-            Ver proyectos
+            Ver propuesta
           </Link>
           <Link
             href="#contacto"
             className="w-full sm:w-auto px-10 py-5 bg-white/5 border border-white/10 text-white font-black uppercase text-xs tracking-widest rounded-full hover:bg-white/10 transition-all active:scale-95"
           >
-            Contactar ahora
+            Cuéntame tu idea
           </Link>
         </motion.div>
       </div>
