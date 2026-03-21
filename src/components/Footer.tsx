@@ -10,19 +10,30 @@ export default function Footer() {
             AM<span className="text-brand-blue">.</span>
           </Link>
           <p className="text-white/20 text-xs font-black uppercase tracking-widest">
-            © {new Date().getFullYear()} Alex Merle. <br className="md:hidden" />
-            Digital Risk Protection.
+            © {new Date().getFullYear()} Alejandro Merle. <br className="md:hidden" />
+            Consultor IT · Norte de Madrid.
+          </p>
+          {/* Texto para crawlers — localidades de actuación */}
+          <p className="sr-only">
+            Consultor informático independiente en el norte de Madrid. Servicios de diseño web,
+            SEO local y consultoría IT para negocios y autónomos en San Agustín de Guadalix,
+            San Sebastián de los Reyes, El Molar, Las Tablas, Paracuellos de Jarama,
+            Algete, Cobeña, Fuente el Saz de Jarama y alrededores.
           </p>
         </div>
 
         <div className="flex gap-12">
-          {['Portfolio', 'Sobre Mí', 'Contacto'].map((item) => (
-            <Link 
-              key={item}
-              href={`#${item.toLowerCase().replace(' ', '-')}`} 
+          {[
+            { label: 'Servicios', href: '#servicios' },
+            { label: 'Precios', href: '#precios' },
+            { label: 'Contacto', href: '#contacto' },
+          ].map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
               className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors"
             >
-              {item}
+              {item.label}
             </Link>
           ))}
         </div>

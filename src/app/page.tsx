@@ -5,6 +5,7 @@ import PortfolioGrid from "@/components/PortfolioGrid";
 import { ContactForm } from "@/components/ContactForm";
 import { BlurReveal } from "@/components/ui/BlurReveal";
 import { ContactLinks } from "@/components/ContactLinks";
+import { FAQ } from "@/components/FAQ";
 import {
   Linkedin,
   Shield,
@@ -372,6 +373,9 @@ export default function Home() {
 
       {/* ── PORTFOLIO ──────────────────────────────────────────────────────── */}
       <PortfolioGrid />
+
+      {/* ── FAQ ────────────────────────────────────────────────────────────── */}
+      <FAQ />
 
       {/* ── CONTACTO ───────────────────────────────────────────────────────── */}
       <section id="contacto" className="py-32 px-6 relative overflow-hidden">
