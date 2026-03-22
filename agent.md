@@ -45,6 +45,10 @@
 5. **Document Results**: Add review section to `tasks/todo.md`
 6. **Capture Lessons**: Update `tasks/lessons.md` after corrections
 
+## Commits
+
+- **No Co-Authored-By**: No añadir nunca la línea `Co-Authored-By: Claude` en los mensajes de commit.
+
 ## Core Principles
 
 - **Simplicity First**: Make every change as simple as possible. Impact minimal code.
