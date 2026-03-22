@@ -6,6 +6,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { BlurReveal } from "@/components/ui/BlurReveal";
 import { ContactLinks } from "@/components/ContactLinks";
 import { FAQ } from "@/components/FAQ";
+import Image from "next/image";
 import {
   Linkedin,
   Shield,
@@ -123,11 +124,13 @@ export default function Home() {
                 </p>
                 {/* Badges de credenciales */}
                 <div className="flex flex-wrap gap-3 pt-2">
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-brand-blue/10 border border-brand-blue/30">
-                    <img
+                  <div className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-brand-blue/10 border border-brand-blue/30">
+                    <Image
                       src="/telefonica-tech.png"
                       alt="Telefónica Tech"
-                      className="h-4 w-auto brightness-0 invert opacity-80"
+                      width={140}
+                      height={32}
+                      className="h-6 w-auto brightness-0 invert opacity-80"
                     />
                   </div>
                   <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-brand-teal/10 border border-brand-teal/30 text-[11px] font-black uppercase tracking-widest text-brand-teal">
@@ -171,10 +174,12 @@ export default function Home() {
             <div className="relative max-w-sm mx-auto lg:ml-auto">
               <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 rounded-3xl blur-[60px]" />
               <div className="relative glass-card overflow-hidden border-white/10 rounded-3xl aspect-[4/5]">
-                <img
+                <Image
                   src="/alex.png"
                   alt="Alejandro Merle — Consultor IT Norte de Madrid"
-                  className="w-full h-full object-cover object-top"
+                  fill
+                  className="object-cover object-top"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
@@ -441,8 +446,83 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── VS AGENCIA ─────────────────────────────────────────────────────── */}
+      <section className="py-24 px-6 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto">
+          <BlurReveal className="text-center mb-14">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter">
+              ¿Por qué no <span className="gradient-text">una agencia?</span>
+            </h2>
+          </BlurReveal>
+
+          <BlurReveal delay={0.1}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                {
+                  agencia: "Hablas con un comercial, luego con un diseñador, luego con otro.",
+                  yo: "Hablas directamente conmigo. El que diseña, el que programa y el que te coge el teléfono soy yo.",
+                },
+                {
+                  agencia: "Presupuestos de 2.000€ en adelante, con mantenimiento mensual obligatorio.",
+                  yo: "Desde 390€, sin cuota mensual. El código es tuyo desde el primer día.",
+                },
+                {
+                  agencia: "Plantillas genéricas adaptadas a tu negocio a medias.",
+                  yo: "Diseño hecho para tu negocio concreto, no para cualquier negocio.",
+                },
+                {
+                  agencia: "Tiempos de entrega de meses, con cambios que tardan semanas.",
+                  yo: "Resultado en 1-2 semanas. Ajustes incluidos sin esperar turno.",
+                },
+              ].map((item, i) => (
+                <div key={i} className="glass-card p-7 bg-[#080808]/40 flex flex-col gap-5">
+                  <div className="flex gap-3 items-start">
+                    <span className="text-red-400/60 text-lg leading-none mt-0.5">✕</span>
+                    <p className="text-sm text-white/35 leading-relaxed">{item.agencia}</p>
+                  </div>
+                  <div className="flex gap-3 items-start border-t border-white/5 pt-5">
+                    <span className="text-brand-teal text-lg leading-none mt-0.5">✓</span>
+                    <p className="text-sm text-white/70 leading-relaxed font-medium">{item.yo}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </BlurReveal>
+        </div>
+      </section>
+
       {/* ── PORTFOLIO ──────────────────────────────────────────────────────── */}
       <PortfolioGrid />
+
+      {/* ── TESTIMONIOS ────────────────────────────────────────────────────── */}
+      {/* TODO: descomentar cuando haya testimonios reales */}
+      {/*
+      <section id="testimonios" className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <BlurReveal className="text-center mb-14">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter">
+              Lo que dicen <span className="gradient-text">los clientes.</span>
+            </h2>
+          </BlurReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="glass-card p-8 bg-[#080808]/40">
+              <p className="text-white/60 leading-relaxed mb-6 italic">"TESTIMONIO 1"</p>
+              <div>
+                <p className="font-black text-sm text-white">NOMBRE</p>
+                <p className="text-[11px] text-white/30 uppercase tracking-widest">NEGOCIO</p>
+              </div>
+            </div>
+            <div className="glass-card p-8 bg-[#080808]/40">
+              <p className="text-white/60 leading-relaxed mb-6 italic">"TESTIMONIO 2"</p>
+              <div>
+                <p className="font-black text-sm text-white">NOMBRE</p>
+                <p className="text-[11px] text-white/30 uppercase tracking-widest">NEGOCIO</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      */}
 
       {/* ── FAQ ────────────────────────────────────────────────────────────── */}
       <FAQ />
