@@ -466,14 +466,15 @@ export default function Home() {
                       <span className="text-white/30 text-sm mb-1">/mes</span>
                     </div>
                     <p className="text-[10px] text-white/25 mt-0.5">+ IVA · Solo para proyectos desarrollados por mí</p>
+                    <p className="text-[11px] text-brand-teal/70 font-black mt-1">2 cambios sueltos = 240€ · aquí incluidos.</p>
                   </div>
                   <ul className="space-y-2 flex-1">
                     {[
-                      "1 cambio de contenido al mes incluido (carta, precios, fotos)",
+                      "2 cambios de contenido al mes incluidos (carta, precios, fotos...)",
                       "Actualización de dependencias",
                       "Parcheado de vulnerabilidades (CVEs)",
                       "Soporte prioritario por WhatsApp",
-                      "Cambios adicionales a solo 39€ (vs 120€ sin suscripción)",
+                      "Cambios adicionales a solo 39€ (vs 120€ sin plan)",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-2 text-[11px] text-white/50">
                         <Check size={11} className="text-brand-teal shrink-0 mt-0.5" />
