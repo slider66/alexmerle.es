@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone, Globe, MapPin, ArrowRight } from "lucide-react";
+import { Phone, Globe, MapPin, ArrowRight, CalendarDays } from "lucide-react";
 
 export function ContactLinks() {
   return (
@@ -8,6 +8,28 @@ export function ContactLinks() {
       <p className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-6">
         O si prefieres contactar directo
       </p>
+
+      {/* Google Calendar — reserva de cita */}
+      <a
+        href="https://calendar.app.google/s8bzNgy6CYZsJ8jV8"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group w-full glass-card p-6 flex items-center gap-5 bg-[#080808]/40 hover:border-brand-teal/40 transition-colors duration-300"
+      >
+        <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-brand-teal group-hover:bg-brand-teal/10 transition-colors shrink-0">
+          <CalendarDays size={20} strokeWidth={1.5} />
+        </div>
+        <div>
+          <p className="text-[9px] font-black uppercase tracking-widest text-white/30 mb-0.5">
+            Reserva una llamada
+          </p>
+          <p className="text-lg font-bold text-white">Consulta gratuita</p>
+        </div>
+        <ArrowRight
+          size={14}
+          className="ml-auto text-white/20 group-hover:text-brand-teal group-hover:translate-x-1 transition-all"
+        />
+      </a>
 
       {/* Teléfono — obfuscado, no aparece como tel: en el HTML */}
       <button

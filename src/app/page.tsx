@@ -359,7 +359,7 @@ export default function Home() {
 
             {/* Plan Avanzado — destacado */}
             <BlurReveal delay={0.1}>
-              <div className="glass-card p-10 flex flex-col gap-6 border-brand-blue/40 bg-brand-blue/5 h-full relative">
+              <div className="glass-card p-10 pt-14 flex flex-col gap-6 border-brand-blue/40 bg-brand-blue/5 h-full relative overflow-visible">
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                   <span className="px-4 py-1.5 bg-brand-blue text-white text-[9px] font-black uppercase tracking-widest rounded-full">
                     Más popular
