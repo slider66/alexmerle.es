@@ -16,7 +16,7 @@ const titleLine2 = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <section className="snap-start relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
       {/* Aurora Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="aurora-orb aurora-orb-1" />

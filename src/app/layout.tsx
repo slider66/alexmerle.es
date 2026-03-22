@@ -236,7 +236,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className="scroll-smooth">
+    <html lang="es" className="scroll-smooth snap-y snap-proximity scroll-pt-20">
       <head>
         <script
           type="application/ld+json"
