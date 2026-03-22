@@ -336,6 +336,7 @@ export default function Home() {
                     <span className="text-5xl font-black tracking-tighter">690€</span>
                   </div>
                   <p className="text-sm text-white/30 line-through">antes 850€</p>
+                  <p className="text-[10px] text-white/20 font-medium">+ IVA</p>
                 </div>
                 <p className="text-white/40 text-sm leading-relaxed">
                   Lo esencial para que te encuentren: presencia en Google, tu información clara y una forma fácil de contactarte.
@@ -373,6 +374,7 @@ export default function Home() {
                     <span className="text-5xl font-black tracking-tighter">990€</span>
                   </div>
                   <p className="text-sm text-white/30 line-through">antes 1.200€</p>
+                  <p className="text-[10px] text-white/20 font-medium">+ IVA</p>
                 </div>
                 <p className="text-white/40 text-sm leading-relaxed">
                   Ideal si quieres recibir encargos o reservas sin depender del teléfono. El cliente lo hace solo, tú recibes el pedido.
@@ -405,6 +407,7 @@ export default function Home() {
                     <span className="text-5xl font-black tracking-tighter">1.290€</span>
                   </div>
                   <p className="text-sm text-white/30 line-through">antes 1.500€</p>
+                  <p className="text-[10px] text-white/20 font-medium">+ IVA</p>
                 </div>
                 <p className="text-white/40 text-sm leading-relaxed">
                   Todo automatizado: el cliente recibe confirmación, tú también, y el pedido queda guardado para los dos sin que nadie tenga que hacer nada.
@@ -459,10 +462,10 @@ export default function Home() {
                       Mantenimiento mensual
                     </p>
                     <div className="flex items-end gap-1">
-                      <span className="text-4xl font-black tracking-tighter">79€</span>
+                      <span className="text-4xl font-black tracking-tighter">59€</span>
                       <span className="text-white/30 text-sm mb-1">/mes</span>
                     </div>
-                    <p className="text-[10px] text-white/25 mt-1">Solo para proyectos desarrollados por mí</p>
+                    <p className="text-[10px] text-white/25 mt-0.5">+ IVA · Solo para proyectos desarrollados por mí</p>
                   </div>
                   <ul className="space-y-2 flex-1">
                     {[
@@ -493,10 +496,10 @@ export default function Home() {
                       Intervención ad-hoc
                     </p>
                     <div className="flex items-end gap-1">
-                      <span className="text-4xl font-black tracking-tighter">99€</span>
+                      <span className="text-4xl font-black tracking-tighter">120€</span>
                       <span className="text-white/30 text-sm mb-1">/intervención</span>
                     </div>
-                    <p className="text-[10px] text-white/25 mt-1">Sin suscripción, cuando lo necesites</p>
+                    <p className="text-[10px] text-white/25 mt-1">+ IVA · Sin suscripción, cuando lo necesites</p>
                   </div>
                   <ul className="space-y-2 flex-1">
                     {[
@@ -529,7 +532,7 @@ export default function Home() {
                       <span className="text-4xl font-black tracking-tighter">150€</span>
                       <span className="text-white/30 text-sm mb-1">auditoría</span>
                     </div>
-                    <p className="text-[10px] text-white/25 mt-1">+ presupuesto a medida según el alcance</p>
+                    <p className="text-[10px] text-white/25 mt-1">+ IVA · presupuesto a medida según el alcance</p>
                   </div>
                   <ul className="space-y-2 flex-1">
                     {[
