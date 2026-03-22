@@ -55,34 +55,34 @@ const services = [
 ];
 
 const planBasico = [
-  "Hero animado + carta o servicios",
-  "Google Maps integrado",
-  "CTA WhatsApp y llamada directa",
-  "SEO local optimizado",
-  "Diseño responsive",
-  "Velocidad < 1 segundo",
+  "Tu negocio en Google con SEO local",
+  "Carta, servicios o lista de precios online",
+  "Botón directo a WhatsApp y llamada",
+  "Cómo llegar desde Google Maps",
+  "Se ve bien en móvil y en ordenador",
+  "Carga rápida desde el primer segundo",
 ];
 
 const planAvanzado = [
   "Todo lo del Plan Básico",
-  "Wizard de encargos en 4 pasos",
-  "Selección de fecha y hora de recogida",
-  "Validación de 48h de antelación",
-  "Activación sin redeploy",
+  "Sistema de encargos o reservas paso a paso",
+  "El cliente elige fecha y hora de recogida",
+  "Solo acepta pedidos con antelación suficiente",
+  "Lo puedes activar o desactivar cuando quieras",
 ];
 
 const planCompleto = [
   "Todo lo del Plan Avanzado",
-  "Email automático al cliente y al negocio",
-  "Descarga de evento al calendario (.ics)",
-  "Enlace WhatsApp con pedido redactado",
+  "Confirmación automática por email al cliente y a ti",
+  "El cliente recibe el pedido guardado en su calendario",
+  "WhatsApp con el resumen del pedido ya redactado",
 ];
 
 const included = [
   "30 días de prueba sin compromiso",
-  "2 sesiones de ajustes gratuitas",
-  "Código completo al cliente (Git)",
-  "Publicación incluida (Vercel)",
+  "2 rondas de ajustes incluidas",
+  "La web es tuya desde el primer día",
+  "Publicación en internet incluida",
   "Hosting anual desde 5€/año",
 ];
 
@@ -299,8 +299,8 @@ export default function Home() {
               Propuesta clara. <br />
               <span className="gradient-text">Sin letra pequeña.</span>
             </h2>
-            <p className="text-white/40 text-xl max-w-2xl mx-auto font-medium">
-              Precios de lanzamiento activos ahora mismo. La propuesta completa está basada en el proyecto real de{" "}
+            <p className="text-white/40 text-xl max-w-2xl mx-auto font-medium leading-relaxed">
+              Ejemplo real basado en{" "}
               <a
                 href="https://montes.vercel.app/propuesta"
                 target="_blank"
@@ -309,7 +309,8 @@ export default function Home() {
               >
                 Café & Tortilla Montes
               </a>
-              .
+              : su primera web, con la carta online, dónde encontrarlos, cómo contactar y un sistema para hacer encargos sin llamar.
+              Cada negocio es distinto — esto es una referencia, no un precio cerrado.
             </p>
           </BlurReveal>
 
@@ -327,7 +328,7 @@ export default function Home() {
                   <p className="text-sm text-white/30 line-through">antes 450€</p>
                 </div>
                 <p className="text-white/40 text-sm leading-relaxed">
-                  Tu negocio online con todo lo esencial para aparecer en Google y convertir visitas en clientes.
+                  Lo esencial para que te encuentren: presencia en Google, tu información clara y una forma fácil de contactarte.
                 </p>
                 <ul className="space-y-3 flex-1">
                   {planBasico.map((item) => (
@@ -364,7 +365,7 @@ export default function Home() {
                   <p className="text-sm text-white/30 line-through">antes 600€</p>
                 </div>
                 <p className="text-white/40 text-sm leading-relaxed">
-                  Añade un sistema de encargos o reservas online. Menos llamadas, más pedidos fuera de horario.
+                  Ideal si quieres recibir encargos o reservas sin depender del teléfono. El cliente lo hace solo, tú recibes el pedido.
                 </p>
                 <ul className="space-y-3 flex-1">
                   {planAvanzado.map((item) => (
@@ -396,7 +397,7 @@ export default function Home() {
                   <p className="text-sm text-white/30 line-through">antes 700€</p>
                 </div>
                 <p className="text-white/40 text-sm leading-relaxed">
-                  La solución más completa: emails automáticos al cliente y al negocio, y descarga del evento al calendario.
+                  Todo automatizado: el cliente recibe confirmación, tú también, y el pedido queda guardado para los dos sin que nadie tenga que hacer nada.
                 </p>
                 <ul className="space-y-3 flex-1">
                   {planCompleto.map((item) => (
