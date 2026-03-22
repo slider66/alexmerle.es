@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -17,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Alejandro Merle · Consultor IT Norte de Madrid | Webs para negocios locales",
   description:
-    "Consultor informático independiente en el norte de Madrid. Webs profesionales, SEO local y sistemas de encargos online para negocios locales desde 390€. Sin agencias, sin letra pequeña.",
+    "Consultor informático independiente en el norte de Madrid. Webs profesionales, SEO local y sistemas de encargos online para negocios locales desde 690€. Sin agencias, sin letra pequeña.",
   keywords: [
     "consultor informático norte de Madrid",
     "consultor IT San Sebastián de los Reyes",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Alejandro Merle · Consultor IT Norte de Madrid",
     description:
-      "Webs profesionales, SEO local y sistemas de encargos online para negocios locales desde 390€. Norte de Madrid.",
+      "Webs profesionales, SEO local y sistemas de encargos online para negocios locales desde 690€. Norte de Madrid.",
     url: "https://alexmerle.es",
     siteName: "Alejandro Merle",
     locale: "es_ES",
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Alejandro Merle · Consultor IT Norte de Madrid",
     description:
-      "Webs profesionales y SEO local para negocios del norte de Madrid desde 390€.",
+      "Webs profesionales y SEO local para negocios del norte de Madrid desde 690€.",
     images: ["/alex.png"],
   },
   robots: {
@@ -120,11 +121,11 @@ const jsonLd = {
             name: "Plan Básico — Web con SEO local",
             description:
               "Página web profesional con carta o servicios, SEO local, Google Maps, CTA a WhatsApp y llamada. Diseño responsive y velocidad optimizada.",
-            price: "390",
+            price: "690",
             priceCurrency: "EUR",
             priceSpecification: {
               "@type": "PriceSpecification",
-              price: "390",
+              price: "690",
               priceCurrency: "EUR",
             },
           },
@@ -133,7 +134,7 @@ const jsonLd = {
             name: "Plan Avanzado — Web + encargos online",
             description:
               "Todo el Plan Básico más un sistema de encargos o reservas online paso a paso con selección de fecha y hora.",
-            price: "490",
+            price: "990",
             priceCurrency: "EUR",
           },
           {
@@ -141,7 +142,7 @@ const jsonLd = {
             name: "Plan Completo — Automatización total",
             description:
               "Todo el Plan Avanzado más emails automáticos al cliente y al negocio, descarga de evento al calendario y enlace WhatsApp con pedido redactado.",
-            price: "570",
+            price: "1290",
             priceCurrency: "EUR",
           },
         ],
@@ -155,7 +156,7 @@ const jsonLd = {
           name: "¿Cuánto cuesta una página web para mi negocio?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "El plan de entrada sale por 390€ (precio de lanzamiento, antes 450€). Incluye diseño, SEO local, Google Maps y acceso directo a WhatsApp o llamada. Si además necesitas sistema de encargos o emails automáticos, hay planes desde 490€ y 570€. Todo sin cuotas mensuales ni sorpresas.",
+            text: "El plan de entrada sale por 690€ + IVA (precio de lanzamiento). Incluye diseño, SEO local, Google Maps y acceso directo a WhatsApp o llamada. Si además necesitas sistema de encargos o emails automáticos, hay planes desde 990€ y 1.290€. Todo sin cuotas mensuales ni sorpresas.",
           },
         },
         {
@@ -225,6 +226,20 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-794H8PS8X1"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-794H8PS8X1');
+          `}
+        </Script>
       </body>
     </html>
   );

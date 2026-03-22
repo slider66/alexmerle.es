@@ -33,7 +33,7 @@ const services = [
   {
     icon: Globe,
     title: "Presencia Online",
-    subtitle: "Desde 390€",
+    subtitle: "Desde 690€",
     description:
       "Tu negocio visible en Google. Web profesional con carta digital, lista de precios, galería, ubicación y acceso directo a WhatsApp. SEO local para que te encuentren los clientes de tu zona.",
     items: ["Diseño responsive", "SEO local", "Google Maps integrado", "WhatsApp + Llamada directa"],
@@ -41,10 +41,10 @@ const services = [
   {
     icon: Cpu,
     title: "Encargos y Reservas",
-    subtitle: "Desde 490€",
+    subtitle: "Desde 990€",
     description:
       "Sistema online para gestionar pedidos o citas sin depender del teléfono. Menos llamadas, menos errores, más encargos fuera de tu horario habitual.",
-    items: ["Wizard de pedidos paso a paso", "Selección de fecha y hora", "Validación automática", "Activación sin redeploy"],
+    items: ["Encargos paso a paso para el cliente", "Selección de fecha y hora", "El cliente recibe confirmación", "Lo activas o desactivas cuando quieras"],
   },
   {
     icon: Shield,
