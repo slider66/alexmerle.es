@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { BackToTop } from "@/components/BackToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -145,6 +146,30 @@ const jsonLd = {
             price: "1290",
             priceCurrency: "EUR",
           },
+          {
+            "@type": "Offer",
+            name: "Mantenimiento mensual",
+            description:
+              "Plan de mantenimiento mensual para proyectos desarrollados por Alejandro Merle. Incluye 2 cambios de contenido, actualización de dependencias, parcheado de CVEs y soporte prioritario. Intervenciones adicionales a 39€.",
+            price: "49",
+            priceCurrency: "EUR",
+          },
+          {
+            "@type": "Offer",
+            name: "Intervención ad-hoc",
+            description:
+              "Intervención puntual sin suscripción. Cambio, corrección o actualización con presupuesto cerrado antes de empezar.",
+            price: "120",
+            priceCurrency: "EUR",
+          },
+          {
+            "@type": "Offer",
+            name: "Auditoría de proyecto de terceros",
+            description:
+              "Análisis del código y arquitectura de un proyecto existente. Incluye detección de problemas, propuesta de mejoras y presupuesto detallado antes de tocar nada.",
+            price: "150",
+            priceCurrency: "EUR",
+          },
         ],
       },
     },
@@ -172,7 +197,7 @@ const jsonLd = {
           name: "¿Qué zona de Madrid cubres?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Me muevo principalmente por el norte: San Agustín de Guadalix, El Molar, San Sebastián de los Reyes, Las Tablas, Paracuellos de Jarama y alrededores. Buena parte del trabajo también se puede hacer a distancia.",
+            text: "Me muevo principalmente por el norte: San Agustín de Guadalix, Alcobendas, El Molar, San Sebastián de los Reyes, Las Tablas, Paracuellos de Jarama y alrededores. Buena parte del trabajo también se puede hacer a distancia.",
           },
         },
         {
@@ -226,6 +251,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <BackToTop />
 
         {/* Google Analytics */}
         <Script

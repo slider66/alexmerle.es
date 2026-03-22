@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic";
+export const revalidate = 3600; // regenerar cada hora
 
 import Hero from "@/components/Hero";
 import PortfolioGrid from "@/components/PortfolioGrid";
@@ -49,10 +49,10 @@ const services = [
   {
     icon: Shield,
     title: "Consultoría IT",
-    subtitle: "Presupuesto a medida",
+    subtitle: "Auditoría desde 150€",
     description:
-      "Asesoría técnica para negocios que quieren ir más allá. Automatización con IA, emails automáticos, hardening de seguridad y procesos que funcionan solos.",
-    items: ["Automatización con IA", "Emails automáticos", "Seguridad y honeypots", "Procesos sin intervención"],
+      "Asesoría técnica para negocios que quieren ir más allá o mejorar lo que ya tienen. Primero analizamos, luego presupuestamos. Sin sorpresas.",
+    items: ["Auditoría de proyecto existente", "Automatización con IA", "Hardening y seguridad", "Procesos que funcionan solos"],
   },
 ];
 
