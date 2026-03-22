@@ -310,7 +310,7 @@ export default function Home() {
               <span className="gradient-text">Sin letra pequeña.</span>
             </h2>
             <p className="text-white/40 text-xl max-w-2xl mx-auto font-medium leading-relaxed">
-              Ejemplo real basado en{" "}
+              Precios de lanzamiento. Ejemplo real basado en{" "}
               <a
                 href="https://montes.vercel.app/propuesta"
                 target="_blank"
@@ -319,8 +319,8 @@ export default function Home() {
               >
                 Café & Tortilla Montes
               </a>
-              : su primera web, con la carta online, dónde encontrarlos, cómo contactar y un sistema para hacer encargos sin llamar.
-              Cada negocio es distinto — esto es una referencia, no un precio cerrado.
+              : carta online, ubicación, contacto y sistema de encargos.
+              Cada proyecto es distinto — hablamos antes de cerrar nada.
             </p>
           </BlurReveal>
 
@@ -333,9 +333,9 @@ export default function Home() {
                     Plan Básico
                   </p>
                   <div className="flex items-end gap-2 mb-1">
-                    <span className="text-5xl font-black tracking-tighter">390€</span>
+                    <span className="text-5xl font-black tracking-tighter">690€</span>
                   </div>
-                  <p className="text-sm text-white/30 line-through">antes 450€</p>
+                  <p className="text-sm text-white/30 line-through">antes 850€</p>
                 </div>
                 <p className="text-white/40 text-sm leading-relaxed">
                   Lo esencial para que te encuentren: presencia en Google, tu información clara y una forma fácil de contactarte.
@@ -370,9 +370,9 @@ export default function Home() {
                     Plan Avanzado
                   </p>
                   <div className="flex items-end gap-2 mb-1">
-                    <span className="text-5xl font-black tracking-tighter">490€</span>
+                    <span className="text-5xl font-black tracking-tighter">990€</span>
                   </div>
-                  <p className="text-sm text-white/30 line-through">antes 600€</p>
+                  <p className="text-sm text-white/30 line-through">antes 1.200€</p>
                 </div>
                 <p className="text-white/40 text-sm leading-relaxed">
                   Ideal si quieres recibir encargos o reservas sin depender del teléfono. El cliente lo hace solo, tú recibes el pedido.
@@ -402,9 +402,9 @@ export default function Home() {
                     Plan Completo
                   </p>
                   <div className="flex items-end gap-2 mb-1">
-                    <span className="text-5xl font-black tracking-tighter">570€</span>
+                    <span className="text-5xl font-black tracking-tighter">1.290€</span>
                   </div>
-                  <p className="text-sm text-white/30 line-through">antes 700€</p>
+                  <p className="text-sm text-white/30 line-through">antes 1.500€</p>
                 </div>
                 <p className="text-white/40 text-sm leading-relaxed">
                   Todo automatizado: el cliente recibe confirmación, tú también, y el pedido queda guardado para los dos sin que nadie tenga que hacer nada.
@@ -440,6 +440,117 @@ export default function Home() {
                     {item}
                   </div>
                 ))}
+              </div>
+            </div>
+          </BlurReveal>
+
+          {/* Mantenimiento y soporte */}
+          <BlurReveal delay={0.4}>
+            <div className="mt-8 space-y-4">
+              <p className="text-center text-[10px] font-black uppercase tracking-[0.3em] text-white/30 mb-8">
+                ¿Ya tienes tu web? Así no me llamas solo cuando algo falla.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Mantenimiento mensual */}
+                <div className="glass-card p-8 bg-[#080808]/40 flex flex-col gap-4 border-brand-teal/20">
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-brand-teal mb-2">
+                      Mantenimiento mensual
+                    </p>
+                    <div className="flex items-end gap-1">
+                      <span className="text-4xl font-black tracking-tighter">79€</span>
+                      <span className="text-white/30 text-sm mb-1">/mes</span>
+                    </div>
+                    <p className="text-[10px] text-white/25 mt-1">Solo para proyectos desarrollados por mí</p>
+                  </div>
+                  <ul className="space-y-2 flex-1">
+                    {[
+                      "Actualizaciones de contenido (carta, precios, fotos)",
+                      "1 cambio pequeño al mes incluido",
+                      "Actualización de dependencias",
+                      "Parcheado de vulnerabilidades (CVEs)",
+                      "Soporte prioritario por WhatsApp",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-[11px] text-white/50">
+                        <Check size={11} className="text-brand-teal shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="#contacto"
+                    className="text-center px-6 py-3 border border-brand-teal/30 text-brand-teal font-black uppercase text-[10px] tracking-widest rounded-full hover:bg-brand-teal/5 transition-all"
+                  >
+                    Contratar
+                  </a>
+                </div>
+
+                {/* Ad-hoc */}
+                <div className="glass-card p-8 bg-[#080808]/40 flex flex-col gap-4">
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-white/40 mb-2">
+                      Intervención ad-hoc
+                    </p>
+                    <div className="flex items-end gap-1">
+                      <span className="text-4xl font-black tracking-tighter">99€</span>
+                      <span className="text-white/30 text-sm mb-1">/intervención</span>
+                    </div>
+                    <p className="text-[10px] text-white/25 mt-1">Sin suscripción, cuando lo necesites</p>
+                  </div>
+                  <ul className="space-y-2 flex-1">
+                    {[
+                      "Cambio o actualización puntual",
+                      "Corrección de incidencias",
+                      "Cualquier ajuste fuera de plan",
+                      "Presupuesto cerrado antes de empezar",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-[11px] text-white/50">
+                        <Check size={11} className="text-brand-teal shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="#contacto"
+                    className="text-center px-6 py-3 border border-white/10 text-white font-black uppercase text-[10px] tracking-widest rounded-full hover:border-white/30 transition-all"
+                  >
+                    Solicitar
+                  </a>
+                </div>
+
+                {/* Proyecto de terceros */}
+                <div className="glass-card p-8 bg-[#080808]/40 flex flex-col gap-4">
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-white/40 mb-2">
+                      Proyecto de terceros
+                    </p>
+                    <div className="flex items-end gap-1">
+                      <span className="text-4xl font-black tracking-tighter">150€</span>
+                      <span className="text-white/30 text-sm mb-1">auditoría</span>
+                    </div>
+                    <p className="text-[10px] text-white/25 mt-1">+ presupuesto a medida según el alcance</p>
+                  </div>
+                  <ul className="space-y-2 flex-1">
+                    {[
+                      "Análisis del código y arquitectura existente",
+                      "Detección de problemas y mejoras posibles",
+                      "Propuesta de cambios u optimización",
+                      "Presupuesto detallado antes de tocar nada",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-[11px] text-white/50">
+                        <Check size={11} className="text-brand-teal shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="#contacto"
+                    className="text-center px-6 py-3 border border-white/10 text-white font-black uppercase text-[10px] tracking-widest rounded-full hover:border-white/30 transition-all"
+                  >
+                    Consultar
+                  </a>
+                </div>
               </div>
             </div>
           </BlurReveal>
