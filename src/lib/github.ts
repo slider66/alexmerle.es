@@ -22,7 +22,7 @@ export interface Repository {
 const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: string[] }> = {
   'fotografia-aerea-madrid': {
     id: 999997,
-    description: 'Servicios de drones certificados AESA en Madrid. Especializado en fotografía y videografía aérea profesional HDR y 4K vertical.',
+    description: 'Web de servicios de drones certificados AESA en Madrid. Posicionada en búsquedas locales de fotografía aérea profesional HDR y 4K.',
     html_url: 'https://fotografiaaereamadrid.vercel.app/',
     highlight: true,
     previewImage: '/previews/fotografia_aerea_madrid.png',
@@ -31,7 +31,7 @@ const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: str
   },
   'merle.es': {
     id: 999998,
-    description: 'Sitio web corporativo de Hierros Merle. Mi proyecto más ambicioso hasta la fecha, optimizado para conversión y SEO.',
+    description: 'Web corporativa de Hierros Merle. Optimizada para conversión y SEO local. Referente del sector en su zona con presencia orgánica en Google.',
     html_url: 'https://merle.es',
     highlight: true,
     previewImage: '/previews/merle_es.png',
@@ -63,7 +63,7 @@ const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: str
   },
   'montes-cafeteria': {
     id: 999996,
-    description: 'Demo de sitio web para cafetería artesanal. Diseño premium con carta digital, galería y reservas online.',
+    description: 'Demo para Café & Tortilla Montes. Carta digital, sistema de encargos online y acceso directo a WhatsApp y ubicación.',
     html_url: 'https://montes.vercel.app/',
     highlight: true,
     previewImage: '/previews/montes.png',

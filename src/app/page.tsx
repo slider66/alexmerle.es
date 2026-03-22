@@ -116,12 +116,19 @@ export default function Home() {
                   <strong className="text-white/80">sin pagar lo que cobra una agencia</strong>.
                 </p>
                 <p>
-                  Formación en electrónica, telecomunicaciones e informática. Certificado CompTIA. Trabajo
-                  como analista de ciberseguridad en{" "}
-                  <strong className="text-white/80">Telefónica</strong> y llevo más de un año usando IA para
-                  construir soluciones reales. Todo lo que construyo lo dejo bien securizado: honeypots,
-                  accesos restringidos, sin puertas traseras.
+                  Formación en electrónica, telecomunicaciones e informática. Uso la IA como herramienta
+                  de trabajo diaria para entregar proyectos más rápido y a mejor precio que cualquier agencia.
+                  Todo lo que construyo va bien securizado: honeypots, accesos restringidos, sin puertas traseras.
                 </p>
+                {/* Badges de credenciales */}
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/8 text-[10px] font-black uppercase tracking-widest text-white/50">
+                    <span className="text-brand-blue">◆</span> Analista en Telefónica
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/8 text-[10px] font-black uppercase tracking-widest text-white/50">
+                    <span className="text-brand-teal">◆</span> CompTIA Certified
+                  </div>
+                </div>
                 <p className="flex items-center gap-2 text-white/40 text-sm">
                   <MapPin size={14} className="text-brand-teal shrink-0" />
                   San Agustín de Guadalix · Alcobendas · SSReyes · Las Tablas · Paracuellos · El Molar
@@ -217,6 +224,61 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
+                </div>
+              </BlurReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROCESO ────────────────────────────────────────────────────────── */}
+      <section id="proceso" className="py-24 px-6 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto">
+          <BlurReveal className="text-center mb-16">
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-blue mb-4 block">
+              Cómo trabajamos
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter">
+              De idea a web publicada,{" "}
+              <span className="gradient-text">sin complicaciones.</span>
+            </h2>
+          </BlurReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[
+              {
+                step: "01",
+                title: "Hablamos",
+                desc: "Llamada de 15-20 minutos sin compromiso. Me cuentas qué tienes y qué necesitas. Yo te digo si puedo ayudarte y cómo.",
+              },
+              {
+                step: "02",
+                title: "Propuesta",
+                desc: "Te mando una propuesta clara con precio cerrado. Sin presupuestos abiertos ni sorpresas al final.",
+              },
+              {
+                step: "03",
+                title: "Construimos",
+                desc: "Diseño y desarrollo. Te voy enseñando el avance para que puedas pedir ajustes antes de que esté terminado.",
+              },
+              {
+                step: "04",
+                title: "Publicamos",
+                desc: "Ponemos la web en marcha. Tienes dos sesiones de ajustes gratuitas para afinar lo que haga falta.",
+              },
+            ].map((item, i) => (
+              <BlurReveal key={i} delay={i * 0.1}>
+                <div className="relative p-7 rounded-2xl bg-white/[0.02] border border-white/5 h-full flex flex-col gap-4 hover:border-brand-blue/20 transition-colors duration-300">
+                  <span className="text-5xl font-black text-white/5 leading-none select-none">
+                    {item.step}
+                  </span>
+                  <h3 className="text-lg font-black text-white/80">{item.title}</h3>
+                  <p className="text-sm text-white/40 leading-relaxed">{item.desc}</p>
+                  {i < 3 && (
+                    <div className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 text-white/10 text-xl z-10">
+                      →
+                    </div>
+                  )}
                 </div>
               </BlurReveal>
             ))}

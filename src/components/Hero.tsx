@@ -41,6 +41,10 @@ export default function Hero() {
           <span className="shiny-badge">
             Consultor IT · Norte de Madrid
           </span>
+          <span className="inline-flex items-center gap-2 ml-3 px-4 py-2 text-[10px] font-black tracking-[0.2em] uppercase text-emerald-400/80 border border-emerald-500/20 bg-emerald-500/5 rounded-full">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            Aceptando proyectos
+          </span>
         </motion.div>
 
         {/* Animated headline */}
