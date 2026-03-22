@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -249,6 +250,7 @@ export default function RootLayout({
         <div className="fixed inset-0 z-50 pointer-events-none opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
         <Navbar />
+        <ScrollProgress />
         {children}
         <Footer />
         <BackToTop />
