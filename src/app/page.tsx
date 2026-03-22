@@ -15,6 +15,7 @@ import {
   Navigation,
   Layers,
   Check,
+  Zap,
 } from "lucide-react";
 
 // ─── Datos estáticos ─────────────────────────────────────────────────────────
@@ -122,11 +123,15 @@ export default function Home() {
                 </p>
                 {/* Badges de credenciales */}
                 <div className="flex flex-wrap gap-3 pt-2">
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/8 text-[10px] font-black uppercase tracking-widest text-white/50">
-                    <span className="text-brand-blue">◆</span> Analista en Telefónica
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-brand-blue/10 border border-brand-blue/30">
+                    <img
+                      src="/telefonica-tech.png"
+                      alt="Telefónica Tech"
+                      className="h-4 w-auto brightness-0 invert opacity-80"
+                    />
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/8 text-[10px] font-black uppercase tracking-widest text-white/50">
-                    <span className="text-brand-teal">◆</span> CompTIA Certified
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-brand-teal/10 border border-brand-teal/30 text-[11px] font-black uppercase tracking-widest text-brand-teal">
+                    <Zap size={12} /> CompTIA Certified
                   </div>
                 </div>
                 <p className="flex items-center gap-2 text-white/40 text-sm">
