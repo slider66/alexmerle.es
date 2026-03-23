@@ -310,7 +310,7 @@ export default function Home() {
               <span className="gradient-text">Sin letra pequeña.</span>
             </h2>
             <p className="text-white/40 text-xl max-w-2xl mx-auto font-medium leading-relaxed">
-              Precios de lanzamiento. Ejemplo real basado en{" "}
+              Ejemplo real de propuesta para{" "}
               <a
                 href="https://montes.vercel.app/propuesta"
                 target="_blank"
@@ -320,9 +320,17 @@ export default function Home() {
                 Café & Tortilla Montes
               </a>
               : carta online, ubicación, contacto y sistema de encargos.
-              Cada proyecto es distinto — hablamos antes de cerrar nada.
+            </p>
+            <p className="text-white/25 text-sm max-w-xl mx-auto mt-3 leading-relaxed">
+              Precios orientativos. Cada proyecto tiene sus propias necesidades y el presupuesto final puede variar. Hablamos antes de cerrar nada.
             </p>
           </BlurReveal>
+
+          <div className="flex items-center gap-2 justify-center mb-8 text-[10px] font-black uppercase tracking-widest text-white/20">
+            <span className="w-6 h-px bg-white/10" />
+            Precios orientativos · oferta de lanzamiento para este proyecto
+            <span className="w-6 h-px bg-white/10" />
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {/* Plan Básico */}
