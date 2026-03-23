@@ -94,7 +94,7 @@ export default function Home() {
       <Hero />
 
       {/* ── SOBRE MÍ ───────────────────────────────────────────────────────── */}
-      <section id="sobre-mi" className="snap-start py-32 px-6 relative overflow-hidden">
+      <section id="sobre-mi" className="py-32 px-6 relative overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <BlurReveal>
             <div className="space-y-10">
@@ -191,7 +191,7 @@ export default function Home() {
       </section>
 
       {/* ── SERVICIOS ──────────────────────────────────────────────────────── */}
-      <section id="servicios" className="snap-start py-32 px-6 relative overflow-hidden">
+      <section id="servicios" className="py-32 px-6 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-brand-teal/5 rounded-full blur-[150px] -z-10" />
 
         <div className="max-w-7xl mx-auto">
@@ -240,7 +240,7 @@ export default function Home() {
       </section>
 
       {/* ── PROCESO ────────────────────────────────────────────────────────── */}
-      <section id="proceso" className="snap-start py-24 px-6 relative overflow-hidden">
+      <section id="proceso" className="py-24 px-6 relative overflow-hidden">
         <div className="max-w-5xl mx-auto">
           <BlurReveal className="text-center mb-16">
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-blue mb-4 block">
@@ -295,7 +295,7 @@ export default function Home() {
       </section>
 
       {/* ── PRECIOS ────────────────────────────────────────────────────────── */}
-      <section id="precios" className="snap-start py-32 px-6 relative overflow-hidden">
+      <section id="precios" className="py-32 px-6 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-blue/5 rounded-full blur-[150px] -z-10" />
 
         <div className="max-w-7xl mx-auto">
@@ -571,7 +571,7 @@ export default function Home() {
       </section>
 
       {/* ── VS AGENCIA ─────────────────────────────────────────────────────── */}
-      <section className="snap-start py-24 px-6 relative overflow-hidden">
+      <section className="py-24 px-6 relative overflow-hidden">
         <div className="max-w-4xl mx-auto">
           <BlurReveal className="text-center mb-14">
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter">
@@ -621,7 +621,7 @@ export default function Home() {
       {/* ── TESTIMONIOS ────────────────────────────────────────────────────── */}
       {/* TODO: descomentar cuando haya testimonios reales */}
       {/*
-      <section id="testimonios" className="snap-start py-24 px-6">
+      <section id="testimonios" className="py-24 px-6">
         <div className="max-w-4xl mx-auto">
           <BlurReveal className="text-center mb-14">
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter">
@@ -652,7 +652,7 @@ export default function Home() {
       <FAQ />
 
       {/* ── CONTACTO ───────────────────────────────────────────────────────── */}
-      <section id="contacto" className="snap-start py-32 px-6 relative overflow-hidden">
+      <section id="contacto" className="py-32 px-6 relative overflow-hidden">
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-brand-blue/5 rounded-full blur-[150px] -z-10" />
 
         <div className="max-w-5xl mx-auto">

@@ -22,7 +22,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="flex gap-12">
+        <div className="flex flex-wrap justify-center gap-8">
           {[
             { label: 'Servicios', href: '#servicios' },
             { label: 'Precios', href: '#precios' },
@@ -54,6 +54,23 @@ export default function Footer() {
             </a>
           ))}
         </div>
+      </div>
+
+      {/* Barra legal */}
+      <div className="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/5 flex flex-wrap justify-center gap-6">
+        {[
+          { label: 'Aviso Legal', href: '/aviso-legal' },
+          { label: 'Política de Privacidad', href: '/privacidad' },
+          { label: 'Política de Cookies', href: '/cookies' },
+        ].map((item) => (
+          <Link
+            key={item.label}
+            href={item.href}
+            className="text-[9px] font-black uppercase tracking-widest text-white/20 hover:text-white/50 transition-colors"
+          >
+            {item.label}
+          </Link>
+        ))}
       </div>
     </footer>
   );
