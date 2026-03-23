@@ -33,7 +33,7 @@ const services = [
   {
     icon: Globe,
     title: "Presencia Online",
-    subtitle: "Desde 690€",
+    subtitle: "Desde 390€",
     description:
       "Tu negocio visible en Google. Web profesional con carta digital, lista de precios, galería, ubicación y acceso directo a WhatsApp. SEO local para que te encuentren los clientes de tu zona.",
     items: ["Diseño responsive", "SEO local", "Google Maps integrado", "WhatsApp + Llamada directa"],
@@ -41,7 +41,7 @@ const services = [
   {
     icon: Cpu,
     title: "Encargos y Reservas",
-    subtitle: "Desde 990€",
+    subtitle: "Desde 490€",
     description:
       "Sistema online para gestionar pedidos o citas sin depender del teléfono. Menos llamadas, menos errores, más encargos fuera de tu horario habitual.",
     items: ["Encargos paso a paso para el cliente", "Selección de fecha y hora", "El cliente recibe confirmación", "Lo activas o desactivas cuando quieras"],
@@ -85,7 +85,7 @@ const included = [
   "2 rondas de ajustes incluidas",
   "La web es tuya desde el primer día",
   "Publicación en internet incluida",
-  "Hosting anual desde 5€/año",
+  "Hosting gratuito hasta ~10k visitas/mes",
 ];
 
 // ─── Componente ───────────────────────────────────────────────────────────────
@@ -330,12 +330,12 @@ export default function Home() {
               <div className="glass-card p-10 flex flex-col gap-6 bg-[#080808]/40 h-full">
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-white/40 mb-2">
-                    Plan Básico
+                    Fase 1 — Solo la Landing
                   </p>
                   <div className="flex items-end gap-2 mb-1">
-                    <span className="text-5xl font-black tracking-tighter">690€</span>
+                    <span className="text-5xl font-black tracking-tighter">390€</span>
                   </div>
-                  <p className="text-sm text-white/30 line-through">antes 850€</p>
+                  <p className="text-sm text-white/30 line-through">antes 450€</p>
                   <p className="text-[10px] text-white/20 font-medium">+ IVA</p>
                 </div>
                 <p className="text-white/40 text-sm leading-relaxed">
@@ -369,12 +369,12 @@ export default function Home() {
               <div className="glass-card p-10 flex flex-col gap-6 border-brand-blue/40 bg-brand-blue/5 flex-1">
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-brand-blue mb-2">
-                    Plan Avanzado
+                    Fase 2 — Landing + Encargos
                   </p>
                   <div className="flex items-end gap-2 mb-1">
-                    <span className="text-5xl font-black tracking-tighter">990€</span>
+                    <span className="text-5xl font-black tracking-tighter">490€</span>
                   </div>
-                  <p className="text-sm text-white/30 line-through">antes 1.200€</p>
+                  <p className="text-sm text-white/30 line-through">antes 600€</p>
                   <p className="text-[10px] text-white/20 font-medium">+ IVA</p>
                 </div>
                 <p className="text-white/40 text-sm leading-relaxed">
@@ -403,12 +403,12 @@ export default function Home() {
               <div className="glass-card p-10 flex flex-col gap-6 bg-[#080808]/40 h-full">
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-brand-teal mb-2">
-                    Plan Completo
+                    Fase 3 — Completa con Emails
                   </p>
                   <div className="flex items-end gap-2 mb-1">
-                    <span className="text-5xl font-black tracking-tighter">1.290€</span>
+                    <span className="text-5xl font-black tracking-tighter">570€</span>
                   </div>
-                  <p className="text-sm text-white/30 line-through">antes 1.500€</p>
+                  <p className="text-sm text-white/30 line-through">antes 700€</p>
                   <p className="text-[10px] text-white/20 font-medium">+ IVA</p>
                 </div>
                 <p className="text-white/40 text-sm leading-relaxed">
@@ -464,19 +464,19 @@ export default function Home() {
                       Mantenimiento mensual
                     </p>
                     <div className="flex items-end gap-1">
-                      <span className="text-4xl font-black tracking-tighter">49€</span>
+                      <span className="text-4xl font-black tracking-tighter">80€</span>
                       <span className="text-white/30 text-sm mb-1">/mes</span>
                     </div>
                     <p className="text-[10px] text-white/25 mt-0.5">+ IVA · Solo para proyectos desarrollados por mí</p>
-                    <p className="text-[11px] text-brand-teal/70 font-black mt-1">2 cambios sueltos = 240€ · aquí incluidos.</p>
+                    <p className="text-[11px] text-brand-teal/70 font-black mt-1">2 sesiones de ajustes de 2h incluidas al mes.</p>
                   </div>
                   <ul className="space-y-2 flex-1">
                     {[
-                      "2 cambios de contenido al mes incluidos (carta, precios, fotos...)",
+                      "2 sesiones de ajustes de 2h al mes incluidas",
                       "Actualización de dependencias",
                       "Parcheado de vulnerabilidades (CVEs)",
                       "Soporte prioritario por WhatsApp",
-                      "Cambios adicionales a solo 39€ (vs 120€ sin plan)",
+                      "Cambios adicionales a solo 50€/modificación",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-2 text-[11px] text-white/50">
                         <Check size={11} className="text-brand-teal shrink-0 mt-0.5" />
@@ -499,11 +499,11 @@ export default function Home() {
                       Intervención ad-hoc
                     </p>
                     <div className="flex items-end gap-1">
-                      <span className="text-4xl font-black tracking-tighter">120€</span>
-                      <span className="text-white/30 text-sm mb-1">/intervención</span>
+                      <span className="text-4xl font-black tracking-tighter">50€</span>
+                      <span className="text-white/30 text-sm mb-1">/modificación</span>
                     </div>
                     <p className="text-[10px] text-white/25 mt-1">+ IVA · Sin suscripción, cuando lo necesites</p>
-                    <p className="text-[10px] text-brand-teal/60 font-black">Con mantenimiento activo: 39€</p>
+                    <p className="text-[10px] text-brand-teal/60 font-black">Con mantenimiento activo: incluido en las 2 sesiones</p>
                   </div>
                   <ul className="space-y-2 flex-1">
                     {[
