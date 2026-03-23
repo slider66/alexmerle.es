@@ -26,7 +26,7 @@ const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: str
     description: 'Web de servicios de drones certificados AESA en Madrid. Posicionada en búsquedas locales de fotografía aérea profesional HDR y 4K.',
     html_url: 'https://fotografiaaereamadrid.vercel.app/',
     highlight: true,
-    previewImage: '/previews/fotografia_aerea_madrid.png',
+    previewImage: '/previews/fotografia_aerea_madrid.webp',
     order: 0,
     extraTopics: ['Next.js', 'Vercel', 'Drones', 'AESA Certified', 'Photography']
   },
@@ -35,7 +35,7 @@ const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: str
     description: 'Web corporativa de Hierros Merle. Optimizada para conversión y SEO local. Referente del sector en su zona con presencia orgánica en Google.',
     html_url: 'https://merle.es',
     highlight: true,
-    previewImage: '/previews/merle_es_v2.png',
+    previewImage: '/previews/merle_es_v2.webp',
     order: 1,
     extraTopics: ['Next.js 15', 'React 19', 'Tailwind CSS 4', 'SEO Strategy', 'Industrial UI']
   },
@@ -44,14 +44,14 @@ const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: str
     description: 'Plataforma corporativa para Metal Line. Enfoque en ingeniería de precisión y transformación metálica.',
     html_url: 'https://metal-line.es',
     highlight: true,
-    previewImage: '/previews/metal_line_es_v2.png',
+    previewImage: '/previews/metal_line_es_v2.webp',
     order: 2,
     extraTopics: ['WordPress', 'Custom CSS', 'Industrial Design', 'SEO']
   },
   'ijornada': {
     description: 'Plataforma SaaS de gestión de asistencia y cumplimiento normativo laboral con panel de control avanzado.',
     highlight: true,
-    previewImage: '/previews/ijornada.png',
+    previewImage: '/previews/ijornada.webp',
     hideLink: true,
     order: 3,
     extraTopics: ['Next.js', 'Prisma', 'PostgreSQL', 'SaaS', 'Digital Risk']
