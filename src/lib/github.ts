@@ -35,7 +35,7 @@ const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: str
     description: 'Web corporativa de Hierros Merle. Optimizada para conversión y SEO local. Referente del sector en su zona con presencia orgánica en Google.',
     html_url: 'https://merle.es',
     highlight: true,
-    previewImage: '/previews/merle_es.png',
+    previewImage: '/previews/merle_es_v2.png',
     order: 1,
     extraTopics: ['Next.js 15', 'React 19', 'Tailwind CSS 4', 'SEO Strategy', 'Industrial UI']
   },
@@ -44,7 +44,7 @@ const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: str
     description: 'Plataforma corporativa para Metal Line. Enfoque en ingeniería de precisión y transformación metálica.',
     html_url: 'https://metal-line.es',
     highlight: true,
-    previewImage: '/previews/metal_line_es.png',
+    previewImage: '/previews/metal_line_es_v2.png',
     order: 2,
     extraTopics: ['WordPress', 'Custom CSS', 'Industrial Design', 'SEO']
   },
@@ -109,7 +109,7 @@ const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: str
     description: 'Demo para Café & Tortilla Montes. Carta digital, sistema de encargos online y acceso directo a WhatsApp y ubicación.',
     html_url: 'https://montes.vercel.app/',
     highlight: true,
-    previewImage: '/previews/montes.png',
+    previewImage: '/previews/montes_v2.png',
     order: 5,
     extraTopics: ['Next.js', 'Tailwind CSS', 'Vercel', 'Demo', 'Hospitality']
   },
