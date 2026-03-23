@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, AlertCircle } from "lucide-react";
 
 const SERVICES = [
   "Página web con SEO local",
@@ -18,41 +18,125 @@ const BUDGETS = [
   "Prefiero hablarlo en la llamada",
 ];
 
+type Fields = "name" | "business" | "service" | "budget" | "message";
+type Errors = Partial<Record<Fields, string>>;
+
+function hasLetter(s: string) {
+  return /[a-záéíóúüñA-ZÁÉÍÓÚÜÑ]/.test(s);
+}
+
+function validate(fields: Record<Fields, string>): Errors {
+  const errors: Errors = {};
+
+  const name = fields.name.trim();
+  if (!name) {
+    errors.name = "El nombre es obligatorio.";
+  } else if (name.length < 3) {
+    errors.name = "Mínimo 3 caracteres.";
+  } else if (!hasLetter(name)) {
+    errors.name = "Introduce un nombre real.";
+  }
+
+  const business = fields.business.trim();
+  if (!business) {
+    errors.business = "El nombre del negocio es obligatorio.";
+  } else if (business.length < 2) {
+    errors.business = "Mínimo 2 caracteres.";
+  } else if (!hasLetter(business)) {
+    errors.business = "Introduce un nombre real.";
+  }
+
+  if (!fields.service) {
+    errors.service = "Selecciona una opción.";
+  }
+
+  if (!fields.budget) {
+    errors.budget = "Selecciona una opción.";
+  }
+
+  const message = fields.message.trim();
+  if (!message) {
+    errors.message = "El mensaje es obligatorio.";
+  } else if (message.length < 20) {
+    errors.message = `Mínimo 20 caracteres (${message.length}/20).`;
+  } else if (message.length > 2000) {
+    errors.message = `Máximo 2000 caracteres (${message.length}/2000).`;
+  }
+
+  return errors;
+}
+
+const inputClass =
+  "w-full bg-white/5 border rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none transition-colors";
+
+function FieldError({ msg }: { msg?: string }) {
+  if (!msg) return null;
+  return (
+    <p className="flex items-center gap-1.5 text-[11px] text-red-400/80 mt-1.5 font-medium">
+      <AlertCircle size={11} className="shrink-0" />
+      {msg}
+    </p>
+  );
+}
+
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [errors, setErrors] = useState<Errors>({});
+  const [touched, setTouched] = useState<Partial<Record<Fields, boolean>>>({});
   const hpNameRef = useRef<HTMLInputElement>(null);
   const hpUrlRef = useRef<HTMLInputElement>(null);
+
+  function getFieldValues(form: HTMLFormElement): Record<Fields, string> {
+    const fd = new FormData(form);
+    return {
+      name: fd.get("name") as string ?? "",
+      business: fd.get("business") as string ?? "",
+      service: fd.get("service") as string ?? "",
+      budget: fd.get("budget") as string ?? "",
+      message: fd.get("message") as string ?? "",
+    };
+  }
+
+  function handleBlur(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+    const field = e.target.name as Fields;
+    setTouched((t) => ({ ...t, [field]: true }));
+    const form = e.target.form;
+    if (!form) return;
+    const vals = getFieldValues(form);
+    const errs = validate(vals);
+    setErrors((prev) => ({ ...prev, [field]: errs[field] }));
+  }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    // Honeypot: si algún campo oculto tiene valor, es un bot
     if (hpNameRef.current?.value || hpUrlRef.current?.value) {
-      setSent(true); // éxito falso para el bot
+      setSent(true);
       return;
     }
 
-    const fd = new FormData(e.currentTarget);
-    const name = fd.get("name") as string;
-    const business = fd.get("business") as string;
-    const service = fd.get("service") as string;
-    const budget = fd.get("budget") as string;
-    const message = fd.get("message") as string;
+    const vals = getFieldValues(e.currentTarget);
+    const errs = validate(vals);
+
+    // Marcar todos los campos como tocados para mostrar todos los errores
+    setTouched({ name: true, business: true, service: true, budget: true, message: true });
+    setErrors(errs);
+
+    if (Object.keys(errs).length > 0) return;
 
     const bodyLines = [
-      `Nombre: ${name}`,
-      `Negocio: ${business}`,
-      `Necesita: ${service}`,
-      `Presupuesto: ${budget}`,
+      `Nombre: ${vals.name.trim()}`,
+      `Negocio: ${vals.business.trim()}`,
+      `Necesita: ${vals.service}`,
+      `Presupuesto: ${vals.budget}`,
       `Mensaje:`,
-      message,
+      vals.message.trim(),
       ``,
       `-- Enviado desde alexmerle.es`,
     ];
 
-    // Email construido en runtime para evitar scraping
     const em = ["alex", "@", "merle", ".es"].join("");
-    const subject = encodeURIComponent(`Consulta desde alexmerle.es — ${business}`);
+    const subject = encodeURIComponent(`Consulta desde alexmerle.es — ${vals.business.trim()}`);
     const body = encodeURIComponent(bodyLines.join("\n"));
 
     window.location.href = `mailto:${em}?subject=${subject}&body=${body}`;
@@ -75,98 +159,93 @@ export function ContactForm() {
     );
   }
 
+  const err = (f: Fields) => (touched[f] ? errors[f] : undefined);
+
   return (
-    <form onSubmit={handleSubmit} className="glass-card p-10 space-y-6 bg-[#080808]/40">
-      {/* Honeypot — invisible para humanos, los bots lo rellenan */}
+    <form onSubmit={handleSubmit} noValidate className="glass-card p-10 space-y-6 bg-[#080808]/40">
+      {/* Honeypot */}
       <div
         aria-hidden="true"
         style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden", opacity: 0 }}
       >
-        <label htmlFor="_hp_name">No rellenes esto</label>
-        <input ref={hpNameRef} id="_hp_name" type="text" name="_hp_name" tabIndex={-1} autoComplete="off" />
-        <label htmlFor="_hp_url">Tampoco esto</label>
-        <input ref={hpUrlRef} id="_hp_url" type="url" name="_hp_url" tabIndex={-1} autoComplete="off" />
+        <input ref={hpNameRef} type="text" name="_hp_name" tabIndex={-1} autoComplete="off" />
+        <input ref={hpUrlRef} type="url" name="_hp_url" tabIndex={-1} autoComplete="off" />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div className="space-y-2">
+        <div className="space-y-1">
           <label className="text-[10px] font-black uppercase tracking-widest text-white/40">
             Tu nombre
           </label>
           <input
             name="name"
-            required
             placeholder="Ej. María García"
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-brand-blue/50 transition-colors"
+            onBlur={handleBlur}
+            className={`${inputClass} ${err("name") ? "border-red-400/50 focus:border-red-400/70" : "border-white/10 focus:border-brand-blue/50"}`}
           />
+          <FieldError msg={err("name")} />
         </div>
-        <div className="space-y-2">
+
+        <div className="space-y-1">
           <label className="text-[10px] font-black uppercase tracking-widest text-white/40">
             Nombre de tu negocio
           </label>
           <input
             name="business"
-            required
             placeholder="Ej. Bar El Rincón"
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-brand-blue/50 transition-colors"
+            onBlur={handleBlur}
+            className={`${inputClass} ${err("business") ? "border-red-400/50 focus:border-red-400/70" : "border-white/10 focus:border-brand-blue/50"}`}
           />
+          <FieldError msg={err("business")} />
         </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div className="space-y-2">
+        <div className="space-y-1">
           <label className="text-[10px] font-black uppercase tracking-widest text-white/40">
             ¿Qué necesitas?
           </label>
           <select
             name="service"
-            required
             defaultValue=""
-            className="w-full bg-[#111] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-blue/50 transition-colors appearance-none cursor-pointer"
+            onBlur={handleBlur}
+            className={`${inputClass} bg-[#111] appearance-none cursor-pointer ${err("service") ? "border-red-400/50 focus:border-red-400/70" : "border-white/10 focus:border-brand-blue/50"}`}
           >
-            <option value="" disabled>
-              Selecciona una opción
-            </option>
-            {SERVICES.map((s) => (
-              <option key={s} value={s}>
-                {s}
-              </option>
-            ))}
+            <option value="" disabled>Selecciona una opción</option>
+            {SERVICES.map((s) => <option key={s} value={s}>{s}</option>)}
           </select>
+          <FieldError msg={err("service")} />
         </div>
-        <div className="space-y-2">
+
+        <div className="space-y-1">
           <label className="text-[10px] font-black uppercase tracking-widest text-white/40">
             ¿Tienes presupuesto?
           </label>
           <select
             name="budget"
-            required
             defaultValue=""
-            className="w-full bg-[#111] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-blue/50 transition-colors appearance-none cursor-pointer"
+            onBlur={handleBlur}
+            className={`${inputClass} bg-[#111] appearance-none cursor-pointer ${err("budget") ? "border-red-400/50 focus:border-red-400/70" : "border-white/10 focus:border-brand-blue/50"}`}
           >
-            <option value="" disabled>
-              Selecciona una opción
-            </option>
-            {BUDGETS.map((b) => (
-              <option key={b} value={b}>
-                {b}
-              </option>
-            ))}
+            <option value="" disabled>Selecciona una opción</option>
+            {BUDGETS.map((b) => <option key={b} value={b}>{b}</option>)}
           </select>
+          <FieldError msg={err("budget")} />
         </div>
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-1">
         <label className="text-[10px] font-black uppercase tracking-widest text-white/40">
           Cuéntame brevemente
         </label>
         <textarea
           name="message"
-          required
           rows={4}
           placeholder="¿Qué hace tu negocio? ¿Qué problema quieres resolver? Cuantos más detalles, mejor."
-          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-brand-blue/50 transition-colors resize-none"
+          onBlur={handleBlur}
+          className={`${inputClass} resize-none ${err("message") ? "border-red-400/50 focus:border-red-400/70" : "border-white/10 focus:border-brand-blue/50"}`}
         />
+        <FieldError msg={err("message")} />
       </div>
 
       <button
