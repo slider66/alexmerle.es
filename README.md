@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# alexmerle.es
 
-## Getting Started
+Portfolio y web de servicios de **Alejandro Merle**, consultor IT independiente en el norte de Madrid. Webs profesionales, SEO local y sistemas de encargos online para negocios locales.
 
-First, run the development server:
+🌐 [alexmerle.es](https://alexmerle.es)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Stack
+
+- **Next.js 15** (App Router) + **React 19**
+- **TypeScript**
+- **Tailwind CSS 4**
+- **Framer Motion** — animaciones
+- **Octokit** — integración con GitHub API (portfolio dinámico)
+- **Vercel** — hosting y despliegue continuo
+
+---
+
+## Estructura
+
+```
+src/
+├── app/
+│   ├── layout.tsx        # Metadata, JSON-LD, Google Analytics
+│   ├── page.tsx          # Home: hero, servicios, precios, portfolio, FAQ, contacto
+│   ├── icon.svg          # Favicon AM + punto azul
+│   └── ...
+├── components/
+│   ├── Hero.tsx
+│   ├── Navbar.tsx
+│   ├── PortfolioGrid.tsx  # Separa webs y herramientas
+│   ├── PortfolioCards.tsx # Cards de proyectos web
+│   ├── ToolCards.tsx      # Cards de herramientas/utilidades
+│   ├── ContactForm.tsx
+│   ├── FAQ.tsx
+│   └── ui/
+│       ├── BlurReveal.tsx
+│       └── SplitText.tsx
+└── lib/
+    └── github.ts          # Fetch de repos + projectOverrides + buildFinalList
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Portfolio
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+El portfolio se construye dinámicamente desde la **GitHub API** (`slider66`) combinado con `projectOverrides` en `src/lib/github.ts`.
 
-## Learn More
+Cada proyecto puede tener:
+- `type: 'web'` → sección *Trabajos recientes*
+- `type: 'tool'` → sección *Herramientas*
 
-To learn more about Next.js, take a look at the following resources:
+Las webs se ordenan por `order` manual. Las herramientas por `updated_at` descendente (más reciente primero).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Proyectos web destacados
+| Proyecto | URL |
+|---|---|
+| Fotografía Aérea Madrid | fotografiaaereamadrid.vercel.app |
+| Hierros Merle | merle.es |
+| Metal Line | metal-line.es |
+| iJornada (SaaS, privado) | — |
+| Café & Tortilla Montes | montes.vercel.app |
+| Lolo Transportes | lt-wheat.vercel.app |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Herramientas open source
+`Autodesk-Full-Cleaner` · `OrdenaFotos` · `Riot_force_uninstall` · `myCAD` · `FECU` · `wp-underconstruction` · `menu_contextual_W11_to_W10` · `Full_clean_adesk`
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Variables de entorno
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```env
+GITHUB_TOKEN=ghp_...        # Token de GitHub para la API (sin él solo carga los proyectos manuales)
+RESEND_API_KEY=re_...       # Para el formulario de contacto (si aplica)
+```
+
+Crea un archivo `.env.local` en la raíz con estas variables. Sin `GITHUB_TOKEN` el portfolio funciona igualmente con los proyectos definidos en `projectOverrides`.
+
+---
+
+## Desarrollo local
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Abre [http://localhost:3000](http://localhost:3000).
+
+> Las imágenes se sirven sin optimización en desarrollo (`unoptimized: true`) para que los cambios se vean al instante sin caché.
+
+---
+
+## Despliegue
+
+El proyecto se despliega automáticamente en **Vercel** al hacer push a `main`.
+
+Para forzar la actualización de imágenes cacheadas en producción, renombra el archivo (ej. `imagen_v2.png`) y actualiza la ruta en `github.ts`.
