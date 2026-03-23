@@ -18,11 +18,25 @@ const BUDGETS = [
   "Prefiero hablarlo en la llamada",
 ];
 
-type Fields = "name" | "business" | "service" | "budget" | "message";
+type Fields = "name" | "business" | "email" | "phone" | "service" | "budget" | "message";
 type Errors = Partial<Record<Fields, string>>;
 
 function hasLetter(s: string) {
   return /[a-záéíóúüñA-ZÁÉÍÓÚÜÑ]/.test(s);
+}
+
+// Email: usuario@dominio.tld (tld mínimo 2 chars)
+function isValidEmail(s: string) {
+  return /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(s);
+}
+
+// Teléfono español: 9 dígitos, empieza por 6, 7, 8 o 9
+// Acepta espacios y guiones como separadores: 612 345 678, 612-345-678
+function isValidSpanishPhone(s: string) {
+  const digits = s.replace(/[\s\-().+]/g, "");
+  // Con prefijo +34 o 0034
+  const normalized = digits.replace(/^(\+34|0034)/, "");
+  return /^[6789]\d{8}$/.test(normalized);
 }
 
 function validate(fields: Record<Fields, string>): Errors {
@@ -44,6 +58,20 @@ function validate(fields: Record<Fields, string>): Errors {
     errors.business = "Mínimo 2 caracteres.";
   } else if (!hasLetter(business)) {
     errors.business = "Introduce un nombre real.";
+  }
+
+  const email = fields.email.trim();
+  if (!email) {
+    errors.email = "El email es obligatorio.";
+  } else if (!isValidEmail(email)) {
+    errors.email = "Introduce un email válido (ej. nombre@dominio.es).";
+  }
+
+  const phone = fields.phone.trim();
+  if (!phone) {
+    errors.phone = "El teléfono es obligatorio.";
+  } else if (!isValidSpanishPhone(phone)) {
+    errors.phone = "Teléfono español no válido (9 dígitos, empieza por 6, 7, 8 o 9).";
   }
 
   if (!fields.service) {
@@ -89,11 +117,13 @@ export function ContactForm() {
   function getFieldValues(form: HTMLFormElement): Record<Fields, string> {
     const fd = new FormData(form);
     return {
-      name: fd.get("name") as string ?? "",
-      business: fd.get("business") as string ?? "",
-      service: fd.get("service") as string ?? "",
-      budget: fd.get("budget") as string ?? "",
-      message: fd.get("message") as string ?? "",
+      name:     (fd.get("name")     as string) ?? "",
+      business: (fd.get("business") as string) ?? "",
+      email:    (fd.get("email")    as string) ?? "",
+      phone:    (fd.get("phone")    as string) ?? "",
+      service:  (fd.get("service")  as string) ?? "",
+      budget:   (fd.get("budget")   as string) ?? "",
+      message:  (fd.get("message")  as string) ?? "",
     };
   }
 
@@ -127,6 +157,8 @@ export function ContactForm() {
     const bodyLines = [
       `Nombre: ${vals.name.trim()}`,
       `Negocio: ${vals.business.trim()}`,
+      `Email: ${vals.email.trim()}`,
+      `Teléfono: ${vals.phone.trim()}`,
       `Necesita: ${vals.service}`,
       `Presupuesto: ${vals.budget}`,
       `Mensaje:`,
@@ -197,6 +229,36 @@ export function ContactForm() {
             className={`${inputClass} ${err("business") ? "border-red-400/50 focus:border-red-400/70" : "border-white/10 focus:border-brand-blue/50"}`}
           />
           <FieldError msg={err("business")} />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="space-y-1">
+          <label className="text-[10px] font-black uppercase tracking-widest text-white/40">
+            Email
+          </label>
+          <input
+            name="email"
+            type="email"
+            placeholder="Ej. maria@gmail.com"
+            onBlur={handleBlur}
+            className={`${inputClass} ${err("email") ? "border-red-400/50 focus:border-red-400/70" : "border-white/10 focus:border-brand-blue/50"}`}
+          />
+          <FieldError msg={err("email")} />
+        </div>
+
+        <div className="space-y-1">
+          <label className="text-[10px] font-black uppercase tracking-widest text-white/40">
+            Teléfono
+          </label>
+          <input
+            name="phone"
+            type="tel"
+            placeholder="Ej. 612 345 678"
+            onBlur={handleBlur}
+            className={`${inputClass} ${err("phone") ? "border-red-400/50 focus:border-red-400/70" : "border-white/10 focus:border-brand-blue/50"}`}
+          />
+          <FieldError msg={err("phone")} />
         </div>
       </div>
 
