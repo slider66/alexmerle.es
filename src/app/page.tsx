@@ -321,15 +321,15 @@ export default function Home() {
               </a>
               : carta online, ubicación, contacto y sistema de encargos.
             </p>
-            <p className="text-white/25 text-sm max-w-xl mx-auto mt-3 leading-relaxed">
+            <p className="text-white/50 text-sm max-w-xl mx-auto mt-3 leading-relaxed">
               Precios orientativos. Cada proyecto tiene sus propias necesidades y el presupuesto final puede variar. Hablamos antes de cerrar nada.
             </p>
           </BlurReveal>
 
-          <div className="flex items-center gap-2 justify-center mb-8 text-[10px] font-black uppercase tracking-widest text-white/20">
-            <span className="w-6 h-px bg-white/10" />
+          <div className="flex items-center gap-3 justify-center mb-8 text-[10px] font-black uppercase tracking-widest text-white/50">
+            <span className="w-8 h-px bg-white/30" />
             Precios orientativos · oferta de lanzamiento para este proyecto
-            <span className="w-6 h-px bg-white/10" />
+            <span className="w-8 h-px bg-white/30" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
