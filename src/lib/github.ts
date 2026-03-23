@@ -17,6 +17,7 @@ export interface Repository {
   hideLink?: boolean;
   highlight?: boolean;
   order?: number;
+  type?: 'web' | 'tool';
 }
 
 const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: string[] }> = {
@@ -56,12 +57,54 @@ const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: str
     extraTopics: ['Next.js', 'Prisma', 'PostgreSQL', 'SaaS', 'Digital Risk']
   },
   'Autodesk-Full-Cleaner': {
-    description: 'Utilidad de limpieza profunda para software Autodesk, automatizando la eliminación de claves de registro y residuos.',
+    description: 'Desinstalador sistemático para productos Autodesk. Elimina programas, claves de registro residuales y licencias corruptas que bloquean reinstalaciones.',
     highlight: true,
-    order: 4,
-    extraTopics: ['PowerShell', 'Automation', 'Windows API', 'System Admin']
+    type: 'tool',
+    extraTopics: ['PowerShell', 'Automation', 'Windows Registry', 'System Admin']
   },
-  'montes-cafeteria': {
+  'OrdenaFotos': {
+    description: 'Organiza automáticamente colecciones de fotos caóticas en carpetas ordenadas por fecha, cámara o evento. Sin tocar los archivos originales.',
+    highlight: true,
+    type: 'tool',
+    extraTopics: ['Python', 'EXIF', 'Automation', 'CLI']
+  },
+  'Riot_force_uninstall': {
+    description: 'Elimina completamente Riot Games, Valorant, League of Legends y el anticheat Vanguard (drivers a nivel de kernel) de Windows 10/11.',
+    highlight: true,
+    type: 'tool',
+    extraTopics: ['Batch', 'PowerShell', 'Windows', 'Kernel', 'Uninstaller']
+  },
+  'myCAD': {
+    description: 'Convierte fotos de piezas planas en archivos DXF listos para corte láser y CNC. Modo IA con Gemini Pro o modo rápido con OpenCV. Calibración de medidas real.',
+    highlight: true,
+    type: 'tool',
+    extraTopics: ['Python', 'FastAPI', 'React', 'OpenCV', 'Gemini AI', 'DXF', 'CNC']
+  },
+  'FECU': {
+    description: 'App web para recopilación compartida de fotos en eventos. Subida con compresión cliente, galería con lazy-load y panel de admin protegido.',
+    highlight: true,
+    type: 'tool',
+    extraTopics: ['Next.js 15', 'Prisma', 'Supabase', 'TypeScript', 'Event App']
+  },
+  'wp-underconstruction': {
+    description: 'Plugin WordPress que muestra una página de mantenimiento personalizable (HTML/CSS libre) mientras el admin trabaja. Envía 503 + Retry-After para no penalizar el SEO.',
+    highlight: true,
+    type: 'tool',
+    extraTopics: ['PHP', 'WordPress', 'SEO', 'Plugin']
+  },
+  'menu_contextual_W11_to_W10': {
+    description: 'Restaura el menú contextual clásico de Windows 10 en Windows 11 con un clic. Modifica el registro y reinicia el Explorador al instante. Totalmente reversible.',
+    highlight: true,
+    type: 'tool',
+    extraTopics: ['Python', 'Windows Registry', 'Windows 11', 'UX Fix']
+  },
+  'Full_clean_adesk': {
+    description: 'Versión Python de la limpieza profunda para Autodesk. Borra archivos residuales, entradas de registro y datos de licencia que impiden reinstalar productos.',
+    highlight: true,
+    type: 'tool',
+    extraTopics: ['Python', 'Automation', 'Windows', 'Autodesk']
+  },
+  'montes': {
     id: 999996,
     description: 'Demo para Café & Tortilla Montes. Carta digital, sistema de encargos online y acceso directo a WhatsApp y ubicación.',
     html_url: 'https://montes.vercel.app/',
@@ -69,6 +112,15 @@ const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: str
     previewImage: '/previews/montes.png',
     order: 5,
     extraTopics: ['Next.js', 'Tailwind CSS', 'Vercel', 'Demo', 'Hospitality']
+  },
+  'lolo-transportes': {
+    id: 999995,
+    description: 'Plataforma de logística inteligente para transporte de carga. Comparación de precios en tiempo real con ahorro de hasta un 40% aprovechando rutas de retorno.',
+    html_url: 'https://lt-wheat.vercel.app/',
+    highlight: true,
+    previewImage: '/previews/lolo-transportes.png',
+    order: 6,
+    extraTopics: ['Next.js', 'Tailwind CSS', 'Vercel', 'Logistics', 'Transport']
   }
 };
 
@@ -181,6 +233,7 @@ function buildFinalList(repos: Repository[]): Repository[] {
       previewImage: override.previewImage,
       hideLink: override.hideLink,
       order: override.order ?? 99,
+      type: override.type ?? 'web',
     });
   });
 
