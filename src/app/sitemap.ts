@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-export const dynamic = "force-static";
+export const dynamic = "force-static"; // deploy trigger
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
