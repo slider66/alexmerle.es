@@ -57,48 +57,56 @@ const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: str
     extraTopics: ['Next.js', 'Prisma', 'PostgreSQL', 'SaaS', 'Digital Risk']
   },
   'Autodesk-Full-Cleaner': {
+    html_url: 'https://github.com/slider66/Autodesk-Full-Cleaner',
     description: 'Desinstalador sistemático para productos Autodesk. Elimina programas, claves de registro residuales y licencias corruptas que bloquean reinstalaciones.',
     highlight: true,
     type: 'tool',
     extraTopics: ['PowerShell', 'Automation', 'Windows Registry', 'System Admin']
   },
   'OrdenaFotos': {
+    html_url: 'https://github.com/slider66/OrdenaFotos',
     description: 'Organiza automáticamente colecciones de fotos caóticas en carpetas ordenadas por fecha, cámara o evento. Sin tocar los archivos originales.',
     highlight: true,
     type: 'tool',
     extraTopics: ['Python', 'EXIF', 'Automation', 'CLI']
   },
   'Riot_force_uninstall': {
+    html_url: 'https://github.com/slider66/Riot_force_uninstall',
     description: 'Elimina completamente Riot Games, Valorant, League of Legends y el anticheat Vanguard (drivers a nivel de kernel) de Windows 10/11.',
     highlight: true,
     type: 'tool',
     extraTopics: ['Batch', 'PowerShell', 'Windows', 'Kernel', 'Uninstaller']
   },
   'myCAD': {
+    html_url: 'https://github.com/slider66/myCAD',
     description: 'Convierte fotos de piezas planas en archivos DXF listos para corte láser y CNC. Modo IA con Gemini Pro o modo rápido con OpenCV. Calibración de medidas real.',
     highlight: true,
     type: 'tool',
     extraTopics: ['Python', 'FastAPI', 'React', 'OpenCV', 'Gemini AI', 'DXF', 'CNC']
   },
   'FECU': {
+    html_url: 'https://github.com/slider66/FECU',
     description: 'App web para recopilación compartida de fotos en eventos. Subida con compresión cliente, galería con lazy-load y panel de admin protegido.',
     highlight: true,
     type: 'tool',
     extraTopics: ['Next.js 15', 'Prisma', 'Supabase', 'TypeScript', 'Event App']
   },
   'wp-underconstruction': {
+    html_url: 'https://github.com/slider66/wp-underconstruction',
     description: 'Plugin WordPress que muestra una página de mantenimiento personalizable (HTML/CSS libre) mientras el admin trabaja. Envía 503 + Retry-After para no penalizar el SEO.',
     highlight: true,
     type: 'tool',
     extraTopics: ['PHP', 'WordPress', 'SEO', 'Plugin']
   },
   'menu_contextual_W11_to_W10': {
+    html_url: 'https://github.com/slider66/menu_contextual_W11_to_W10',
     description: 'Restaura el menú contextual clásico de Windows 10 en Windows 11 con un clic. Modifica el registro y reinicia el Explorador al instante. Totalmente reversible.',
     highlight: true,
     type: 'tool',
     extraTopics: ['Python', 'Windows Registry', 'Windows 11', 'UX Fix']
   },
   'Full_clean_adesk': {
+    html_url: 'https://github.com/slider66/Full_clean_adesk',
     description: 'Versión Python de la limpieza profunda para Autodesk. Borra archivos residuales, entradas de registro y datos de licencia que impiden reinstalar productos.',
     highlight: true,
     type: 'tool',
