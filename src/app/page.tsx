@@ -1,5 +1,3 @@
-export const revalidate = 3600; // regenerar cada hora
-
 import Hero from "@/components/Hero";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import { ContactForm } from "@/components/ContactForm";
