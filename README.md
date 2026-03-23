@@ -70,12 +70,9 @@ Las webs se ordenan por `order` manual. Las herramientas por `updated_at` descen
 
 ## Variables de entorno
 
-```env
-GITHUB_TOKEN=ghp_...        # Token de GitHub para la API (sin él solo carga los proyectos manuales)
-RESEND_API_KEY=re_...       # Para el formulario de contacto (si aplica)
-```
+Copia `.env.example` como `.env.local` y rellena los valores. Consulta el archivo para ver qué permisos mínimos necesita cada token.
 
-Crea un archivo `.env.local` en la raíz con estas variables. Sin `GITHUB_TOKEN` el portfolio funciona igualmente con los proyectos definidos en `projectOverrides`.
+Sin `GITHUB_TOKEN` el portfolio funciona igualmente con los proyectos definidos en `projectOverrides`.
 
 ---
 
