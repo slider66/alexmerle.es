@@ -82,7 +82,7 @@ export default function Hero() {
             href="#contacto"
             className="w-full sm:w-auto px-10 py-5 bg-white/5 border border-white/10 text-white font-black uppercase text-xs tracking-widest rounded-full hover:bg-white/10 transition-all active:scale-95"
           >
-            Cuéntame tu idea
+            Reserva una llamada
           </Link>
         </motion.div>
       </div>

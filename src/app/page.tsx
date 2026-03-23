@@ -31,7 +31,7 @@ const services = [
   {
     icon: Globe,
     title: "Presencia Online",
-    subtitle: "Desde 390€",
+    subtitle: "Desde 449€",
     description:
       "Tu negocio visible en Google. Web profesional con carta digital, lista de precios, galería, ubicación y acceso directo a WhatsApp. SEO local para que te encuentren los clientes de tu zona.",
     items: ["Diseño responsive", "SEO local", "Google Maps integrado", "WhatsApp + Llamada directa"],
@@ -39,18 +39,10 @@ const services = [
   {
     icon: Cpu,
     title: "Encargos y Reservas",
-    subtitle: "Desde 490€",
+    subtitle: "Desde 549€",
     description:
       "Sistema online para gestionar pedidos o citas sin depender del teléfono. Menos llamadas, menos errores, más encargos fuera de tu horario habitual.",
     items: ["Encargos paso a paso para el cliente", "Selección de fecha y hora", "El cliente recibe confirmación", "Lo activas o desactivas cuando quieras"],
-  },
-  {
-    icon: Shield,
-    title: "Consultoría IT",
-    subtitle: "Auditoría desde 150€",
-    description:
-      "Asesoría técnica para negocios que quieren ir más allá o mejorar lo que ya tienen. Primero analizamos, luego presupuestamos. Sin sorpresas.",
-    items: ["Auditoría de proyecto existente", "Automatización con IA", "Hardening y seguridad", "Procesos que funcionan solos"],
   },
 ];
 
@@ -208,7 +200,7 @@ export default function Home() {
             </p>
           </BlurReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {services.map((service, i) => (
               <BlurReveal key={i} delay={i * 0.1}>
                 <div className="glass-card p-10 h-full flex flex-col gap-6 bg-[#080808]/40 hover:border-brand-blue/30 transition-colors duration-500">
@@ -326,7 +318,7 @@ export default function Home() {
 
           <div className="flex items-center gap-3 justify-center mb-8 text-[10px] font-black uppercase tracking-widest text-white/50">
             <span className="w-8 h-px bg-white/30" />
-            Precios orientativos · oferta de lanzamiento para este proyecto
+            Precios orientativos · cada proyecto es diferente
             <span className="w-8 h-px bg-white/30" />
           </div>
 
@@ -339,9 +331,8 @@ export default function Home() {
                     Fase 1 — Solo la Landing
                   </p>
                   <div className="flex items-end gap-2 mb-1">
-                    <span className="text-5xl font-black tracking-tighter">390€</span>
+                    <span className="text-5xl font-black tracking-tighter">449€</span>
                   </div>
-                  <p className="text-sm text-white/30 line-through">antes 450€</p>
                   <p className="text-[10px] text-white/20 font-medium">+ IVA</p>
                 </div>
                 <p className="text-white/40 text-sm leading-relaxed">
@@ -378,9 +369,8 @@ export default function Home() {
                     Fase 2 — Landing + Encargos
                   </p>
                   <div className="flex items-end gap-2 mb-1">
-                    <span className="text-5xl font-black tracking-tighter">490€</span>
+                    <span className="text-5xl font-black tracking-tighter">549€</span>
                   </div>
-                  <p className="text-sm text-white/30 line-through">antes 600€</p>
                   <p className="text-[10px] text-white/20 font-medium">+ IVA</p>
                 </div>
                 <p className="text-white/40 text-sm leading-relaxed">
@@ -412,9 +402,8 @@ export default function Home() {
                     Fase 3 — Completa con Emails
                   </p>
                   <div className="flex items-end gap-2 mb-1">
-                    <span className="text-5xl font-black tracking-tighter">570€</span>
+                    <span className="text-5xl font-black tracking-tighter">649€</span>
                   </div>
-                  <p className="text-sm text-white/30 line-through">antes 700€</p>
                   <p className="text-[10px] text-white/20 font-medium">+ IVA</p>
                 </div>
                 <p className="text-white/40 text-sm leading-relaxed">
