@@ -7,9 +7,9 @@
 
 ## Prioridad Alta — Quick wins de conversión
 
-### 1. Formulario de contacto con envío real
+### 1. Formulario de contacto con envío real (✅ Completado)
 - **Problema:** el formulario abre el cliente de email del usuario. En móvil suele no estar configurado y el lead se pierde.
-- **Solución:** integrar [Resend](https://resend.com) o EmailJS para envío directo desde la web sin backend propio.
+- **Solución:** Integrado Server Action en Next.js con la API de Resend para envío directo y validación.
 - **Impacto:** alto. Es el punto de conversión principal.
 
 ### 2. Testimonios / prueba social
@@ -81,10 +81,10 @@
   - Backup mensual
 - **Impacto:** transforma un cliente puntual en ingreso fijo.
 
-### 13. Página de aterrizaje por municipio
+### 13. Página de aterrizaje por municipio (✅ Completado Fase 1)
 - **Oportunidad:** el SEO local se fragmenta al mencionar 6 municipios en una sola página.
-- **Solución:** crear páginas individuales tipo `/san-agustin-de-guadalix`, `/alcobendas`, etc. con contenido específico.
-- **Prioridad:** empezar con los 2-3 municipios con más volumen de búsqueda.
+- **Solución:** Creado sistema estático dinámico en `/[municipio]` y sitemap generado automáticamente con los pueblos de la A1 (Alcobendas, Sanse, Algete, etc.).
+- **Prioridad:** Empezado con 10 municipios clave del norte.
 
 ### 14. Google Business Profile activo
 - Verificar que el perfil esté completo, con fotos, horario y respuestas a reseñas.

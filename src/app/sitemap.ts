@@ -1,9 +1,10 @@
 import { MetadataRoute } from "next";
+import { geoMunicipalities } from "@/lib/geoData";
 
 export const dynamic = "force-static"; // deploy trigger
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: "https://alexmerle.es",
       lastModified: new Date(),
@@ -29,4 +30,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
   ];
+
+  const geoRoutes: MetadataRoute.Sitemap = geoMunicipalities.map((geo) => ({
+    url: `https://alexmerle.es/${geo.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...geoRoutes];
 }

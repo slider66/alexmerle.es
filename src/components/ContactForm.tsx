@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { ArrowRight, CheckCircle, AlertCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { sendEmailAction } from "@/app/actions/send-email";
 
 const SERVICES = [
   "Página web con SEO local",
@@ -111,6 +112,8 @@ export function ContactForm() {
   const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
   const [touched, setTouched] = useState<Partial<Record<Fields, boolean>>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const hpNameRef = useRef<HTMLInputElement>(null);
   const hpUrlRef = useRef<HTMLInputElement>(null);
 
@@ -137,7 +140,7 @@ export function ContactForm() {
     setErrors((prev) => ({ ...prev, [field]: errs[field] }));
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     if (hpNameRef.current?.value || hpUrlRef.current?.value) {
@@ -154,25 +157,21 @@ export function ContactForm() {
 
     if (Object.keys(errs).length > 0) return;
 
-    const bodyLines = [
-      `Nombre: ${vals.name.trim()}`,
-      `Negocio: ${vals.business.trim()}`,
-      `Email: ${vals.email.trim()}`,
-      `Teléfono: ${vals.phone.trim()}`,
-      `Necesita: ${vals.service}`,
-      `Presupuesto: ${vals.budget}`,
-      `Mensaje:`,
-      vals.message.trim(),
-      ``,
-      `-- Enviado desde alexmerle.es`,
-    ];
+    setIsSubmitting(true);
+    setSubmitError("");
 
-    const em = ["alex", "@", "merle", ".es"].join("");
-    const subject = encodeURIComponent(`Consulta desde alexmerle.es — ${vals.business.trim()}`);
-    const body = encodeURIComponent(bodyLines.join("\n"));
-
-    window.location.href = `mailto:${em}?subject=${subject}&body=${body}`;
-    setSent(true);
+    try {
+      const result = await sendEmailAction(vals);
+      if (result.success) {
+        setSent(true);
+      } else {
+        setSubmitError(result.error ?? "Ocurrió un error al enviar el mensaje.");
+      }
+    } catch {
+      setSubmitError("Error de conexión. Por favor, inténtalo de nuevo.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   if (sent) {
@@ -182,9 +181,9 @@ export function ContactForm() {
           <CheckCircle size={32} className="text-brand-teal" />
         </div>
         <div>
-          <h3 className="text-2xl font-black mb-2">¡Listo!</h3>
+          <h3 className="text-2xl font-black mb-2">¡Mensaje enviado!</h3>
           <p className="text-white/40 max-w-sm mx-auto leading-relaxed">
-            Se ha abierto tu cliente de email con los datos. Envíalo y te respondo en menos de 24h para agendar la llamada.
+            He recibido tu consulta. Te responderé en menos de 24 horas para hablar de tu proyecto.
           </p>
         </div>
       </div>
@@ -310,12 +309,28 @@ export function ContactForm() {
         <FieldError msg={err("message")} />
       </div>
 
+      {submitError && (
+        <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm text-center">
+          {submitError}
+        </div>
+      )}
+
       <button
         type="submit"
-        className="w-full px-8 py-4 bg-brand-blue text-white font-black uppercase text-xs tracking-widest rounded-full hover:shadow-[0_20px_40px_rgba(59,130,246,0.3)] transition-all hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3"
+        disabled={isSubmitting}
+        className="w-full px-8 py-4 bg-brand-blue text-white font-black uppercase text-xs tracking-widest rounded-full hover:shadow-[0_20px_40px_rgba(59,130,246,0.3)] transition-all hover:-translate-y-1 active:scale-95 disabled:opacity-50 disabled:pointer-events-none flex items-center justify-center gap-3"
       >
-        Enviar consulta
-        <ArrowRight size={14} />
+        {isSubmitting ? (
+          <>
+            Enviando...
+            <Loader2 size={14} className="animate-spin" />
+          </>
+        ) : (
+          <>
+            Enviar consulta
+            <ArrowRight size={14} />
+          </>
+        )}
       </button>
 
       <p className="text-center text-[10px] text-white/20 font-medium">
