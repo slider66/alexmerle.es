@@ -63,10 +63,18 @@
 
 ### 10. Fallback del portfolio
 - **Problema:** el portfolio carga desde la API de GitHub. Si falla, la sección queda vacía.
-- **Solución:** hardcodear los proyectos clave como fallback estático. La API puede seguir cargando encima.
+- **Solución:** hardcodear los proyectos clave como fallback estático e implementar ISR (`revalidate: 3600`) para cachear la respuesta de la API y evitar latencia o fallos de red.
 
 ### 11. Metatags Open Graph para compartir
 - Verificar que og:image, og:title y og:description se renderizan correctamente al compartir en WhatsApp y LinkedIn (son los canales principales del perfil de cliente).
+
+### 12. Atributos Alt Enriquecidos (Portfolio)
+- **Problema:** Las imágenes servidas dinámicamente (`github.ts`) carecen de descripciones SEO óptimas.
+- **Solución:** Añadir un campo enriquecido (manual o IA) para el atributo `alt` de los mockups procesados. Mejora el ranking en Google Images.
+
+### 13. Rich Snippets de Reseñas (Schema)
+- **Oportunidad:** Mostrar estrellas orgánicas de valoración en las búsquedas de Google.
+- **Solución:** Inyectar esquema `@type: "Review"` o `@type: "AggregateRating"` dentro del JSON-LD (`ProfessionalService`) en cuanto se publiquen los testimonios de clientes reales. ¡Impacto brutal en el CTR!
 
 ---
 
