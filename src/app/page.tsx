@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Hero from "@/components/Hero";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import { ContactForm } from "@/components/ContactForm";
@@ -615,7 +616,15 @@ export default function Home() {
       </section>
 
       {/* ── PORTFOLIO ──────────────────────────────────────────────────────── */}
-      <PortfolioGrid />
+      <Suspense fallback={
+        <section className="py-32 px-6">
+          <div className="max-w-7xl mx-auto text-center">
+            <p className="text-white/20 text-sm font-medium uppercase tracking-widest">Cargando proyectos…</p>
+          </div>
+        </section>
+      }>
+        <PortfolioGrid />
+      </Suspense>
 
       {/* ── TESTIMONIOS ────────────────────────────────────────────────────── */}
       {/* TODO: descomentar cuando haya testimonios reales */}

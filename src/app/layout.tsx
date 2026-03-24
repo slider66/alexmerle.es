@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Alejandro Merle · Consultor IT Norte de Madrid | Webs para negocios locales",
   description:
-    "Consultor informático independiente en el norte de Madrid. Webs profesionales, SEO local y sistemas de encargos online para negocios locales desde 690€. Sin agencias, sin letra pequeña.",
+    "Consultor informático independiente en el norte de Madrid. Webs profesionales, SEO local y sistemas de encargos online para negocios locales desde 449€. Sin agencias, sin letra pequeña.",
   keywords: [
     "consultor informático norte de Madrid",
     "consultor IT San Sebastián de los Reyes",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Alejandro Merle · Consultor IT Norte de Madrid",
     description:
-      "Webs profesionales, SEO local y sistemas de encargos online para negocios locales desde 690€. Norte de Madrid.",
+      "Webs profesionales, SEO local y sistemas de encargos online para negocios locales desde 449€. Norte de Madrid.",
     url: "https://alexmerle.es",
     siteName: "Alejandro Merle",
     locale: "es_ES",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Alejandro Merle · Consultor IT Norte de Madrid",
     description:
-      "Webs profesionales y SEO local para negocios del norte de Madrid desde 690€.",
+      "Webs profesionales y SEO local para negocios del norte de Madrid desde 449€.",
     images: ["/alex.png"],
   },
   robots: {
@@ -120,39 +120,39 @@ const jsonLd = {
         itemListElement: [
           {
             "@type": "Offer",
-            name: "Plan Básico — Web con SEO local",
+            name: "Fase 1 — La base de tu presencia online",
             description:
-              "Página web profesional con carta o servicios, SEO local, Google Maps, CTA a WhatsApp y llamada. Diseño responsive y velocidad optimizada.",
-            price: "690",
+              "Página web profesional con carta o menú digital, SEO local, Google Maps, botón de contacto a WhatsApp y teléfono. Diseño responsive y carga rápida.",
+            price: "449",
             priceCurrency: "EUR",
             priceSpecification: {
               "@type": "PriceSpecification",
-              price: "690",
+              price: "449",
               priceCurrency: "EUR",
             },
           },
           {
             "@type": "Offer",
-            name: "Plan Avanzado — Web + encargos online",
+            name: "Fase 2 — Landing + Encargos + Confirmaciones",
             description:
-              "Todo el Plan Básico más un sistema de encargos o reservas online paso a paso con selección de fecha y hora.",
-            price: "990",
+              "Todo lo de la Fase 1 más sistema de encargos o reservas online paso a paso con selección de fecha y hora, y confirmación automática por email al cliente y al negocio.",
+            price: "599",
             priceCurrency: "EUR",
           },
           {
             "@type": "Offer",
-            name: "Plan Completo — Automatización total",
+            name: "Fase 3 — Integraciones y Pagos Online",
             description:
-              "Todo el Plan Avanzado más emails automáticos al cliente y al negocio, descarga de evento al calendario y enlace WhatsApp con pedido redactado.",
-            price: "1290",
+              "Todo lo de la Fase 2 más pasarela de pago integrada, sincronización con Google Sheets o Notion, conexión con CRM y automatizaciones personalizadas. Precio según integraciones.",
+            price: "849",
             priceCurrency: "EUR",
           },
           {
             "@type": "Offer",
             name: "Mantenimiento mensual",
             description:
-              "Plan de mantenimiento mensual para proyectos desarrollados por Alejandro Merle. Incluye 2 cambios de contenido, actualización de dependencias, parcheado de CVEs y soporte prioritario. Intervenciones adicionales a 39€.",
-            price: "49",
+              "Plan de mantenimiento mensual para proyectos desarrollados por Alejandro Merle. Incluye 2 sesiones de ajustes de 2h, actualización de dependencias, parcheado de CVEs y soporte prioritario. Intervenciones adicionales a 50€.",
+            price: "80",
             priceCurrency: "EUR",
           },
           {
@@ -160,7 +160,7 @@ const jsonLd = {
             name: "Intervención ad-hoc",
             description:
               "Intervención puntual sin suscripción. Cambio, corrección o actualización con presupuesto cerrado antes de empezar.",
-            price: "120",
+            price: "50",
             priceCurrency: "EUR",
           },
           {
@@ -182,7 +182,7 @@ const jsonLd = {
           name: "¿Cuánto cuesta una página web para mi negocio?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "El plan de entrada sale por 690€ + IVA (precio de lanzamiento). Incluye diseño, SEO local, Google Maps y acceso directo a WhatsApp o llamada. Si además necesitas sistema de encargos o emails automáticos, hay planes desde 990€ y 1.290€. Todo sin cuotas mensuales ni sorpresas.",
+            text: "El plan de entrada sale por 449€ + IVA. Incluye diseño, SEO local, Google Maps y acceso directo a WhatsApp o llamada. Si además necesitas sistema de encargos con confirmaciones automáticas, hay un plan a 599€. Para integraciones complejas (pagos, CRM), desde 849€. Todo sin cuotas mensuales ni sorpresas.",
           },
         },
         {
@@ -247,7 +247,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased selection:bg-brand-blue selection:text-white`}
       >
         {/* Grainy Texture Overlay */}
-        <div className="fixed inset-0 z-50 pointer-events-none opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+        <div className="fixed inset-0 z-50 pointer-events-none opacity-[0.03] mix-blend-overlay bg-[url('/noise.svg')]" />
 
         <Navbar />
         <ScrollProgress />

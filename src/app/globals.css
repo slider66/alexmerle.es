@@ -86,6 +86,11 @@ body {
   * {
     @apply border-white/5;
   }
+
+  select option {
+    background-color: #111111;
+    color: #ffffff;
+  }
 }
 
 /* Shiny badge */
