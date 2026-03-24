@@ -6,7 +6,7 @@ import { Plus, Minus } from "lucide-react";
 const faqs = [
   {
     q: "¿Cuánto cuesta una página web para mi negocio?",
-    a: "El plan de entrada sale por 390€ (precio de lanzamiento, antes 450€). Incluye diseño, SEO local, Google Maps y acceso directo a WhatsApp o llamada. Si además necesitas sistema de encargos o emails automáticos, hay planes desde 490€ y 570€. Todo sin cuotas mensuales ni sorpresas.",
+    a: "El plan de entrada sale por 449€. Incluye diseño, SEO local, Google Maps y acceso directo a WhatsApp o llamada. Si además necesitas sistema de encargos con confirmaciones automáticas, hay un plan a 599€. Para integraciones más complejas (pagos online, CRM, Google Sheets), desde 849€ según el proyecto. Todo sin cuotas mensuales ni sorpresas.",
   },
   {
     q: "¿Cuánto tiempo tardas en tener la web lista?",

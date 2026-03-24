@@ -76,7 +76,7 @@ export default function Hero() {
             href="#precios"
             className="w-full sm:w-auto px-10 py-5 bg-brand-blue text-white font-black uppercase text-xs tracking-widest rounded-full hover:shadow-[0_20px_40px_rgba(59,130,246,0.3)] transition-all hover:-translate-y-1 active:scale-95"
           >
-            Ver propuesta
+            Ver planes
           </Link>
           <Link
             href="#contacto"
