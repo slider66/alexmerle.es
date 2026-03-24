@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { geoMunicipalities } from "@/lib/geoData";
+import { nichesData } from "@/lib/nicheData";
 
 export const dynamic = "force-static"; // deploy trigger
 
@@ -38,5 +39,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...geoRoutes];
+  const nicheRoutes: MetadataRoute.Sitemap = nichesData.map((niche) => ({
+    url: `https://alexmerle.es/para/${niche.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...geoRoutes, ...nicheRoutes];
 }
