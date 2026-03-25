@@ -220,27 +220,16 @@ async function fetchViaREST(username: string): Promise<Repository[]> {
       request: { signal: controller.signal },
     });
 
-    return response.data.map(
-      (repo: {
-        id: number;
-        name: string;
-        description: string | null;
-        html_url: string;
-        stargazers_count: number;
-        pushed_at: string;
-        topics?: string[];
-        updated_at: string;
-      }) => ({
-        id: repo.id,
-        name: repo.name,
-        description: repo.description,
-        html_url: repo.html_url,
-        stargazers_count: repo.stargazers_count,
-        commits_count: new Date(repo.pushed_at).getTime(),
-        topics: repo.topics || [],
-        updated_at: repo.updated_at,
-      })
-    );
+    return response.data.map((repo) => ({
+      id: repo.id,
+      name: repo.name,
+      description: repo.description ?? null,
+      html_url: repo.html_url,
+      stargazers_count: repo.stargazers_count ?? 0,
+      commits_count: new Date(repo.pushed_at ?? "").getTime(),
+      topics: repo.topics || [],
+      updated_at: repo.updated_at ?? "",
+    }));
   } finally {
     clearTimeout(timer);
   }
