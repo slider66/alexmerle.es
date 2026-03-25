@@ -2,7 +2,6 @@
 
 import { useState, useRef } from "react";
 import { ArrowRight, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
-import { sendEmailAction } from "@/app/actions/send-email";
 
 const SERVICES = [
   "Página web con SEO local",
@@ -161,11 +160,28 @@ export function ContactForm() {
     setSubmitError("");
 
     try {
-      const result = await sendEmailAction(vals);
-      if (result.success) {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          subject: `Nuevo lead desde la web: ${vals.business.trim()}`,
+          from_name: vals.name.trim(),
+          reply_to: vals.email.trim(),
+          name: vals.name.trim(),
+          business: vals.business.trim(),
+          email: vals.email.trim(),
+          phone: vals.phone.trim(),
+          service: vals.service,
+          budget: vals.budget,
+          message: vals.message.trim(),
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
         setSent(true);
       } else {
-        setSubmitError(result.error ?? "Ocurrió un error al enviar el mensaje.");
+        setSubmitError(data.message ?? "Ocurrió un error al enviar el mensaje.");
       }
     } catch {
       setSubmitError("Error de conexión. Por favor, inténtalo de nuevo.");

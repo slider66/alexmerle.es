@@ -1,0 +1,34 @@
+# ── Cache-Control ──────────────────────────────────────────────────────────────
+# HTML: sin caché — el navegador siempre pide la versión más reciente al servidor
+<FilesMatch "\.(html)$">
+  Header set Cache-Control "no-cache, no-store, must-revalidate"
+  Header set Pragma "no-cache"
+  Header set Expires "0"
+</FilesMatch>
+
+# Assets con hash (JS, CSS generados por Next.js): caché larga, son inmutables
+<FilesMatch "\.(js|css)$">
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+
+# Imágenes y fuentes: caché de 1 semana
+<FilesMatch "\.(webp|png|jpg|jpeg|svg|ico|woff|woff2)$">
+  Header set Cache-Control "public, max-age=604800"
+</FilesMatch>
+
+# ── Reescritura para rutas limpias (SPA-like con static export) ────────────────
+Options -MultiViews
+RewriteEngine On
+
+# Redirige HTTP → HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Sirve archivos y carpetas existentes directamente
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Para rutas sin extensión, busca el .html equivalente
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]

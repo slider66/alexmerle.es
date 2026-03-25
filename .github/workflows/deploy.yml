@@ -31,6 +31,16 @@ jobs:
         run: pnpm build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NEXT_PUBLIC_WEB3FORMS_KEY: ${{ secrets.WEB3FORMS_KEY }}
+
+      - name: Verify static output exists
+        run: |
+          if [ ! -d "./out" ]; then
+            echo "❌ ERROR: La carpeta ./out no existe. El build no generó export estático."
+            echo "Asegúrate de que next.config.ts tiene output: 'export'."
+            exit 1
+          fi
+          echo "✅ Carpeta ./out encontrada ($(ls ./out | wc -l) archivos/carpetas)"
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
