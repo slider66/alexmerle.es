@@ -18,7 +18,11 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       if (menuOpen) setMenuOpen(false);
@@ -33,9 +37,11 @@ export default function Navbar() {
         style={{
           transform: mounted ? "translateY(0)" : "translateY(-100%)",
           opacity: mounted ? 1 : 0,
-          transition: "transform 0.5s cubic-bezier(0.25, 0.4, 0.25, 1), opacity 0.5s ease, background-color 0.3s ease, padding 0.3s ease, border-color 0.3s ease",
+          transition:
+            "transform 0.5s cubic-bezier(0.25, 0.4, 0.25, 1), opacity 0.5s ease, background-color 0.3s ease, padding 0.3s ease, border-color 0.3s ease",
         }}
-        className={`fixed top-0 left-0 w-full z-50 ${isScrolled ? "bg-black/80 backdrop-blur-md border-b border-white/5 py-4" : "bg-transparent py-6"}`}>
+        className={`fixed top-0 left-0 w-full z-50 ${isScrolled ? "bg-black/80 backdrop-blur-md border-b border-white/5 py-4" : "bg-transparent py-6"}`}
+      >
         <nav className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <Link href="/" className="text-2xl font-extrabold tracking-tighter">
             AM<span className="text-brand-blue">.</span>
@@ -44,11 +50,15 @@ export default function Navbar() {
           {/* Desktop */}
           <div className="hidden md:flex items-center gap-8">
             {links.map((l) => (
-              <Link key={l.href} href={l.href} className="text-sm font-medium text-white/70 hover:text-white transition-colors">
+              <Link
+                key={l.href}
+                href={l.href}
+                className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+              >
                 {l.label}
               </Link>
             ))}
-            <Link href="#contacto" className="px-5 py-2 bg-brand-blue text-white rounded-full text-sm font-bold hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all hover:-translate-y-0.5">
+            <Link href="#contacto" className="btn-primary px-5 py-2 text-sm">
               Hablemos
             </Link>
           </div>
@@ -80,7 +90,7 @@ export default function Navbar() {
           <Link
             href="#contacto"
             onClick={() => setMenuOpen(false)}
-            className="mt-4 px-10 py-4 bg-brand-blue text-white rounded-full text-sm font-black uppercase tracking-widest hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-all"
+            className="btn-primary mt-4 px-10 py-4 text-sm"
           >
             Hablemos
           </Link>

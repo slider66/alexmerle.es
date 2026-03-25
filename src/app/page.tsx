@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { ShineCard } from "@/components/ShineCard";
 import Hero from "@/components/Hero";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import { ContactForm } from "@/components/ContactForm";
@@ -6,16 +7,7 @@ import { BlurReveal } from "@/components/ui/BlurReveal";
 import { ContactLinks } from "@/components/ContactLinks";
 import { FAQ } from "@/components/FAQ";
 import Image from "next/image";
-import {
-  Linkedin,
-  Shield,
-  Globe,
-  Cpu,
-  MapPin,
-  Layers,
-  Check,
-  Zap,
-} from "lucide-react";
+import { Linkedin, Shield, Globe, Cpu, MapPin, Layers, Check, Zap } from "lucide-react";
 
 // ─── Datos estáticos ─────────────────────────────────────────────────────────
 
@@ -34,7 +26,12 @@ const services = [
     subtitle: "Desde 449€",
     description:
       "Tu negocio visible en Google. Web profesional con carta digital, lista de precios, galería, ubicación y acceso directo a WhatsApp. SEO local para que te encuentren los clientes de tu zona.",
-    items: ["Diseño responsive", "SEO local", "Google Maps integrado", "WhatsApp + Llamada directa"],
+    items: [
+      "Diseño responsive",
+      "SEO local",
+      "Google Maps integrado",
+      "WhatsApp + Llamada directa",
+    ],
   },
   {
     icon: Cpu,
@@ -42,7 +39,12 @@ const services = [
     subtitle: "Desde 599€",
     description:
       "Sistema online para gestionar pedidos o citas sin depender del teléfono. Menos llamadas, menos errores, más encargos fuera de tu horario habitual.",
-    items: ["Encargos paso a paso para el cliente", "Selección de fecha y hora", "El cliente recibe confirmación", "Lo activas o desactivas cuando quieras"],
+    items: [
+      "Encargos paso a paso para el cliente",
+      "Selección de fecha y hora",
+      "El cliente recibe confirmación",
+      "Lo activas o desactivas cuando quieras",
+    ],
   },
   {
     icon: Zap,
@@ -50,7 +52,12 @@ const services = [
     subtitle: "Desde 849€",
     description:
       "Para negocios que necesitan conectar su web con otras herramientas. Cobro online, sincronización de datos y automatizaciones a medida.",
-    items: ["Pasarela de pago integrada", "Google Sheets o Notion", "CRM o herramienta de gestión", "Automatizaciones personalizadas"],
+    items: [
+      "Pasarela de pago integrada",
+      "Google Sheets o Notion",
+      "CRM o herramienta de gestión",
+      "Automatizaciones personalizadas",
+    ],
   },
 ];
 
@@ -109,7 +116,7 @@ export default function Home() {
               ¿Qué puedo hacer <br />
               <span className="gradient-text">por tu negocio?</span>
             </h2>
-            <p className="text-white/40 text-xl max-w-2xl mx-auto font-medium">
+            <p className="text-white/55 text-xl max-w-2xl mx-auto font-medium">
               Sin tecnicismos. Sin letra pequeña. Solo resultados.
             </p>
           </BlurReveal>
@@ -127,7 +134,7 @@ export default function Home() {
                     </p>
                     <h3 className="text-2xl font-black tracking-tight">{service.title}</h3>
                   </div>
-                  <p className="text-white/40 text-sm leading-relaxed font-medium flex-1">
+                  <p className="text-white/55 text-sm leading-relaxed font-medium flex-1">
                     {service.description}
                   </p>
                   <ul className="space-y-2">
@@ -162,7 +169,8 @@ export default function Home() {
                   yo: "Hablas directamente conmigo. El que diseña, el que programa y el que te coge el teléfono soy yo.",
                 },
                 {
-                  agencia: "Presupuestos de 2.000€ en adelante, con mantenimiento mensual obligatorio.",
+                  agencia:
+                    "Presupuestos de 2.000€ en adelante, con mantenimiento mensual obligatorio.",
                   yo: "Desde 449€, sin cuota mensual. El código es tuyo desde el primer día.",
                 },
                 {
@@ -198,8 +206,7 @@ export default function Home() {
               Cómo trabajamos
             </span>
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter">
-              De idea a web publicada,{" "}
-              <span className="gradient-text">sin complicaciones.</span>
+              De idea a web publicada, <span className="gradient-text">sin complicaciones.</span>
             </h2>
           </BlurReveal>
 
@@ -227,18 +234,18 @@ export default function Home() {
               },
             ].map((item, i) => (
               <BlurReveal key={i} delay={i * 0.1}>
-                <div className="relative p-7 rounded-2xl bg-white/[0.02] border border-white/5 h-full flex flex-col gap-4 hover:border-brand-blue/20 transition-colors duration-300">
-                  <span className="text-5xl font-black text-white/5 leading-none select-none">
+                <ShineCard className="p-7 rounded-2xl bg-white/[0.05] border border-white/10 h-full flex flex-col gap-4 hover:border-brand-blue/40 hover:bg-white/[0.07] transition-all duration-300">
+                  <span className="text-6xl font-black leading-none select-none gradient-text opacity-50">
                     {item.step}
                   </span>
-                  <h3 className="text-lg font-black text-white/80">{item.title}</h3>
-                  <p className="text-sm text-white/40 leading-relaxed">{item.desc}</p>
+                  <h3 className="text-lg font-black text-white">{item.title}</h3>
+                  <p className="text-sm text-white/50 leading-relaxed">{item.desc}</p>
                   {i < 3 && (
-                    <div className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 text-white/10 text-xl z-10">
+                    <div className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 text-white/30 text-xl z-10">
                       →
                     </div>
                   )}
-                </div>
+                </ShineCard>
               </BlurReveal>
             ))}
           </div>
@@ -258,7 +265,7 @@ export default function Home() {
               Propuesta clara. <br />
               <span className="gradient-text">Sin letra pequeña.</span>
             </h2>
-            <p className="text-white/40 text-xl max-w-2xl mx-auto font-medium leading-relaxed">
+            <p className="text-white/55 text-xl max-w-2xl mx-auto font-medium leading-relaxed">
               Ejemplo real de propuesta para{" "}
               <a
                 href="https://montes.vercel.app/propuesta"
@@ -271,7 +278,8 @@ export default function Home() {
               : carta online, ubicación, contacto y sistema de encargos.
             </p>
             <p className="text-white/50 text-sm max-w-xl mx-auto mt-3 leading-relaxed">
-              Precios orientativos. Cada proyecto tiene sus propias necesidades y el presupuesto final puede variar. Hablamos antes de cerrar nada.
+              Precios orientativos. Cada proyecto tiene sus propias necesidades y el presupuesto
+              final puede variar. Hablamos antes de cerrar nada.
             </p>
           </BlurReveal>
 
@@ -294,8 +302,9 @@ export default function Home() {
                   </div>
                   <p className="text-[10px] text-white/20 font-medium">+ IVA</p>
                 </div>
-                <p className="text-white/40 text-sm leading-relaxed">
-                  Tu negocio con una imagen profesional desde el primer día: apareces en Google, el cliente lo tiene todo claro y contactarte es inmediato.
+                <p className="text-white/55 text-sm leading-relaxed">
+                  Tu negocio con una imagen profesional desde el primer día: apareces en Google, el
+                  cliente lo tiene todo claro y contactarte es inmediato.
                 </p>
                 <ul className="space-y-3 flex-1">
                   {planBasico.map((item) => (
@@ -305,11 +314,8 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="#contacto"
-                  className="text-center px-6 py-3 border border-white/10 text-white font-black uppercase text-[10px] tracking-widest rounded-full hover:border-brand-blue/50 hover:bg-brand-blue/5 transition-all"
-                >
-                  Empezar
+                <a href="#contacto" className="btn-primary text-center px-6 py-3 text-[10px]">
+                  Empezar con este plan
                 </a>
               </div>
             </BlurReveal>
@@ -322,34 +328,32 @@ export default function Home() {
                     Más popular
                   </span>
                 </div>
-              <div className="glass-card p-10 flex flex-col gap-6 border-brand-blue/40 bg-brand-blue/5 flex-1">
-                <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-brand-blue mb-2">
-                    Fase 2 — Landing + Encargos + Confirmaciones
-                  </p>
-                  <div className="flex items-end gap-2 mb-1">
-                    <span className="text-5xl font-black tracking-tighter">599€</span>
+                <div className="glass-card p-10 flex flex-col gap-6 border-brand-blue/40 bg-brand-blue/5 flex-1">
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-brand-blue mb-2">
+                      Fase 2 — Landing + Encargos + Confirmaciones
+                    </p>
+                    <div className="flex items-end gap-2 mb-1">
+                      <span className="text-5xl font-black tracking-tighter">599€</span>
+                    </div>
+                    <p className="text-[10px] text-white/20 font-medium">+ IVA</p>
                   </div>
-                  <p className="text-[10px] text-white/20 font-medium">+ IVA</p>
+                  <p className="text-white/55 text-sm leading-relaxed">
+                    El cliente reserva solo, ambos recibís confirmación automática, y el pedido
+                    queda guardado sin que nadie tenga que hacer nada.
+                  </p>
+                  <ul className="space-y-3 flex-1">
+                    {planAvanzado.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-[11px] text-white/60">
+                        <Check size={12} className="text-brand-teal shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <a href="#contacto" className="btn-primary text-center px-6 py-3 text-[10px]">
+                    Empezar con este plan
+                  </a>
                 </div>
-                <p className="text-white/40 text-sm leading-relaxed">
-                  El cliente reserva solo, ambos recibís confirmación automática, y el pedido queda guardado sin que nadie tenga que hacer nada.
-                </p>
-                <ul className="space-y-3 flex-1">
-                  {planAvanzado.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-[11px] text-white/60">
-                      <Check size={12} className="text-brand-teal shrink-0 mt-0.5" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="#contacto"
-                  className="text-center px-6 py-3 bg-brand-blue text-white font-black uppercase text-[10px] tracking-widest rounded-full hover:shadow-[0_10px_30px_rgba(59,130,246,0.3)] transition-all hover:-translate-y-0.5"
-                >
-                  Empezar
-                </a>
-              </div>
               </div>
             </BlurReveal>
 
@@ -363,10 +367,13 @@ export default function Home() {
                   <div className="flex items-end gap-2 mb-1">
                     <span className="text-4xl font-black tracking-tighter">Desde 849€</span>
                   </div>
-                  <p className="text-[10px] text-white/20 font-medium">+ IVA · varía según integraciones y herramientas</p>
+                  <p className="text-[10px] text-white/20 font-medium">
+                    + IVA · varía según integraciones y herramientas
+                  </p>
                 </div>
-                <p className="text-white/40 text-sm leading-relaxed">
-                  Para negocios que necesitan conectar la web con sus herramientas: cobro online, sincronización de datos y automatizaciones a medida.
+                <p className="text-white/55 text-sm leading-relaxed">
+                  Para negocios que necesitan conectar la web con sus herramientas: cobro online,
+                  sincronización de datos y automatizaciones a medida.
                 </p>
                 <ul className="space-y-3 flex-1">
                   {planCompleto.map((item) => (
@@ -376,11 +383,8 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="#contacto"
-                  className="text-center px-6 py-3 border border-white/10 text-white font-black uppercase text-[10px] tracking-widest rounded-full hover:border-brand-teal/50 hover:bg-brand-teal/5 transition-all"
-                >
-                  Empezar
+                <a href="#contacto" className="btn-primary text-center px-6 py-3 text-[10px]">
+                  Pedir presupuesto
                 </a>
               </div>
             </BlurReveal>
@@ -421,8 +425,12 @@ export default function Home() {
                       <span className="text-4xl font-black tracking-tighter">80€</span>
                       <span className="text-white/30 text-sm mb-1">/mes</span>
                     </div>
-                    <p className="text-[10px] text-white/25 mt-0.5">+ IVA · Solo para proyectos desarrollados por mí</p>
-                    <p className="text-[11px] text-brand-teal/70 font-black mt-1">2 sesiones de ajustes de 2h incluidas al mes.</p>
+                    <p className="text-[10px] text-white/25 mt-0.5">
+                      + IVA · Solo para proyectos desarrollados por mí
+                    </p>
+                    <p className="text-[11px] text-brand-teal/70 font-black mt-1">
+                      2 sesiones de ajustes de 2h incluidas al mes.
+                    </p>
                   </div>
                   <ul className="space-y-2 flex-1">
                     {[
@@ -456,8 +464,12 @@ export default function Home() {
                       <span className="text-4xl font-black tracking-tighter">50€</span>
                       <span className="text-white/30 text-sm mb-1">/modificación</span>
                     </div>
-                    <p className="text-[10px] text-white/25 mt-1">+ IVA · Sin suscripción, cuando lo necesites</p>
-                    <p className="text-[10px] text-brand-teal/60 font-black">Con mantenimiento activo: incluido en las 2 sesiones</p>
+                    <p className="text-[10px] text-white/25 mt-1">
+                      + IVA · Sin suscripción, cuando lo necesites
+                    </p>
+                    <p className="text-[10px] text-brand-teal/60 font-black">
+                      Con mantenimiento activo: incluido en las 2 sesiones
+                    </p>
                   </div>
                   <ul className="space-y-2 flex-1">
                     {[
@@ -490,7 +502,9 @@ export default function Home() {
                       <span className="text-4xl font-black tracking-tighter">150€</span>
                       <span className="text-white/30 text-sm mb-1">auditoría</span>
                     </div>
-                    <p className="text-[10px] text-white/25 mt-1">+ IVA · presupuesto a medida según el alcance</p>
+                    <p className="text-[10px] text-white/25 mt-1">
+                      + IVA · presupuesto a medida según el alcance
+                    </p>
                   </div>
                   <ul className="space-y-2 flex-1">
                     {[
@@ -534,16 +548,18 @@ export default function Home() {
 
               <div className="space-y-5 text-lg text-white/50 leading-relaxed font-medium">
                 <p>
-                  Consultor IT independiente con base en el norte de Madrid. Trabajo con negocios locales —
-                  cafeterías, talleres, clínicas, inmobiliarias, tiendas— y con cualquier negocio que tenga un problema
-                  tecnológico que no sabe muy bien cómo atajar: estar en Google, automatizar procesos, recibir
-                  encargos online o simplemente tener una imagen profesional{" "}
+                  Consultor IT independiente con base en el norte de Madrid. Trabajo con negocios
+                  locales — cafeterías, talleres, clínicas, inmobiliarias, tiendas— y con cualquier
+                  negocio que tenga un problema tecnológico que no sabe muy bien cómo atajar: estar
+                  en Google, automatizar procesos, recibir encargos online o simplemente tener una
+                  imagen profesional{" "}
                   <strong className="text-white/80">sin pagar lo que cobra una agencia</strong>.
                 </p>
                 <p>
-                  Formación en electrónica, telecomunicaciones e informática. Uso la IA como herramienta
-                  de trabajo diaria para entregar proyectos más rápido y a mejor precio que cualquier agencia.
-                  Todo lo que construyo va bien securizado: honeypots, accesos restringidos, sin puertas traseras.
+                  Formación en electrónica, telecomunicaciones e informática. Uso la IA como
+                  herramienta de trabajo diaria para entregar proyectos más rápido y a mejor precio
+                  que cualquier agencia. Todo lo que construyo va bien securizado: honeypots,
+                  accesos restringidos, sin puertas traseras.
                 </p>
                 {/* Badges de credenciales */}
                 <div className="flex flex-wrap gap-3 pt-2">
@@ -562,7 +578,8 @@ export default function Home() {
                 </div>
                 <p className="flex items-center gap-2 text-white/40 text-sm">
                   <MapPin size={14} className="text-brand-teal shrink-0" />
-                  San Agustín de Guadalix · Alcobendas · SSReyes · Las Tablas · Paracuellos · El Molar
+                  San Agustín de Guadalix · Alcobendas · SSReyes · Las Tablas · Paracuellos · El
+                  Molar
                 </p>
               </div>
 
@@ -606,8 +623,12 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
-                  <p className="text-xs font-black uppercase tracking-widest text-white/60">Alejandro Merle</p>
-                  <p className="text-[10px] text-white/30 uppercase tracking-widest">Consultor IT · Norte de Madrid</p>
+                  <p className="text-xs font-black uppercase tracking-widest text-white/60">
+                    Alejandro Merle
+                  </p>
+                  <p className="text-[10px] text-white/30 uppercase tracking-widest">
+                    Consultor IT · Norte de Madrid
+                  </p>
                 </div>
               </div>
             </div>
@@ -616,13 +637,17 @@ export default function Home() {
       </section>
 
       {/* ── PORTFOLIO ──────────────────────────────────────────────────────── */}
-      <Suspense fallback={
-        <section className="py-32 px-6">
-          <div className="max-w-7xl mx-auto text-center">
-            <p className="text-white/20 text-sm font-medium uppercase tracking-widest">Cargando proyectos…</p>
-          </div>
-        </section>
-      }>
+      <Suspense
+        fallback={
+          <section className="py-32 px-6">
+            <div className="max-w-7xl mx-auto text-center">
+              <p className="text-white/20 text-sm font-medium uppercase tracking-widest">
+                Cargando proyectos…
+              </p>
+            </div>
+          </section>
+        }
+      >
         <PortfolioGrid />
       </Suspense>
 
@@ -672,8 +697,9 @@ export default function Home() {
               ¿Tu negocio <br />
               <span className="gradient-text">podría estar aquí?</span>
             </h2>
-            <p className="text-white/40 text-xl max-w-2xl mx-auto font-medium leading-relaxed">
-              Cuéntame qué tienes entre manos. Reviso tu caso y te respondo en menos de 24h para ver si encajamos.
+            <p className="text-white/55 text-xl max-w-2xl mx-auto font-medium leading-relaxed">
+              Cuéntame qué tienes entre manos. Reviso tu caso y te respondo en menos de 24h para ver
+              si encajamos.
             </p>
           </BlurReveal>
 

@@ -16,7 +16,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ nicho: string }> }) {
   const resolvedParams = await params;
   const niche = getNicheData(resolvedParams.nicho);
-  
+
   if (!niche) return {};
 
   return {
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ nicho: st
       title: `Diseño Web para ${niche.name} · Alejandro Merle`,
       description: niche.heroContext,
       url: `https://alexmerle.es/para/${niche.slug}`,
-    }
+    },
   };
 }
 
@@ -60,7 +60,7 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
           </BlurReveal>
 
           <BlurReveal delay={0.2}>
-            <p className="text-xl md:text-2xl text-white/40 max-w-2xl mx-auto leading-relaxed font-medium">
+            <p className="text-xl md:text-2xl text-white/55 max-w-2xl mx-auto leading-relaxed font-medium">
               {niche.heroContext}
             </p>
           </BlurReveal>
@@ -69,7 +69,7 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
               <Link
                 href="#contacto"
-                className="w-full sm:w-auto px-10 py-5 bg-brand-blue text-white font-black uppercase text-xs tracking-widest rounded-full hover:shadow-[0_20px_40px_rgba(59,130,246,0.3)] transition-all hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3"
+                className="btn-primary w-full sm:w-auto px-10 py-5 flex items-center justify-center gap-3"
               >
                 Impulsa tu negocio
                 <ArrowRight size={14} />
@@ -80,13 +80,17 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
       </section>
 
       {/* ── PORTFOLIO ──────────────────────────────────────────────────────── */}
-      <Suspense fallback={
-        <section className="py-32 px-6">
-          <div className="max-w-7xl mx-auto text-center">
-            <p className="text-white/20 text-sm font-medium uppercase tracking-widest">Cargando proyectos…</p>
-          </div>
-        </section>
-      }>
+      <Suspense
+        fallback={
+          <section className="py-32 px-6">
+            <div className="max-w-7xl mx-auto text-center">
+              <p className="text-white/20 text-sm font-medium uppercase tracking-widest">
+                Cargando proyectos…
+              </p>
+            </div>
+          </section>
+        }
+      >
         <PortfolioGrid />
       </Suspense>
 
@@ -106,7 +110,7 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
               Hablemos de <br />
               <span className="gradient-text">tu negocio</span>
             </h2>
-            <p className="text-white/40 text-xl max-w-2xl mx-auto font-medium leading-relaxed">
+            <p className="text-white/55 text-xl max-w-2xl mx-auto font-medium leading-relaxed">
               Trabajemos juntos para digitalizar y mejorar la rentabilidad de tu actividad.
             </p>
           </BlurReveal>

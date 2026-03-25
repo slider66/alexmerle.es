@@ -38,9 +38,7 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mb-8"
         >
-          <span className="shiny-badge">
-            Consultor IT · Norte de Madrid
-          </span>
+          <span className="shiny-badge">Consultor IT · Norte de Madrid</span>
           <span className="inline-flex items-center gap-2 ml-3 px-4 py-2 text-[10px] font-black tracking-[0.2em] uppercase text-emerald-400/80 border border-emerald-500/20 bg-emerald-500/5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             Aceptando proyectos
@@ -58,7 +56,7 @@ export default function Hero() {
         </h1>
 
         <motion.p
-          className="text-xl md:text-2xl text-white/40 max-w-2xl mx-auto mb-14 leading-relaxed font-medium"
+          className="text-xl md:text-2xl text-white/55 max-w-2xl mx-auto mb-14 leading-relaxed font-medium"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.8, ease: "easeOut" }}
@@ -72,10 +70,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1, ease: "easeOut" }}
         >
-          <Link
-            href="#precios"
-            className="w-full sm:w-auto px-10 py-5 bg-brand-blue text-white font-black uppercase text-xs tracking-widest rounded-full hover:shadow-[0_20px_40px_rgba(59,130,246,0.3)] transition-all hover:-translate-y-1 active:scale-95"
-          >
+          <Link href="#precios" className="btn-primary w-full sm:w-auto px-10 py-5">
             Ver planes
           </Link>
           <Link
@@ -84,6 +79,24 @@ export default function Hero() {
           >
             Reserva una llamada
           </Link>
+        </motion.div>
+
+        {/* Credenciales bajo los CTAs */}
+        <motion.div
+          className="flex items-center justify-center gap-4 mt-10 flex-wrap"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 1.3, ease: "easeOut" }}
+        >
+          <span className="text-[10px] text-white/20 uppercase tracking-widest font-black">
+            Experiencia en
+          </span>
+          <span className="px-3 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-[10px] font-black uppercase tracking-widest text-brand-blue/70">
+            Telefónica Tech
+          </span>
+          <span className="px-3 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-[10px] font-black uppercase tracking-widest text-brand-teal/70">
+            CompTIA Certified
+          </span>
         </motion.div>
       </div>
     </section>

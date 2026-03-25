@@ -119,17 +119,19 @@ export function ContactForm() {
   function getFieldValues(form: HTMLFormElement): Record<Fields, string> {
     const fd = new FormData(form);
     return {
-      name:     (fd.get("name")     as string) ?? "",
+      name: (fd.get("name") as string) ?? "",
       business: (fd.get("business") as string) ?? "",
-      email:    (fd.get("email")    as string) ?? "",
-      phone:    (fd.get("phone")    as string) ?? "",
-      service:  (fd.get("service")  as string) ?? "",
-      budget:   (fd.get("budget")   as string) ?? "",
-      message:  (fd.get("message")  as string) ?? "",
+      email: (fd.get("email") as string) ?? "",
+      phone: (fd.get("phone") as string) ?? "",
+      service: (fd.get("service") as string) ?? "",
+      budget: (fd.get("budget") as string) ?? "",
+      message: (fd.get("message") as string) ?? "",
     };
   }
 
-  function handleBlur(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+  function handleBlur(
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) {
     const field = e.target.name as Fields;
     setTouched((t) => ({ ...t, [field]: true }));
     const form = e.target.form;
@@ -198,7 +200,7 @@ export function ContactForm() {
         </div>
         <div>
           <h3 className="text-2xl font-black mb-2">¡Mensaje enviado!</h3>
-          <p className="text-white/40 max-w-sm mx-auto leading-relaxed">
+          <p className="text-white/55 max-w-sm mx-auto leading-relaxed">
             He recibido tu consulta. Te responderé en menos de 24 horas para hablar de tu proyecto.
           </p>
         </div>
@@ -288,8 +290,14 @@ export function ContactForm() {
             onBlur={handleBlur}
             className={`${inputClass} bg-[#111] appearance-none cursor-pointer ${err("service") ? "border-red-400/50 focus:border-red-400/70" : "border-white/10 focus:border-brand-blue/50"}`}
           >
-            <option value="" disabled>Selecciona una opción</option>
-            {SERVICES.map((s) => <option key={s} value={s}>{s}</option>)}
+            <option value="" disabled>
+              Selecciona una opción
+            </option>
+            {SERVICES.map((s) => (
+              <option key={s} value={s}>
+                {s}
+              </option>
+            ))}
           </select>
           <FieldError msg={err("service")} />
         </div>
@@ -304,8 +312,14 @@ export function ContactForm() {
             onBlur={handleBlur}
             className={`${inputClass} bg-[#111] appearance-none cursor-pointer ${err("budget") ? "border-red-400/50 focus:border-red-400/70" : "border-white/10 focus:border-brand-blue/50"}`}
           >
-            <option value="" disabled>Selecciona una opción</option>
-            {BUDGETS.map((b) => <option key={b} value={b}>{b}</option>)}
+            <option value="" disabled>
+              Selecciona una opción
+            </option>
+            {BUDGETS.map((b) => (
+              <option key={b} value={b}>
+                {b}
+              </option>
+            ))}
           </select>
           <FieldError msg={err("budget")} />
         </div>
@@ -334,7 +348,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full px-8 py-4 bg-brand-blue text-white font-black uppercase text-xs tracking-widest rounded-full hover:shadow-[0_20px_40px_rgba(59,130,246,0.3)] transition-all hover:-translate-y-1 active:scale-95 disabled:opacity-50 disabled:pointer-events-none flex items-center justify-center gap-3"
+        className="btn-primary w-full px-8 py-4 flex items-center justify-center gap-3"
       >
         {isSubmitting ? (
           <>

@@ -48,12 +48,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    hsla(0, 0%, 100%, 0.1) 0%,
-    transparent 50%,
-    transparent 100%
-  );
+  background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.1) 0%, transparent 50%, transparent 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
@@ -61,8 +56,9 @@ body {
 
 .glass-card:hover {
   border-color: hsla(217, 91%, 60%, 0.3);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 
-              0 0 20px rgba(59, 130, 246, 0.1);
+  box-shadow:
+    0 20px 40px -15px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(59, 130, 246, 0.1);
   transform: translateY(-8px);
 }
 
@@ -93,6 +89,77 @@ body {
   }
 }
 
+/* Primary CTA button — gradiente azul→teal con glow en hover */
+.btn-primary {
+  background: linear-gradient(135deg, hsl(217 91% 60%), hsl(171 66% 50%));
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, hsla(0 0% 100% / 0.45), transparent);
+  transform: skewX(-20deg);
+  animation: btn-shine 1.6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes btn-shine {
+  from {
+    left: -80%;
+  }
+  to {
+    left: 130%;
+  }
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 0 1px hsla(171 66% 50% / 0.5),
+    0 0 20px hsla(171 66% 50% / 0.3),
+    0 20px 40px hsla(217 91% 60% / 0.25);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Efecto brillo en hover para cards — completa el pase aunque el ratón salga */
+.shine-beam {
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, hsla(0 0% 100% / 0.08), transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.shine-beam.shine-run {
+  animation: btn-shine 1s linear forwards;
+}
+
 /* Shiny badge */
 .shiny-badge {
   display: inline-block;
@@ -117,8 +184,12 @@ body {
 }
 
 @keyframes shiny-sweep {
-  0% { background-position: 200% center; }
-  100% { background-position: -200% center; }
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
 }
 
 /* Aurora background orbs */
@@ -157,29 +228,77 @@ body {
 }
 
 @keyframes aurora-1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(60px, -80px) scale(1.15); }
-  66% { transform: translate(-40px, 40px) scale(0.9); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(60px, -80px) scale(1.15);
+  }
+  66% {
+    transform: translate(-40px, 40px) scale(0.9);
+  }
 }
 
 @keyframes aurora-2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-80px, 50px) scale(1.1); }
-  66% { transform: translate(50px, -60px) scale(0.95); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-80px, 50px) scale(1.1);
+  }
+  66% {
+    transform: translate(50px, -60px) scale(0.95);
+  }
 }
 
 @keyframes aurora-3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-60px, 80px) scale(1.2); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-60px, 80px) scale(1.2);
+  }
 }
 
 /* Animations */
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+/* Respeta preferencia del usuario de reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .aurora-orb-1,
+  .aurora-orb-2,
+  .aurora-orb-3 {
+    animation: none;
+    opacity: 0.05;
+  }
+
+  .btn-primary::after,
+  .shine-beam {
+    display: none;
+  }
 }
