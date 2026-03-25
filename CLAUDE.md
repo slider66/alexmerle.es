@@ -52,6 +52,12 @@ El deploy es automático al hacer push a `main` via `.github/workflows/deploy.ym
 3. **Verifica que `./out/` existe** (guardrail — falla el deploy si falta)
 4. Sube por FTP a Hostinger con limpieza total (`dangerous-clean-slate: true`)
 
+### ⚠️ No tocar: configuración FTP
+
+El workflow usa upload **incremental** (sin `dangerous-clean-slate`). No reactivar esa opción — causaba timeout al intentar listar y borrar todos los archivos remotos antes de subir, rompiendo el deploy.
+
+Consecuencia: los archivos que se eliminen del proyecto **no se borran automáticamente del servidor**. Si hace falta limpiar el servidor de cero, hacerlo manualmente por FTP desde el panel de Hostinger.
+
 ### Secrets necesarios en GitHub
 
 | Secret | Descripción |
