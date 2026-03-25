@@ -27,6 +27,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Restore Next.js build cache
+        uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: nextjs-${{ hashFiles('pnpm-lock.yaml') }}-${{ hashFiles('src/**/*.{ts,tsx}') }}
+          restore-keys: |
+            nextjs-${{ hashFiles('pnpm-lock.yaml') }}-
+
       - name: Lint
         run: pnpm lint
 
@@ -49,7 +57,21 @@ jobs:
           fi
           echo "✅ Carpeta ./out encontrada ($(ls ./out | wc -l) archivos/carpetas)"
 
-      - name: Deploy via FTP
+      # Subir assets con hash primero (_next/static) para que los HTML los encuentren al actualizarse
+      - name: Deploy static assets via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: ./
+          timeout: 60000
+          include: |
+            _next/**
+
+      # Subir HTML y resto de archivos una vez los assets ya están en el servidor
+      - name: Deploy HTML and remaining files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -61,3 +83,4 @@ jobs:
           exclude: |
             **/.git*
             **/.git*/**
+            _next/**
