@@ -20,6 +20,8 @@ export interface Repository {
   type?: "web" | "tool";
 }
 
+const EXCLUDED_REPOS = new Set(["alexmerle.es"]);
+
 const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: string[] }> = {
   "fotografia-aerea-madrid": {
     id: 999997,
@@ -238,7 +240,9 @@ async function fetchViaREST(username: string): Promise<Repository[]> {
 function buildFinalList(repos: Repository[]): Repository[] {
   const map = new Map<string, Repository>();
 
-  repos.forEach((repo) => map.set(repo.name, repo));
+  repos.forEach((repo) => {
+    if (!EXCLUDED_REPOS.has(repo.name)) map.set(repo.name, repo);
+  });
 
   Object.entries(projectOverrides).forEach(([name, override]) => {
     const existing = map.get(name);
