@@ -9,17 +9,11 @@ interface Word {
 
 interface SplitTextProps {
   words: Word[];
-  className?: string;
   baseDelay?: number;
   wordDelay?: number;
 }
 
-export function SplitText({
-  words,
-  className = "",
-  baseDelay = 0.3,
-  wordDelay = 0.12,
-}: SplitTextProps) {
+export function SplitText({ words, baseDelay = 0.3, wordDelay = 0.12 }: SplitTextProps) {
   return (
     <>
       {words.map((word, i) => (

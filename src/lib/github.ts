@@ -17,119 +17,133 @@ export interface Repository {
   hideLink?: boolean;
   highlight?: boolean;
   order?: number;
-  type?: 'web' | 'tool';
+  type?: "web" | "tool";
 }
 
 const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: string[] }> = {
-  'fotografia-aerea-madrid': {
+  "fotografia-aerea-madrid": {
     id: 999997,
-    description: 'Web de servicios de drones certificados AESA en Madrid. Posicionada en búsquedas locales de fotografía aérea profesional HDR y 4K.',
-    html_url: 'https://fotografiaaereamadrid.vercel.app/',
+    description:
+      "Web de servicios de drones certificados AESA en Madrid. Posicionada en búsquedas locales de fotografía aérea profesional HDR y 4K.",
+    html_url: "https://fotografiaaereamadrid.vercel.app/",
     highlight: true,
-    previewImage: '/previews/fotografia_aerea_madrid.webp',
+    previewImage: "/previews/fotografia_aerea_madrid.webp",
     order: 0,
-    extraTopics: ['Next.js', 'Vercel', 'Drones', 'AESA Certified', 'Photography']
+    extraTopics: ["Next.js", "Vercel", "Drones", "AESA Certified", "Photography"],
   },
-  'merle.es': {
+  "merle.es": {
     id: 999998,
-    description: 'Web corporativa de Hierros Merle. Optimizada para conversión y SEO local. Referente del sector en su zona con presencia orgánica en Google.',
-    html_url: 'https://merle.es',
+    description:
+      "Web corporativa de Hierros Merle. Optimizada para conversión y SEO local. Referente del sector en su zona con presencia orgánica en Google.",
+    html_url: "https://merle.es",
     highlight: true,
-    previewImage: '/previews/merle_es_v2.webp',
+    previewImage: "/previews/merle_es_v2.webp",
     order: 1,
-    extraTopics: ['Next.js 15', 'React 19', 'Tailwind CSS 4', 'SEO Strategy', 'Industrial UI']
+    extraTopics: ["Next.js 15", "React 19", "Tailwind CSS 4", "SEO Strategy", "Industrial UI"],
   },
-  'metal-line.es': {
+  "metal-line.es": {
     id: 999999,
-    description: 'Plataforma corporativa para Metal Line. Enfoque en ingeniería de precisión y transformación metálica.',
-    html_url: 'https://metal-line.es',
+    description:
+      "Plataforma corporativa para Metal Line. Enfoque en ingeniería de precisión y transformación metálica.",
+    html_url: "https://metal-line.es",
     highlight: true,
-    previewImage: '/previews/metal_line_es_v2.webp',
+    previewImage: "/previews/metal_line_es_v2.webp",
     order: 2,
-    extraTopics: ['WordPress', 'Custom CSS', 'Industrial Design', 'SEO']
+    extraTopics: ["WordPress", "Custom CSS", "Industrial Design", "SEO"],
   },
-  'ijornada': {
-    description: 'Plataforma SaaS de gestión de asistencia y cumplimiento normativo laboral con panel de control avanzado.',
+  ijornada: {
+    description:
+      "Plataforma SaaS de gestión de asistencia y cumplimiento normativo laboral con panel de control avanzado.",
     highlight: true,
-    previewImage: '/previews/ijornada.webp',
+    previewImage: "/previews/ijornada.webp",
     hideLink: true,
     order: 3,
-    extraTopics: ['Next.js', 'Prisma', 'PostgreSQL', 'SaaS', 'Digital Risk']
+    extraTopics: ["Next.js", "Prisma", "PostgreSQL", "SaaS", "Digital Risk"],
   },
-  'Autodesk-Full-Cleaner': {
-    html_url: 'https://github.com/slider66/Autodesk-Full-Cleaner',
-    description: 'Desinstalador sistemático para productos Autodesk. Elimina programas, claves de registro residuales y licencias corruptas que bloquean reinstalaciones.',
+  "Autodesk-Full-Cleaner": {
+    html_url: "https://github.com/slider66/Autodesk-Full-Cleaner",
+    description:
+      "Desinstalador sistemático para productos Autodesk. Elimina programas, claves de registro residuales y licencias corruptas que bloquean reinstalaciones.",
     highlight: true,
-    type: 'tool',
-    extraTopics: ['PowerShell', 'Automation', 'Windows Registry', 'System Admin']
+    type: "tool",
+    extraTopics: ["PowerShell", "Automation", "Windows Registry", "System Admin"],
   },
-  'OrdenaFotos': {
-    html_url: 'https://github.com/slider66/OrdenaFotos',
-    description: 'Organiza automáticamente colecciones de fotos caóticas en carpetas ordenadas por fecha, cámara o evento. Sin tocar los archivos originales.',
+  OrdenaFotos: {
+    html_url: "https://github.com/slider66/OrdenaFotos",
+    description:
+      "Organiza automáticamente colecciones de fotos caóticas en carpetas ordenadas por fecha, cámara o evento. Sin tocar los archivos originales.",
     highlight: true,
-    type: 'tool',
-    extraTopics: ['Python', 'EXIF', 'Automation', 'CLI']
+    type: "tool",
+    extraTopics: ["Python", "EXIF", "Automation", "CLI"],
   },
-  'Riot_force_uninstall': {
-    html_url: 'https://github.com/slider66/Riot_force_uninstall',
-    description: 'Elimina completamente Riot Games, Valorant, League of Legends y el anticheat Vanguard (drivers a nivel de kernel) de Windows 10/11.',
+  Riot_force_uninstall: {
+    html_url: "https://github.com/slider66/Riot_force_uninstall",
+    description:
+      "Elimina completamente Riot Games, Valorant, League of Legends y el anticheat Vanguard (drivers a nivel de kernel) de Windows 10/11.",
     highlight: true,
-    type: 'tool',
-    extraTopics: ['Batch', 'PowerShell', 'Windows', 'Kernel', 'Uninstaller']
+    type: "tool",
+    extraTopics: ["Batch", "PowerShell", "Windows", "Kernel", "Uninstaller"],
   },
-  'myCAD': {
-    html_url: 'https://github.com/slider66/myCAD',
-    description: 'Convierte fotos de piezas planas en archivos DXF listos para corte láser y CNC. Modo IA con Gemini Pro o modo rápido con OpenCV. Calibración de medidas real.',
+  myCAD: {
+    html_url: "https://github.com/slider66/myCAD",
+    description:
+      "Convierte fotos de piezas planas en archivos DXF listos para corte láser y CNC. Modo IA con Gemini Pro o modo rápido con OpenCV. Calibración de medidas real.",
     highlight: true,
-    type: 'tool',
-    extraTopics: ['Python', 'FastAPI', 'React', 'OpenCV', 'Gemini AI', 'DXF', 'CNC']
+    type: "tool",
+    extraTopics: ["Python", "FastAPI", "React", "OpenCV", "Gemini AI", "DXF", "CNC"],
   },
-  'FECU': {
-    html_url: 'https://github.com/slider66/FECU',
-    description: 'App web para recopilación compartida de fotos en eventos. Subida con compresión cliente, galería con lazy-load y panel de admin protegido.',
+  FECU: {
+    html_url: "https://github.com/slider66/FECU",
+    description:
+      "App web para recopilación compartida de fotos en eventos. Subida con compresión cliente, galería con lazy-load y panel de admin protegido.",
     highlight: true,
-    type: 'tool',
-    extraTopics: ['Next.js 15', 'Prisma', 'Supabase', 'TypeScript', 'Event App']
+    type: "tool",
+    extraTopics: ["Next.js 15", "Prisma", "Supabase", "TypeScript", "Event App"],
   },
-  'wp-underconstruction': {
-    html_url: 'https://github.com/slider66/wp-underconstruction',
-    description: 'Plugin WordPress que muestra una página de mantenimiento personalizable (HTML/CSS libre) mientras el admin trabaja. Envía 503 + Retry-After para no penalizar el SEO.',
+  "wp-underconstruction": {
+    html_url: "https://github.com/slider66/wp-underconstruction",
+    description:
+      "Plugin WordPress que muestra una página de mantenimiento personalizable (HTML/CSS libre) mientras el admin trabaja. Envía 503 + Retry-After para no penalizar el SEO.",
     highlight: true,
-    type: 'tool',
-    extraTopics: ['PHP', 'WordPress', 'SEO', 'Plugin']
+    type: "tool",
+    extraTopics: ["PHP", "WordPress", "SEO", "Plugin"],
   },
-  'menu_contextual_W11_to_W10': {
-    html_url: 'https://github.com/slider66/menu_contextual_W11_to_W10',
-    description: 'Restaura el menú contextual clásico de Windows 10 en Windows 11 con un clic. Modifica el registro y reinicia el Explorador al instante. Totalmente reversible.',
+  menu_contextual_W11_to_W10: {
+    html_url: "https://github.com/slider66/menu_contextual_W11_to_W10",
+    description:
+      "Restaura el menú contextual clásico de Windows 10 en Windows 11 con un clic. Modifica el registro y reinicia el Explorador al instante. Totalmente reversible.",
     highlight: true,
-    type: 'tool',
-    extraTopics: ['Python', 'Windows Registry', 'Windows 11', 'UX Fix']
+    type: "tool",
+    extraTopics: ["Python", "Windows Registry", "Windows 11", "UX Fix"],
   },
-  'Full_clean_adesk': {
-    html_url: 'https://github.com/slider66/Full_clean_adesk',
-    description: 'Versión Python de la limpieza profunda para Autodesk. Borra archivos residuales, entradas de registro y datos de licencia que impiden reinstalar productos.',
+  Full_clean_adesk: {
+    html_url: "https://github.com/slider66/Full_clean_adesk",
+    description:
+      "Versión Python de la limpieza profunda para Autodesk. Borra archivos residuales, entradas de registro y datos de licencia que impiden reinstalar productos.",
     highlight: true,
-    type: 'tool',
-    extraTopics: ['Python', 'Automation', 'Windows', 'Autodesk']
+    type: "tool",
+    extraTopics: ["Python", "Automation", "Windows", "Autodesk"],
   },
-  'montes': {
+  montes: {
     id: 999996,
-    description: 'Demo para Café & Tortilla Montes. Carta digital, sistema de encargos online y acceso directo a WhatsApp y ubicación.',
-    html_url: 'https://montes.vercel.app/',
+    description:
+      "Demo para Café & Tortilla Montes. Carta digital, sistema de encargos online y acceso directo a WhatsApp y ubicación.",
+    html_url: "https://montes.vercel.app/",
     highlight: true,
-    previewImage: '/previews/montes_v2.png',
+    previewImage: "/previews/montes_v2.png",
     order: 5,
-    extraTopics: ['Next.js', 'Tailwind CSS', 'Vercel', 'Demo', 'Hospitality']
+    extraTopics: ["Next.js", "Tailwind CSS", "Vercel", "Demo", "Hospitality"],
   },
-  'lolo-transportes': {
+  "lolo-transportes": {
     id: 999995,
-    description: 'Plataforma de logística inteligente para transporte de carga. Comparación de precios en tiempo real con ahorro de hasta un 40% aprovechando rutas de retorno.',
-    html_url: 'https://lt-wheat.vercel.app/',
+    description:
+      "Plataforma de logística inteligente para transporte de carga. Comparación de precios en tiempo real con ahorro de hasta un 40% aprovechando rutas de retorno.",
+    html_url: "https://lt-wheat.vercel.app/",
     highlight: true,
-    previewImage: '/previews/lolo-transportes.png',
+    previewImage: "/previews/lolo-transportes.png",
     order: 6,
-    extraTopics: ['Next.js', 'Tailwind CSS', 'Vercel', 'Logistics', 'Transport']
-  }
+    extraTopics: ["Next.js", "Tailwind CSS", "Vercel", "Logistics", "Transport"],
+  },
 };
 
 interface GraphQLRepo {
@@ -198,24 +212,35 @@ async function fetchViaREST(username: string): Promise<Repository[]> {
   const timer = setTimeout(() => controller.abort(), 8000);
 
   try {
-    const response = await octokit.request('GET /users/{username}/repos', {
+    const response = await octokit.request("GET /users/{username}/repos", {
       username,
-      sort: 'pushed',
+      sort: "pushed",
       per_page: 30,
-      headers: { 'X-GitHub-Api-Version': '2022-11-28' },
+      headers: { "X-GitHub-Api-Version": "2022-11-28" },
       request: { signal: controller.signal },
     });
 
-    return response.data.map((repo: any) => ({
-      id: repo.id,
-      name: repo.name,
-      description: repo.description,
-      html_url: repo.html_url,
-      stargazers_count: repo.stargazers_count,
-      commits_count: new Date(repo.pushed_at).getTime(),
-      topics: repo.topics || [],
-      updated_at: repo.updated_at,
-    }));
+    return response.data.map(
+      (repo: {
+        id: number;
+        name: string;
+        description: string | null;
+        html_url: string;
+        stargazers_count: number;
+        pushed_at: string;
+        topics?: string[];
+        updated_at: string;
+      }) => ({
+        id: repo.id,
+        name: repo.name,
+        description: repo.description,
+        html_url: repo.html_url,
+        stargazers_count: repo.stargazers_count,
+        commits_count: new Date(repo.pushed_at).getTime(),
+        topics: repo.topics || [],
+        updated_at: repo.updated_at,
+      })
+    );
   } finally {
     clearTimeout(timer);
   }
@@ -224,7 +249,7 @@ async function fetchViaREST(username: string): Promise<Repository[]> {
 function buildFinalList(repos: Repository[]): Repository[] {
   const map = new Map<string, Repository>();
 
-  repos.forEach(repo => map.set(repo.name, repo));
+  repos.forEach((repo) => map.set(repo.name, repo));
 
   Object.entries(projectOverrides).forEach(([name, override]) => {
     const existing = map.get(name);
@@ -232,7 +257,7 @@ function buildFinalList(repos: Repository[]): Repository[] {
       id: existing?.id ?? override.id ?? Math.floor(Math.random() * 100000),
       name,
       description: override.description ?? existing?.description ?? null,
-      html_url: override.html_url ?? existing?.html_url ?? '#',
+      html_url: override.html_url ?? existing?.html_url ?? "#",
       stargazers_count: existing?.stargazers_count ?? 0,
       commits_count: existing?.commits_count ?? 0,
       topics: [...new Set([...(existing?.topics || []), ...(override.extraTopics || [])])],
@@ -241,15 +266,16 @@ function buildFinalList(repos: Repository[]): Repository[] {
       previewImage: override.previewImage,
       hideLink: override.hideLink,
       order: override.order ?? 99,
-      type: override.type ?? 'web',
+      type: override.type ?? "web",
     });
   });
 
-  return Array.from(map.values())
-    .sort((a, b) => (a.order! - b.order!) || (b.commits_count - a.commits_count));
+  return Array.from(map.values()).sort(
+    (a, b) => a.order! - b.order! || b.commits_count - a.commits_count
+  );
 }
 
-export async function getRepositories(username: string = 'slider66'): Promise<Repository[]> {
+export async function getRepositories(username: string = "slider66"): Promise<Repository[]> {
   // Sin token no hacemos llamadas a la API (evita esperas en local sin .env.local)
   if (!process.env.GITHUB_TOKEN) {
     console.warn("GITHUB_TOKEN not set — using manual project entries only.");
