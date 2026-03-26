@@ -13,10 +13,10 @@ export function BlurReveal({ children, className = "", delay = 0 }: BlurRevealPr
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, filter: "blur(14px)", y: 24 }}
-      whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.75, delay, ease: [0.25, 0.4, 0.25, 1] }}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.65, delay, ease: [0.25, 0.4, 0.25, 1] }}
     >
       {children}
     </motion.div>

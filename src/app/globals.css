@@ -23,7 +23,8 @@ body {
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  /* overflow-x: clip en vez de hidden para no romper position:fixed en Safari */
+  overflow-x: clip;
 }
 
 .gradient-text {
