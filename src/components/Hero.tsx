@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type TargetAndTransition, type Transition } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { SplitText } from "@/components/ui/SplitText";
@@ -15,15 +15,21 @@ const titleLine2 = [
   { text: "online.", gradient: false },
 ];
 
+type MotionProps = {
+  initial: TargetAndTransition;
+  animate: TargetAndTransition;
+  transition: Transition;
+};
+
 // Variantes: antes de montar en cliente → sin animación (visible)
 //             después de montar          → animación normal
-const fadeUp = (delay = 0) => ({
+const fadeUp = (delay = 0): MotionProps => ({
   initial: { opacity: 1, y: 0 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6, delay, ease: "easeOut" },
 });
 
-const fadeUpClient = (delay = 0) => ({
+const fadeUpClient = (delay = 0): MotionProps => ({
   initial: { opacity: 0, y: 16 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6, delay, ease: "easeOut" },
