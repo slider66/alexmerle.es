@@ -11,22 +11,20 @@ interface SplitTextProps {
   words: Word[];
   baseDelay?: number;
   wordDelay?: number;
-  /** Pasar false antes de montar en cliente para evitar opacity:0 en SSR */
-  animate?: boolean;
 }
 
-export function SplitText({ words, baseDelay = 0.3, wordDelay = 0.12, animate = true }: SplitTextProps) {
+export function SplitText({ words, baseDelay = 0.3, wordDelay = 0.12 }: SplitTextProps) {
   return (
     <>
       {words.map((word, i) => (
         <span key={i} className="inline-block align-bottom">
           <motion.span
             className={`inline-block ${word.gradient ? "gradient-text" : ""}`}
-            initial={animate ? { y: "20px", opacity: 0 } : { y: "0px", opacity: 1 }}
+            initial={{ y: "18px", opacity: 0 }}
             animate={{ y: "0px", opacity: 1 }}
             transition={{
-              duration: 0.65,
-              delay: animate ? baseDelay + i * wordDelay : 0,
+              duration: 0.55,
+              delay: baseDelay + i * wordDelay,
               ease: [0.25, 0.4, 0.25, 1],
             }}
           >
