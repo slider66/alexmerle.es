@@ -2,102 +2,110 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowRight, Star, GitCommitHorizontal } from "lucide-react";
+import { ArrowUpRight, Star, GitCommitHorizontal } from "lucide-react";
 import { Repository } from "@/lib/github";
 
 export function PortfolioCards({ repos }: { repos: Repository[] }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-      {repos.map((repo, index) => (
-        <motion.div
-          key={repo.id}
-          initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{
-            duration: 0.65,
-            delay: (index % 3) * 0.1,
-            ease: [0.25, 0.4, 0.25, 1],
-          }}
-          className="glass-card group flex flex-col h-full bg-[#080808]/40 border-white/5 hover:border-brand-blue/30 transition-colors duration-500"
-        >
-          {repo.previewImage && (
-            <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-white/5 bg-black/20">
-              <Image
-                src={repo.previewImage}
-                alt={`Preview of ${repo.name}`}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-60" />
-            </div>
-          )}
+      {repos.map((repo, index) => {
+        const isClickable = !repo.hideLink;
+        const Tag = isClickable ? motion.a : motion.div;
+        const linkProps = isClickable
+          ? { href: repo.html_url, target: "_blank", rel: "noopener noreferrer" }
+          : {};
 
-          <div className="p-10 flex flex-col flex-1">
-            <div className="flex justify-between items-start mb-8">
-              <div className="flex flex-col gap-1">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-blue mb-1">
-                  Proyecto
-                </span>
-                <h3 className="text-2xl font-black tracking-tight group-hover:text-white transition-colors">
-                  {repo.name.replace(/-/g, " ")}
-                </h3>
+        return (
+          <Tag
+            key={repo.id}
+            {...linkProps}
+            initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{
+              duration: 0.65,
+              delay: (index % 3) * 0.1,
+              ease: [0.25, 0.4, 0.25, 1],
+            }}
+            className={`glass-card group flex flex-col h-full bg-[#080808]/40 border-white/5 transition-colors duration-500 ${
+              isClickable
+                ? "hover:border-brand-blue/30 cursor-pointer"
+                : "hover:border-white/10"
+            }`}
+          >
+            {repo.previewImage && (
+              <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-white/5 bg-black/20">
+                <Image
+                  src={repo.previewImage}
+                  alt={`Preview of ${repo.name}`}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent opacity-60" />
               </div>
-              <div className="flex flex-col items-end gap-2">
-                {repo.stargazers_count > 0 && (
-                  <div className="flex items-center gap-1.5 px-3 py-1 bg-white/5 rounded-full text-[10px] font-black text-yellow-500/80 border border-white/5">
-                    <Star size={11} fill="currentColor" />
-                    {repo.stargazers_count}
-                  </div>
-                )}
-                {repo.commits_count > 0 && (
-                  <div className="flex items-center gap-1.5 px-3 py-1 bg-white/5 rounded-full text-[10px] font-black text-white/30 border border-white/5">
-                    <GitCommitHorizontal size={11} />
-                    {repo.commits_count}
-                  </div>
-                )}
-              </div>
-            </div>
+            )}
 
-            <p className="text-white/40 leading-relaxed mb-10 text-sm font-medium line-clamp-3 group-hover:text-white/60 transition-colors">
-              {repo.description || "Explorando nuevas fronteras tecnológicas y de seguridad."}
-            </p>
-
-            <div className="mt-auto">
-              <div className="flex flex-wrap gap-2 mb-10">
-                {repo.topics.slice(0, 4).map((topic: string) => (
-                  <span
-                    key={topic}
-                    className="px-3 py-1 bg-white/5 border border-white/5 rounded-full text-[9px] uppercase tracking-widest font-black text-white/30 group-hover:text-white/50 transition-colors"
-                  >
-                    {topic}
+            <div className="p-10 flex flex-col flex-1">
+              <div className="flex justify-between items-start mb-8">
+                <div className="flex flex-col gap-1">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-blue mb-1">
+                    Proyecto
                   </span>
-                ))}
+                  <h3 className="text-2xl font-black tracking-tight group-hover:text-white transition-colors">
+                    {repo.name.replace(/-/g, " ")}
+                  </h3>
+                </div>
+                <div className="flex flex-col items-end gap-2">
+                  {repo.stargazers_count > 0 && (
+                    <div className="flex items-center gap-1.5 px-3 py-1 bg-white/5 rounded-full text-[10px] font-black text-yellow-500/80 border border-white/5">
+                      <Star size={11} fill="currentColor" />
+                      {repo.stargazers_count}
+                    </div>
+                  )}
+                  {repo.commits_count > 0 && (
+                    <div className="flex items-center gap-1.5 px-3 py-1 bg-white/5 rounded-full text-[10px] font-black text-white/30 border border-white/5">
+                      <GitCommitHorizontal size={11} />
+                      {repo.commits_count}
+                    </div>
+                  )}
+                </div>
               </div>
 
-              {!repo.hideLink ? (
-                <a
-                  href={repo.html_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-brand-blue transition-all group/link"
-                >
-                  Explorar Proyecto
-                  <ArrowRight
-                    size={14}
-                    className="group-hover/link:translate-x-1 transition-transform text-brand-blue"
-                  />
-                </a>
-              ) : (
-                <div className="flex items-center gap-2 text-[9px] font-black text-white/20 uppercase tracking-[0.2em]">
-                  <div className="w-1.5 h-1.5 rounded-full bg-orange-500/50" />
-                  Privado / Confidencial
+              <p className="text-white/40 leading-relaxed mb-10 text-sm font-medium line-clamp-3 group-hover:text-white/60 transition-colors">
+                {repo.description || "Explorando nuevas fronteras tecnológicas y de seguridad."}
+              </p>
+
+              <div className="mt-auto">
+                <div className="flex flex-wrap gap-2 mb-10">
+                  {repo.topics.slice(0, 4).map((topic: string) => (
+                    <span
+                      key={topic}
+                      className="px-3 py-1 bg-white/5 border border-white/5 rounded-full text-[9px] uppercase tracking-widest font-black text-white/30 group-hover:text-white/50 transition-colors"
+                    >
+                      {topic}
+                    </span>
+                  ))}
                 </div>
-              )}
+
+                {isClickable ? (
+                  <div className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-white/40 group-hover:text-brand-blue transition-colors">
+                    Explorar Proyecto
+                    <ArrowUpRight
+                      size={14}
+                      className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-brand-blue"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2 text-[9px] font-black text-white/20 uppercase tracking-[0.2em]">
+                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500/50" />
+                    Privado / Confidencial
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        </motion.div>
-      ))}
+          </Tag>
+        );
+      })}
     </div>
   );
 }
