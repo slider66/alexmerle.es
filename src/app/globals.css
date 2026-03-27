@@ -266,6 +266,18 @@ body {
   }
 }
 
+/* Hero entrance — CSS puro para que funcione antes de que cargue JS (Safari iOS) */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Animations */
 @keyframes float {
   0% {

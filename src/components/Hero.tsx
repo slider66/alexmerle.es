@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { SplitText } from "@/components/ui/SplitText";
 
@@ -32,18 +29,13 @@ export default function Hero() {
 
       <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
         {/* Shiny badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-8"
-        >
+        <div className="mb-8" style={{ animation: "hero-fade-up 0.6s ease-out both" }}>
           <span className="shiny-badge">Consultor IT · Norte de Madrid</span>
           <span className="inline-flex items-center gap-2 ml-3 px-4 py-2 text-[10px] font-black tracking-[0.2em] uppercase text-emerald-400/80 border border-emerald-500/20 bg-emerald-500/5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             Aceptando proyectos
           </span>
-        </motion.div>
+        </div>
 
         {/* Animated headline */}
         <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-10 leading-[0.95]">
@@ -55,20 +47,16 @@ export default function Hero() {
           </span>
         </h1>
 
-        <motion.p
+        <p
           className="text-xl md:text-2xl text-white/55 max-w-2xl mx-auto mb-14 leading-relaxed font-medium"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.8, ease: "easeOut" }}
+          style={{ animation: "hero-fade-up 0.7s ease-out both", animationDelay: "0.8s" }}
         >
           Webs profesionales, encargos online y SEO local para negocios del norte de Madrid.
-        </motion.p>
+        </p>
 
-        <motion.div
+        <div
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1, ease: "easeOut" }}
+          style={{ animation: "hero-fade-up 0.7s ease-out both", animationDelay: "1s" }}
         >
           <Link href="#precios" className="btn-primary w-full sm:w-auto px-10 py-5">
             Ver planes
@@ -79,14 +67,12 @@ export default function Hero() {
           >
             Reserva una llamada
           </Link>
-        </motion.div>
+        </div>
 
         {/* Credenciales */}
-        <motion.div
+        <div
           className="flex items-center justify-center gap-4 mt-10 flex-wrap"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 1.3, ease: "easeOut" }}
+          style={{ animation: "hero-fade-up 0.7s ease-out both", animationDelay: "1.3s" }}
         >
           <span className="text-[10px] text-white/20 uppercase tracking-widest font-black">
             Experiencia en
@@ -97,7 +83,7 @@ export default function Hero() {
           <span className="px-3 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-[10px] font-black uppercase tracking-widest text-brand-teal/70">
             CompTIA Certified
           </span>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
