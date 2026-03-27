@@ -55,10 +55,19 @@ jobs:
             echo "Asegúrate de que next.config.ts tiene output: 'export'."
             exit 1
           fi
-          echo "✅ Carpeta ./out encontrada ($(ls ./out | wc -l) archivos/carpetas)"
+          CSS_COUNT=$(find ./out/_next/static -name "*.css" 2>/dev/null | wc -l)
+          if [ "$CSS_COUNT" -eq 0 ]; then
+            echo "❌ ERROR: No se encontró ningún archivo CSS en ./out/_next/static/"
+            exit 1
+          fi
+          echo "✅ Carpeta ./out encontrada ($(ls ./out | wc -l) archivos/carpetas, ${CSS_COUNT} CSS)"
 
-      # Subir assets con hash primero (_next/static) para que los HTML los encuentren al actualizarse
-      - name: Deploy static assets via FTP
+      # Un solo paso FTP — no dividir en múltiples pasos: puede desincronizar
+      # el estado .ftp-deploy-sync-state.json y causar que el CSS no se suba
+      # aunque el HTML (que lo referencia) sí se suba, dejando la web sin estilos.
+      # Los archivos _next/** (con hash) se ordenan antes que index.html alfabéticamente,
+      # así que el CSS siempre llega al servidor antes que los HTML que lo referencian.
+      - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -66,21 +75,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/
           server-dir: ./
-          timeout: 60000
-          include: |
-            _next/**
-
-      # Subir HTML y resto de archivos una vez los assets ya están en el servidor
-      - name: Deploy HTML and remaining files via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/
-          server-dir: ./
-          timeout: 60000
+          timeout: 120000
           exclude: |
             **/.git*
             **/.git*/**
-            _next/**
