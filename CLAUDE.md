@@ -57,7 +57,7 @@ Next.js genera CSS con hash en el nombre (`_next/static/chunks/abc123.css`). **S
 
 **Cómo evitarlo**: el workflow actual sube todo en un solo paso FTP. No dividir en múltiples pasos FTP — si un paso falla a medias y el estado `.ftp-deploy-sync-state.json` registra el archivo como subido sin haberlo subido realmente, el siguiente deploy no lo re-sube.
 
-**Si la web se queda sin CSS**: añadir un comentario cosmético en `globals.css` para cambiar el hash y forzar que el FTP-Action detecte el CSS como archivo nuevo.
+**Si la web se queda sin CSS**: no debería ocurrir con Hostinger CI/CD (siempre hace build completo). Si ocurre, forzar un redeploy desde el panel de Hostinger.
 
 ---
 
@@ -75,29 +75,39 @@ Para cambiar el email destinatario, cambiarlo en el dashboard de Web3Forms, no e
 
 ## Deploy
 
-El deploy es automático al hacer push a `main` via `.github/workflows/deploy.yml`:
+El deploy es **exclusivamente via Hostinger CI/CD**. No hay FTP manual ni GitHub Actions que suban archivos.
 
-1. Instala dependencias (`pnpm install`)
-2. Hace build (`pnpm build`) — genera `./out/`
-3. **Verifica que `./out/` existe** (guardrail — falla el deploy si falta)
-4. Sube por FTP a Hostinger en **un solo paso** (assets + HTML juntos)
+### Flujo completo
 
-### ⚠️ No tocar: configuración FTP
+```
+git push main → Hostinger detecta el push → pnpm install && pnpm run build → sirve ./out/
+```
 
-El workflow usa upload **incremental** (sin `dangerous-clean-slate`). No reactivar esa opción — causaba timeout al intentar listar y borrar todos los archivos remotos antes de subir, rompiendo el deploy.
+### Configuración en Hostinger ("Ajustes y reimplementación")
 
-No dividir el upload en múltiples pasos FTP — puede desincronizar el archivo de estado `.ftp-deploy-sync-state.json` y causar que archivos no se suban aunque el estado diga que sí.
+| Campo                  | Valor                                              |
+| ---------------------- | -------------------------------------------------- |
+| Preajuste del marco    | Next.js                                            |
+| Rama                   | main                                               |
+| Versión del nodo       | 22.x                                               |
+| Directorio raíz        | ./                                                 |
+| Comando de compilación | `pnpm install --frozen-lockfile && pnpm run build` |
+| Directorio de salida   | `out`                                              |
 
-Consecuencia del modo incremental: los archivos que se eliminen del proyecto **no se borran automáticamente del servidor**. Si hace falta limpiar el servidor de cero, hacerlo manualmente por FTP desde el panel de Hostinger.
+Variables de entorno necesarias en Hostinger:
 
-### Secrets necesarios en GitHub
+| Variable                    | Descripción                                                 |
+| --------------------------- | ----------------------------------------------------------- |
+| `NEXT_PUBLIC_WEB3FORMS_KEY` | API key pública de Web3Forms                                |
+| `GITHUB_TOKEN`              | Token de GitHub (opcional, para cargar portfolio desde API) |
 
-| Secret          | Descripción                  |
-| --------------- | ---------------------------- |
-| `FTP_SERVER`    | Servidor FTP de Hostinger    |
-| `FTP_USERNAME`  | Usuario FTP                  |
-| `FTP_PASSWORD`  | Contraseña FTP               |
-| `WEB3FORMS_KEY` | API key pública de Web3Forms |
+### GitHub Actions (`deploy.yml`)
+
+El workflow de GitHub Actions **no hace deploy** — solo actúa como CI: lint + typecheck + build check. Sirve para detectar errores antes de que lleguen a producción. El deploy real lo hace Hostinger.
+
+### ⚠️ No reactivar FTP
+
+No volver a añadir pasos FTP al workflow de GitHub Actions. Tener dos mecanismos de deploy activos (FTP + Hostinger CI/CD) causa conflictos: uno puede sobrescribir al otro y dejar la web sin CSS o con JS roto.
 
 ---
 

@@ -1,12 +1,18 @@
-name: Deploy to Hostinger
+name: CI
+
+# Deploy: gestionado por Hostinger CI/CD (push a main → Hostinger construye y sirve ./out/)
+# Este workflow solo hace lint + typecheck para detectar errores antes de que lleguen a producción.
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build-and-deploy:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,55 +33,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Restore Next.js build cache
-        uses: actions/cache@v4
-        with:
-          path: .next/cache
-          key: nextjs-${{ hashFiles('pnpm-lock.yaml') }}-${{ hashFiles('src/**/*.{ts,tsx}') }}
-          restore-keys: |
-            nextjs-${{ hashFiles('pnpm-lock.yaml') }}-
-
       - name: Lint
         run: pnpm lint
 
-      - name: Security audit
-        run: pnpm audit --audit-level=high
-        continue-on-error: true
+      - name: TypeScript check
+        run: npx tsc --noEmit
 
-      - name: Build
+      - name: Build check
         run: pnpm build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NEXT_PUBLIC_WEB3FORMS_KEY: ${{ secrets.WEB3FORMS_KEY }}
-
-      - name: Verify static output exists
-        run: |
-          if [ ! -d "./out" ]; then
-            echo "❌ ERROR: La carpeta ./out no existe. El build no generó export estático."
-            echo "Asegúrate de que next.config.ts tiene output: 'export'."
-            exit 1
-          fi
-          CSS_COUNT=$(find ./out/_next/static -name "*.css" 2>/dev/null | wc -l)
-          if [ "$CSS_COUNT" -eq 0 ]; then
-            echo "❌ ERROR: No se encontró ningún archivo CSS en ./out/_next/static/"
-            exit 1
-          fi
-          echo "✅ Carpeta ./out encontrada ($(ls ./out | wc -l) archivos/carpetas, ${CSS_COUNT} CSS)"
-
-      # Un solo paso FTP — no dividir en múltiples pasos: puede desincronizar
-      # el estado .ftp-deploy-sync-state.json y causar que el CSS no se suba
-      # aunque el HTML (que lo referencia) sí se suba, dejando la web sin estilos.
-      # Los archivos _next/** (con hash) se ordenan antes que index.html alfabéticamente,
-      # así que el CSS siempre llega al servidor antes que los HTML que lo referencian.
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/
-          server-dir: ./
-          timeout: 120000
-          exclude: |
-            **/.git*
-            **/.git*/**
