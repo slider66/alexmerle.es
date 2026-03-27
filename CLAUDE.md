@@ -75,39 +75,34 @@ Para cambiar el email destinatario, cambiarlo en el dashboard de Web3Forms, no e
 
 ## Deploy
 
-El deploy es **exclusivamente via Hostinger CI/CD**. No hay FTP manual ni GitHub Actions que suban archivos.
+El deploy es via **GitHub Actions + FTP a Hostinger**. La autoimplementación de Hostinger debe estar **DESACTIVADA**.
 
 ### Flujo completo
 
 ```
-git push main → Hostinger detecta el push → pnpm install && pnpm run build → sirve ./out/
+git push main → GitHub Actions → pnpm build → ./out/ → FTP → public_html/ de Hostinger
 ```
 
-### Configuración en Hostinger ("Ajustes y reimplementación")
+### ⚠️ Hostinger CI/CD debe estar DESACTIVADO
 
-| Campo                  | Valor                                              |
-| ---------------------- | -------------------------------------------------- |
-| Preajuste del marco    | Next.js                                            |
-| Rama                   | main                                               |
-| Versión del nodo       | 22.x                                               |
-| Directorio raíz        | ./                                                 |
-| Comando de compilación | `pnpm install --frozen-lockfile && pnpm run build` |
-| Directorio de salida   | `out`                                              |
+> Panel de Hostinger → alexmerle.es → Deployments → "Ajustes y reimplementación" → desactiva "La autoimplementación"
 
-Variables de entorno necesarias en Hostinger:
+Si Hostinger CI/CD está activo a la vez que GitHub Actions FTP, se pisan mutuamente y dejan la web sin CSS o con JS roto.
 
-| Variable                    | Descripción                                                 |
-| --------------------------- | ----------------------------------------------------------- |
-| `NEXT_PUBLIC_WEB3FORMS_KEY` | API key pública de Web3Forms                                |
-| `GITHUB_TOKEN`              | Token de GitHub (opcional, para cargar portfolio desde API) |
+**Por qué no funciona el CI/CD de Hostinger**: su sistema para Next.js busca `.next/` (apps con servidor). Este proyecto usa `output: "export"` que genera `./out/` — falla con "No output directory found".
 
-### GitHub Actions (`deploy.yml`)
+### Secrets necesarios en GitHub
 
-El workflow de GitHub Actions **no hace deploy** — solo actúa como CI: lint + typecheck + build check. Sirve para detectar errores antes de que lleguen a producción. El deploy real lo hace Hostinger.
+| Secret          | Descripción                  |
+| --------------- | ---------------------------- |
+| `FTP_SERVER`    | Servidor FTP de Hostinger    |
+| `FTP_USERNAME`  | Usuario FTP                  |
+| `FTP_PASSWORD`  | Contraseña FTP               |
+| `WEB3FORMS_KEY` | API key pública de Web3Forms |
 
-### ⚠️ No reactivar FTP
+### Si vuelve a aparecer el problema de CSS faltante
 
-No volver a añadir pasos FTP al workflow de GitHub Actions. Tener dos mecanismos de deploy activos (FTP + Hostinger CI/CD) causa conflictos: uno puede sobrescribir al otro y dejar la web sin CSS o con JS roto.
+Incrementar la versión del `state-name` en `deploy.yml` (v2 → v3). Esto fuerza re-subida completa.
 
 ---
 

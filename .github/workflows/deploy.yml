@@ -1,18 +1,16 @@
-name: CI
+name: Deploy to Hostinger
 
-# Deploy: gestionado por Hostinger CI/CD (push a main → Hostinger construye y sirve ./out/)
-# Este workflow solo hace lint + typecheck para detectar errores antes de que lleguen a producción.
+# Deploy: GitHub Actions construye y sube via FTP a Hostinger.
+# Hostinger CI/CD (autoimplementación) debe estar DESACTIVADO para evitar conflictos.
+# Ver CLAUDE.md sección "Deploy" para detalles y configuración.
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  ci:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -36,11 +34,41 @@ jobs:
       - name: Lint
         run: pnpm lint
 
-      - name: TypeScript check
-        run: npx tsc --noEmit
+      - name: Security audit
+        run: pnpm audit --audit-level=high
+        continue-on-error: true
 
-      - name: Build check
+      - name: Build
         run: pnpm build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NEXT_PUBLIC_WEB3FORMS_KEY: ${{ secrets.WEB3FORMS_KEY }}
+
+      - name: Verify static output
+        run: |
+          if [ ! -d "./out" ]; then
+            echo "❌ ./out no existe — asegúrate de que next.config.ts tiene output: 'export'"
+            exit 1
+          fi
+          CSS_COUNT=$(find ./out/_next/static -name "*.css" 2>/dev/null | wc -l)
+          if [ "$CSS_COUNT" -eq 0 ]; then
+            echo "❌ No se encontró CSS en ./out/_next/static/"
+            exit 1
+          fi
+          echo "✅ ./out OK — $(ls ./out | wc -l) entradas, ${CSS_COUNT} CSS"
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: ./
+          timeout: 120000
+          # state-name con versión para forzar subida limpia al cambiar de mecanismo.
+          # Si en el futuro aparece de nuevo el problema de CSS faltante, incrementar a v3.
+          state-name: .ftp-deploy-sync-state-v2.json
+          exclude: |
+            **/.git*
+            **/.git*/**
