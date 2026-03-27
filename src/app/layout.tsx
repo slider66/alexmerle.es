@@ -45,13 +45,19 @@ export const metadata: Metadata = {
     siteName: "Alejandro Merle",
     locale: "es_ES",
     type: "website",
-    images: [{ url: "/alex.png", width: 800, height: 1000, alt: "Alejandro Merle — Consultor IT Norte de Madrid" }],
+    images: [
+      {
+        url: "/alex.png",
+        width: 800,
+        height: 1000,
+        alt: "Alejandro Merle — Consultor IT Norte de Madrid",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Alejandro Merle · Consultor IT Norte de Madrid",
-    description:
-      "Webs profesionales y SEO local para negocios del norte de Madrid desde 449€.",
+    description: "Webs profesionales y SEO local para negocios del norte de Madrid desde 449€.",
     images: ["/alex.png"],
   },
   robots: {
@@ -59,6 +65,7 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
+  themeColor: "#000000",
 };
 
 // ── JSON-LD ────────────────────────────────────────────────────────────────────
@@ -112,6 +119,14 @@ const jsonLd = {
         "Las Tablas",
         "Paracuellos de Jarama",
         "Alcobendas",
+        "Algete",
+        "Cobeña",
+        "Daganzo de Arriba",
+        "Tres Cantos",
+        "Colmenar Viejo",
+        "Soto del Real",
+        "Guadalix de la Sierra",
+        "Pedrezuela",
         "Norte de Madrid",
       ],
       hasOfferCatalog: {
@@ -232,9 +247,7 @@ const jsonLd = {
 
 // ──────────────────────────────────────────────────────────────────────────────
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" className="scroll-smooth">
       <head>
