@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight, GitCommitHorizontal, Star, Terminal } from "lucide-react";
 import { Repository } from "@/lib/github";
 
@@ -8,7 +8,7 @@ export function ToolCards({ repos }: { repos: Repository[] }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {repos.map((repo, index) => (
-        <motion.div
+        <m.div
           key={repo.id}
           initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -86,7 +86,7 @@ export function ToolCards({ repos }: { repos: Repository[] }) {
               Privado / Confidencial
             </div>
           )}
-        </motion.div>
+        </m.div>
       ))}
     </div>
   );

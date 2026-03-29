@@ -44,18 +44,16 @@ export default function Footer() {
 
         <div className="flex gap-4">
           {[
-            { icon: Zap, href: "https://wa.me/34600367217", color: "hover:bg-[#25D366]" },
-            {
-              icon: Linkedin,
-              href: "https://es.linkedin.com/in/alejandromerle",
-              color: "hover:bg-brand-blue",
-            },
-            { icon: Mail, href: "mailto:alex@merle.es", color: "hover:bg-brand-blue" },
+            { icon: Zap, href: "https://wa.me/34600367217", color: "hover:bg-[#25D366]", label: "WhatsApp" },
+            { icon: Linkedin, href: "https://es.linkedin.com/in/alejandromerle", color: "hover:bg-brand-blue", label: "LinkedIn" },
+            { icon: Mail, href: "mailto:alex@merle.es", color: "hover:bg-brand-blue", label: "Email" },
           ].map((social, i) => (
             <a
               key={i}
               href={social.href}
               target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
               className={`w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/5 ${social.color} hover:border-transparent transition-all duration-300 group`}
             >
               <social.icon size={18} className="group-hover:scale-110 transition-transform" />

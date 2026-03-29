@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight, Star, GitCommitHorizontal } from "lucide-react";
 import { Repository } from "@/lib/github";
@@ -10,7 +10,7 @@ export function PortfolioCards({ repos }: { repos: Repository[] }) {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {repos.map((repo, index) => {
         const isClickable = !repo.hideLink;
-        const Tag = isClickable ? motion.a : motion.div;
+        const Tag = isClickable ? m.a : m.div;
         const linkProps = isClickable
           ? { href: repo.html_url, target: "_blank", rel: "noopener noreferrer" }
           : {};

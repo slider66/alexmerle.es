@@ -281,10 +281,11 @@ export function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="space-y-1">
-          <label className="text-[10px] font-black uppercase tracking-widest text-white/40">
+          <label htmlFor="service" className="text-[10px] font-black uppercase tracking-widest text-white/40">
             ¿Qué necesitas?
           </label>
           <select
+            id="service"
             name="service"
             defaultValue=""
             onBlur={handleBlur}
@@ -303,10 +304,11 @@ export function ContactForm() {
         </div>
 
         <div className="space-y-1">
-          <label className="text-[10px] font-black uppercase tracking-widest text-white/40">
+          <label htmlFor="budget" className="text-[10px] font-black uppercase tracking-widest text-white/40">
             ¿Tienes presupuesto?
           </label>
           <select
+            id="budget"
             name="budget"
             defaultValue=""
             onBlur={handleBlur}

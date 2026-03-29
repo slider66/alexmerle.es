@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { MotionProvider } from "@/components/MotionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -264,7 +265,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
         <Navbar />
         <ScrollProgress />
-        {children}
+        <MotionProvider>
+          {children}
+        </MotionProvider>
         <Footer />
         <BackToTop />
 
