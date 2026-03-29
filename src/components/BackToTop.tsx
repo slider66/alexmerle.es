@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
+import { m, AnimatePresence } from "framer-motion";
 
 const WA_NUMBER = "34600367217";
 const WA_TEXT = encodeURIComponent("Hola Alejandro, te escribo desde alexmerle.es. Me gustaría saber más sobre tus servicios.");
@@ -11,7 +12,8 @@ export function BackToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 600);
+    // Aparece justo después de hacer scroll más allá de la altura de la primera pantalla (el Hero)
+    const onScroll = () => setVisible(window.scrollY > window.innerHeight);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -33,15 +35,21 @@ export function BackToTop() {
       </a>
 
       {/* Back to top — aparece al scrollar */}
-      {visible && (
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          aria-label="Volver arriba"
-          className="fixed bottom-6 left-6 z-50 w-11 h-11 rounded-full bg-brand-blue/90 backdrop-blur-sm border border-brand-blue/50 flex items-center justify-center text-white shadow-lg hover:bg-brand-blue hover:-translate-y-1 transition-all duration-300"
-        >
-          <ArrowUp size={16} />
-        </button>
-      )}
+      <AnimatePresence>
+        {visible && (
+          <m.button
+            initial={{ opacity: 0, y: 20, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.8 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            aria-label="Volver arriba"
+            className="fixed bottom-6 left-6 z-50 w-11 h-11 rounded-full bg-brand-blue/90 backdrop-blur-sm border border-brand-blue/50 flex items-center justify-center text-white shadow-lg hover:bg-brand-blue hover:-translate-y-1 transition-all duration-300"
+          >
+            <ArrowUp size={16} />
+          </m.button>
+        )}
+      </AnimatePresence>
     </>
   );
 }

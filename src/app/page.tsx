@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import { ContactForm } from "@/components/ContactForm";
 import { BlurReveal } from "@/components/ui/BlurReveal";
+import { SuccessStories } from "@/components/SuccessStories";
 import { ContactLinks } from "@/components/ContactLinks";
 import { FAQ } from "@/components/FAQ";
 import Image from "next/image";
@@ -651,35 +652,8 @@ export default function Home() {
         <PortfolioGrid />
       </Suspense>
 
-      {/* ── TESTIMONIOS ────────────────────────────────────────────────────── */}
-      {/* TODO: descomentar cuando haya testimonios reales */}
-      {/*
-      <section id="testimonios" className="py-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <BlurReveal className="text-center mb-14">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tighter">
-              Lo que dicen <span className="gradient-text">los clientes.</span>
-            </h2>
-          </BlurReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass-card p-8 bg-[#080808]/40">
-              <p className="text-white/60 leading-relaxed mb-6 italic">"TESTIMONIO 1"</p>
-              <div>
-                <p className="font-black text-sm text-white">NOMBRE</p>
-                <p className="text-[11px] text-white/30 uppercase tracking-widest">NEGOCIO</p>
-              </div>
-            </div>
-            <div className="glass-card p-8 bg-[#080808]/40">
-              <p className="text-white/60 leading-relaxed mb-6 italic">"TESTIMONIO 2"</p>
-              <div>
-                <p className="font-black text-sm text-white">NOMBRE</p>
-                <p className="text-[11px] text-white/30 uppercase tracking-widest">NEGOCIO</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      */}
+      {/* ── CASOS DE ÉXITO ─────────────────────────────────────────────────── */}
+      <SuccessStories />
 
       {/* ── FAQ ────────────────────────────────────────────────────────────── */}
       <FAQ />

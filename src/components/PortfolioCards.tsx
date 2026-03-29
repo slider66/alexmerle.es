@@ -19,8 +19,8 @@ export function PortfolioCards({ repos }: { repos: Repository[] }) {
           <Tag
             key={repo.id}
             {...linkProps}
-            initial={{ y: 30 }}
-            whileInView={{ y: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.05 }}
             transition={{
               duration: 0.4,

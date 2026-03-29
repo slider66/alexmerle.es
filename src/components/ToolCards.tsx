@@ -10,8 +10,8 @@ export function ToolCards({ repos }: { repos: Repository[] }) {
       {repos.map((repo, index) => (
         <m.div
           key={repo.id}
-          initial={{ y: 24 }}
-          whileInView={{ y: 0 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.05 }}
           transition={{
             duration: 0.35,

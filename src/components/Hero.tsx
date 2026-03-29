@@ -49,14 +49,14 @@ export default function Hero() {
 
         <p
           className="text-xl md:text-2xl text-white/55 max-w-2xl mx-auto mb-14 leading-relaxed font-medium"
-          style={{ animation: "hero-fade-up 0.7s ease-out both", animationDelay: "0.8s" }}
+          style={{ animation: "hero-fade-up 0.7s ease-out both", animationDelay: "0.3s" }}
         >
           Webs profesionales, encargos online y SEO local para negocios del norte de Madrid.
         </p>
 
         <div
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
-          style={{ animation: "hero-fade-up 0.7s ease-out both", animationDelay: "1s" }}
+          style={{ animation: "hero-fade-up 0.7s ease-out both", animationDelay: "0.4s" }}
         >
           <Link href="#precios" className="btn-primary w-full sm:w-auto px-10 py-5">
             Ver planes
@@ -72,7 +72,7 @@ export default function Hero() {
         {/* Credenciales */}
         <div
           className="flex items-center justify-center gap-4 mt-10 flex-wrap"
-          style={{ animation: "hero-fade-up 0.7s ease-out both", animationDelay: "1.3s" }}
+          style={{ animation: "hero-fade-up 0.7s ease-out both", animationDelay: "0.5s" }}
         >
           <span className="text-[10px] text-white/20 uppercase tracking-widest font-black">
             Experiencia en

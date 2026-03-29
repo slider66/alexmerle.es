@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import { m, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
@@ -75,11 +76,21 @@ export function FAQ() {
                 </span>
               </button>
 
-              {open === i && (
-                <div className="px-7 pb-7 text-white/50 text-sm leading-relaxed font-medium border-t border-white/5 pt-5">
-                  {faq.a}
-                </div>
-              )}
+              <AnimatePresence initial={false}>
+                {open === i && (
+                  <m.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-7 pb-7 text-white/50 text-sm leading-relaxed font-medium border-t border-white/5 pt-5">
+                      {faq.a}
+                    </div>
+                  </m.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>
