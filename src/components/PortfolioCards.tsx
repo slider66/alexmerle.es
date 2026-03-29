@@ -19,12 +19,12 @@ export function PortfolioCards({ repos }: { repos: Repository[] }) {
           <Tag
             key={repo.id}
             {...linkProps}
-            initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ y: 30 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, amount: 0.05 }}
             transition={{
-              duration: 0.65,
-              delay: (index % 3) * 0.1,
+              duration: 0.4,
+              delay: (index % 3) * 0.07,
               ease: [0.25, 0.4, 0.25, 1],
             }}
             className={`glass-card group flex flex-col h-full bg-[#080808]/40 border-white/5 transition-colors duration-500 ${

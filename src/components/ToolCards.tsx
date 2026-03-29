@@ -10,12 +10,12 @@ export function ToolCards({ repos }: { repos: Repository[] }) {
       {repos.map((repo, index) => (
         <m.div
           key={repo.id}
-          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          viewport={{ once: true, margin: "-60px" }}
+          initial={{ y: 24 }}
+          whileInView={{ y: 0 }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{
-            duration: 0.55,
-            delay: (index % 3) * 0.08,
+            duration: 0.35,
+            delay: (index % 3) * 0.06,
             ease: [0.25, 0.4, 0.25, 1],
           }}
           className="glass-card group flex flex-col bg-[#080808]/40 border-white/5 hover:border-brand-teal/25 transition-colors duration-500 p-8"
