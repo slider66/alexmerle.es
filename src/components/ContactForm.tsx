@@ -181,13 +181,13 @@ export function ContactForm() {
           subject: `Nuevo lead desde la web: ${vals.business.trim()}`,
           from_name: vals.name.trim(),
           reply_to: vals.email.trim(),
-          name: vals.name.trim(),
-          business: vals.business.trim(),
-          email: vals.email.trim(),
-          phone: vals.phone.trim(),
-          service: vals.service,
-          budget: vals.budget,
-          message: vals.message.trim(),
+          Nombre: vals.name.trim(),
+          Negocio: vals.business.trim(),
+          Email: vals.email.trim(),
+          Teléfono: vals.phone.trim(),
+          Servicio: vals.service,
+          Presupuesto: vals.budget,
+          Mensaje: vals.message.trim(),
         }),
       });
       const data = await res.json();
@@ -226,7 +226,8 @@ export function ContactForm() {
           <div>
             <h3 className="text-2xl font-black mb-2">¡Mensaje enviado!</h3>
             <p className="text-white/55 max-w-sm mx-auto leading-relaxed">
-              He recibido tu consulta. Te responderé en menos de 24 horas para hablar de tu proyecto.
+              He recibido tu consulta. Te responderé en menos de 24 horas para hablar de tu
+              proyecto.
             </p>
           </div>
         </m.div>
@@ -244,7 +245,13 @@ export function ContactForm() {
           {/* Honeypot */}
           <div
             aria-hidden="true"
-            style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden", opacity: 0 }}
+            style={{
+              position: "absolute",
+              left: "-9999px",
+              height: 0,
+              overflow: "hidden",
+              opacity: 0,
+            }}
           >
             <input ref={hpNameRef} type="text" name="_hp_name" tabIndex={-1} autoComplete="off" />
             <input ref={hpUrlRef} type="url" name="_hp_url" tabIndex={-1} autoComplete="off" />
@@ -310,7 +317,10 @@ export function ContactForm() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="space-y-1">
-              <label htmlFor="service" className="text-[10px] font-black uppercase tracking-widest text-white/40">
+              <label
+                htmlFor="service"
+                className="text-[10px] font-black uppercase tracking-widest text-white/40"
+              >
                 ¿Qué necesitas?
               </label>
               <select
@@ -333,7 +343,10 @@ export function ContactForm() {
             </div>
 
             <div className="space-y-1">
-              <label htmlFor="budget" className="text-[10px] font-black uppercase tracking-widest text-white/40">
+              <label
+                htmlFor="budget"
+                className="text-[10px] font-black uppercase tracking-widest text-white/40"
+              >
                 ¿Tienes presupuesto?
               </label>
               <select
