@@ -655,11 +655,10 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 rounded-3xl blur-[60px]" />
               <div className="relative glass-card overflow-hidden border-white/10 rounded-3xl aspect-[4/5]">
                 <Image
-                  src="/alex.png"
+                  src="/alex.webp"
                   alt="Alejandro Merle — Consultor IT Norte de Madrid"
                   fill
                   className="object-cover object-top"
-                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">

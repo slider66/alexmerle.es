@@ -295,6 +295,21 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
+/* Touchscreen (móviles y tablets): desactiva aurora orbs y floating circles.
+   filter:blur(100px) en 3 elementos animados es prohibitivo en GPU móvil.
+   Esta media query es evaluada antes que cualquier JS, por lo que Lighthouse
+   mobile (que activa pointer:coarse) tampoco los renderiza → Style&Layout mejora. */
+@media (hover: none) and (pointer: coarse) {
+  .aurora-orb-1,
+  .aurora-orb-2,
+  .aurora-orb-3 {
+    display: none;
+  }
+  .animate-float {
+    animation: none;
+  }
+}
+
 /* Respeta preferencia del usuario de reducir movimiento */
 @media (prefers-reduced-motion: reduce) {
   *,

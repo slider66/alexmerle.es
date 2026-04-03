@@ -25,10 +25,13 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-      if (menuOpen) setMenuOpen(false);
+      const y = window.scrollY;
+      setIsScrolled(y > 50);
+      // Solo cierra el menú con scroll real (>10px) — en iOS un tap puede
+      // disparar un micro-scroll de 1-2px por el bounce del sistema.
+      if (menuOpen && y > 10) setMenuOpen(false);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [menuOpen]);
 
@@ -70,7 +73,8 @@ export default function Navbar() {
 
           {/* Mobile */}
           <button
-            className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
+            className="md:hidden p-3 text-white/70 hover:text-white transition-colors"
+            style={{ touchAction: "manipulation" }}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
           >
@@ -83,10 +87,14 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <m.div
-            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(12px)" }}
-            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.25, 0.4, 0.25, 1] }}
+            // backdropFilter NO se puede animar con Framer Motion en iOS:
+            // solo se aplica backdrop-filter sin prefijo y WebKit lo ignora.
+            // Se define como estilo estático con ambos prefijos.
+            style={{ backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)" }}
             className="fixed inset-0 z-40 bg-black/95 flex flex-col items-center justify-center gap-8 md:hidden"
           >
             {links.map((l, index) => (

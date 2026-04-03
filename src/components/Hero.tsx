@@ -1,5 +1,6 @@
 import { SplitText } from "@/components/ui/SplitText";
 import { HeroCtas } from "@/components/HeroCtas";
+import { AuroraBackground } from "@/components/AuroraBackground";
 
 // Headline elegido por criterio de copywriting (2026-04-02).
 // Razón: ataca la amenaza concreta (competencia ya posicionada) en lugar de
@@ -12,18 +13,7 @@ const titleLine2 = [{ text: "ya está en Google.", gradient: true }];
 export default function Hero() {
   return (
     <section className="relative min-h-screen min-h-svh flex items-center justify-center pt-20 overflow-hidden">
-      {/* Aurora Background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="aurora-orb aurora-orb-1" />
-        <div className="aurora-orb aurora-orb-2" />
-        <div className="aurora-orb aurora-orb-3" />
-      </div>
-
-      {/* Floating circles */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-10 w-24 h-24 border border-white/5 rounded-full animate-float opacity-20" />
-        <div className="absolute bottom-1/3 right-10 w-32 h-32 border border-white/5 rounded-full animate-float delay-700 opacity-20" />
-      </div>
+      <AuroraBackground />
 
       <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
         {/* Shiny badge */}
