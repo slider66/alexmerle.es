@@ -10,6 +10,7 @@ const stories = [
     tag: "Sector Industrial",
     metric: "+1.500",
     metricLabel: "Visitas orgánicas / mes",
+    days: "En 6 días",
     description:
       "Transformamos la presencia digital de una empresa nacida en 1993. Renovación completa de la web orientada a SEO local. El resultado ha sido un aumento drástico en la visibilidad en Google y una mejora notable en la calidad de los leads y solicitudes de presupuesto recibidas.",
     icon: TrendingUp,
@@ -24,6 +25,7 @@ const stories = [
     tag: "Hostelería Local",
     metric: "100%",
     metricLabel: "Digitalización Funcional",
+    days: "En 7 días",
     description:
       "Demo operativa creada específicamente para el sector de la hostelería en San Agustín de Guadalix. Sustituye la clásica 'web de presentación' por una herramienta útil: integración de carta digital conectada a un sistema automatizado de encargos vía WhatsApp.",
     icon: Smartphone,
@@ -95,6 +97,12 @@ export function SuccessStories() {
                 <span className="text-xs font-black uppercase tracking-widest text-white/50">
                   {story.metricLabel}
                 </span>
+                <div className="mt-3">
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-emerald-400/70 border border-emerald-500/20 bg-emerald-500/5 px-3 py-1 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    {story.days}
+                  </span>
+                </div>
               </div>
 
               <div className="mt-auto pt-6 border-t border-white/5">

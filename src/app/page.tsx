@@ -150,6 +150,21 @@ export default function Home() {
               </BlurReveal>
             ))}
           </div>
+
+          {/* Advisory SEO */}
+          <BlurReveal delay={0.2} className="mt-12 max-w-4xl mx-auto">
+            <div className="flex gap-4 items-start px-7 py-5 rounded-2xl border border-amber-500/15 bg-amber-500/5">
+              <span className="text-amber-400/70 text-lg leading-none mt-0.5 shrink-0">⚠</span>
+              <div className="space-y-1">
+                <p className="text-[11px] font-black uppercase tracking-widest text-amber-400/60">
+                  Sobre el posicionamiento SEO
+                </p>
+                <p className="text-sm text-white/45 leading-relaxed">
+                  Aparecer en los primeros resultados de Google lleva tiempo — entre 3 y 6 meses para keywords con algo de competencia. Lo que construimos desde el primer día está optimizado para SEO local, y te doy pautas concretas para adelantar el proceso. Pero los resultados orgánicos no se consiguen de la noche a la mañana: cualquiera que te diga lo contrario te está mintiendo.
+                </p>
+              </div>
+            </div>
+          </BlurReveal>
         </div>
       </section>
 
@@ -166,8 +181,8 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 {
-                  agencia: "Hablas con un comercial, luego con un diseñador, luego con otro.",
-                  yo: "Hablas directamente conmigo. El que diseña, el que programa y el que te coge el teléfono soy yo.",
+                  agencia: "Entre 4 y 12 semanas para entregarte algo. Cambios adicionales: abre ticket y espera.",
+                  yo: "Tiempos reales, sin meses de espera. Dos rondas de ajustes incluidas, sin lista de espera.",
                 },
                 {
                   agencia:
@@ -175,12 +190,12 @@ export default function Home() {
                   yo: "Desde 449€, sin cuota mensual. El código es tuyo desde el primer día.",
                 },
                 {
-                  agencia: "Plantillas genéricas adaptadas a tu negocio a medias.",
-                  yo: "Diseño hecho para tu negocio concreto, no para cualquier negocio.",
+                  agencia: "Hablas con un comercial, luego con un diseñador, luego con otro.",
+                  yo: "Hablas directamente conmigo. El que diseña, el que programa y el que te coge el teléfono soy yo.",
                 },
                 {
-                  agencia: "Tiempos de entrega de meses, con cambios que tardan semanas.",
-                  yo: "Resultado en 1-2 semanas. Ajustes incluidos sin esperar turno.",
+                  agencia: "Plantillas genéricas adaptadas a tu negocio a medias.",
+                  yo: "Diseño hecho para tu negocio concreto, no para cualquier negocio.",
                 },
               ].map((item, i) => (
                 <div key={i} className="glass-card p-7 bg-[#080808]/40 flex flex-col gap-5">
@@ -216,29 +231,38 @@ export default function Home() {
               {
                 step: "01",
                 title: "Hablamos",
-                desc: "Llamada de 15-20 minutos sin compromiso. Me cuentas qué tienes y qué necesitas. Yo te digo si puedo ayudarte y cómo.",
+                time: "Día 1",
+                desc: "Llamada de 15-20 minutos sin compromiso. Me cuentas qué tienes y qué necesitas — en esa misma llamada sé lo que tu negocio necesita.",
               },
               {
                 step: "02",
                 title: "Propuesta",
-                desc: "Te mando una propuesta clara con precio cerrado. Sin presupuestos abiertos ni sorpresas al final.",
+                time: "En 24h",
+                desc: "Te mando propuesta con precio cerrado antes de que acabe el día siguiente. Sin presupuestos abiertos ni sorpresas al final.",
               },
               {
                 step: "03",
                 title: "Construimos",
+                time: "Rápido",
                 desc: "Diseño y desarrollo. Te voy enseñando el avance para que puedas pedir ajustes antes de que esté terminado.",
               },
               {
                 step: "04",
                 title: "Publicamos",
-                desc: "Ponemos la web en marcha. Tienes dos sesiones de ajustes gratuitas para afinar lo que haga falta.",
+                time: "Sin demoras",
+                desc: "Tu web en marcha. Tienes dos sesiones de ajustes gratuitas para afinar lo que haga falta — sin esperar turno.",
               },
             ].map((item, i) => (
               <BlurReveal key={i} delay={i * 0.1}>
                 <ShineCard className="p-7 rounded-2xl bg-white/[0.05] border border-white/10 h-full flex flex-col gap-4 hover:border-brand-blue/40 hover:bg-white/[0.07] transition-all duration-300">
-                  <span className="text-6xl font-black leading-none select-none gradient-text opacity-50">
-                    {item.step}
-                  </span>
+                  <div className="flex items-start justify-between">
+                    <span className="text-6xl font-black leading-none select-none gradient-text opacity-50">
+                      {item.step}
+                    </span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-brand-teal/70 border border-brand-teal/20 bg-brand-teal/5 px-3 py-1 rounded-full mt-1">
+                      {item.time}
+                    </span>
+                  </div>
                   <h3 className="text-lg font-black text-white">{item.title}</h3>
                   <p className="text-sm text-white/50 leading-relaxed">{item.desc}</p>
                   {i < 3 && (
@@ -282,6 +306,20 @@ export default function Home() {
               Precios orientativos. Cada proyecto tiene sus propias necesidades y el presupuesto
               final puede variar. Hablamos antes de cerrar nada.
             </p>
+          </BlurReveal>
+
+          <BlurReveal delay={0.15}>
+            <div className="max-w-2xl mx-auto mb-12 glass-card p-7 bg-[#080808]/40 border-white/5 text-center space-y-2">
+              <p className="text-white/60 text-sm leading-relaxed">
+                Cada mes sin web son clientes que van a tu competencia que sí aparece en Google.
+              </p>
+              <p className="text-white/40 text-sm">
+                Con una agencia: 2–3 meses de espera + 2.000€.
+              </p>
+              <p className="text-white font-black text-sm">
+                Aquí: <span className="gradient-text">en una semana, desde 449€</span>, y el código es tuyo.
+              </p>
+            </div>
           </BlurReveal>
 
           <div className="flex items-center gap-3 justify-center mb-8 text-[10px] font-black uppercase tracking-widest text-white/50">
@@ -557,10 +595,11 @@ export default function Home() {
                   <strong className="text-white/80">sin pagar lo que cobra una agencia</strong>.
                 </p>
                 <p>
-                  Formación en electrónica, telecomunicaciones e informática. Uso la IA como
-                  herramienta de trabajo diaria para entregar proyectos más rápido y a mejor precio
-                  que cualquier agencia. Todo lo que construyo va bien securizado: honeypots,
-                  accesos restringidos, sin puertas traseras.
+                  Formación en electrónica, telecomunicaciones e informática. En la primera llamada
+                  ya sé lo que necesita tu negocio — sin reuniones de análisis interminables:{" "}
+                  <strong className="text-white/80">propuesta en 24h, publicado en una semana</strong>.
+                  Todo lo que construyo va bien securizado: honeypots, accesos restringidos, sin
+                  puertas traseras.
                 </p>
                 {/* Badges de credenciales */}
                 <div className="flex flex-wrap gap-3 pt-2">
@@ -668,12 +707,12 @@ export default function Home() {
               Contacto
             </span>
             <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 leading-[0.9]">
-              ¿Tu negocio <br />
-              <span className="gradient-text">podría estar aquí?</span>
+              ¿Para cuándo <br />
+              <span className="gradient-text">necesitas tu web?</span>
             </h2>
             <p className="text-white/55 text-xl max-w-2xl mx-auto font-medium leading-relaxed">
-              Cuéntame qué tienes entre manos. Reviso tu caso y te respondo en menos de 24h para ver
-              si encajamos.
+              Escríbeme hoy. Propuesta en 24h, sin esperas.
+              Acepto 3–4 proyectos al mes — comprueba si hay hueco.
             </p>
           </BlurReveal>
 

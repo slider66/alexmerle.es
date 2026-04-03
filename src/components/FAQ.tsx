@@ -11,7 +11,11 @@ const faqs = [
   },
   {
     q: "¿Cuánto tiempo tardas en tener la web lista?",
-    a: "Depende del contenido que me puedas dar: fotos, carta, descripción del negocio. Un proyecto básico normalmente está publicado en 1-2 semanas desde que arrancamos.",
+    a: "Depende del proyecto y de lo rápido que fluya el contenido — fotos, carta, descripción del negocio. Un proyecto básico suele estar publicado en una o dos semanas desde que arrancamos. Los proyectos con encargos online o integraciones pueden llevar algo más. El plazo real te lo doy en la propuesta.",
+  },
+  {
+    q: "¿Qué pasa si todavía no tengo fotos ni contenido listo?",
+    a: "No es un bloqueante. Arrancamos con lo que tengas — fotos de móvil, imágenes de stock o lo que haya disponible — y publicamos cuanto antes. El objetivo es que tu web empiece a captar clientes hoy, no cuando todo esté perfecto. Las fotos profesionales y los textos definitivos se sustituyen cuando los tengas listos, sin coste adicional dentro del período de ajustes.",
   },
   {
     q: "¿Necesito saber de informática para gestionar la web?",

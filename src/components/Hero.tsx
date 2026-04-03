@@ -1,15 +1,13 @@
-import Link from "next/link";
 import { SplitText } from "@/components/ui/SplitText";
+import { HeroCtas } from "@/components/HeroCtas";
 
-const titleLine1 = [
-  { text: "Tu negocio", gradient: false },
-  { text: "local,", gradient: false },
-];
+// Headline elegido por criterio de copywriting (2026-04-02).
+// Razón: ataca la amenaza concreta (competencia ya posicionada) en lugar de
+// prometer un beneficio abstracto. Ver EXPERIMENTO_HERO_AB.md para contexto.
+// Cuando el tráfico orgánico sea suficiente (>500 visitas/mes), replantear A/B test.
 
-const titleLine2 = [
-  { text: "visible", gradient: true },
-  { text: "online.", gradient: false },
-];
+const titleLine1 = [{ text: "Tu competencia", gradient: false }];
+const titleLine2 = [{ text: "ya está en Google.", gradient: true }];
 
 export default function Hero() {
   return (
@@ -33,11 +31,11 @@ export default function Hero() {
           <span className="shiny-badge">Consultor IT · Norte de Madrid</span>
           <span className="inline-flex items-center gap-2 ml-3 px-4 py-2 text-[10px] font-black tracking-[0.2em] uppercase text-emerald-400/80 border border-emerald-500/20 bg-emerald-500/5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            Aceptando proyectos
+            3–4 proyectos al mes · Plazas disponibles
           </span>
         </div>
 
-        {/* Animated headline */}
+        {/* H1 — server-rendered para que Google lo indexe correctamente */}
         <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-10 leading-[0.95]">
           <span className="block">
             <SplitText words={titleLine1} baseDelay={0.2} />
@@ -51,23 +49,11 @@ export default function Hero() {
           className="text-xl md:text-2xl text-white/55 max-w-2xl mx-auto mb-14 leading-relaxed font-medium"
           style={{ animation: "hero-fade-up 0.7s ease-out both", animationDelay: "0.3s" }}
         >
-          Webs profesionales, encargos online y SEO local para negocios del norte de Madrid.
+          Tú todavía no. Cada semana sin web es una semana que tus clientes
+          encuentran a otro antes que a ti.
         </p>
 
-        <div
-          className="flex flex-col sm:flex-row items-center justify-center gap-6"
-          style={{ animation: "hero-fade-up 0.7s ease-out both", animationDelay: "0.4s" }}
-        >
-          <Link href="#precios" className="btn-primary w-full sm:w-auto px-10 py-5">
-            Ver planes
-          </Link>
-          <Link
-            href="#contacto"
-            className="w-full sm:w-auto px-10 py-5 bg-white/5 border border-white/10 text-white font-black uppercase text-xs tracking-widest rounded-full hover:bg-white/10 transition-all active:scale-95"
-          >
-            Reserva una llamada
-          </Link>
-        </div>
+        <HeroCtas />
 
         {/* Credenciales */}
         <div
