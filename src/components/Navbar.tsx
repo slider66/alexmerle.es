@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { m, AnimatePresence } from "framer-motion";
 
 const links = [
   { label: "Servicios", href: "#servicios" },
@@ -19,7 +18,6 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -33,6 +31,12 @@ export default function Navbar() {
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, [menuOpen]);
+
+  // Bloquea scroll del body cuando el menú está abierto
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
   return (
@@ -71,64 +75,56 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile */}
+          {/* Mobile — botón hamburguesa */}
           <button
             className="md:hidden p-3 text-white/70 hover:text-white transition-colors"
             style={{ touchAction: "manipulation" }}
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => setMenuOpen((prev) => !prev)}
             aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={menuOpen}
           >
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </nav>
       </header>
 
-      {/* Mobile drawer */}
-      <AnimatePresence>
-        {menuOpen && (
-          <m.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.25, 0.4, 0.25, 1] }}
-            // backdropFilter NO se puede animar con Framer Motion en iOS:
-            // solo se aplica backdrop-filter sin prefijo y WebKit lo ignora.
-            // Se define como estilo estático con ambos prefijos.
-            style={{ backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)" }}
-            className="fixed inset-0 z-40 bg-black/95 flex flex-col items-center justify-center gap-8 md:hidden"
+      {/* Mobile drawer — CSS puro, sin Framer Motion.
+          Motivo: Navbar está fuera del LazyMotion provider (MotionProvider wraps
+          solo {children}). Sin LazyMotion, m.div aplica initial:{opacity:0}
+          como estilo estático y la animación nunca corre → drawer invisible.
+          CSS transition es 100% fiable en iOS Firefox/Safari. */}
+      <div
+        aria-hidden={!menuOpen}
+        style={{
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+        }}
+        className={`
+          fixed inset-0 z-40 bg-black/95
+          flex flex-col items-center justify-center gap-8
+          md:hidden
+          transition-opacity duration-300
+          ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
+        `}
+      >
+        {links.map((l) => (
+          <Link
+            key={l.href}
+            href={l.href}
+            onClick={() => setMenuOpen(false)}
+            className="text-2xl font-black tracking-tighter text-white/70 hover:text-white transition-colors"
           >
-            {links.map((l, index) => (
-              <m.div
-                key={l.href}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + index * 0.05, ease: "easeOut" }}
-              >
-                <Link
-                  href={l.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-2xl font-black tracking-tighter text-white/70 hover:text-white transition-colors"
-                >
-                  {l.label}
-                </Link>
-              </m.div>
-            ))}
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + links.length * 0.05, ease: "easeOut" }}
-            >
-              <Link
-                href="#contacto"
-                onClick={() => setMenuOpen(false)}
-                className="btn-primary mt-4 px-10 py-4 text-sm"
-              >
-                Hablemos
-              </Link>
-            </m.div>
-          </m.div>
-        )}
-      </AnimatePresence>
+            {l.label}
+          </Link>
+        ))}
+        <Link
+          href="#contacto"
+          onClick={() => setMenuOpen(false)}
+          className="btn-primary mt-4 px-10 py-4 text-sm"
+        >
+          Hablemos
+        </Link>
+      </div>
     </>
   );
 }
