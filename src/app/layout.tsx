@@ -1,21 +1,24 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { MotionProvider } from "@/components/MotionProvider";
+import { CookieBanner } from "@/components/CookieBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
+// preload:false — Geist Mono solo se usa en la página /cookies (2 celdas de tabla).
+// Sin esto Next.js precarga ambos woff2 en todas las páginas → warning en consola.
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -66,6 +69,9 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
+};
+
+export const viewport: Viewport = {
   themeColor: "#000000",
 };
 
@@ -270,20 +276,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </MotionProvider>
         <Footer />
         <BackToTop />
-
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-794H8PS8X1"
-          strategy="lazyOnload"
-        />
-        <Script id="gtag-init" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-794H8PS8X1');
-          `}
-        </Script>
+        {/* GA se carga condicionalmente desde CookieBanner solo si el usuario acepta */}
+        <CookieBanner />
       </body>
     </html>
   );

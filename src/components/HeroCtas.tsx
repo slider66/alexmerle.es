@@ -2,11 +2,6 @@
 
 import Link from "next/link";
 
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
 
 export function HeroCtas() {
   const track = (cta: "primary" | "secondary") => {
