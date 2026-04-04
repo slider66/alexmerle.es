@@ -211,7 +211,7 @@ export const geoMunicipalities: GeoMunicipality[] = [
     ],
   },
   {
-    slug: "guadalix-de-la- sierra",
+    slug: "guadalix-de-la-sierra",
     name: "Guadalix de la Sierra",
     population: 7000,
     heroContext:

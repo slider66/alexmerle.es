@@ -247,6 +247,30 @@ const jsonLd = {
             text: "Todos los planes incluyen dos sesiones de ajustes gratuitas tras la entrega. El código también es tuyo: te lo entrego en un repositorio Git para que no dependas de mí.",
           },
         },
+        {
+          "@type": "Question",
+          name: "¿Qué pasa si todavía no tengo fotos ni contenido listo?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No es un bloqueante. Arrancamos con lo que tengas — fotos de móvil, imágenes de stock o lo que haya disponible — y publicamos cuanto antes. El objetivo es que tu web empiece a captar clientes hoy, no cuando todo esté perfecto. Las fotos profesionales y los textos definitivos se sustituyen cuando los tengas listos, sin coste adicional dentro del período de ajustes.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "¿Necesito saber de informática para gestionar la web?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No hace falta. Todo está pensado para que funcione solo. Si algo cambia (precio, carta, horario), lo gestionamos juntos en las sesiones de ajuste incluidas en el plan.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "¿Tienes trabajos que pueda ver antes de decidir?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sí. Hierros Merle (merle.es) y la demo de Café & Tortilla Montes (montes.vercel.app) son dos ejemplos reales. La propuesta completa que le hice a Montes también está publicada y te la puedes mirar antes de contactar.",
+          },
+        },
       ],
     },
   ],

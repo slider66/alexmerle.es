@@ -4,7 +4,12 @@ import { PortfolioCards } from "@/components/PortfolioCards";
 import { ToolCards } from "@/components/ToolCards";
 
 export default async function PortfolioGrid() {
-  const repos = await getRepositories();
+  let repos: Awaited<ReturnType<typeof getRepositories>> = [];
+  try {
+    repos = await getRepositories();
+  } catch {
+    // Si GitHub API falla, mostramos sección vacía en lugar de romper la página
+  }
 
   const webs = repos.filter((r) => r.type !== 'tool');
   const tools = repos
