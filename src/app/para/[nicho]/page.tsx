@@ -79,6 +79,38 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
         </div>
       </section>
 
+      {/* ── PROBLEMAS Y SOLUCIONES ÚNICAS POR NICHO ───────────────────────── */}
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+          <BlurReveal>
+            <h2 className="text-xs font-black uppercase tracking-widest text-white/30 mb-5">
+              Lo que frena a muchos {niche.name.toLowerCase()}
+            </h2>
+            <ul className="space-y-3">
+              {niche.painPoints.map((p) => (
+                <li key={p} className="flex items-start gap-3 text-sm text-white/50">
+                  <span className="mt-1.5 w-1 h-1 rounded-full bg-white/20 shrink-0" />
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </BlurReveal>
+          <BlurReveal delay={0.1}>
+            <h2 className="text-xs font-black uppercase tracking-widest text-brand-teal/70 mb-5">
+              Lo que construyo para ti
+            </h2>
+            <ul className="space-y-3">
+              {niche.features.map((f) => (
+                <li key={f} className="flex items-start gap-3 text-sm text-white/60">
+                  <span className="mt-1 w-1.5 h-1.5 rounded-full bg-brand-teal shrink-0" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </BlurReveal>
+        </div>
+      </section>
+
       {/* ── PORTFOLIO ──────────────────────────────────────────────────────── */}
       <Suspense
         fallback={

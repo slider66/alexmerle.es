@@ -83,6 +83,27 @@ export default async function MunicipioPage({
         </div>
       </section>
 
+      {/* ── CONTEXTO LOCAL ÚNICO ───────────────────────────────────────────── */}
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <BlurReveal>
+            <p className="text-lg text-white/60 leading-relaxed mb-10">
+              {geo.localContext}
+            </p>
+          </BlurReveal>
+          <BlurReveal delay={0.1}>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {geo.highlights.map((h) => (
+                <li key={h} className="flex items-start gap-3 text-sm text-white/55">
+                  <span className="mt-1 w-1.5 h-1.5 rounded-full bg-brand-teal shrink-0" />
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </BlurReveal>
+        </div>
+      </section>
+
       {/* ── PORTFOLIO ──────────────────────────────────────────────────────── */}
       <Suspense
         fallback={
