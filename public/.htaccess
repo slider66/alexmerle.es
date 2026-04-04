@@ -15,9 +15,6 @@
   # Limita acceso a features del navegador
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
 
-  # XSS Protection (legado, pero útil en IE/Edge antiguos)
-  Header always set X-XSS-Protection "1; mode=block"
-
   # Content Security Policy
   # - default: solo self
   # - scripts: self + Google Analytics + unsafe-inline para Next.js hydration
