@@ -26,20 +26,63 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-8">
-          {[
-            { label: "Servicios", href: "#servicios" },
-            { label: "Precios", href: "#precios" },
-            { label: "Contacto", href: "#contacto" },
-          ].map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors"
-            >
-              {item.label}
-            </Link>
-          ))}
+        <div className="flex flex-wrap justify-center gap-12">
+          <div className="space-y-3">
+            <p className="text-[9px] font-black uppercase tracking-widest text-white/20">Zonas</p>
+            {[
+              { label: "San Agustín de Guadalix", href: "/san-agustin-de-guadalix" },
+              { label: "Alcobendas", href: "/alcobendas" },
+              { label: "San Sebastián de los Reyes", href: "/san-sebastian-de-los-reyes" },
+              { label: "El Molar", href: "/el-molar" },
+              { label: "Tres Cantos", href: "/tres-cantos" },
+              { label: "Paracuellos de Jarama", href: "/paracuellos-de-jarama" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="block text-[10px] font-medium text-white/30 hover:text-white/70 transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="space-y-3">
+            <p className="text-[9px] font-black uppercase tracking-widest text-white/20">Sectores</p>
+            {[
+              { label: "Cafeterías", href: "/para/cafeterias" },
+              { label: "Restaurantes", href: "/para/restaurantes" },
+              { label: "Talleres", href: "/para/talleres" },
+              { label: "Peluquerías", href: "/para/peluquerias" },
+              { label: "Clínicas", href: "/para/clinicas" },
+              { label: "Reformas", href: "/para/reformas" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="block text-[10px] font-medium text-white/30 hover:text-white/70 transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="space-y-3">
+            <p className="text-[9px] font-black uppercase tracking-widest text-white/20">Navegación</p>
+            {[
+              { label: "Servicios", href: "/#servicios" },
+              { label: "Precios", href: "/#precios" },
+              { label: "Contacto", href: "/#contacto" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="block text-[10px] font-medium text-white/30 hover:text-white/70 transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div className="flex gap-4">

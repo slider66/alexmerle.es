@@ -148,6 +148,33 @@ export default async function MunicipioPage({
         </div>
       </section>
 
+      {/* ── SECTORES FRECUENTES ────────────────────────────────────────────── */}
+      <section className="py-12 px-6">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-[9px] font-black uppercase tracking-widest text-white/20 mb-5">
+            Sectores frecuentes en {geo.name}
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {[
+              { label: "Cafeterías", href: "/para/cafeterias" },
+              { label: "Restaurantes", href: "/para/restaurantes" },
+              { label: "Talleres", href: "/para/talleres" },
+              { label: "Peluquerías", href: "/para/peluquerias" },
+              { label: "Clínicas", href: "/para/clinicas" },
+              { label: "Reformas", href: "/para/reformas" },
+            ].map((s) => (
+              <Link
+                key={s.href}
+                href={s.href}
+                className="px-4 py-2 text-xs font-bold text-white/40 border border-white/8 rounded-full hover:text-white/70 hover:border-white/20 transition-colors"
+              >
+                {s.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── PORTFOLIO ──────────────────────────────────────────────────────── */}
       <Suspense
         fallback={

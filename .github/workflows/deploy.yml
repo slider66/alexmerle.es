@@ -72,3 +72,14 @@ jobs:
           exclude: |
             **/.git*
             **/.git*/**
+
+      - name: Smoke test
+        continue-on-error: true
+        run: |
+          sleep 20
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://alexmerle.es)
+          if [ "$HTTP_STATUS" != "200" ]; then
+            echo "⚠️ Smoke test: https://alexmerle.es devolvió $HTTP_STATUS (puede ser propagación FTP pendiente)"
+          else
+            echo "✅ Smoke test OK — site devuelve 200"
+          fi

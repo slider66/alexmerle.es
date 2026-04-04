@@ -122,6 +122,33 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
         </div>
       </section>
 
+      {/* ── ZONAS DE ACTUACIÓN ─────────────────────────────────────────────── */}
+      <section className="py-12 px-6">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-[9px] font-black uppercase tracking-widest text-white/20 mb-5">
+            Zonas donde trabajo
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {[
+              { label: "San Agustín de Guadalix", href: "/san-agustin-de-guadalix" },
+              { label: "Alcobendas", href: "/alcobendas" },
+              { label: "San Sebastián de los Reyes", href: "/san-sebastian-de-los-reyes" },
+              { label: "El Molar", href: "/el-molar" },
+              { label: "Tres Cantos", href: "/tres-cantos" },
+              { label: "Paracuellos de Jarama", href: "/paracuellos-de-jarama" },
+            ].map((m) => (
+              <Link
+                key={m.href}
+                href={m.href}
+                className="px-4 py-2 text-xs font-bold text-white/40 border border-white/8 rounded-full hover:text-white/70 hover:border-white/20 transition-colors"
+              >
+                {m.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── PORTFOLIO ──────────────────────────────────────────────────────── */}
       <Suspense
         fallback={
