@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { geoMunicipalities, getGeoMunicipality } from "@/lib/geoData";
+import { geoMunicipalities, getGeoMunicipality, dailyLocalSearches } from "@/lib/geoData";
 import { Suspense } from "react";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import { ContactForm } from "@/components/ContactForm";
@@ -83,7 +83,7 @@ export default async function MunicipioPage({
         </div>
       </section>
 
-      {/* ── CONTEXTO LOCAL ÚNICO ───────────────────────────────────────────── */}
+      {/* ── CONTEXTO LOCAL ÚNICO + CTA PÉRDIDA DIARIA ─────────────────────── */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <BlurReveal>
@@ -92,7 +92,7 @@ export default async function MunicipioPage({
             </p>
           </BlurReveal>
           <BlurReveal delay={0.1}>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
               {geo.highlights.map((h) => (
                 <li key={h} className="flex items-start gap-3 text-sm text-white/55">
                   <span className="mt-1 w-1.5 h-1.5 rounded-full bg-brand-teal shrink-0" />
@@ -100,6 +100,25 @@ export default async function MunicipioPage({
                 </li>
               ))}
             </ul>
+          </BlurReveal>
+          {/* CTA pérdida diaria — dato calculado a partir de la población real del municipio */}
+          <BlurReveal delay={0.2}>
+            <div className="border border-white/8 rounded-2xl p-6 bg-white/[0.02] flex flex-col sm:flex-row items-start sm:items-center gap-5">
+              <div className="shrink-0 text-center sm:text-left">
+                <p className="text-5xl font-black text-brand-blue tabular-nums leading-none">
+                  {dailyLocalSearches(geo.population)}
+                </p>
+                <p className="text-[10px] font-black uppercase tracking-widest text-white/30 mt-1">
+                  búsquedas locales / día
+                </p>
+              </div>
+              <div className="h-px sm:h-12 w-full sm:w-px bg-white/8 shrink-0" />
+              <p className="text-sm text-white/50 leading-relaxed">
+                Estimación de vecinos de <strong className="text-white/70">{geo.name}</strong> que buscan
+                servicios locales en Google cada día. Sin presencia web,{" "}
+                <strong className="text-white/70">ninguno de ellos puede encontrarte</strong>.
+              </p>
+            </div>
           </BlurReveal>
         </div>
       </section>
