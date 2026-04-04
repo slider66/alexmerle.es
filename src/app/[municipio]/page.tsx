@@ -41,8 +41,33 @@ export default async function MunicipioPage({
 
   if (!geo) notFound();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Inicio", item: "https://alexmerle.es" },
+          { "@type": "ListItem", position: 2, name: geo.name, item: `https://alexmerle.es/${geo.slug}` },
+        ],
+      },
+      {
+        "@type": "LocalBusiness",
+        name: `Alejandro Merle — Diseño Web en ${geo.name}`,
+        description: geo.heroContext,
+        url: `https://alexmerle.es/${geo.slug}`,
+        telephone: "+34600367217",
+        email: "alex@merle.es",
+        areaServed: { "@type": "City", name: geo.name },
+        priceRange: "€€",
+        serviceType: "Diseño web y SEO local",
+      },
+    ],
+  };
+
   return (
     <main className="flex flex-col min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* ── HERO GEO-ESPECÍFICO ─────────────────────────────────────────────── */}
       <section className="relative pt-40 pb-20 px-6 flex flex-col items-center justify-center min-h-[70vh] text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none opacity-20">

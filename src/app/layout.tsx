@@ -135,7 +135,7 @@ const jsonLd = {
         "Guadalix de la Sierra",
         "Pedrezuela",
         "Norte de Madrid",
-      ],
+      ].map((name) => ({ "@type": "City", name })),
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Servicios de consultoría IT para pymes",

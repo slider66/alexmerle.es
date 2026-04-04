@@ -37,8 +37,19 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
 
   if (!niche) notFound();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://alexmerle.es" },
+      { "@type": "ListItem", position: 2, name: "Sectores", item: "https://alexmerle.es/para" },
+      { "@type": "ListItem", position: 3, name: niche.name, item: `https://alexmerle.es/para/${niche.slug}` },
+    ],
+  };
+
   return (
     <main className="flex flex-col min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* ── HERO NICHO-ESPECÍFICO ─────────────────────────────────────────────── */}
       <section className="relative pt-40 pb-20 px-6 flex flex-col items-center justify-center min-h-[70vh] text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none opacity-20">

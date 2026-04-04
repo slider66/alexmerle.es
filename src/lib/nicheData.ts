@@ -4,7 +4,6 @@ export interface NicheData {
   heroContext: string;
   painPoints: string[]; // problemas específicos del sector — contenido único por página
   features: string[];  // funcionalidades clave que resuelven esos problemas
-  benefits?: string[];
 }
 
 export const nichesData: NicheData[] = [
