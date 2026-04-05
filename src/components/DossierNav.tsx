@@ -47,7 +47,7 @@ export function DossierNav({ sections, title }: { sections: NavSection[]; title:
   return (
     <>
       {/* ── ÍNDICE IMPRIMIBLE (solo aparece en PDF) ──────────────────── */}
-      <div className="hidden print:block mb-12 border border-gray-200 rounded-xl p-8 bg-gray-50">
+      <div className="hidden print:block mb-12 border border-gray-200 rounded-xl p-8 bg-gray-50" style={{ pageBreakAfter: "always" }}>
         <p className="text-[9px] font-black uppercase tracking-[0.3em] text-gray-400 mb-1">
           {title}
         </p>

@@ -158,17 +158,40 @@ export default function ColaboradoresPage() {
           .print-hide { display: none !important; }
           .print-white { color: #111 !important; }
           .print-muted { color: #555 !important; }
-          @page { margin: 18mm 15mm; size: A4; }
+          @page {
+            margin: 18mm 15mm 22mm 15mm;
+            size: A4;
+            @bottom-center {
+              content: "Alex Merle  ·  alex@merle.es  ·  +34 600 367 217  ·  alexmerle.es";
+              font-family: ui-sans-serif, system-ui, sans-serif;
+              font-size: 8px;
+              font-weight: 700;
+              letter-spacing: 0.08em;
+              color: #aaa;
+              border-top: 0.5px solid #e0e0e0;
+              padding-top: 6px;
+              width: 100%;
+              text-align: center;
+            }
+            @bottom-right {
+              content: "p. " counter(page) " / " counter(pages);
+              font-family: ui-sans-serif, system-ui, sans-serif;
+              font-size: 8px;
+              font-weight: 700;
+              color: #aaa;
+              padding-top: 6px;
+            }
+          }
           .print-break { page-break-before: always; }
+          .print-cover { page-break-after: always; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
           section { page-break-inside: avoid; }
         }
       `}</style>
 
       <main className="min-h-screen pb-32">
-        <DossierNav sections={NAV_SECTIONS} title="Dossier Colaboradores · Alex Merle" />
 
-        {/* ── HERO ──────────────────────────────────────────────────────── */}
-        <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+        {/* ── HERO / PORTADA ────────────────────────────────────────────── */}
+        <section className="print-cover relative pt-32 pb-20 px-6 overflow-hidden">
           <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-teal/8 rounded-full blur-[150px] -z-10" />
           <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-brand-blue/6 rounded-full blur-[150px] -z-10" />
 
@@ -193,6 +216,8 @@ export default function ColaboradoresPage() {
             </p>
           </div>
         </section>
+
+        <DossierNav sections={NAV_SECTIONS} title="Dossier Colaboradores · Alex Merle" />
 
         {/* ── SOBRE ALEX ────────────────────────────────────────────────── */}
         <section id="quien" className="py-16 px-6 print-break scroll-mt-24">
