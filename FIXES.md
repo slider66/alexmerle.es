@@ -7,7 +7,7 @@
 
 ## CRÍTICO
 
-### FIX-01 — favicon.ico pesa 314KB (debería ser <20KB)
+### ~~FIX-01~~ ✅ — favicon.ico pesa 314KB (debería ser <20KB)
 
 **Problema:** `public/favicon.ico` es un PNG 640×640 renombrado como `.ico`. Los navegadores descargan el favicon en cada visita — 314KB es 15× más de lo necesario.
 
