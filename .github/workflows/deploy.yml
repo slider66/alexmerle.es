@@ -70,7 +70,7 @@ jobs:
           timeout: 600000
           # Incrementar la versión fuerza re-subida completa (útil si el estado FTP se desincroniza).
           # Versión actual: v4 (subida completa por añadir /dossier/)
-          state-name: .ftp-deploy-sync-state-v4.json
+          state-name: .ftp-deploy-sync-state-v5.json
           exclude: |
             **/.git*
             **/.git*/**
