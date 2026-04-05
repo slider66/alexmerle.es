@@ -65,9 +65,9 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/
           server-dir: ./
-          timeout: 120000
-          # state-name con versión para forzar subida limpia al cambiar de mecanismo.
-          # Si en el futuro aparece de nuevo el problema de CSS faltante, incrementar a v3.
+          timeout: 600000
+          # Incrementar la versión fuerza re-subida completa (útil si el estado FTP se desincroniza).
+          # Versión actual: v4 (subida completa por añadir /dossier/)
           state-name: .ftp-deploy-sync-state-v4.json
           exclude: |
             **/.git*
