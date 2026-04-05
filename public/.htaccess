@@ -60,11 +60,19 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Sirve archivos y carpetas existentes directamente
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
+# Sirve archivos existentes directamente (JS, CSS, imágenes…)
+RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
-# Para rutas sin extensión, busca el .html equivalente
+# Para rutas sin extensión, busca el .html equivalente ANTES de entrar en el directorio
+# Esto evita el 403 en rutas como /dossier/propuesta donde existe la carpeta pero no index.html
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html [L]
+
+# Sirve directorios con index.html (rutas raíz o con slash final)
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.*)$ $1/index.html [L]
+
+# Carpetas reales sin index (como _next/static/) — sirve directamente
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
