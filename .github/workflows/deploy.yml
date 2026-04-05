@@ -3,6 +3,14 @@ name: Deploy to Hostinger
 # Deploy: GitHub Actions construye y sube via FTP a Hostinger.
 # Hostinger CI/CD (autoimplementación) debe estar DESACTIVADO para evitar conflictos.
 # Ver CLAUDE.md sección "Deploy" para detalles y configuración.
+#
+# Estrategia de deploy en dos pasos:
+# 1. FTP-Deploy-Action (incremental) — sube solo los archivos cambiados usando state file.
+#    No incrementar state-name salvo que sea estrictamente necesario (fuerza subida completa
+#    y puede causar ETIMEDOUT si out/ es grande).
+# 2. lftp (forzado) — sube /dossier/ siempre, independientemente del state.
+#    Las páginas de dossier son pocas y ligeras; subirlas siempre evita el problema
+#    de que el state file las marque como subidas cuando en realidad no lo están.
 
 on:
   push:
@@ -57,7 +65,7 @@ jobs:
           fi
           echo "✅ ./out OK — $(ls ./out | wc -l) entradas, ${CSS_COUNT} CSS"
 
-      - name: Deploy via FTP
+      - name: Deploy via FTP (incremental)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -68,12 +76,27 @@ jobs:
           local-dir: ./out/
           server-dir: ./
           timeout: 600000
-          # Incrementar la versión fuerza re-subida completa (útil si el estado FTP se desincroniza).
-          # Versión actual: v4 (subida completa por añadir /dossier/)
+          # NO incrementar este número salvo causa justificada — fuerza subida completa
+          # y provoca ETIMEDOUT. El deploy incremental es suficiente para cambios normales.
           state-name: .ftp-deploy-sync-state-v5.json
           exclude: |
             **/.git*
             **/.git*/**
+            **/dossier/**
+
+      - name: Deploy /dossier/ via lftp (forzado, siempre)
+        run: |
+          sudo apt-get install -y lftp -q
+          lftp -e "
+            set ftp:ssl-allow yes;
+            set ssl:verify-certificate no;
+            set net:timeout 30;
+            set net:max-retries 3;
+            mirror --reverse --delete --verbose ./out/dossier/ /dossier/;
+            put ./out/dossier/propuesta.html -o /dossier/propuesta.html;
+            put ./out/dossier/colaboradores.html -o /dossier/colaboradores.html;
+            quit
+          " -u "${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }}" ftp://${{ secrets.FTP_SERVER }}
 
       - name: Smoke test
         continue-on-error: true
@@ -81,7 +104,11 @@ jobs:
           sleep 20
           HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://alexmerle.es)
           if [ "$HTTP_STATUS" != "200" ]; then
-            echo "⚠️ Smoke test: https://alexmerle.es devolvió $HTTP_STATUS (puede ser propagación FTP pendiente)"
+            echo "⚠️ Smoke test: https://alexmerle.es devolvió $HTTP_STATUS"
           else
             echo "✅ Smoke test OK — site devuelve 200"
           fi
+          DOSSIER_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://alexmerle.es/dossier/propuesta)
+          echo "ℹ️ /dossier/propuesta → $DOSSIER_STATUS"
+          COLAB_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://alexmerle.es/dossier/colaboradores)
+          echo "ℹ️ /dossier/colaboradores → $COLAB_STATUS"
