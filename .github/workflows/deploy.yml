@@ -68,7 +68,7 @@ jobs:
           timeout: 120000
           # state-name con versión para forzar subida limpia al cambiar de mecanismo.
           # Si en el futuro aparece de nuevo el problema de CSS faltante, incrementar a v3.
-          state-name: .ftp-deploy-sync-state-v3.json
+          state-name: .ftp-deploy-sync-state-v4.json
           exclude: |
             **/.git*
             **/.git*/**
