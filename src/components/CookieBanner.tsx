@@ -37,7 +37,7 @@ export function CookieBanner() {
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY) as Consent | null;
     if (!saved) {
-      setVisible(true);
+      setVisible(true); // eslint-disable-line react-hooks/set-state-in-effect
     } else if (saved === "accepted") {
       loadGA();
     }

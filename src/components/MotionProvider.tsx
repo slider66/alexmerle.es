@@ -45,7 +45,7 @@ export function MotionProvider({ children }: { children: ReactNode }) {
   const [tier, setTier] = useState<DeviceTier>(null);
 
   useEffect(() => {
-    setTier(detectTier());
+    setTier(detectTier()); // eslint-disable-line react-hooks/set-state-in-effect
   }, []);
 
   return (
