@@ -121,3 +121,66 @@ Esto evita que los usuarios vean páginas en blanco o versiones antiguas tras un
 ## Animaciones (Framer Motion)
 
 El proyecto usa Framer Motion para animaciones en Hero, secciones y cards. Todas son client-side y compatibles con el export estático. **Al modificar componentes animados, verificar que las animaciones siguen funcionando** — especialmente las `whileInView` que se disparan al hacer scroll.
+
+---
+
+## Hero: badge de disponibilidad y CTAs
+
+El badge de disponibilidad (`"Solo 2 plazas disponibles en abril"`) se genera **automáticamente en build time** en `src/components/Hero.tsx`:
+
+```ts
+const currentMonth = new Intl.DateTimeFormat("es", { month: "long" }).format(new Date());
+const availabilityBadge = `Solo 2 plazas disponibles en ${currentMonth}`;
+```
+
+**No editar el texto a mano** — se actualiza solo con cada deploy. Si quieres cambiar el número de plazas o el mensaje, edita la plantilla en `Hero.tsx`.
+
+Los tres CTAs del Hero están en `src/components/HeroCtas.tsx`:
+1. **Hablamos esta semana** → ancla `#contacto`
+2. **WhatsApp directo** → `https://wa.me/34600367217` (mismo número que Footer y BackToTop)
+3. **Ver planes y precios** → ancla `#precios`
+
+Si cambias el número de teléfono, actualizarlo en los tres sitios: `HeroCtas.tsx`, `Footer.tsx` y `BackToTop.tsx`.
+
+---
+
+## Imágenes: usar siempre WebP
+
+Todos los assets del portfolio tienen versión `.webp` en `public/previews/`. **Usar siempre el `.webp`**, nunca el `.png` original:
+
+```
+/previews/fotografia_aerea_madrid.webp  ✅
+/previews/merle_es_v2.webp              ✅
+/previews/metal_line_es_v2.webp         ✅
+/previews/ijornada.webp                 ✅
+/previews/montes_v2.webp                ✅
+/previews/lolo-transportes.webp         ✅
+```
+
+Los `.png` originales en `public/previews/` son fuente de edición — no se referencian en código y pueden eliminarse del repo.
+
+La foto de perfil tiene dos formatos: `alex.webp` (9.5KB) y `alex.png` (174KB). El código usa `alex.webp` en todos los sitios salvo que una plataforma externa lo requiera.
+
+---
+
+## Tailwind: no interpolar clases dinámicas
+
+Tailwind analiza el código en build time y **no procesa strings interpolados**. Esto no funciona:
+
+```tsx
+// ❌ MAL — Tailwind no genera esta clase
+className={`hover:${story.border}`}
+```
+
+Usar siempre clases completas y explícitas:
+
+```tsx
+// ✅ BIEN
+className={story.id === "foo" ? "hover:border-brand-blue/20" : "hover:border-brand-teal/20"}
+```
+
+---
+
+## GitHub API: fallback REST
+
+`src/lib/github.ts` intenta primero GraphQL (más eficiente) y cae a REST si hay timeout o error. En el fallback REST, `commits_count` se fija a `0` intencionadamente — la API REST no expone el total de commits sin llamadas adicionales, y mostrar `0` es preferible a mostrar un timestamp erróneo.

@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/alex.png",
+        url: "/alex.webp",
         width: 800,
         height: 1000,
         alt: "Alejandro Merle — Consultor IT Norte de Madrid",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Alejandro Merle · Consultor IT Norte de Madrid",
     description: "Webs profesionales y SEO local para negocios del norte de Madrid desde 449€.",
-    images: ["/alex.png"],
+    images: ["/alex.webp"],
   },
   robots: {
     index: true,
@@ -84,7 +84,7 @@ const jsonLd = {
       "@type": "Person",
       "@id": "https://alexmerle.es/#person",
       name: "Alejandro Merle",
-      image: "https://alexmerle.es/alex.png",
+      image: "https://alexmerle.es/alex.webp",
       jobTitle: "Consultor Informático",
       description:
         "Consultor IT independiente especializado en presencia digital, SEO local y automatización con IA para pequeñas empresas del norte de Madrid. Analista de ciberseguridad en Telefónica. Formación en electrónica, telecomunicaciones e informática. Certificado CompTIA.",
@@ -269,6 +269,14 @@ const jsonLd = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "Sí. Hierros Merle (merle.es) y la demo de Café & Tortilla Montes (montes.vercel.app) son dos ejemplos reales. La propuesta completa que le hice a Montes también está publicada y te la puedes mirar antes de contactar.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "¿Cómo se gestiona el pago?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Se divide en dos partes: 50% al inicio del proyecto para reservar la plaza y arrancar el trabajo, y el 50% restante a la entrega de la web. Sin cuotas mensuales ni sorpresas.",
           },
         },
       ],

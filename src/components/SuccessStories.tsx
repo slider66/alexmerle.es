@@ -66,7 +66,7 @@ export function SuccessStories() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
-              className={`glass-card p-10 flex flex-col h-full bg-[#080808]/40 border-white/5 hover:${story.border} transition-colors duration-500 group cursor-pointer`}
+              className={`glass-card p-10 flex flex-col h-full bg-[#080808]/40 border-white/5 transition-colors duration-500 group cursor-pointer ${story.id === "hierros-merle" ? "hover:border-brand-blue/20" : "hover:border-brand-teal/20"}`}
             >
               <div className="flex justify-between items-start mb-8">
                 <div className="flex gap-4 items-center">

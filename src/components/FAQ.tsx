@@ -41,6 +41,10 @@ const faqs = [
     q: "¿Tienes trabajos que pueda ver antes de decidir?",
     a: "Sí. Hierros Merle (merle.es) y la demo de Café & Tortilla Montes (montes.vercel.app) son dos ejemplos reales. La propuesta completa que le hice a Montes también está publicada y te la puedes mirar antes de contactar.",
   },
+  {
+    q: "¿Cómo se gestiona el pago?",
+    a: "Se divide en dos partes: 50% al inicio del proyecto para reservar la plaza y arrancar el trabajo, y el 50% restante a la entrega de la web. Sin cuotas mensuales ni sorpresas.",
+  },
 ];
 
 export function FAQ() {

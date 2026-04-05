@@ -18,14 +18,14 @@
 - **Bonus:** widget o badge de Google Business Profile con estrellas.
 - **Impacto:** alto. Es lo primero que busca un cliente local antes de contactar.
 
-### 3. WhatsApp CTA en el Hero
+### 3. WhatsApp CTA en el Hero (✅ Completado)
 - **Problema:** el cliente local prefiere WhatsApp a rellenar formularios.
-- **Solución:** añadir botón de WhatsApp directo en la sección Hero, junto a "Ver propuesta" y "Cuéntame tu idea".
+- **Solución:** botón WhatsApp directo añadido en `HeroCtas.tsx`, entre el CTA principal y "Ver planes y precios". Usa `wa.me/34600367217` con mensaje pre-rellenado. Tracking GA4 con `cta: "whatsapp"`.
 - **Impacto:** alto. Reduce fricción en el primer punto de contacto.
 
-### 4. Badge de urgencia real
+### 4. Badge de urgencia real (✅ Completado)
 - **Problema:** "Aceptando proyectos" no genera urgencia.
-- **Solución:** cambiar a algo dinámico como "Solo 2 plazas disponibles en abril" (actualizar mensualmente).
+- **Solución:** badge dinámico generado en build time con `Intl.DateTimeFormat` — muestra automáticamente el mes actual. Ver `Hero.tsx`.
 - **Impacto:** medio. Mejora la tasa de acción inmediata.
 
 ---

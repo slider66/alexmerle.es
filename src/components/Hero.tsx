@@ -7,6 +7,9 @@ import { AuroraBackground } from "@/components/AuroraBackground";
 // prometer un beneficio abstracto. Ver EXPERIMENTO_HERO_AB.md para contexto.
 // Cuando el tráfico orgánico sea suficiente (>500 visitas/mes), replantear A/B test.
 
+const currentMonth = new Intl.DateTimeFormat("es", { month: "long" }).format(new Date());
+const availabilityBadge = `Solo 2 plazas disponibles en ${currentMonth}`;
+
 const titleLine1 = [{ text: "Tu competencia", gradient: false }];
 const titleLine2 = [{ text: "ya está en Google.", gradient: true }];
 
@@ -21,7 +24,7 @@ export default function Hero() {
           <span className="shiny-badge">Consultor IT · Norte de Madrid</span>
           <span className="inline-flex items-center gap-2 ml-3 px-4 py-2 text-[10px] font-black tracking-[0.2em] uppercase text-emerald-400/80 border border-emerald-500/20 bg-emerald-500/5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            3–4 proyectos al mes · Plazas disponibles
+            {availabilityBadge}
           </span>
         </div>
 
