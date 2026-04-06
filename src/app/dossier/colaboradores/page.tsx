@@ -296,6 +296,13 @@ export default function ColaboradoresPage() {
             <p className="text-white/40 text-sm font-medium print-muted">
               No te pido que vendas un paquete cerrado. Te pido que escuches a tu cliente y me cuentes lo que has oído. El resto lo construimos a medida.
             </p>
+            <div className="mt-6 p-5 rounded-xl border border-white/8 bg-white/[0.03] flex items-start gap-3">
+              <span className="text-brand-teal text-lg leading-none shrink-0">→</span>
+              <p className="text-white/40 text-sm font-medium leading-relaxed print-muted">
+                <span className="text-white/60 font-bold">Sin exclusividad. Sin territorio.</span>{" "}
+                Colaboramos cuando tiene sentido para los dos. Si operas en una zona distinta al norte de Madrid, no es un problema: tú llevas la relación sobre el terreno, yo la parte técnica desde donde esté.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -351,8 +358,39 @@ export default function ColaboradoresPage() {
                 ))}
               </div>
             </div>
-            <p className="text-white/30 text-xs mt-4 font-medium print-muted">
-              El acuerdo concreto se cierra antes de cada proyecto. Sin sorpresas.
+            {/* Tabla de ejemplos €€ */}
+            <div className="mt-6 glass-card bg-[#080808]/40 overflow-hidden" style={{ borderRadius: "1rem" }}>
+              <div className="px-7 py-4 border-b border-white/5">
+                <span className="text-[10px] font-black uppercase tracking-widest text-white/35 print-muted">
+                  Ejemplos reales — cuánto cobra el colaborador
+                </span>
+              </div>
+              <div className="divide-y divide-white/5">
+                {[
+                  { project: "Auditoría SEO (150 € + IVA)", production: "~2 h producción", margin: "~50 € margen", commission: "Hasta 25 € (Nivel 2)" },
+                  { project: "Google Business + buzón (150 € + IVA)", production: "~3 h producción", margin: "~35 € margen", commission: "Hasta 17 € (Nivel 2) · 15–22 € (Nivel 1)" },
+                  { project: "Web completa (449 € + IVA)", production: "~8 h producción", margin: "~49 € margen", commission: "12–22 € (Nivel 2) · 45–67 € (Nivel 1)" },
+                  { project: "Web + Reservas (599 € + IVA)", production: "~10 h producción", margin: "~99 € margen", commission: "25–35 € (Nivel 2) · 60–90 € (Nivel 1)" },
+                ].map((row) => (
+                  <div key={row.project} className="grid grid-cols-1 md:grid-cols-4 gap-0">
+                    <div className="px-7 py-3 md:border-r border-white/5">
+                      <p className="text-sm font-semibold text-white/75 print-white">{row.project}</p>
+                    </div>
+                    <div className="px-7 py-3 md:border-r border-white/5">
+                      <p className="text-xs text-white/35 font-medium print-muted">{row.production}</p>
+                    </div>
+                    <div className="px-7 py-3 md:border-r border-white/5">
+                      <p className="text-xs text-white/40 font-medium print-muted">{row.margin}</p>
+                    </div>
+                    <div className="px-7 py-3">
+                      <p className="text-xs font-black text-brand-teal">{row.commission}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <p className="text-white/25 text-xs mt-3 font-medium print-muted">
+              Tarifa base de producción: 50 €/h + IVA. El acuerdo concreto se cierra antes de cada proyecto. Sin sorpresas.
             </p>
           </div>
         </section>

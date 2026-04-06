@@ -8,8 +8,9 @@ const NAV_SECTIONS = [
   { id: "cambio",    label: "Antes / Después"  },
   { id: "etapas",    label: "Las 3 etapas"     },
   { id: "proyectos", label: "Proyectos"        },
-  { id: "precios",   label: "Precios"          },
-  { id: "contacto",  label: "Contacto"         },
+  { id: "precios",        label: "Precios"          },
+  { id: "presupuestador", label: "Presupuestador"   },
+  { id: "contacto",       label: "Contacto"         },
 ];
 import {
   TrendingUp,
@@ -23,6 +24,7 @@ import {
   Mail,
   Phone,
 } from "lucide-react";
+import { DossierPresupuestador } from "@/components/DossierPresupuestador";
 
 export const metadata: Metadata = {
   title: "Propuesta Comercial — Alex Merle",
@@ -95,6 +97,7 @@ const projects = [
     metricLabel: "Visitas orgánicas / mes",
     badge: "En 6 días",
     desc: "Empresa familiar desde 1993 sin presencia digital útil. Renovación completa de la web orientada a SEO local. Resultado: más de 1.500 visitas orgánicas al mes en 6 días desde el lanzamiento.",
+    quote: "Llevamos treinta años sin necesitar internet. Ahora nos llaman clientes que ni sabíamos que existían.",
     color: "text-brand-blue",
     bg: "bg-brand-blue/10",
     border: "border-brand-blue/20",
@@ -163,10 +166,16 @@ const projects = [
 
 const plans = [
   {
-    name: "Módulo base",
-    price: "Desde 150 €",
-    desc: "Google Business, buzón, agenda, landing o auditoría SEO. Cada módulo es independiente.",
-    items: ["Entrega en días", "Sin cuotas mensuales", "Incluye ajustes"],
+    name: "Módulo individual",
+    price: "150 € / módulo",
+    desc: "Cada módulo es independiente y tiene precio fijo. Elige solo lo que necesitas.",
+    items: [
+      "Google Business optimizado",
+      "Buzón centralizado",
+      "Agenda online",
+      "Landing de captación",
+      "Auditoría SEO con informe",
+    ],
     highlight: false,
   },
   {
@@ -332,6 +341,13 @@ export default function DossierPage() {
               Trabajas más horas que nadie, pero el negocio no crece al ritmo que debería.
               No porque trabajes mal, sino porque nadie puede crecer mientras apaga fuegos todo el día.
             </p>
+            <div className="mt-6 p-5 rounded-xl border border-white/8 bg-white/[0.03]">
+              <p className="text-white/45 text-sm font-medium leading-relaxed print-muted">
+                Si pierdes 3 o 4 consultas a la semana por no contestar a tiempo —o porque no apareces cuando alguien te busca en Google— eso son entre{" "}
+                <span className="text-white/70 font-bold">300 y 600 € al mes que no llegan</span>.
+                No de golpe. Sin que nadie te avise. Simplemente, van a otro.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -457,6 +473,13 @@ export default function DossierPage() {
                   <p className="text-white/45 text-xs leading-relaxed font-medium mt-auto border-t border-white/5 pt-4 print-muted">
                     {p.desc}
                   </p>
+                  {"quote" in p && p.quote && (
+                    <blockquote className="border-l-2 border-white/10 pl-3 mt-3">
+                      <p className="text-white/35 text-[11px] italic leading-relaxed font-medium print-muted">
+                        &ldquo;{p.quote}&rdquo;
+                      </p>
+                    </blockquote>
+                  )}
                 </div>
               ))}
             </div>
@@ -515,6 +538,22 @@ export default function DossierPage() {
           </div>
         </section>
 
+        {/* ── PRESUPUESTADOR ────────────────────────────────────────────── */}
+        <section id="presupuestador" className="py-16 px-6 print-break scroll-mt-24 print-hide">
+          <div className="max-w-4xl mx-auto">
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 mb-4 block">
+              Calcula tu presupuesto
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-3">
+              ¿Qué necesita <span className="gradient-text">tu negocio?</span>
+            </h2>
+            <p className="text-white/45 text-base font-medium mb-10">
+              Marca lo que te falta. El presupuesto se calcula solo.
+            </p>
+            <DossierPresupuestador />
+          </div>
+        </section>
+
         {/* ── CTA FINAL ─────────────────────────────────────────────────── */}
         <section id="contacto" className="py-16 px-6 print-break scroll-mt-24">
           <div className="max-w-4xl mx-auto">
@@ -523,12 +562,13 @@ export default function DossierPage() {
                 El siguiente paso
               </span>
               <h2 className="text-4xl md:text-5xl font-black tracking-tighter">
-                La primera conversación{" "}
-                <span className="gradient-text">es gratuita.</span>
+                30 minutos.{" "}
+                <span className="gradient-text">Sin compromiso.</span>
               </h2>
               <p className="text-white/50 max-w-xl mx-auto text-base font-medium leading-relaxed print-muted">
-                Vemos lo que tienes, lo que falta y lo que tiene sentido. Si no encaja, te lo digo
-                sin rodeos. Sin compromiso, sin presión.
+                En media hora identificamos exactamente dónde se te escapan clientes y cuánto te
+                está costando. Si no hay nada que hacer, te lo digo sin rodeos. Sin presión,
+                sin letra pequeña.
               </p>
               <div className="flex flex-wrap justify-center gap-4 pt-2">
                 <a
