@@ -539,7 +539,7 @@ export default function DossierPage() {
         </section>
 
         {/* ── PRESUPUESTADOR ────────────────────────────────────────────── */}
-        <section id="presupuestador" className="py-16 px-6 print-break scroll-mt-24 print-hide">
+        <section id="presupuestador" className="py-16 px-6 print-break scroll-mt-24">
           <div className="max-w-4xl mx-auto">
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 mb-4 block">
               Calcula tu presupuesto

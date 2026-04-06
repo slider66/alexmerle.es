@@ -224,7 +224,8 @@ alexmerle.es`;
   return (
     <div className="space-y-6">
 
-      {/* Checklist por categoría */}
+      {/* Checklist por categoría — oculto en impresión */}
+      <div className="print-hide space-y-6">
       {CATEGORIAS.map((cat) => {
         const items  = SERVICIOS.filter((s) => s.category === cat);
         const isOpen = openCats.has(cat);
@@ -291,6 +292,7 @@ alexmerle.es`;
           </button>
         </div>
       ))}
+      </div>{/* /print-hide */}
 
       {/* Resumen */}
       {selected.size > 0 && (
@@ -318,7 +320,8 @@ alexmerle.es`;
             </div>
           </div>
 
-          {/* CTAs de descarga / email */}
+          {/* CTAs de descarga / email + formulario — ocultos en impresión */}
+          <div className="print-hide">
           {formState !== "sent" && (
             <div className="flex flex-col sm:flex-row gap-3">
               <button
@@ -420,8 +423,9 @@ alexmerle.es`;
               </div>
             </div>
           )}
+          </div>{/* /print-hide */}
 
-          <p className="text-white/20 text-[10px] font-medium mt-4">
+          <p className="text-white/20 text-[10px] font-medium mt-4 print-muted">
             Orientativo. El presupuesto final se cierra tras el diagnóstico inicial. Pago 50% al arrancar, 50% a la entrega.
           </p>
         </div>
