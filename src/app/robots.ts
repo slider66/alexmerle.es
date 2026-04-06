@@ -31,11 +31,10 @@ export default function robots(): MetadataRoute.Robots {
         ],
         disallow: "/",
       },
-      // Crawlers legítimos — bloquear solo el dossier (privado)
+      // Crawlers legítimos
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/dossier/", "/dossier/propuesta", "/dossier/colaboradores"],
       },
     ],
     sitemap: "https://alexmerle.es/sitemap.xml",
