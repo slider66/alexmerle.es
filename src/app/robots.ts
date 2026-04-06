@@ -14,7 +14,6 @@ export default function robots(): MetadataRoute.Robots {
           "anthropic-ai",
           "Claude-Web",
           "Omgilibot",
-          "FacebookBot",
           "Bytespider",
           "PetalBot",
           "SemrushBot",
