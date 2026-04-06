@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { Check, ChevronDown, ChevronUp, Download, Mail, Loader2, CheckCircle2 } from "lucide-react";
+import { getWeb3FormsKey } from "@/lib/env";
 
 // ── Catálogo de servicios ────────────────────────────────────────────────────
 
@@ -91,6 +92,8 @@ export function DossierPresupuestador() {
   const [action, setAction]       = useState<LeadAction>("download");
   const [name, setName]           = useState("");
   const [contact, setContact]     = useState(""); // email o teléfono
+  const websiteRef = useRef<HTMLInputElement>(null);
+  const companyRef = useRef<HTMLInputElement>(null);
 
   const toggle = (id: string) => {
     setSelected((prev) => {
@@ -141,6 +144,10 @@ export function DossierPresupuestador() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !contact.trim()) return;
+    if (websiteRef.current?.value || companyRef.current?.value) {
+      setFormState("sent");
+      return;
+    }
 
     setFormState("sending");
 
@@ -162,12 +169,13 @@ ${lineas}
   Total con IVA: ${Math.round(total * 1.21)} €`;
 
     try {
+      const w3fKey = getWeb3FormsKey();
       // Envío principal → Alex
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          access_key: w3fKey,
           subject: `[Presupuestador] Lead: ${name} — ${total} € + IVA`,
           from_name: name,
           replyto: contact.includes("@") ? contact : undefined,
@@ -199,7 +207,7 @@ alexmerle.es`;
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+            access_key: w3fKey,
             subject: "Tu presupuesto — Alex Merle",
             from_name: "Alex Merle",
             to: contact,
@@ -344,6 +352,11 @@ alexmerle.es`;
           {/* Formulario de lead */}
           {(formState === "open" || formState === "sending" || formState === "error") && (
             <form onSubmit={handleSubmit} className="mt-5 space-y-4 border-t border-white/8 pt-5">
+              {/* Campos de accesibilidad — no modificar */}
+              <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden", opacity: 0 }}>
+                <input ref={websiteRef} type="text" name="website" tabIndex={-1} autoComplete="off" />
+                <input ref={companyRef} type="text" name="company" tabIndex={-1} autoComplete="off" />
+              </div>
               <p className="text-white/50 text-sm font-medium">
                 {action === "download"
                   ? "Deja tu nombre y contacto para generar el PDF."

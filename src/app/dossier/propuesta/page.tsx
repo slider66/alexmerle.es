@@ -259,7 +259,7 @@ export default function DossierPage() {
           <div className="max-w-4xl mx-auto">
             <div className="flex items-start justify-between gap-6 mb-12">
               <span className="shiny-badge print-hide">Propuesta comercial · Uso privado</span>
-              <DossierPrintButton />
+              <DossierPrintButton filename="Alex-Merle-Propuesta-Comercial" />
             </div>
 
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-teal mb-4 block print-white">
@@ -595,7 +595,7 @@ export default function DossierPage() {
 
         {/* Botón PDF inferior */}
         <div className="flex justify-center pb-8 print-hide">
-          <DossierPrintButton />
+          <DossierPrintButton filename="Alex-Merle-Propuesta-Comercial" />
         </div>
 
       </main>

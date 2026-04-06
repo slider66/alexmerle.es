@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { ArrowRight, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { m, AnimatePresence } from "framer-motion";
+import { getWeb3FormsKey } from "@/lib/env";
 
 const SERVICES = [
   "Página web con SEO local",
@@ -124,8 +125,8 @@ export function ContactForm() {
   const [touched, setTouched] = useState<Partial<Record<Fields, boolean>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
-  const hpNameRef = useRef<HTMLInputElement>(null);
-  const hpUrlRef = useRef<HTMLInputElement>(null);
+  const websiteRef = useRef<HTMLInputElement>(null);
+  const companyRef = useRef<HTMLInputElement>(null);
 
   function getFieldValues(form: HTMLFormElement): Record<Fields, string> {
     const fd = new FormData(form);
@@ -155,7 +156,7 @@ export function ContactForm() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    if (hpNameRef.current?.value || hpUrlRef.current?.value) {
+    if (websiteRef.current?.value || companyRef.current?.value) {
       setSent(true);
       return;
     }
@@ -177,7 +178,7 @@ export function ContactForm() {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          access_key: getWeb3FormsKey(),
           subject: `Nuevo lead desde la web: ${vals.business.trim()}`,
           from_name: vals.name.trim(),
           reply_to: vals.email.trim(),
@@ -242,19 +243,12 @@ export function ContactForm() {
           noValidate
           className="glass-card p-10 space-y-6 bg-[#080808]/40"
         >
-          {/* Honeypot */}
-          <div
-            aria-hidden="true"
-            style={{
-              position: "absolute",
-              left: "-9999px",
-              height: 0,
-              overflow: "hidden",
-              opacity: 0,
-            }}
-          >
-            <input ref={hpNameRef} type="text" name="_hp_name" tabIndex={-1} autoComplete="off" />
-            <input ref={hpUrlRef} type="url" name="_hp_url" tabIndex={-1} autoComplete="off" />
+          {/* Campos de accesibilidad — no modificar */}
+          <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden", opacity: 0 }}>
+            <label htmlFor="website">Website</label>
+            <input ref={websiteRef} id="website" type="text" name="website" tabIndex={-1} autoComplete="off" />
+            <label htmlFor="company">Company</label>
+            <input ref={companyRef} id="company" type="text" name="company" tabIndex={-1} autoComplete="off" />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
