@@ -70,8 +70,8 @@ jobs:
           echo "machine $FTP_SERVER login $FTP_USER password $FTP_PASS" > ~/.netrc
           chmod 600 ~/.netrc
 
-          # Script lftp en fichero separado
-          cat > /tmp/lftp-deploy.sh << 'LFTP_SCRIPT'
+          # Script lftp en fichero separado (open dentro del script para evitar conflicto con -f)
+          cat > /tmp/lftp-deploy.sh << LFTP_SCRIPT
           set ftp:ssl-allow yes
           set ftp:ssl-force yes
           set ssl:verify-certificate no
@@ -79,11 +79,12 @@ jobs:
           set net:max-retries 5
           set net:reconnect-interval-base 5
           set ftp:passive-mode yes
+          open ftps://$FTP_SERVER
           mirror --reverse --delete --parallel=4 --verbose ./out/ /
           quit
           LFTP_SCRIPT
 
-          lftp -f /tmp/lftp-deploy.sh $FTP_SERVER
+          lftp -f /tmp/lftp-deploy.sh
 
           # Limpieza
           rm -f ~/.netrc /tmp/lftp-deploy.sh
