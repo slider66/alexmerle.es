@@ -598,8 +598,9 @@ export default function Home() {
                   Formación en electrónica, telecomunicaciones e informática. En la primera llamada
                   ya sé lo que necesita tu negocio — sin reuniones de análisis interminables:{" "}
                   <strong className="text-white/80">propuesta en 24h, publicado en una semana</strong>.
-                  Todo lo que construyo va bien securizado: honeypots, accesos restringidos, sin
-                  puertas traseras.
+                  Trabajo a diario como analista de ciberseguridad en entorno corporativo. Lo que
+                  construyo para ti tiene los mismos criterios: sin puertas traseras, accesos
+                  restringidos y protección activa contra bots y spam.
                 </p>
                 {/* Badges de credenciales */}
                 <div className="flex flex-wrap gap-3 pt-2">
