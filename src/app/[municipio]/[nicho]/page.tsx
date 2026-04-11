@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
+import { geoMunicipalities, getGeoMunicipality, dailyLocalSearches } from "@/lib/geoData";
 import { nichesData, getNicheData } from "@/lib/nicheData";
-import { geoMunicipalities } from "@/lib/geoData";
 import { Suspense } from "react";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import { ContactForm } from "@/components/ContactForm";
@@ -11,32 +11,43 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export function generateStaticParams() {
-  return nichesData.map((n) => ({ nicho: n.slug }));
+  const params: { municipio: string; nicho: string }[] = [];
+  for (const m of geoMunicipalities) {
+    for (const n of nichesData) {
+      params.push({ municipio: m.slug, nicho: n.slug });
+    }
+  }
+  return params;
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ nicho: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ municipio: string; nicho: string }> }) {
   const resolvedParams = await params;
+  const geo = getGeoMunicipality(resolvedParams.municipio);
   const niche = getNicheData(resolvedParams.nicho);
 
-  if (!niche) return {};
+  if (!geo || !niche) return {};
+
+  const title = `Diseño Web para ${niche.name} en ${geo.name} · Alejandro Merle`;
+  const description = `Páginas web y SEO local para ${niche.name.toLowerCase()} en ${geo.name}. ${niche.heroContext}`;
 
   return {
-    title: `Diseño Web para ${niche.name} · Alejandro Merle`,
-    description: niche.heroContext,
-    alternates: { canonical: `/para/${niche.slug}` },
+    title,
+    description,
+    alternates: { canonical: `/${geo.slug}/${niche.slug}` },
     openGraph: {
-      title: `Diseño Web para ${niche.name} · Alejandro Merle`,
-      description: niche.heroContext,
-      url: `https://alexmerle.es/para/${niche.slug}`,
+      title,
+      description,
+      url: `https://alexmerle.es/${geo.slug}/${niche.slug}`,
     },
   };
 }
 
-export default async function NichePage({ params }: { params: Promise<{ nicho: string }> }) {
+export default async function GeoNichePage({ params }: { params: Promise<{ municipio: string; nicho: string }> }) {
   const resolvedParams = await params;
+  const geo = getGeoMunicipality(resolvedParams.municipio);
   const niche = getNicheData(resolvedParams.nicho);
 
-  if (!niche) notFound();
+  if (!geo || !niche) notFound();
 
   const jsonLd = [
     {
@@ -44,23 +55,24 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Inicio", item: "https://alexmerle.es" },
-        { "@type": "ListItem", position: 2, name: "Sectores", item: "https://alexmerle.es/para" },
-        { "@type": "ListItem", position: 3, name: niche.name, item: `https://alexmerle.es/para/${niche.slug}` },
+        { "@type": "ListItem", position: 2, name: geo.name, item: `https://alexmerle.es/${geo.slug}` },
+        { "@type": "ListItem", position: 3, name: niche.name, item: `https://alexmerle.es/${geo.slug}/${niche.slug}` },
       ],
     },
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      name: `Diseño Web para ${niche.name}`,
+      name: `Diseño Web para ${niche.name} en ${geo.name}`,
       provider: {
         "@type": "LocalBusiness",
         name: "Alejandro Merle",
         image: "https://alexmerle.es/alex.webp",
+        areaServed: { "@type": "City", name: geo.name },
       },
       description: niche.heroContext,
       hasOfferCatalog: {
         "@type": "OfferCatalog",
-        name: "Servicios incluidos",
+        name: `Soluciones para ${niche.name.toLowerCase()}`,
         itemListElement: niche.features.map((feature, idx) => ({
           "@type": "Offer",
           itemOffered: {
@@ -76,23 +88,23 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
   return (
     <main className="flex flex-col min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
-      {/* ── HERO NICHO-ESPECÍFICO ─────────────────────────────────────────────── */}
+      {/* ── HERO HÍBRIDO ─────────────────────────────────────────────── */}
       <section className="relative pt-40 pb-20 px-6 flex flex-col items-center justify-center min-h-[70vh] text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none opacity-20">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-brand-teal/30 rounded-full blur-[120px]" />
-          <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-brand-blue/30 rounded-full blur-[120px]" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-blue/30 rounded-full blur-[120px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-teal/30 rounded-full blur-[120px]" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto space-y-8">
           <BlurReveal>
-            <span className="inline-flex items-center gap-2 px-4 py-2 text-[10px] font-black tracking-[0.2em] uppercase text-brand-blue border border-brand-blue/20 bg-brand-blue/5 rounded-full mb-6">
-              Solución a Medida
+            <span className="inline-flex items-center gap-2 px-4 py-2 text-[10px] font-black tracking-[0.2em] uppercase text-brand-teal border border-brand-teal/20 bg-brand-teal/5 rounded-full mb-6">
+              Servicio en {geo.name}
             </span>
           </BlurReveal>
 
           <BlurReveal delay={0.1}>
             <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-[1.1]">
-              Diseño web pensado para <span className="gradient-text">{niche.name}</span>
+              Páginas web y SEO para <span className="gradient-text">{niche.name.toLowerCase()}</span> en {geo.name}
             </h1>
           </BlurReveal>
 
@@ -108,7 +120,7 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
                 href="#contacto"
                 className="btn-primary w-full sm:w-auto px-10 py-5 flex items-center justify-center gap-3"
               >
-                Impulsa tu negocio
+                Hagamos crecer tu negocio
                 <ArrowRight size={14} />
               </Link>
             </div>
@@ -116,12 +128,12 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
         </div>
       </section>
 
-      {/* ── PROBLEMAS Y SOLUCIONES ÚNICAS POR NICHO ───────────────────────── */}
+      {/* ── COMPONENTE DOLOR / SOLUCIÓN POR NICHO ───────────────────────── */}
       <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 border border-white/8 rounded-2xl p-8 bg-white/[0.02]">
           <BlurReveal>
             <h2 className="text-xs font-black uppercase tracking-widest text-white/30 mb-5">
-              Lo que frena a muchos {niche.name.toLowerCase()}
+              Lo que frena a muchos negocios de la zona
             </h2>
             <ul className="space-y-3">
               {niche.painPoints.map((p) => (
@@ -134,7 +146,7 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
           </BlurReveal>
           <BlurReveal delay={0.1}>
             <h2 className="text-xs font-black uppercase tracking-widest text-brand-teal/70 mb-5">
-              Lo que construyo para ti
+              Lo que construyo para ti en {geo.name}
             </h2>
             <ul className="space-y-3">
               {niche.features.map((f) => (
@@ -148,20 +160,50 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
         </div>
       </section>
 
-      {/* ── ZONAS DE ACTUACIÓN ─────────────────────────────────────────────── */}
+      {/* ── CONTEXTO LOCAL + CTA DIARIA ──────────────────────────────────── */}
+      <section className="py-12 px-6">
+        <div className="max-w-4xl mx-auto">
+          <BlurReveal>
+            <p className="text-lg text-white/60 leading-relaxed mb-10">
+              {geo.localContext}
+            </p>
+          </BlurReveal>
+          
+          <BlurReveal delay={0.1}>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 my-10 pl-6 border-l-2 border-brand-blue/30">
+              <div className="shrink-0 text-center sm:text-left">
+                <p className="text-4xl font-black text-brand-blue tabular-nums leading-none">
+                  {dailyLocalSearches(geo.population)}
+                </p>
+                <p className="text-[10px] font-black uppercase tracking-widest text-white/30 mt-1">
+                  búsquedas / día
+                </p>
+              </div>
+              <p className="text-sm text-white/40 leading-relaxed flex-1">
+                Estimación de vecinos de <strong className="text-white/60">{geo.name}</strong> y alrededores que buscan activamente servicios o negocios en Internet a diario. Si tu empresa no tiene visibilidad aquí, toda esta demanda se redirige automáticamente hacia tu competencia local.
+              </p>
+            </div>
+          </BlurReveal>
+        </div>
+      </section>
+
+      {/* ── OTROS SECTORES ────────────────────────────────────────────── */}
       <section className="py-12 px-6">
         <div className="max-w-4xl mx-auto">
           <p className="text-[9px] font-black uppercase tracking-widest text-white/20 mb-5">
-            Zonas donde trabajo
+            Otros sectores que trabajamos en {geo.name}
           </p>
           <div className="flex flex-wrap gap-3">
-            {geoMunicipalities.slice(0, 8).map((m) => (
+            {nichesData
+              .filter(n => n.slug !== niche.slug)
+              .slice(0, 6)
+              .map((s) => (
               <Link
-                key={m.slug}
-                href={`/${m.slug}/${niche.slug}`}
-                className="px-4 py-2 text-xs font-bold text-white/40 border border-white/8 rounded-full hover:text-white/70 hover:border-white/20 transition-colors"
+                key={s.slug}
+                href={`/${geo.slug}/${s.slug}`}
+                className="px-4 py-2 text-xs font-bold text-white/30 border border-white/5 rounded-full hover:text-white/60 hover:border-white/20 transition-colors"
               >
-                {m.name}
+                {s.name}
               </Link>
             ))}
           </div>
@@ -196,11 +238,11 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
               Contacto
             </span>
             <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 leading-[0.9]">
-              Hablemos de <br />
-              <span className="gradient-text">tu negocio</span>
+              Impulsa tu negocio en <br />
+              <span className="gradient-text">{geo.name}</span>
             </h2>
             <p className="text-white/55 text-xl max-w-2xl mx-auto font-medium leading-relaxed">
-              Trabajemos juntos para digitalizar y mejorar la rentabilidad de tu actividad.
+              Solicita tu presupuesto sin compromiso. Respondo en menos de 24 horas.
             </p>
           </BlurReveal>
 

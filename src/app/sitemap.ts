@@ -46,5 +46,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...geoRoutes, ...nicheRoutes];
+  const geoNicheRoutes: MetadataRoute.Sitemap = [];
+  geoMunicipalities.forEach((geo) => {
+    nichesData.forEach((niche) => {
+      geoNicheRoutes.push({
+        url: `https://alexmerle.es/${geo.slug}/${niche.slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.6,
+      });
+    });
+  });
+
+  return [...staticRoutes, ...geoRoutes, ...nicheRoutes, ...geoNicheRoutes];
 }

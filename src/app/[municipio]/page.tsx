@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { geoMunicipalities, getGeoMunicipality, dailyLocalSearches } from "@/lib/geoData";
+import { nichesData } from "@/lib/nicheData";
 import { Suspense } from "react";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import { ContactForm } from "@/components/ContactForm";
@@ -155,20 +156,13 @@ export default async function MunicipioPage({
             Sectores frecuentes en {geo.name}
           </p>
           <div className="flex flex-wrap gap-3">
-            {[
-              { label: "Cafeterías", href: "/para/cafeterias" },
-              { label: "Restaurantes", href: "/para/restaurantes" },
-              { label: "Talleres", href: "/para/talleres" },
-              { label: "Peluquerías", href: "/para/peluquerias" },
-              { label: "Clínicas", href: "/para/clinicas" },
-              { label: "Reformas", href: "/para/reformas" },
-            ].map((s) => (
+            {nichesData.slice(0, 8).map((s) => (
               <Link
-                key={s.href}
-                href={s.href}
+                key={s.slug}
+                href={`/${geo.slug}/${s.slug}`}
                 className="px-4 py-2 text-xs font-bold text-white/40 border border-white/8 rounded-full hover:text-white/70 hover:border-white/20 transition-colors"
               >
-                {s.label}
+                {s.name}
               </Link>
             ))}
           </div>
