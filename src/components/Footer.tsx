@@ -16,14 +16,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Alejandro Merle. <br className="md:hidden" />
             Consultor IT · Norte de Madrid.
           </p>
-          {/* Texto para crawlers — localidades de actuación */}
-          <p className="sr-only">
-            Consultor informático independiente en el norte de Madrid. Servicios de diseño web, SEO
-            local y consultoría IT para negocios y autónomos en San Agustín de Guadalix, San
-            Sebastián de los Reyes, El Molar, Las Tablas, Paracuellos de Jarama, Alcobendas, Algete,
-            Cobeña, Fuente el Saz de Jarama, Tres Cantos, Colmenar Viejo, Soto del Real, Guadalix de
-            la Sierra, Pedrezuela y alrededores.
-          </p>
+
         </div>
 
         <div className="flex flex-wrap justify-center gap-12">
