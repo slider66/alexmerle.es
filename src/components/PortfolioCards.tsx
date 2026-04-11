@@ -37,7 +37,7 @@ export function PortfolioCards({ repos }: { repos: Repository[] }) {
               <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-white/5 bg-black/20">
                 <Image
                   src={repo.previewImage}
-                  alt={`Preview of ${repo.name}`}
+                  alt={repo.description ? `Proyecto web: ${repo.name.replace(/-/g, " ")} - ${repo.description}` : `Captura del portfolio de diseño web: proyecto ${repo.name.replace(/-/g, " ")}`}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                 />

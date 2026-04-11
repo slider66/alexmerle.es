@@ -52,6 +52,13 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/alex.webp",
+        width: 1200,
+        height: 630,
+        alt: "Alejandro Merle — Consultor IT y Diseño Web en Madrid",
+        type: "image/webp",
+      },
+      {
+        url: "/alex.webp",
         width: 800,
         height: 1000,
         alt: "Alejandro Merle — Consultor IT Norte de Madrid",
@@ -119,6 +126,12 @@ const jsonLd = {
       telephone: "+34600367217",
       email: "alex@merle.es",
       provider: { "@id": "https://alexmerle.es/#person" },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "5.0",
+        reviewCount: "2",
+        description: "Valoración basada en casos de éxito y despliegues recientes de clientes."
+      },
       areaServed: [
         "San Agustín de Guadalix",
         "San Sebastián de los Reyes",
