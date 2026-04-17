@@ -49,17 +49,11 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/alex.webp",
+        url: "/og-image.webp",
         width: 1200,
         height: 630,
         alt: "WebPC — Especialistas en Rendimiento Web para PYMES en Madrid",
         type: "image/webp",
-      },
-      {
-        url: "/alex.webp",
-        width: 800,
-        height: 1000,
-        alt: "WebPC — Consultoría de Rendimiento Web Norte de Madrid",
       },
     ],
   },
@@ -68,7 +62,7 @@ export const metadata: Metadata = {
     title: "WebPC · Rescate y Rendimiento Web",
     description:
       "Digitalización avanzada y arquitectura Web 4.0 para negocios que no pueden permitirse ser lentos.",
-    images: ["/alex.webp"],
+    images: ["/og-image.webp"],
   },
   robots: {
     index: true,
