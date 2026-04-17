@@ -38,10 +38,13 @@ const stories = [
 
 export function SuccessStories() {
   return (
-    <section id="casos-de-exito" className="py-32 px-6 relative overflow-hidden">
+    <section
+      id="casos-de-exito"
+      className="py-32 px-6 relative overflow-hidden snap-start scroll-mt-16"
+    >
       {/* Fondos difuminados */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue/5 rounded-full blur-[150px] -z-10" />
-      
+      <div className="absolute top-0 right-0 w-125 h-125 bg-brand-blue/5 rounded-full blur-[150px] -z-10" />
+
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 mb-4 block">
@@ -51,7 +54,8 @@ export function SuccessStories() {
             Resultados que <span className="gradient-text">hablan por sí solos.</span>
           </h2>
           <p className="text-white/55 text-xl max-w-2xl mx-auto font-medium">
-            Más allá del diseño bonito. Webs construidas para captar clientes, automatizar procesos y hacer sonar el teléfono.
+            Más allá del diseño bonito. Webs construidas para captar clientes, automatizar procesos
+            y hacer sonar el teléfono.
           </p>
         </div>
 
@@ -70,7 +74,9 @@ export function SuccessStories() {
             >
               <div className="flex justify-between items-start mb-8">
                 <div className="flex gap-4 items-center">
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 ${story.bg} border ${story.border}`}>
+                  <div
+                    className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 ${story.bg} border ${story.border}`}
+                  >
                     <story.icon size={24} className={story.color} />
                   </div>
                   <div>
@@ -82,15 +88,20 @@ export function SuccessStories() {
                     </h3>
                   </div>
                 </div>
-                
+
                 <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/5 text-white/30 group-hover:text-white transition-colors">
-                  <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight
+                    size={18}
+                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                  />
                 </div>
               </div>
 
               <div className="mb-8">
                 <div className="flex items-end gap-3 mb-2">
-                  <span className={`text-6xl font-black tracking-tighter leading-none ${story.color}`}>
+                  <span
+                    className={`text-6xl font-black tracking-tighter leading-none ${story.color}`}
+                  >
                     {story.metric}
                   </span>
                 </div>

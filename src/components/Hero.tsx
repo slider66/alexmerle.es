@@ -15,7 +15,7 @@ const titleLine2 = [{ text: "o es un fósil digital?", gradient: true }];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen min-h-svh flex items-center justify-center pt-20 overflow-hidden">
+    <section className="relative min-h-screen min-h-svh flex items-center justify-center pt-20 overflow-hidden snap-start">
       <AuroraBackground />
 
       <div className="max-w-5xl mx-auto px-6 text-center relative z-10">

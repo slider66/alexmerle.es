@@ -51,7 +51,7 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-32 px-6 relative overflow-hidden">
+    <section id="faq" className="py-32 px-6 relative overflow-hidden snap-start scroll-mt-16">
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-teal/5 rounded-full blur-[150px] -z-10" />
 
       <div className="max-w-3xl mx-auto">
