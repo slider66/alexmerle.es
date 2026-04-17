@@ -23,70 +23,60 @@ const skills = [
 const services = [
   {
     icon: Globe,
-    title: "Presencia Online",
+    title: "Existencia Digital Profesional",
     subtitle: "Desde 449€",
     description:
-      "Tu negocio visible en Google. Web profesional con carta digital, lista de precios, galería, ubicación y acceso directo a WhatsApp. SEO local para que te encuentren los clientes de tu zona.",
+      "Deja de ser invisible para los clientes de tu zona. Posicionamiento estratégico en Google para que tu negocio sea la primera opción local, sin importar el sector.",
     items: [
-      "Diseño responsive",
-      "SEO local",
-      "Google Maps integrado",
-      "WhatsApp + Llamada directa",
+      "SEO Local de alto impacto",
+      "Botones de contacto estratégico",
+      "Imagen premium y profesional",
     ],
   },
   {
     icon: Cpu,
-    title: "Encargos y Reservas",
-    subtitle: "Desde 599€",
+    title: "Productividad y Automatización",
+    subtitle: "Desde 699€",
     description:
-      "Sistema online para gestionar pedidos o citas sin depender del teléfono. Menos llamadas, menos errores, más encargos fuera de tu horario habitual.",
-    items: [
-      "Encargos paso a paso para el cliente",
-      "Selección de fecha y hora",
-      "El cliente recibe confirmación",
-      "Lo activas o desactivas cuando quieras",
-    ],
+      "Recupera 10 horas semanales de gestión repetitiva. Digitaliza tus reservas y pedidos para que el negocio funcione de forma autónoma, sin depender del teléfono.",
+    items: ["Control de disponibilidad total", "Venta y reserva 24/7", "Ahorro de tiempo real"],
   },
   {
     icon: Zap,
-    title: "Integraciones y Pagos",
-    subtitle: "Desde 849€",
+    title: "Digitalización Avanzada",
+    subtitle: "Desde 1.199€",
     description:
-      "Para negocios que necesitan conectar su web con otras herramientas. Cobro online, sincronización de datos y automatizaciones a medida.",
+      "Ingeniería de procesos para negocios que buscan escalar. Soluciones tecnológicas a medida diseñadas para eliminar cuellos de botella y maximizar rentabilidad.",
     items: [
-      "Pasarela de pago integrada",
-      "Google Sheets o Notion",
-      "CRM o herramienta de gestión",
-      "Automatizaciones personalizadas",
+      "Fase de Análisis Previo obligatorio",
+      "Integración de ecosistemas (CRM/Pagos)",
+      "Arquitectura escalable ad-hoc",
     ],
   },
 ];
 
 const planBasico = [
-  "Tu negocio en Google con SEO local",
-  "Carta o menú digital para consultar (sin pedidos online)",
-  "Botón de contacto directo: WhatsApp y teléfono",
-  "Cómo llegar desde Google Maps",
-  "Se ve bien en móvil y en ordenador",
-  "Carga rápida desde el primer segundo",
+  "SEO Local de alto impacto: Google Maps y Búsqueda",
+  "Botones de conversión: WhatsApp y Llamada directa",
+  "Web ultra rápida optimizada para móviles",
+  "Imagen corporativa profesional y de confianza",
+  "Dominio y publicación incluida (Existencia Digital)",
 ];
 
 const planAvanzado = [
-  "Todo lo del Plan Básico incluido",
-  "Sistema de encargos o reservas paso a paso",
-  "El cliente elige fecha y hora de recogida",
-  "Solo acepta pedidos con antelación suficiente",
-  "Lo puedes activar o desactivar cuando quieras",
-  "Confirmación automática por email al cliente y a ti",
-  "El cliente recibe el pedido guardado en su calendario",
+  "Todo lo de Existencia Digital incluido",
+  "Sistema de gestión de reservas o pedidos online",
+  "Control total de disponibilidad desde tu móvil",
+  "Confirmaciones automáticas (Ahorro de tiempo)",
+  "Venta activa 24/7 sin errores humanos",
 ];
 
 const planCompleto = [
-  "Todo lo del Plan Avanzado incluido",
-  "Pasarela de pago online integrada",
-  "Sincronización con Google Sheets o Notion",
-  "Conexión con tu CRM o herramienta de gestión",
-  "Automatizaciones personalizadas según tu flujo de trabajo",
+  "Fase de Análisis Previo para definir el ROI",
+  "Integración con CRM o herramientas (Notion/Sheets)",
+  "Pasarelas de pago profesionales (Stripe/PayPal)",
+  "Automatizaciones complejas a medida",
+  "Consultoría técnica e ingeniería de procesos",
 ];
 
 const included = [
@@ -160,7 +150,11 @@ export default function Home() {
                   Sobre el posicionamiento SEO
                 </p>
                 <p className="text-sm text-white/45 leading-relaxed">
-                  Aparecer en los primeros resultados de Google lleva tiempo — entre 3 y 6 meses para keywords con algo de competencia. Lo que construimos desde el primer día está optimizado para SEO local, y te doy pautas concretas para adelantar el proceso. Pero los resultados orgánicos no se consiguen de la noche a la mañana: cualquiera que te diga lo contrario te está mintiendo.
+                  Aparecer en los primeros resultados de Google lleva tiempo — entre 3 y 6 meses
+                  para keywords con algo de competencia. Lo que construimos desde el primer día está
+                  optimizado para SEO local, y te doy pautas concretas para adelantar el proceso.
+                  Pero los resultados orgánicos no se consiguen de la noche a la mañana: cualquiera
+                  que te diga lo contrario te está mintiendo.
                 </p>
               </div>
             </div>
@@ -181,7 +175,8 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 {
-                  agencia: "Entre 4 y 12 semanas para entregarte algo. Cambios adicionales: abre ticket y espera.",
+                  agencia:
+                    "Entre 4 y 12 semanas para entregarte algo. Cambios adicionales: abre ticket y espera.",
                   yo: "Tiempos reales, sin meses de espera. Dos rondas de ajustes incluidas, sin lista de espera.",
                 },
                 {
@@ -317,7 +312,9 @@ export default function Home() {
                 Con una agencia: 2–3 meses de espera + 2.000€.
               </p>
               <p className="text-white font-black text-sm">
-                Aquí: <span className="gradient-text">en una semana, desde 449€</span>, y el código es tuyo.
+                Inversión:{" "}
+                <span className="gradient-text">resultados en una semana, desde 449€</span>, y el
+                código es tuyo.
               </p>
             </div>
           </BlurReveal>
@@ -334,7 +331,7 @@ export default function Home() {
               <div className="glass-card p-10 flex flex-col gap-6 bg-[#080808]/40 h-full">
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-white/40 mb-2">
-                    Fase 1 — La base de tu presencia online
+                    Nivel 1 — Existencia Digital Profesional
                   </p>
                   <div className="flex items-end gap-2 mb-1">
                     <span className="text-5xl font-black tracking-tighter">449€</span>
@@ -342,8 +339,8 @@ export default function Home() {
                   <p className="text-[10px] text-white/20 font-medium">+ IVA</p>
                 </div>
                 <p className="text-white/55 text-sm leading-relaxed">
-                  Tu negocio con una imagen profesional desde el primer día: apareces en Google, el
-                  cliente lo tiene todo claro y contactarte es inmediato.
+                  Deja de ser invisible. Una imagen profesional que domina tu zona: apareces en
+                  Google, generas confianza inmediata y recibes contactos directos.
                 </p>
                 <ul className="space-y-3 flex-1">
                   {planBasico.map((item) => (
@@ -370,16 +367,16 @@ export default function Home() {
                 <div className="glass-card p-10 flex flex-col gap-6 border-brand-blue/40 bg-brand-blue/5 flex-1">
                   <div>
                     <p className="text-[10px] font-black uppercase tracking-widest text-brand-blue mb-2">
-                      Fase 2 — Landing + Encargos + Confirmaciones
+                      Nivel 2 — Productividad y Automatización
                     </p>
                     <div className="flex items-end gap-2 mb-1">
-                      <span className="text-5xl font-black tracking-tighter">599€</span>
+                      <span className="text-5xl font-black tracking-tighter">699€</span>
                     </div>
                     <p className="text-[10px] text-white/20 font-medium">+ IVA</p>
                   </div>
                   <p className="text-white/55 text-sm leading-relaxed">
-                    El cliente reserva solo, ambos recibís confirmación automática, y el pedido
-                    queda guardado sin que nadie tenga que hacer nada.
+                    Recupera tu tiempo. El negocio funciona mientras duermes: reservas o pedidos
+                    autogestionados y confirmaciones automáticas sin errores.
                   </p>
                   <ul className="space-y-3 flex-1">
                     {planAvanzado.map((item) => (
@@ -401,18 +398,18 @@ export default function Home() {
               <div className="glass-card p-10 flex flex-col gap-6 bg-[#080808]/40 h-full">
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-brand-teal mb-2">
-                    Fase 3 — Integraciones y Pagos Online
+                    Nivel 3 — Digitalización e Ingeniería
                   </p>
                   <div className="flex items-end gap-2 mb-1">
-                    <span className="text-4xl font-black tracking-tighter">Desde 849€</span>
+                    <span className="text-4xl font-black tracking-tighter">Desde 1.199€</span>
                   </div>
                   <p className="text-[10px] text-white/20 font-medium">
-                    + IVA · varía según integraciones y herramientas
+                    + IVA · Requiere Fase de Análisis Previo
                   </p>
                 </div>
                 <p className="text-white/55 text-sm leading-relaxed">
-                  Para negocios que necesitan conectar la web con sus herramientas: cobro online,
-                  sincronización de datos y automatizaciones a medida.
+                  Escala tu modelo de negocio. Soluciones ad-hoc integradas con tus herramientas
+                  para eliminar cuellos de botella y maximizar el ROI.
                 </p>
                 <ul className="space-y-3 flex-1">
                   {planCompleto.map((item) => (
@@ -597,8 +594,10 @@ export default function Home() {
                 <p>
                   Formación en electrónica, telecomunicaciones e informática. En la primera llamada
                   ya sé lo que necesita tu negocio — sin reuniones de análisis interminables:{" "}
-                  <strong className="text-white/80">propuesta en 24h, publicado en una semana</strong>.
-                  Trabajo a diario como analista de ciberseguridad en entorno corporativo. Lo que
+                  <strong className="text-white/80">
+                    propuesta en 24h, publicado en una semana
+                  </strong>
+                  . Trabajo a diario como analista de ciberseguridad en entorno corporativo. Lo que
                   construyo para ti tiene los mismos criterios: sin puertas traseras, accesos
                   restringidos y protección activa contra bots y spam.
                 </p>
@@ -711,8 +710,8 @@ export default function Home() {
               <span className="gradient-text">necesitas tu web?</span>
             </h2>
             <p className="text-white/55 text-xl max-w-2xl mx-auto font-medium leading-relaxed">
-              Escríbeme hoy. Propuesta en 24h, sin esperas.
-              Acepto 3–4 proyectos al mes — comprueba si hay hueco.
+              Escríbeme hoy. Propuesta en 24h, sin esperas. Acepto 3–4 proyectos al mes — comprueba
+              si hay hueco.
             </p>
           </BlurReveal>
 
