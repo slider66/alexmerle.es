@@ -1,7 +1,7 @@
 "use client";
 
-import { m } from "framer-motion";
 import { TrendingUp, Smartphone, ArrowUpRight } from "lucide-react";
+import { BlurReveal } from "@/components/ui/BlurReveal";
 
 const stories = [
   {
@@ -12,7 +12,7 @@ const stories = [
     metricLabel: "Visitas orgánicas / mes",
     days: "En 6 días",
     description:
-      "Transformamos la presencia digital de una empresa nacida en 1993. Renovación completa de la web orientada a SEO local. El resultado ha sido un aumento drástico en la visibilidad en Google y una mejora notable en la calidad de los leads y solicitudes de presupuesto recibidas.",
+      "Suministros Merle, ferralla elaborada y acero estructural en Madrid desde 1993. Renovación completa orientada a SEO local con posicionamiento en Madrid, Toledo y Guadalajara. El resultado: un aumento drástico en la visibilidad en Google y mejora notable en la calidad de leads y solicitudes de presupuesto.",
     icon: TrendingUp,
     color: "text-brand-blue",
     bg: "bg-brand-blue/10",
@@ -61,67 +61,64 @@ export function SuccessStories() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {stories.map((story, i) => (
-            <m.a
-              key={story.id}
-              href={story.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
-              className={`glass-card p-10 flex flex-col h-full bg-[#080808]/40 border-white/5 transition-colors duration-500 group cursor-pointer ${story.id === "hierros-merle" ? "hover:border-brand-blue/20" : "hover:border-brand-teal/20"}`}
-            >
-              <div className="flex justify-between items-start mb-8">
-                <div className="flex gap-4 items-center">
-                  <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 ${story.bg} border ${story.border}`}
-                  >
-                    <story.icon size={24} className={story.color} />
+            <BlurReveal key={story.id} delay={i * 0.1} className="h-full">
+              <a
+                href={story.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`glass-card p-10 flex flex-col h-full bg-[#080808]/40 border-white/5 transition-colors duration-500 group cursor-pointer ${story.id === "hierros-merle" ? "hover:border-brand-blue/20" : "hover:border-brand-teal/20"}`}
+              >
+                <div className="flex justify-between items-start mb-8">
+                  <div className="flex gap-4 items-center">
+                    <div
+                      className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 ${story.bg} border ${story.border}`}
+                    >
+                      <story.icon size={24} className={story.color} />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-white/40 block mb-1">
+                        {story.tag}
+                      </span>
+                      <h3 className="text-2xl font-black text-white tracking-tight group-hover:text-white transition-colors">
+                        {story.title}
+                      </h3>
+                    </div>
                   </div>
-                  <div>
-                    <span className="text-[10px] font-black uppercase tracking-widest text-white/40 block mb-1">
-                      {story.tag}
+
+                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/5 text-white/30 group-hover:text-white transition-colors">
+                    <ArrowUpRight
+                      size={18}
+                      className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-8">
+                  <div className="flex items-end gap-3 mb-2">
+                    <span
+                      className={`text-6xl font-black tracking-tighter leading-none ${story.color}`}
+                    >
+                      {story.metric}
                     </span>
-                    <h3 className="text-2xl font-black text-white tracking-tight group-hover:text-white transition-colors">
-                      {story.title}
-                    </h3>
+                  </div>
+                  <span className="text-xs font-black uppercase tracking-widest text-white/50">
+                    {story.metricLabel}
+                  </span>
+                  <div className="mt-3">
+                    <span className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-emerald-400/70 border border-emerald-500/20 bg-emerald-500/5 px-3 py-1 rounded-full">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      {story.days}
+                    </span>
                   </div>
                 </div>
 
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/5 text-white/30 group-hover:text-white transition-colors">
-                  <ArrowUpRight
-                    size={18}
-                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                  />
+                <div className="mt-auto pt-6 border-t border-white/5">
+                  <p className="text-white/50 text-sm leading-relaxed font-medium group-hover:text-white/70 transition-colors">
+                    {story.description}
+                  </p>
                 </div>
-              </div>
-
-              <div className="mb-8">
-                <div className="flex items-end gap-3 mb-2">
-                  <span
-                    className={`text-6xl font-black tracking-tighter leading-none ${story.color}`}
-                  >
-                    {story.metric}
-                  </span>
-                </div>
-                <span className="text-xs font-black uppercase tracking-widest text-white/50">
-                  {story.metricLabel}
-                </span>
-                <div className="mt-3">
-                  <span className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-emerald-400/70 border border-emerald-500/20 bg-emerald-500/5 px-3 py-1 rounded-full">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                    {story.days}
-                  </span>
-                </div>
-              </div>
-
-              <div className="mt-auto pt-6 border-t border-white/5">
-                <p className="text-white/50 text-sm leading-relaxed font-medium group-hover:text-white/70 transition-colors">
-                  {story.description}
-                </p>
-              </div>
-            </m.a>
+              </a>
+            </BlurReveal>
           ))}
         </div>
       </div>

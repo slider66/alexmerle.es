@@ -36,10 +36,10 @@ const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: str
   "merle.es": {
     id: 999998,
     description:
-      "Web corporativa de Hierros Merle. Optimizada para conversión y SEO local. Referente del sector en su zona con presencia orgánica en Google.",
+      "Suministros Merle — Ferralla elaborada y acero estructural en Madrid. Fabricación y suministro a obra: perfiles, tubos, chapas, armaduras y corte láser/plasma. Desde 1993. Posicionado orgánicamente en Madrid, Toledo y Guadalajara.",
     html_url: "https://merle.es",
     highlight: true,
-    previewImage: "/previews/merle_es_v2.webp",
+    previewImage: "/previews/merle_es_v3.webp",
     order: 1,
     extraTopics: ["Next.js 15", "React 19", "Tailwind CSS 4", "SEO Strategy", "Industrial UI"],
   },

@@ -1,43 +1,32 @@
 "use client";
 
-import { m } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight, Star, GitCommitHorizontal } from "lucide-react";
 import { Repository } from "@/lib/github";
+import { BlurReveal } from "@/components/ui/BlurReveal";
 
 export function PortfolioCards({ repos }: { repos: Repository[] }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {repos.map((repo, index) => {
         const isClickable = !repo.hideLink;
-        const Tag = isClickable ? m.a : m.div;
-        const linkProps = isClickable
-          ? { href: repo.html_url, target: "_blank", rel: "noopener noreferrer" }
-          : {};
+        const delay = (index % 3) * 0.07;
 
-        return (
-          <Tag
-            key={repo.id}
-            {...linkProps}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.05 }}
-            transition={{
-              duration: 0.4,
-              delay: (index % 3) * 0.07,
-              ease: [0.25, 0.4, 0.25, 1],
-            }}
-            className={`glass-card group flex flex-col h-full bg-[#080808]/40 border-white/5 transition-colors duration-500 ${
-              isClickable
-                ? "hover:border-brand-blue/30 cursor-pointer"
-                : "hover:border-white/10"
-            }`}
-          >
+        const cardClass = `glass-card group flex flex-col h-full bg-[#080808]/40 border-white/5 transition-colors duration-500 ${
+          isClickable ? "hover:border-brand-blue/30 cursor-pointer" : "hover:border-white/10"
+        }`;
+
+        const cardContent = (
+          <>
             {repo.previewImage && (
               <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-white/5 bg-black/20">
                 <Image
                   src={repo.previewImage}
-                  alt={repo.description ? `Proyecto web: ${repo.name.replace(/-/g, " ")} - ${repo.description}` : `Captura del portfolio de diseño web: proyecto ${repo.name.replace(/-/g, " ")}`}
+                  alt={
+                    repo.description
+                      ? `Proyecto web: ${repo.name.replace(/-/g, " ")} - ${repo.description}`
+                      : `Captura del portfolio de diseño web: proyecto ${repo.name.replace(/-/g, " ")}`
+                  }
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                 />
@@ -103,7 +92,24 @@ export function PortfolioCards({ repos }: { repos: Repository[] }) {
                 )}
               </div>
             </div>
-          </Tag>
+          </>
+        );
+
+        return (
+          <BlurReveal key={repo.id} delay={delay} className="h-full">
+            {isClickable ? (
+              <a
+                href={repo.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cardClass}
+              >
+                {cardContent}
+              </a>
+            ) : (
+              <div className={cardClass}>{cardContent}</div>
+            )}
+          </BlurReveal>
         );
       })}
     </div>

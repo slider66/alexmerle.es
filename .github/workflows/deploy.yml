@@ -80,7 +80,7 @@ jobs:
             "set net:max-retries 3" \
             "set net:reconnect-interval-base 5" \
             "open ftps://$FTP_SERVER" \
-            "mirror --reverse --delete --parallel=1 --verbose ./out/ /" \
+            "mirror --reverse --delete-last --parallel=1 --verbose ./out/ /" \
             "quit" > /tmp/lftp-deploy.sh
 
           lftp -f /tmp/lftp-deploy.sh
@@ -90,11 +90,11 @@ jobs:
         continue-on-error: true
         run: |
           sleep 20
-          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://alexmerle.es)
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://webpc.es)
           echo "ℹ️ / → $HTTP_STATUS"
-          DOSSIER_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://alexmerle.es/dossier/propuesta)
+          DOSSIER_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://webpc.es/dossier/propuesta)
           echo "ℹ️ /dossier/propuesta → $DOSSIER_STATUS"
-          COLAB_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://alexmerle.es/dossier/colaboradores)
+          COLAB_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://webpc.es/dossier/colaboradores)
           echo "ℹ️ /dossier/colaboradores → $COLAB_STATUS"
           if [ "$HTTP_STATUS" != "200" ]; then
             echo "⚠️ Site principal devolvió $HTTP_STATUS"
