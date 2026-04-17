@@ -195,17 +195,17 @@ body {
   }
 }
 
-/* Section background alternates — blue/teal tones */
+/* Section background alternates — suit gray intensity */
 .section-base {
-  background-color: hsl(240 10% 2%);
+  background-color: hsl(0 0% 3%);
 }
 
 .section-alt {
-  background-color: hsl(240 25% 7%);
+  background-color: hsl(0 0% 10%);
 }
 
 .section-alt-teal {
-  background-color: hsl(210 30% 8%);
+  background-color: hsl(0 0% 11%);
 }
 
 /* Aurora background orbs */
