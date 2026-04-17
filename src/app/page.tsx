@@ -87,7 +87,7 @@ export default function Home() {
       <Hero />
 
       {/* ── EL COSTO REAL DE NO ESTAR ONLINE ──────────────────────────────── */}
-      <section className="py-32 px-6 relative overflow-hidden">
+      <section className="section-alt py-32 px-6 relative overflow-hidden">
         <div className="max-w-4xl mx-auto">
           <BlurReveal className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-8">
@@ -314,7 +314,7 @@ export default function Home() {
       </section>
 
       {/* ── WEB ANTIGUA = INVISIBLE EN 2024-2025 ────────────────────────────── */}
-      <section className="py-32 px-6 relative overflow-hidden">
+      <section className="section-alt-teal py-32 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-brand-blue/5 to-transparent -z-10" />
 
         <div className="max-w-4xl mx-auto">
@@ -466,7 +466,7 @@ export default function Home() {
       {/* ── SERVICIOS ──────────────────────────────────────────────────────── */}
       <section
         id="servicios"
-        className="py-32 px-6 relative overflow-hidden snap-start scroll-mt-16"
+        className="section-base py-32 px-6 relative overflow-hidden snap-start scroll-mt-16"
       >
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-brand-teal/5 rounded-full blur-[150px] -z-10" />
 
@@ -536,7 +536,7 @@ export default function Home() {
       </section>
 
       {/* ── VS AGENCIA ─────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 relative overflow-hidden">
+      <section className="section-alt py-24 px-6 relative overflow-hidden">
         <div className="max-w-4xl mx-auto">
           <BlurReveal className="text-center mb-14">
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter">
@@ -582,7 +582,7 @@ export default function Home() {
       </section>
 
       {/* ── INTEGRACIONES SIN FRICCIÓN ──────────────────────────────────────────── */}
-      <section className="py-32 px-6 relative overflow-hidden">
+      <section className="section-alt-teal py-32 px-6 relative overflow-hidden">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-teal/5 rounded-full blur-[150px] -z-10" />
 
         <div className="max-w-5xl mx-auto">
@@ -674,7 +674,7 @@ export default function Home() {
       </section>
 
       {/* ── PROCESO ────────────────────────────────────────────────────────── */}
-      <section id="proceso" className="py-24 px-6 relative overflow-hidden">
+      <section id="proceso" className="section-base py-24 px-6 relative overflow-hidden">
         <div className="max-w-5xl mx-auto">
           <BlurReveal className="text-center mb-16">
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-blue mb-4 block">
@@ -737,7 +737,10 @@ export default function Home() {
       </section>
 
       {/* ── PRECIOS ────────────────────────────────────────────────────────── */}
-      <section id="precios" className="py-32 px-6 relative overflow-hidden snap-start scroll-mt-16">
+      <section
+        id="precios"
+        className="section-alt py-32 px-6 relative overflow-hidden snap-start scroll-mt-16"
+      >
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-blue/5 rounded-full blur-[150px] -z-10" />
 
         <div className="max-w-7xl mx-auto">
