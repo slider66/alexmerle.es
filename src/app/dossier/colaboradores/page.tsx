@@ -399,7 +399,7 @@ export default function ColaboradoresPage() {
               No te pido que vendas un paquete cerrado. Te pido que escuches a tu cliente y me
               cuentes lo que has oído. El resto lo construimos a medida.
             </p>
-            <div className="mt-6 p-5 rounded-xl border border-white/8 bg-white/[0.03] flex items-start gap-3">
+            <div className="mt-6 p-5 rounded-xl border border-white/8 bg-white/3 flex items-start gap-3">
               <span className="text-brand-teal text-lg leading-none shrink-0">→</span>
               <p className="text-white/40 text-sm font-medium leading-relaxed print-muted">
                 <span className="text-white/60 font-bold">Sin exclusividad. Sin territorio.</span>{" "}
@@ -540,6 +540,156 @@ export default function ColaboradoresPage() {
           </div>
         </section>
 
+        {/* ── ARGUMENTOS DE VENTA VERIFICABLES ──────────────────────────── */}
+        <section className="py-16 px-6 scroll-mt-24">
+          <div className="max-w-4xl mx-auto">
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 mb-4 block print-muted">
+              Base sólida para vender
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-4">
+              Los argumentos que tienes <span className="gradient-text">detrás de ti.</span>
+            </h2>
+            <p className="text-white/45 text-base font-medium mb-10 print-muted">
+              No vendemos por vender. Estos son datos verificables de Think with Google, Google
+              Research y Google Search Central. Úsalos para abrir conversación.
+            </p>
+
+            <div className="space-y-6 mb-12">
+              <div className="glass-card p-8 bg-brand-blue/5 border border-brand-blue/20">
+                <h3 className="text-lg font-black text-white mb-4 flex items-center gap-2">
+                  <span className="text-2xl text-brand-blue">①</span>El costo real de no estar
+                  online
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex gap-3">
+                    <span className="text-brand-blue font-black text-sm shrink-0">76%</span>
+                    <p className="text-sm text-white/65 font-medium">
+                      de usuarios visitan un negocio dentro de 24h de buscarlo en Google
+                    </p>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-brand-blue font-black text-sm shrink-0">81%</span>
+                    <p className="text-sm text-white/65 font-medium">
+                      de consumidores investigan online antes de comprar
+                    </p>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-brand-blue font-black text-sm shrink-0">20-35%</span>
+                    <p className="text-sm text-white/65 font-medium">
+                      de clientes potenciales se pierden en &quot;verificación&quot; si no tienes
+                      web
+                    </p>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-brand-blue font-black text-sm shrink-0">400-600</span>
+                    <p className="text-sm text-white/65 font-medium">
+                      clientes/año en zona de 50k habitantes que buscan tipo de negocio pero no te
+                      encuentran
+                    </p>
+                  </li>
+                </ul>
+                <p className="text-[10px] text-white/35 mt-4 font-medium">
+                  Fuentes: Think with Google, Google Research, LeadsAgent
+                </p>
+              </div>
+
+              <div className="glass-card p-8 bg-brand-teal/5 border border-brand-teal/20">
+                <h3 className="text-lg font-black text-white mb-4 flex items-center gap-2">
+                  <span className="text-2xl text-brand-teal">②</span>Desarrollo a medida &gt;
+                  Plantillas genéricas
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex gap-3 items-start">
+                    <span className="text-brand-teal text-lg leading-none mt-0.5 shrink-0">✓</span>
+                    <p className="text-sm text-white/65 font-medium">
+                      <span className="font-black text-white">Arquitectura moderna</span> — Última
+                      tecnología (Next.js, React, IA)
+                    </p>
+                  </li>
+                  <li className="flex gap-3 items-start">
+                    <span className="text-brand-teal text-lg leading-none mt-0.5 shrink-0">✓</span>
+                    <p className="text-sm text-white/65 font-medium">
+                      <span className="font-black text-white">Core Web Vitals optimizados</span> —
+                      Velocidad + Responsividad
+                    </p>
+                  </li>
+                  <li className="flex gap-3 items-start">
+                    <span className="text-brand-teal text-lg leading-none mt-0.5 shrink-0">✓</span>
+                    <p className="text-sm text-white/65 font-medium">
+                      <span className="font-black text-white">Código limpio y escalable</span> — Sin
+                      deuda técnica
+                    </p>
+                  </li>
+                  <li className="flex gap-3 items-start">
+                    <span className="text-brand-teal text-lg leading-none mt-0.5 shrink-0">✓</span>
+                    <p className="text-sm text-white/65 font-medium">
+                      <span className="font-black text-white">Soluciones tailored</span> — Adaptado
+                      a objetivos específicos, no genérico
+                    </p>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="glass-card p-8 bg-brand-blue/5 border border-brand-blue/20">
+                <h3 className="text-lg font-black text-white mb-4 flex items-center gap-2">
+                  <span className="text-2xl text-brand-blue">③</span>Si su web tiene +5-6 años: es
+                  invisible hoy
+                </h3>
+                <div className="space-y-3">
+                  <p className="text-sm text-white/65 font-medium mb-3">
+                    Google cambió los ranking factors en:
+                  </p>
+                  <ul className="space-y-2">
+                    <li className="flex gap-3 items-start">
+                      <span className="text-brand-blue font-black text-xs shrink-0 mt-0.5">
+                        2014
+                      </span>
+                      <span className="text-sm text-white/60">
+                        HTTPS es ranking factor → Webs sin SSL penalizadas
+                      </span>
+                    </li>
+                    <li className="flex gap-3 items-start">
+                      <span className="text-brand-blue font-black text-xs shrink-0 mt-0.5">
+                        2018-24
+                      </span>
+                      <span className="text-sm text-white/60">
+                        Mobile-First Indexing → Webs de escritorio invisibles
+                      </span>
+                    </li>
+                    <li className="flex gap-3 items-start">
+                      <span className="text-brand-blue font-black text-xs shrink-0 mt-0.5">
+                        2021
+                      </span>
+                      <span className="text-sm text-white/60">
+                        Core Web Vitals (LCP, INP, CLS) → Webs lentas fuera de ranking
+                      </span>
+                    </li>
+                    <li className="flex gap-3 items-start">
+                      <span className="text-brand-blue font-black text-xs shrink-0 mt-0.5">
+                        2023-24
+                      </span>
+                      <span className="text-sm text-white/60">
+                        E-E-A-T → Contenido desactualizado = baja autoridad
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <p className="text-[10px] text-white/35 mt-4 font-medium">
+                  Fuentes: Google Search Central, Google Developers
+                </p>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-xl border border-white/8 bg-white/3">
+              <p className="text-white/60 text-sm font-medium">
+                <span className="text-white font-black">Regla de oro:</span> No eres tú quien vende
+                funciones. Eres tú quien educas al cliente sobre qué ha cambiado en su sector y por
+                qué necesita actualizar — especialmente si lleva +5 años offline o con web antigua.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* ── PITCHES ───────────────────────────────────────────────────── */}
         <section id="pitches" className="py-16 px-6 print-break scroll-mt-24">
           <div className="max-w-4xl mx-auto">
@@ -551,7 +701,7 @@ export default function ColaboradoresPage() {
             </h2>
             <p className="text-white/45 text-base font-medium mb-10 print-muted">
               No hay un único guion. Cada colaborador tiene su punto de partida. Aquí tienes los
-              argumentos adaptados.
+              argumentos adaptados. Úsalos junto con los datos verificables de arriba.
             </p>
             <div className="space-y-6">
               {pitches.map((p, i) => (
