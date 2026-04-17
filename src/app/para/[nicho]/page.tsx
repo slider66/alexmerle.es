@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ nicho: st
     openGraph: {
       title: `Diseño Web para ${niche.name} · WebPC`,
       description: niche.heroContext,
-      url: `https://alexmerle.es/para/${niche.slug}`,
+      url: `https://webpc.es/para/${niche.slug}`,
     },
   };
 }
@@ -43,13 +43,13 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Inicio", item: "https://alexmerle.es" },
-        { "@type": "ListItem", position: 2, name: "Sectores", item: "https://alexmerle.es/para" },
+        { "@type": "ListItem", position: 1, name: "Inicio", item: "https://webpc.es" },
+        { "@type": "ListItem", position: 2, name: "Sectores", item: "https://webpc.es/para" },
         {
           "@type": "ListItem",
           position: 3,
           name: niche.name,
-          item: `https://alexmerle.es/para/${niche.slug}`,
+          item: `https://webpc.es/para/${niche.slug}`,
         },
       ],
     },
@@ -60,7 +60,7 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
       provider: {
         "@type": "LocalBusiness",
         name: "WebPC",
-        image: "https://alexmerle.es/alex.webp",
+        image: "https://webpc.es/alex.webp",
       },
       description: niche.heroContext,
       hasOfferCatalog: {

@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Política de Cookies · WebPC",
   description:
-    "Información sobre el uso de cookies en alexmerle.es conforme a la normativa española y europea.",
+    "Información sobre el uso de cookies en webpc.es conforme a la normativa española y europea.",
   robots: { index: false, follow: false },
 };
 

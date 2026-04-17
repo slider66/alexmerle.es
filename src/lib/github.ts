@@ -20,7 +20,7 @@ export interface Repository {
   type?: "web" | "tool";
 }
 
-const EXCLUDED_REPOS = new Set(["alexmerle.es"]);
+const EXCLUDED_REPOS = new Set(["webpc.es"]);
 
 const projectOverrides: Record<string, Partial<Repository> & { extraTopics?: string[] }> = {
   "fotografia-aerea-madrid": {

@@ -12,7 +12,7 @@ export const metadata = {
     title: "Diseño Web por Sectores · WebPC",
     description:
       "Páginas web y SEO local especializadas por sector. Diseño web adaptado a cada tipo de negocio.",
-    url: "https://alexmerle.es/nichos",
+    url: "https://webpc.es/nichos",
   },
 };
 
@@ -23,12 +23,12 @@ export default function NichosPage() {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Inicio", item: "https://alexmerle.es" },
+          { "@type": "ListItem", position: 1, name: "Inicio", item: "https://webpc.es" },
           {
             "@type": "ListItem",
             position: 2,
             name: "Sectores",
-            item: "https://alexmerle.es/nichos",
+            item: "https://webpc.es/nichos",
           },
         ],
       },
@@ -39,7 +39,7 @@ export default function NichosPage() {
           "@type": "ListItem",
           position: i + 1,
           name: n.name,
-          url: `https://alexmerle.es/para/${n.slug}`,
+          url: `https://webpc.es/para/${n.slug}`,
         })),
       },
     ],

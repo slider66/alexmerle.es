@@ -41,7 +41,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url: `https://alexmerle.es/${geo.slug}/${niche.slug}`,
+      url: `https://webpc.es/${geo.slug}/${niche.slug}`,
     },
   };
 }
@@ -62,18 +62,18 @@ export default async function GeoNichePage({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Inicio", item: "https://alexmerle.es" },
+        { "@type": "ListItem", position: 1, name: "Inicio", item: "https://webpc.es" },
         {
           "@type": "ListItem",
           position: 2,
           name: geo.name,
-          item: `https://alexmerle.es/${geo.slug}`,
+          item: `https://webpc.es/${geo.slug}`,
         },
         {
           "@type": "ListItem",
           position: 3,
           name: niche.name,
-          item: `https://alexmerle.es/${geo.slug}/${niche.slug}`,
+          item: `https://webpc.es/${geo.slug}/${niche.slug}`,
         },
       ],
     },
@@ -84,7 +84,7 @@ export default async function GeoNichePage({
       provider: {
         "@type": "LocalBusiness",
         name: "WebPC",
-        image: "https://alexmerle.es/alex.webp",
+        image: "https://webpc.es/alex.webp",
         areaServed: { "@type": "City", name: geo.name },
       },
       description: niche.heroContext,

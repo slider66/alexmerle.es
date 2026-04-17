@@ -7,25 +7,25 @@ export const dynamic = "force-static"; // deploy trigger
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     {
-      url: "https://alexmerle.es",
+      url: "https://webpc.es",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: "https://alexmerle.es/aviso-legal",
+      url: "https://webpc.es/aviso-legal",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: "https://alexmerle.es/privacidad",
+      url: "https://webpc.es/privacidad",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: "https://alexmerle.es/cookies",
+      url: "https://webpc.es/cookies",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,
@@ -33,14 +33,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const geoRoutes: MetadataRoute.Sitemap = geoMunicipalities.map((geo) => ({
-    url: `https://alexmerle.es/${geo.slug}`,
+    url: `https://webpc.es/${geo.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.8,
   }));
 
   const nicheRoutes: MetadataRoute.Sitemap = nichesData.map((niche) => ({
-    url: `https://alexmerle.es/para/${niche.slug}`,
+    url: `https://webpc.es/para/${niche.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.8,
@@ -50,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   geoMunicipalities.forEach((geo) => {
     nichesData.forEach((niche) => {
       geoNicheRoutes.push({
-        url: `https://alexmerle.es/${geo.slug}/${niche.slug}`,
+        url: `https://webpc.es/${geo.slug}/${niche.slug}`,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.6,

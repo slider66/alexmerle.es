@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Aviso Legal · WebPC",
   description:
-    "Información legal sobre el titular del sitio web alexmerle.es según la Ley 34/2002 LSSI.",
+    "Información legal sobre el titular del sitio web webpc.es según la Ley 34/2002 LSSI.",
   robots: { index: false, follow: false },
 };
 
@@ -51,7 +51,7 @@ export default function AvisoLegal() {
             </li>
             <li>
               <span className="text-white/30 text-xs uppercase tracking-widest">Web:</span>{" "}
-              https://alexmerle.es
+              https://webpc.es
             </li>
           </ul>
         </section>
@@ -60,7 +60,7 @@ export default function AvisoLegal() {
           <h2 className="text-lg font-black text-white/80">2. Objeto y ámbito de aplicación</h2>
           <p className="text-white/50 leading-relaxed">
             El presente Aviso Legal regula el acceso, navegación y uso del sitio web{" "}
-            <strong className="text-white/70">alexmerle.es</strong>. El acceso al sitio implica la
+            <strong className="text-white/70">webpc.es</strong>. El acceso al sitio implica la
             aceptación plena y sin reservas de este aviso. El titular se reserva el derecho a
             modificar este texto en cualquier momento.
           </p>

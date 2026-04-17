@@ -35,15 +35,15 @@ export const metadata: Metadata = {
     "desarrollo web alto rendimiento",
     "Web Performance Club",
   ],
-  authors: [{ name: "WebPC", url: "https://alexmerle.es" }],
+  authors: [{ name: "WebPC", url: "https://webpc.es" }],
   creator: "WebPC",
-  metadataBase: new URL("https://alexmerle.es"),
+  metadataBase: new URL("https://webpc.es"),
   alternates: { canonical: "/" },
   openGraph: {
     title: "WebPC · Consultoría de Rendimiento y Rescate Digital",
     description:
       "Pasamos tu negocio de la invisibilidad a la Web 4.0. Rendimiento extremo y automatización operativa para PYMES.",
-    url: "https://alexmerle.es",
+    url: "https://webpc.es",
     siteName: "Web Performance Club",
     locale: "es_ES",
     type: "website",
@@ -82,12 +82,12 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://alexmerle.es/#organization",
+      "@id": "https://webpc.es/#organization",
       name: "Web Performance Club (WebPC)",
-      image: "https://alexmerle.es/alex.webp",
+      image: "https://webpc.es/alex.webp",
       description:
         "Boutique tecnológica especializada en consultoría de rendimiento web, rescate de proyectos digitales obsoletos y automatización avanzada Web 4.0 para PYMES.",
-      url: "https://alexmerle.es",
+      url: "https://webpc.es",
       email: "hola@webpc.es",
       telephone: "+34600367217",
       sameAs: ["https://es.linkedin.com/in/alejandromerle"],
@@ -101,14 +101,14 @@ const jsonLd = {
     },
     {
       "@type": "ProfessionalService",
-      "@id": "https://alexmerle.es/#service",
+      "@id": "https://webpc.es/#service",
       name: "WebPC — Consultoría de Rendimiento y Rescate Web",
       description:
         "Especialistas en transformar webs lentas y obsoletas en activos de alto rendimiento. Arquitectura Web 4.0, IA y automatización.",
-      url: "https://alexmerle.es",
+      url: "https://webpc.es",
       telephone: "+34600367217",
       email: "hola@webpc.es",
-      provider: { "@id": "https://alexmerle.es/#organization" },
+      provider: { "@id": "https://webpc.es/#organization" },
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "5.0",

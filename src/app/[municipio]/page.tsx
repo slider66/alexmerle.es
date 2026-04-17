@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ municipio
     openGraph: {
       title: `Diseño Web en ${geo.name} · WebPC`,
       description: geo.heroContext,
-      url: `https://alexmerle.es/${geo.slug}`,
+      url: `https://webpc.es/${geo.slug}`,
     },
   };
 }
@@ -48,12 +48,12 @@ export default async function MunicipioPage({
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Inicio", item: "https://alexmerle.es" },
+          { "@type": "ListItem", position: 1, name: "Inicio", item: "https://webpc.es" },
           {
             "@type": "ListItem",
             position: 2,
             name: geo.name,
-            item: `https://alexmerle.es/${geo.slug}`,
+            item: `https://webpc.es/${geo.slug}`,
           },
         ],
       },
@@ -61,7 +61,7 @@ export default async function MunicipioPage({
         "@type": "LocalBusiness",
         name: `WebPC — Diseño Web en ${geo.name}`,
         description: geo.heroContext,
-        url: `https://alexmerle.es/${geo.slug}`,
+        url: `https://webpc.es/${geo.slug}`,
         telephone: "+34600367217",
         email: "hola@webpc.es",
         areaServed: { "@type": "City", name: geo.name },

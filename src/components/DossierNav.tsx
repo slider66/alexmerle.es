@@ -75,7 +75,7 @@ export function DossierNav({ sections, title }: { sections: NavSection[]; title:
           ))}
         </ol>
         <p className="text-[9px] text-gray-400 mt-6 font-medium">
-          alexmerle.es · hola@webpc.es · +34 600 367 217
+          webpc.es · hola@webpc.es · +34 600 367 217
         </p>
       </div>
 

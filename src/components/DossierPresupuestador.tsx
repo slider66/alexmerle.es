@@ -262,7 +262,7 @@ ${lineas}
       if (action === "email" && contact.includes("@")) {
         const mensajeCliente = `Hola ${name},
 
-Aquí tienes el resumen del presupuesto que has calculado en alexmerle.es:
+Aquí tienes el resumen del presupuesto que has calculado en webpc.es:
 
 ${lineas}
 
@@ -276,7 +276,7 @@ Si quieres hablar, escríbeme a hola@webpc.es o por WhatsApp: +34 600 367 217
 
 Saludos,
 Alex Merle
-alexmerle.es`;
+webpc.es`;
 
         await fetch("https://api.web3forms.com/submit", {
           method: "POST",

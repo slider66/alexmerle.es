@@ -36,6 +36,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://alexmerle.es/sitemap.xml",
+    sitemap: "https://webpc.es/sitemap.xml",
   };
 }

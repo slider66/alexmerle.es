@@ -236,7 +236,7 @@ export default function ColaboradoresPage() {
             margin: 18mm 15mm 22mm 15mm;
             size: A4;
             @bottom-center {
-              content: "Alex Merle  ·  hola@webpc.es  ·  +34 600 367 217  ·  alexmerle.es";
+              content: "Alex Merle  ·  hola@webpc.es  ·  +34 600 367 217  ·  webpc.es";
               font-family: ui-sans-serif, system-ui, sans-serif;
               font-size: 8px;
               font-weight: 700;
@@ -906,7 +906,7 @@ export default function ColaboradoresPage() {
                 </a>
               </div>
               <p className="text-white/30 text-[11px] font-medium print-muted">
-                hola@webpc.es · +34 600 367 217 · alexmerle.es
+                hola@webpc.es · +34 600 367 217 · webpc.es
               </p>
             </div>
           </div>
