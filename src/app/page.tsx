@@ -8,7 +8,7 @@ import { SuccessStories } from "@/components/SuccessStories";
 import { ContactLinks } from "@/components/ContactLinks";
 import { FAQ } from "@/components/FAQ";
 import Image from "next/image";
-import { Linkedin, Shield, Globe, Cpu, Layers, Check, Zap, Share2, Database } from "lucide-react";
+import { Linkedin, Shield, Globe, Cpu, Check, Zap, Share2, Database } from "lucide-react";
 
 // ─── Datos estáticos ─────────────────────────────────────────────────────────
 
@@ -85,6 +85,383 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
       <Hero />
+
+      {/* ── EL COSTO REAL DE NO ESTAR ONLINE ──────────────────────────────── */}
+      <section className="py-32 px-6 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto">
+          <BlurReveal className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-8">
+              El costo real de <span className="gradient-text">no estar online</span>
+            </h2>
+          </BlurReveal>
+
+          <BlurReveal delay={0.1}>
+            <div className="space-y-8">
+              <div className="glass-card p-10 bg-[#080808]/40 border border-brand-blue/20 space-y-6">
+                <div className="space-y-4">
+                  <p className="text-sm text-white/70 leading-relaxed">
+                    <span className="text-2xl font-black text-brand-blue">76%</span> de usuarios
+                    visitan un negocio dentro de 24h de buscarlo en Google¹
+                  </p>
+                  <p className="text-sm text-white/70 leading-relaxed">
+                    <span className="text-2xl font-black text-brand-blue">81%</span> de consumidores
+                    investigan online antes de cualquier compra²
+                  </p>
+                  <p className="text-sm text-white/70 leading-relaxed">
+                    <span className="text-2xl font-black text-brand-blue">46%</span> de todas las
+                    búsquedas en Google tienen intención local³
+                  </p>
+                </div>
+
+                <div className="border-t border-white/10 pt-8">
+                  <h3 className="text-lg font-black text-white/80 mb-6">
+                    Si NO tienes web + Google Maps optimizado:
+                  </h3>
+                  <ul className="space-y-4">
+                    <li className="flex gap-3">
+                      <span className="text-brand-teal text-lg leading-none mt-0.5 shrink-0">
+                        ⊕
+                      </span>
+                      <div>
+                        <p className="text-sm font-black text-white mb-1">
+                          Pierdes 20-35% de clientes en &quot;verificación&quot;⁴
+                        </p>
+                        <p className="text-xs text-white/40">
+                          (Buscan tu negocio, no te encuentran, van a competencia)
+                        </p>
+                      </div>
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="text-brand-teal text-lg leading-none mt-0.5 shrink-0">
+                        ⊕
+                      </span>
+                      <div>
+                        <p className="text-sm font-black text-white mb-1">
+                          En zona de 50k hab: ~400-600 clientes/año
+                        </p>
+                        <p className="text-xs text-white/40">
+                          que buscan TU tipo de negocio pero NUNCA TE ENCUENTRAN
+                        </p>
+                      </div>
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="text-brand-teal text-lg leading-none mt-0.5 shrink-0">
+                        ⊕
+                      </span>
+                      <div>
+                        <p className="text-sm font-black text-white mb-1">
+                          70% más probable visitar si tienes perfil completo⁵
+                        </p>
+                        <p className="text-xs text-white/40">
+                          Google Maps + web oficial = credibilidad inmediata
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="border-t border-white/10 pt-6">
+                  <p className="text-white/60 italic text-sm">
+                    La pregunta no es:{" "}
+                    <span className="font-black text-white">
+                      &quot;¿puedo esperar a tener presupuesto?&quot;
+                    </span>
+                    <br />
+                    La pregunta es:{" "}
+                    <span className="font-black text-brand-blue">
+                      &quot;¿cuánto pierdo CADA MES sin estar ahí?&quot;
+                    </span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="text-[9px] text-white/30 space-y-1">
+                <p>
+                  ¹ Think with Google —{" "}
+                  <a
+                    href="https://www.thinkwithgoogle.com/consumer-insights/consumer-trends/local-search-to-store-visit-statistics/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-teal hover:text-brand-teal/70 underline"
+                  >
+                    Local Search to Store Visit Statistics
+                  </a>
+                </p>
+                <p>
+                  ² Google Consumer Research —{" "}
+                  <a
+                    href="https://www.wix.com/blog/small-business-website-statistics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-teal hover:text-brand-teal/70 underline"
+                  >
+                    Small Business Website Statistics
+                  </a>
+                </p>
+                <p>
+                  ³ Google Search Statistics 2024-2025 —{" "}
+                  <a
+                    href="https://www.loopexdigital.com/blog/local-seo-statistics/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-teal hover:text-brand-teal/70 underline"
+                  >
+                    Local SEO Statistics
+                  </a>
+                </p>
+                <p>
+                  ⁴ Google Research —{" "}
+                  <a
+                    href="https://leadsagent.io/blog/businesses-without-website-statistics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-teal hover:text-brand-teal/70 underline"
+                  >
+                    Businesses Without Website Statistics
+                  </a>
+                </p>
+                <p>
+                  ⁵ Google Maps & Business Profile Statistics —{" "}
+                  <a
+                    href="https://redlocalagency.com/google-business-profile-statistics/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-teal hover:text-brand-teal/70 underline"
+                  >
+                    Google Business Profile Statistics
+                  </a>
+                </p>
+              </div>
+            </div>
+          </BlurReveal>
+        </div>
+      </section>
+
+      {/* ── DESARROLLO 100% A MEDIDA ──────────────────────────────────────────── */}
+      <section className="py-32 px-6 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto">
+          <BlurReveal className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-6">
+              Desarrollo <span className="gradient-text">100% a medida</span>
+            </h2>
+            <p className="text-white/60 text-lg font-medium max-w-2xl mx-auto">
+              Sin plantillas genéricas. Cada web es código escrito desde cero para TI.
+            </p>
+          </BlurReveal>
+
+          <BlurReveal delay={0.1}>
+            <div className="glass-card p-12 bg-[#080808]/40 border border-brand-teal/20 space-y-8">
+              <div className="space-y-4">
+                <p className="text-white/70 leading-relaxed">
+                  No usamos temas genéricos ni templates reciclados. Cada web que construyo está
+                  diseñada específicamente para TI y TU negocio. Codificamos desde cero con las
+                  últimas tecnologías.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-white/10 pt-8">
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-brand-teal/10 flex items-center justify-center shrink-0">
+                    <Cpu size={20} className="text-brand-teal" />
+                  </div>
+                  <div>
+                    <h3 className="font-black text-white mb-2">Arquitectura moderna</h3>
+                    <p className="text-sm text-white/50">
+                      Next.js, React, IA operativa — escalable y mantenible
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-brand-blue/10 flex items-center justify-center shrink-0">
+                    <Zap size={20} className="text-brand-blue" />
+                  </div>
+                  <div>
+                    <h3 className="font-black text-white mb-2">Última tecnología</h3>
+                    <p className="text-sm text-white/50">
+                      Core Web Vitals optimizados, rendimiento máximo
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-brand-teal/10 flex items-center justify-center shrink-0">
+                    <Shield size={20} className="text-brand-teal" />
+                  </div>
+                  <div>
+                    <h3 className="font-black text-white mb-2">Código limpio y seguro</h3>
+                    <p className="text-sm text-white/50">
+                      Sin deuda técnica, fácil de mantener y mejorar
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-brand-blue/10 flex items-center justify-center shrink-0">
+                    <Globe size={20} className="text-brand-blue" />
+                  </div>
+                  <div>
+                    <h3 className="font-black text-white mb-2">Soluciones tailored</h3>
+                    <p className="text-sm text-white/50">
+                      A medida de tus objetivos específicos, sin rellenos
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </BlurReveal>
+        </div>
+      </section>
+
+      {/* ── WEB ANTIGUA = INVISIBLE EN 2024-2025 ────────────────────────────── */}
+      <section className="py-32 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-blue/5 to-transparent -z-10" />
+
+        <div className="max-w-4xl mx-auto">
+          <BlurReveal className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-6">
+              Si tu web tiene más de <span className="gradient-text">5-6 años</span>
+            </h2>
+            <p className="text-white/60 text-lg font-medium max-w-2xl mx-auto">
+              Deberías renovarla YA. Los buscadores no han parado de cambiar desde 2021.
+            </p>
+          </BlurReveal>
+
+          <BlurReveal delay={0.1}>
+            <div className="space-y-6">
+              <div className="glass-card p-10 bg-[#080808]/40 border border-white/8 space-y-6">
+                <div className="space-y-4">
+                  <div className="flex gap-4">
+                    <span className="text-2xl text-brand-blue font-black shrink-0">2014</span>
+                    <div>
+                      <h3 className="font-black text-white mb-1">HTTPS es ranking factor</h3>
+                      <p className="text-sm text-white/50">
+                        Webs sin SSL = penalizadas en ranking¹
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <span className="text-2xl text-brand-teal font-black shrink-0">2018-24</span>
+                    <div>
+                      <h3 className="font-black text-white mb-1">
+                        Mobile-First Indexing (100% rollout julio 2024)
+                      </h3>
+                      <p className="text-sm text-white/50">
+                        Webs de escritorio sin móvil optimizado = invisible²
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <span className="text-2xl text-brand-blue font-black shrink-0">2021</span>
+                    <div>
+                      <h3 className="font-black text-white mb-1">
+                        Core Web Vitals (LCP, INP, CLS)
+                      </h3>
+                      <p className="text-sm text-white/50">
+                        Velocidad + Responsividad = Factor de ranking. Webs lentas fuera de primeras
+                        posiciones³
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <span className="text-2xl text-brand-teal font-black shrink-0">2023-24</span>
+                    <div>
+                      <h3 className="font-black text-white mb-1">
+                        E-E-A-T (Expertise, Experience, Authority, Trust)
+                      </h3>
+                      <p className="text-sm text-white/50">
+                        Contenido desactualizado = baja autoridad⁴
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border-t border-white/10 pt-8">
+                  <h3 className="font-black text-white mb-6">RESULTADO REAL:</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="flex items-center gap-2 text-red-400/70">
+                      <span className="text-xl">✗</span>
+                      <span className="text-sm font-medium">Insegura (sin HTTPS)</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-red-400/70">
+                      <span className="text-xl">✗</span>
+                      <span className="text-sm font-medium">No optimizada para móvil</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-red-400/70">
+                      <span className="text-xl">✗</span>
+                      <span className="text-sm font-medium">Lenta (Core Web Vitals)</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-red-400/70">
+                      <span className="text-xl">✗</span>
+                      <span className="text-sm font-medium">Desactualizada (E-E-A-T)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border-t border-white/10 pt-8 bg-brand-blue/5 -mx-10 -mb-10 px-10 py-8 rounded-b-2xl">
+                  <p className="text-white/70 font-medium">
+                    Tu competencia, si renovó su web en los últimos 3 años,
+                    <br />
+                    <span className="text-white font-black">
+                      te ha adelantado sin que te des cuenta.
+                    </span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="text-[9px] text-white/30 space-y-1">
+                <p>
+                  ¹ Google HTTPS Signal —{" "}
+                  <a
+                    href="https://www.namesilo.com/blog/en/website-development/ssl-impact-on-seo-performance-2025"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-teal hover:text-brand-teal/70 underline"
+                  >
+                    SSL Impact on SEO Performance
+                  </a>
+                </p>
+                <p>
+                  ² Mobile-First Indexing Completed (July 2024) —{" "}
+                  <a
+                    href="https://developers.google.com/search/blog/2020/03/announcing-mobile-first-indexing-for"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-teal hover:text-brand-teal/70 underline"
+                  >
+                    Google Search Central Blog
+                  </a>
+                </p>
+                <p>
+                  ³ Core Web Vitals Ranking Factor —{" "}
+                  <a
+                    href="https://developers.google.com/search/docs/appearance/core-web-vitals"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-teal hover:text-brand-teal/70 underline"
+                  >
+                    Google Search Central: Core Web Vitals
+                  </a>
+                </p>
+                <p>
+                  ⁴ E-E-A-T: Google&apos;s Content Quality Framework —{" "}
+                  <a
+                    href="https://www.dataslayer.ai/blog/google-core-update-december-2025-what-changed-and-how-to-fix-your-rankings"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-teal hover:text-brand-teal/70 underline"
+                  >
+                    Google Core Update December 2025
+                  </a>
+                </p>
+              </div>
+            </div>
+          </BlurReveal>
+        </div>
+      </section>
 
       {/* ── SERVICIOS ──────────────────────────────────────────────────────── */}
       <section
