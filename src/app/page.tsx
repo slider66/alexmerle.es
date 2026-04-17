@@ -48,27 +48,27 @@ const services = [
 ];
 
 const planBasico = [
-  "Diagnóstico de rendimiento y salud técnica",
-  "Rescate de identidad local en Google Maps",
-  "Arquitectura optimizada para Core Web Vitals",
-  "Diseño directo a conversión (Sin rellenos)",
-  "Mantenimiento básico de seguridad incluido",
+  "Análisis técnico de tu negocio y sitio actual",
+  "Dominio, hosting y email profesional",
+  "Web optimizada + formulario de contacto",
+  "Integración WhatsApp para atender clientes",
+  "Google Business actualizado + Analytics",
 ];
 
 const planAvanzado = [
-  "Todo lo de 'El Rescate' incluido",
-  "Sistema de evolución: Reservas y pedidos 24/7",
-  "Automatización de comunicación automatizada",
-  "CMS ligero para gestión de disponibilidad",
-  "Protección avanzada contra ataques y bots",
+  "Todos los 5 módulos base",
+  "Reservas o pedidos 24/7 (el cliente se auto-gestiona)",
+  "Integración Instagram/TikTok → web automática",
+  "Gestión sin backend (Sheets, Notion o Airtable)",
+  "Automatización de confirmaciones y recordatorios",
 ];
 
 const planCompleto = [
-  "Auditoría técnica de procesos e Ingeniería",
-  "Integración de Agentes de IA y LLMs (GPT/Claude)",
-  "Webhooks proactivos y automatizaciones Web 4.0",
+  "Auditoría técnica y estrategia de escalabilidad",
+  "Integración con IA/LLMs para atención automática",
+  "Múltiples integraciones simultáneas (RRSS + Backend)",
   "Pasarelas de pago y lógica de negocio ad-hoc",
-  "Consultoría estratégica y escalabilidad garantizada",
+  "Soporte especializado y consultoría continua",
 ];
 
 const included = [
@@ -775,9 +775,19 @@ export default function Home() {
             </div>
           </BlurReveal>
 
+          <div className="mb-12 p-6 rounded-xl border border-white/8 bg-white/3 max-w-3xl mx-auto">
+            <p className="text-white/60 text-sm leading-relaxed">
+              <span className="text-white font-black">Sistema modular:</span> Partimos de una base
+              de 449€ para 5 módulos esenciales (análisis, dominio+hosting, web+formulario,
+              WhatsApp, Google Business+Analytics). Cada módulo adicional es 150€ — o 100€ si
+              amplías hacia los planes superiores. Los módulos se pueden mezclar y adaptar según tu
+              negocio.
+            </p>
+          </div>
+
           <div className="flex items-center gap-3 justify-center mb-8 text-[10px] font-black uppercase tracking-widest text-white/50">
             <span className="w-8 h-px bg-white/30" />
-            Precios orientativos · cada proyecto es diferente
+            Tres niveles · completa a medida
             <span className="w-8 h-px bg-white/30" />
           </div>
 
@@ -795,8 +805,9 @@ export default function Home() {
                   <p className="text-[10px] text-white/20 font-medium">+ IVA</p>
                 </div>
                 <p className="text-white/55 text-sm leading-relaxed">
-                  Deja de ser invisible. Una imagen profesional que domina tu zona: apareces en
-                  Google, generas confianza inmediata y recibes contactos directos.
+                  Los 5 módulos esenciales. Apareces en Google, generas confianza con una web
+                  profesional, y recibes contactos sin intermediarios. Base para cualquier negocio
+                  que quiera estar online.
                 </p>
                 <ul className="space-y-3 flex-1">
                   {planBasico.map((item) => (
@@ -831,8 +842,9 @@ export default function Home() {
                     <p className="text-[10px] text-white/20 font-medium">+ IVA</p>
                   </div>
                   <p className="text-white/55 text-sm leading-relaxed">
-                    Recupera tu tiempo. El negocio funciona mientras duermes: reservas o pedidos
-                    autogestionados y confirmaciones automáticas sin errores.
+                    Los 5 módulos base + automatización. Reservas que se confirman solas, Instagram
+                    que se refleja en la web, gestión sin panel de administración — el negocio
+                    funciona 24/7 sin tu intervención.
                   </p>
                   <ul className="space-y-3 flex-1">
                     {planAvanzado.map((item) => (
@@ -864,8 +876,9 @@ export default function Home() {
                   </p>
                 </div>
                 <p className="text-white/55 text-sm leading-relaxed">
-                  Escala tu modelo de negocio. Soluciones ad-hoc integradas con tus herramientas
-                  para eliminar cuellos de botella y maximizar el ROI.
+                  Ingeniería a medida. Integraciones complejas, IA/LLMs, múltiples sistemas
+                  conectados. Para negocios que necesitan escalar y eliminar cuellos de botella
+                  técnicos sin depender de agencias caras.
                 </p>
                 <ul className="space-y-3 flex-1">
                   {planCompleto.map((item) => (

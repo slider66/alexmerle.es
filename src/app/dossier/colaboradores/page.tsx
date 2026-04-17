@@ -701,7 +701,9 @@ export default function ColaboradoresPage() {
             </h2>
             <p className="text-white/45 text-base font-medium mb-10 print-muted">
               No hay un único guion. Cada colaborador tiene su punto de partida. Aquí tienes los
-              argumentos adaptados. Úsalos junto con los datos verificables de arriba.
+              argumentos adaptados. En todos los casos, la estructura es modular: 449€ base (5
+              módulos) + módulos adicionales según necesidad. Úsalos junto con los datos
+              verificables de arriba.
             </p>
             <div className="space-y-6">
               {pitches.map((p, i) => (
@@ -754,15 +756,23 @@ export default function ColaboradoresPage() {
         <section id="catalogo" className="py-16 px-6 print-break scroll-mt-24">
           <div className="max-w-4xl mx-auto">
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 mb-4 block print-muted">
-              Catálogo modular
+              Sistema modular
             </span>
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-4">
               Lo que podemos montar <span className="gradient-text">según el cliente.</span>
             </h2>
-            <p className="text-white/45 text-base font-medium mb-10 print-muted">
+            <p className="text-white/45 text-base font-medium mb-6 print-muted">
               La clave es no vender lo que ya tienen — sino lo que les falta o lo que no les
               funciona bien.
             </p>
+            <div className="p-6 rounded-xl border border-white/8 bg-white/3 mb-10">
+              <p className="text-white/60 text-sm font-medium">
+                <span className="text-white font-black">Operativa modular:</span> Base de 449€ (5
+                módulos) + módulos adicionales a 150€ cada uno — o 100€ si amplían hacia plan
+                avanzado/completo. Cada proyecto se construye con los módulos que el cliente
+                necesita, sin pagar por lo que no usa.
+              </p>
+            </div>
             <div className="space-y-6">
               {microservices.map((cat) => (
                 <div
