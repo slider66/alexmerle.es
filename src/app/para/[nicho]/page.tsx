@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: { params: Promise<{ nicho: st
   if (!niche) return {};
 
   return {
-    title: `Diseño Web para ${niche.name} · Alejandro Merle`,
+    title: `Diseño Web para ${niche.name} · WebPC`,
     description: niche.heroContext,
     alternates: { canonical: `/para/${niche.slug}` },
     openGraph: {
-      title: `Diseño Web para ${niche.name} · Alejandro Merle`,
+      title: `Diseño Web para ${niche.name} · WebPC`,
       description: niche.heroContext,
       url: `https://alexmerle.es/para/${niche.slug}`,
     },
@@ -45,7 +45,12 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Inicio", item: "https://alexmerle.es" },
         { "@type": "ListItem", position: 2, name: "Sectores", item: "https://alexmerle.es/para" },
-        { "@type": "ListItem", position: 3, name: niche.name, item: `https://alexmerle.es/para/${niche.slug}` },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: niche.name,
+          item: `https://alexmerle.es/para/${niche.slug}`,
+        },
       ],
     },
     {
@@ -54,7 +59,7 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
       name: `Diseño Web para ${niche.name}`,
       provider: {
         "@type": "LocalBusiness",
-        name: "Alejandro Merle",
+        name: "WebPC",
         image: "https://alexmerle.es/alex.webp",
       },
       description: niche.heroContext,
@@ -70,12 +75,15 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
           position: idx + 1,
         })),
       },
-    }
+    },
   ];
 
   return (
     <main className="flex flex-col min-h-screen">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* ── HERO NICHO-ESPECÍFICO ─────────────────────────────────────────────── */}
       <section className="relative pt-40 pb-20 px-6 flex flex-col items-center justify-center min-h-[70vh] text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none opacity-20">
@@ -188,7 +196,7 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
 
       {/* ── CONTACTO ───────────────────────────────────────────────────────── */}
       <section id="contacto" className="py-32 px-6 relative overflow-hidden">
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-brand-blue/5 rounded-full blur-[150px] -z-10" />
+        <div className="absolute bottom-0 right-0 w-150 h-150 bg-brand-blue/5 rounded-full blur-[150px] -z-10" />
 
         <div className="max-w-5xl mx-auto">
           <BlurReveal className="text-center mb-16">

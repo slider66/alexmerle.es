@@ -19,11 +19,10 @@ export default function Error({
         <p className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-blue">
           Algo ha fallado
         </p>
-        <h1 className="text-4xl font-black tracking-tighter">
-          Error inesperado
-        </h1>
+        <h1 className="text-4xl font-black tracking-tighter">Error inesperado</h1>
         <p className="text-white/40 text-sm leading-relaxed">
-          Ha ocurrido un problema cargando la página. Puedes intentarlo de nuevo o contactarme directamente.
+          Ha ocurrido un problema cargando la página. Puedes intentarlo de nuevo o contactarme
+          directamente.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
@@ -33,7 +32,7 @@ export default function Error({
             Intentar de nuevo
           </button>
           <a
-            href="mailto:alex@merle.es"
+            href="mailto:hola@webpc.es"
             className="px-8 py-3 border border-white/10 text-white font-black uppercase text-[10px] tracking-widest rounded-full hover:border-white/30 transition-all"
           >
             Contactar

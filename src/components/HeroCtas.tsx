@@ -17,14 +17,14 @@ export function HeroCtas() {
         className="btn-primary w-full sm:w-auto px-10 py-5"
         onClick={() => track("primary")}
       >
-        Hablamos esta semana
+        Solicitar Diagnóstico
       </Link>
       <Link
         href="#precios"
         className="w-full sm:w-auto px-10 py-5 bg-white/5 border border-white/10 text-white font-black uppercase text-xs tracking-widest rounded-full hover:bg-white/10 transition-all active:scale-95"
         onClick={() => track("secondary")}
       >
-        Ver planes y precios
+        Ver Niveles de Impacto
       </Link>
     </div>
   );

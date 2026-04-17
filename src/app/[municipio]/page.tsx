@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: { params: Promise<{ municipio
   if (!geo) return {};
 
   return {
-    title: `Diseño Web y SEO Local en ${geo.name} · Alejandro Merle`,
+    title: `Diseño Web y SEO Local en ${geo.name} · WebPC`,
     description: geo.heroContext,
     alternates: { canonical: `/${geo.slug}` },
     openGraph: {
-      title: `Diseño Web en ${geo.name} · Alejandro Merle`,
+      title: `Diseño Web en ${geo.name} · WebPC`,
       description: geo.heroContext,
       url: `https://alexmerle.es/${geo.slug}`,
     },
@@ -49,16 +49,21 @@ export default async function MunicipioPage({
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Inicio", item: "https://alexmerle.es" },
-          { "@type": "ListItem", position: 2, name: geo.name, item: `https://alexmerle.es/${geo.slug}` },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: geo.name,
+            item: `https://alexmerle.es/${geo.slug}`,
+          },
         ],
       },
       {
         "@type": "LocalBusiness",
-        name: `Alejandro Merle — Diseño Web en ${geo.name}`,
+        name: `WebPC — Diseño Web en ${geo.name}`,
         description: geo.heroContext,
         url: `https://alexmerle.es/${geo.slug}`,
         telephone: "+34600367217",
-        email: "alex@merle.es",
+        email: "hola@webpc.es",
         areaServed: { "@type": "City", name: geo.name },
         priceRange: "€€",
         serviceType: "Diseño web y SEO local",
@@ -68,7 +73,10 @@ export default async function MunicipioPage({
 
   return (
     <main className="flex flex-col min-h-screen">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* ── HERO GEO-ESPECÍFICO ─────────────────────────────────────────────── */}
       <section className="relative pt-40 pb-20 px-6 flex flex-col items-center justify-center min-h-[70vh] text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none opacity-20">
@@ -113,9 +121,7 @@ export default async function MunicipioPage({
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <BlurReveal>
-            <p className="text-lg text-white/60 leading-relaxed mb-10">
-              {geo.localContext}
-            </p>
+            <p className="text-lg text-white/60 leading-relaxed mb-10">{geo.localContext}</p>
           </BlurReveal>
           <BlurReveal delay={0.1}>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
@@ -140,8 +146,8 @@ export default async function MunicipioPage({
               </div>
               <div className="h-px sm:h-12 w-full sm:w-px bg-white/8 shrink-0" />
               <p className="text-sm text-white/50 leading-relaxed">
-                Estimación de vecinos de <strong className="text-white/70">{geo.name}</strong> que buscan
-                servicios locales en Google cada día. Sin presencia web,{" "}
+                Estimación de vecinos de <strong className="text-white/70">{geo.name}</strong> que
+                buscan servicios locales en Google cada día. Sin presencia web,{" "}
                 <strong className="text-white/70">ninguno de ellos puede encontrarte</strong>.
               </p>
             </div>

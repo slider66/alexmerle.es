@@ -22,31 +22,29 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alejandro Merle · Consultor IT Norte de Madrid | Webs para negocios locales",
+  title: "WebPC · Especialistas en Rendimiento y Rescate Web para PYMES",
   description:
-    "Consultor informático independiente en el norte de Madrid. Webs profesionales, SEO local y sistemas de encargos online para negocios locales desde 449€. Sin agencias, sin letra pequeña.",
+    "Consultoría de rendimiento web y digitalización avanzada. Rescatamos negocios de la obsolescencia técnica mediante arquitectura Web 4.0, automatización con IA y SEO Local de alto impacto. Sin agencias genéricas.",
   keywords: [
-    "consultor informático norte de Madrid",
-    "consultor IT San Sebastián de los Reyes",
-    "página web para negocios locales Madrid",
-    "diseño web pymes Madrid norte",
-    "SEO local Madrid norte",
-    "consultor informático San Agustín de Guadalix",
-    "página web para cafetería Madrid",
-    "página web para inmobiliaria Madrid",
+    "consultoría de rendimiento web",
+    "rescate de proyectos digitales Madrid",
     "automatización con IA para pymes",
-    "Alejandro Merle consultor IT",
+    "agencia web boutique técnica",
+    "especialistas en Web 4.0",
+    "optimización de procesos digitales",
+    "desarrollo web alto rendimiento",
+    "Web Performance Club",
   ],
-  authors: [{ name: "Alejandro Merle", url: "https://alexmerle.es" }],
-  creator: "Alejandro Merle",
+  authors: [{ name: "WebPC", url: "https://alexmerle.es" }],
+  creator: "WebPC",
   metadataBase: new URL("https://alexmerle.es"),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Alejandro Merle · Consultor IT Norte de Madrid",
+    title: "WebPC · Consultoría de Rendimiento y Rescate Digital",
     description:
-      "Webs profesionales, SEO local y sistemas de encargos online para negocios locales desde 449€. Norte de Madrid.",
+      "Pasamos tu negocio de la invisibilidad a la Web 4.0. Rendimiento extremo y automatización operativa para PYMES.",
     url: "https://alexmerle.es",
-    siteName: "Alejandro Merle",
+    siteName: "Web Performance Club",
     locale: "es_ES",
     type: "website",
     images: [
@@ -54,21 +52,22 @@ export const metadata: Metadata = {
         url: "/alex.webp",
         width: 1200,
         height: 630,
-        alt: "Alejandro Merle — Consultor IT y Diseño Web en Madrid",
+        alt: "WebPC — Especialistas en Rendimiento Web para PYMES en Madrid",
         type: "image/webp",
       },
       {
         url: "/alex.webp",
         width: 800,
         height: 1000,
-        alt: "Alejandro Merle — Consultor IT Norte de Madrid",
+        alt: "WebPC — Consultoría de Rendimiento Web Norte de Madrid",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alejandro Merle · Consultor IT Norte de Madrid",
-    description: "Webs profesionales y SEO local para negocios del norte de Madrid desde 449€.",
+    title: "WebPC · Rescate y Rendimiento Web",
+    description:
+      "Digitalización avanzada y arquitectura Web 4.0 para negocios que no pueden permitirse ser lentos.",
     images: ["/alex.webp"],
   },
   robots: {
@@ -88,49 +87,40 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Person",
-      "@id": "https://alexmerle.es/#person",
-      name: "Alejandro Merle",
+      "@type": "Organization",
+      "@id": "https://alexmerle.es/#organization",
+      name: "Web Performance Club (WebPC)",
       image: "https://alexmerle.es/alex.webp",
-      jobTitle: "Consultor Informático",
       description:
-        "Consultor IT independiente especializado en presencia digital, SEO local y automatización con IA para pequeñas empresas del norte de Madrid. Analista de ciberseguridad en Telefónica. Formación en electrónica, telecomunicaciones e informática. Certificado CompTIA.",
+        "Boutique tecnológica especializada en consultoría de rendimiento web, rescate de proyectos digitales obsoletos y automatización avanzada Web 4.0 para PYMES.",
       url: "https://alexmerle.es",
-      email: "alex@merle.es",
+      email: "hola@webpc.es",
       telephone: "+34600367217",
       sameAs: ["https://es.linkedin.com/in/alejandromerle"],
-      areaServed: {
-        "@type": "GeoCircle",
-        geoMidpoint: {
-          "@type": "GeoCoordinates",
-          latitude: 40.65,
-          longitude: -3.6,
-        },
-        geoRadius: "40000",
-      },
       knowsAbout: [
-        "Diseño web para pymes",
-        "SEO local Madrid",
-        "Automatización con inteligencia artificial",
-        "Ciberseguridad",
-        "Consultoría informática",
+        "Consultoría de rendimiento web",
+        "Rescate de proyectos digitales",
+        "Automatización con agentes de IA",
+        "Arquitectura Web 4.0",
+        "SEO Local de alto nivel",
       ],
     },
     {
       "@type": "ProfessionalService",
       "@id": "https://alexmerle.es/#service",
-      name: "Alejandro Merle — Consultor IT Norte de Madrid",
+      name: "WebPC — Consultoría de Rendimiento y Rescate Web",
       description:
-        "Servicio de consultoría informática para negocios locales del norte de Madrid. Webs profesionales, SEO local, sistemas de encargos online y automatización con IA.",
+        "Especialistas en transformar webs lentas y obsoletas en activos de alto rendimiento. Arquitectura Web 4.0, IA y automatización.",
       url: "https://alexmerle.es",
       telephone: "+34600367217",
-      email: "alex@merle.es",
-      provider: { "@id": "https://alexmerle.es/#person" },
+      email: "hola@webpc.es",
+      provider: { "@id": "https://alexmerle.es/#organization" },
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "5.0",
-        reviewCount: "2",
-        description: "Valoración basada en casos de éxito y despliegues recientes de clientes."
+        reviewCount: "5",
+        description:
+          "Valoración de élite basada en resultados de negocio y optimización técnica profunda.",
       },
       areaServed: [
         "San Agustín de Guadalix",
@@ -233,7 +223,7 @@ const jsonLd = {
           name: "¿Qué zona de Madrid cubres?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Me muevo principalmente por el norte: San Agustín de Guadalix, Alcobendas, El Molar, San Sebastián de los Reyes, Las Tablas, Paracuellos de Jarama y alrededores. Buena parte del trabajo también se puede hacer a distancia.",
+            text: "Operamos principalmente en el norte de Madrid: Alcobendas, San Sebastián de los Reyes, Las Tablas, San Agustín de Guadalix, El Molar, Paracuellos de Jarama y alrededores. Buena parte del trabajo también se puede hacer a distancia.",
           },
         },
         {
@@ -249,7 +239,7 @@ const jsonLd = {
           name: "¿Trabajas solo o hay una empresa detrás?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Solo. Soy autónomo, lo que significa que hablas directamente con quien hace el trabajo. Sin intermediarios, sin comerciales que te pasen a otra persona.",
+            text: "Somos dos: Alejandro y Víctor. Ambos con formación en electrónica, sistemas y un máster en IA. Sin intermediarios ni comerciales — hablas directamente con quien hace el trabajo.",
           },
         },
         {
@@ -305,7 +295,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
         />
       </head>
       <body
@@ -316,9 +306,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
         <Navbar />
         <ScrollProgress />
-        <MotionProvider>
-          {children}
-        </MotionProvider>
+        <MotionProvider>{children}</MotionProvider>
         <Footer />
         <BackToTop />
         {/* GA se carga condicionalmente desde CookieBanner solo si el usuario acepta */}

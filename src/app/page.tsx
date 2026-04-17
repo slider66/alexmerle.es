@@ -8,75 +8,67 @@ import { SuccessStories } from "@/components/SuccessStories";
 import { ContactLinks } from "@/components/ContactLinks";
 import { FAQ } from "@/components/FAQ";
 import Image from "next/image";
-import { Linkedin, Shield, Globe, Cpu, MapPin, Layers, Check, Zap } from "lucide-react";
+import { Linkedin, Shield, Globe, Cpu, Layers, Check, Zap } from "lucide-react";
 
 // ─── Datos estáticos ─────────────────────────────────────────────────────────
-
-const skills = [
-  { icon: Globe, label: "Web & SEO Local", color: "text-brand-blue" },
-  { icon: Cpu, label: "IA Aplicada", color: "text-brand-teal" },
-  { icon: Shield, label: "Ciberseguridad", color: "text-brand-blue" },
-  { icon: Zap, label: "Encargos Online", color: "text-brand-teal" },
-  { icon: Layers, label: "Integraciones", color: "text-brand-blue" },
-];
 
 const services = [
   {
     icon: Globe,
-    title: "Existencia Digital Profesional",
+    title: "Nivel 1: El Rescate",
     subtitle: "Desde 449€",
     description:
-      "Deja de ser invisible para los clientes de tu zona. Posicionamiento estratégico en Google para que tu negocio sea la primera opción local, sin importar el sector.",
-    items: [
-      "SEO Local de alto impacto",
-      "Botones de contacto estratégico",
-      "Imagen premium y profesional",
-    ],
+      "Para negocios invisibles o con webs 'fósiles'. Diagnóstico de rendimiento, limpieza técnica y SEO Local agresivo para recuperar el control de tu zona.",
+    items: ["Diagnóstico de rendimiento real", "SEO Local de alto impacto", "WPO: Cargas en <1s"],
   },
   {
     icon: Cpu,
-    title: "Productividad y Automatización",
+    title: "Nivel 2: La Evolución",
     subtitle: "Desde 699€",
     description:
-      "Recupera 10 horas semanales de gestión repetitiva. Digitaliza tus reservas y pedidos para que el negocio funcione de forma autónoma, sin depender del teléfono.",
-    items: ["Control de disponibilidad total", "Venta y reserva 24/7", "Ahorro de tiempo real"],
+      "Digitalización de procesos. Sistemas de reserva y pedidos que eliminan la dependencia del teléfono y actúan mientras el negocio descansa.",
+    items: [
+      "Automatización de reservas/pedidos",
+      "Seguridad Hardened anti-spam",
+      "Arquitectura Serverless eficiente",
+    ],
   },
   {
     icon: Zap,
-    title: "Digitalización Avanzada",
+    title: "Nivel 3: El Club",
     subtitle: "Desde 1.199€",
     description:
-      "Ingeniería de procesos para negocios que buscan escalar. Soluciones tecnológicas a medida diseñadas para eliminar cuellos de botella y maximizar rentabilidad.",
+      "Integración total 4.0. Conectamos tu web con CRM, pagos e IA operativa para maximizar la rentabilidad y eliminar cuellos de botella.",
     items: [
-      "Fase de Análisis Previo obligatorio",
-      "Integración de ecosistemas (CRM/Pagos)",
-      "Arquitectura escalable ad-hoc",
+      "Fase de Análisis Previo ROI",
+      "Agentes de IA y LLMs operativos",
+      "Webhooks proactivos y automatización",
     ],
   },
 ];
 
 const planBasico = [
-  "SEO Local de alto impacto: Google Maps y Búsqueda",
-  "Botones de conversión: WhatsApp y Llamada directa",
-  "Web ultra rápida optimizada para móviles",
-  "Imagen corporativa profesional y de confianza",
-  "Dominio y publicación incluida (Existencia Digital)",
+  "Diagnóstico de rendimiento y salud técnica",
+  "Rescate de identidad local en Google Maps",
+  "Arquitectura optimizada para Core Web Vitals",
+  "Diseño directo a conversión (Sin rellenos)",
+  "Mantenimiento básico de seguridad incluido",
 ];
 
 const planAvanzado = [
-  "Todo lo de Existencia Digital incluido",
-  "Sistema de gestión de reservas o pedidos online",
-  "Control total de disponibilidad desde tu móvil",
-  "Confirmaciones automáticas (Ahorro de tiempo)",
-  "Venta activa 24/7 sin errores humanos",
+  "Todo lo de 'El Rescate' incluido",
+  "Sistema de evolución: Reservas y pedidos 24/7",
+  "Automatización de comunicación automatizada",
+  "CMS ligero para gestión de disponibilidad",
+  "Protección avanzada contra ataques y bots",
 ];
 
 const planCompleto = [
-  "Fase de Análisis Previo para definir el ROI",
-  "Integración con CRM o herramientas (Notion/Sheets)",
-  "Pasarelas de pago profesionales (Stripe/PayPal)",
-  "Automatizaciones complejas a medida",
-  "Consultoría técnica e ingeniería de procesos",
+  "Auditoría técnica de procesos e Ingeniería",
+  "Integración de Agentes de IA y LLMs (GPT/Claude)",
+  "Webhooks proactivos y automatizaciones Web 4.0",
+  "Pasarelas de pago y lógica de negocio ad-hoc",
+  "Consultoría estratégica y escalabilidad garantizada",
 ];
 
 const included = [
@@ -101,14 +93,15 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <BlurReveal className="text-center mb-20">
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-teal mb-4 block">
-              Servicios
+              Web Performance Club
             </span>
             <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-6">
-              ¿Qué puedo hacer <br />
-              <span className="gradient-text">por tu negocio?</span>
+              Rescatamos negocios <br />
+              <span className="gradient-text">de la obsolescencia.</span>
             </h2>
             <p className="text-white/55 text-xl max-w-2xl mx-auto font-medium">
-              Sin tecnicismos. Sin letra pequeña. Solo resultados.
+              No diseñamos webs &ldquo;bonitas&rdquo;. Construimos rendimiento operativo y captación
+              de clientes real.
             </p>
           </BlurReveal>
 
@@ -167,7 +160,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <BlurReveal className="text-center mb-14">
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter">
-              ¿Por qué no <span className="gradient-text">una agencia?</span>
+              WebPC vs <span className="gradient-text">Agencias Estándar</span>
             </h2>
           </BlurReveal>
 
@@ -175,22 +168,21 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 {
-                  agencia:
-                    "Entre 4 y 12 semanas para entregarte algo. Cambios adicionales: abre ticket y espera.",
-                  yo: "Tiempos reales, sin meses de espera. Dos rondas de ajustes incluidas, sin lista de espera.",
+                  agencia: "Intervención de comerciales que venden humo y plantillas genéricas.",
+                  yo: "Interlocución directa con los dos socios especialistas que pican el código.",
+                },
+                {
+                  agencia: "Responsabilidad diluida. El código suele ser 'rehén' de una cuota.",
+                  yo: "Responsabilidad total. El código es tuyo al 100% desde el primer día.",
                 },
                 {
                   agencia:
-                    "Presupuestos de 2.000€ en adelante, con mantenimiento mensual obligatorio.",
-                  yo: "Desde 449€, sin cuota mensual. El código es tuyo desde el primer día.",
+                    "Arquitectura obsoleta. Plantillas de 2018 parcheadas que frenan tu SEO.",
+                  yo: "Arquitectura Web 4.0. Lista para integraciones de IA y automatización proactiva.",
                 },
                 {
-                  agencia: "Hablas con un comercial, luego con un diseñador, luego con otro.",
-                  yo: "Hablas directamente conmigo. El que diseña, el que programa y el que te coge el teléfono soy yo.",
-                },
-                {
-                  agencia: "Plantillas genéricas adaptadas a tu negocio a medias.",
-                  yo: "Diseño hecho para tu negocio concreto, no para cualquier negocio.",
+                  agencia: "Soporte basado en tickets (Ticket #4521) y esperas de 48h.",
+                  yo: "Canal Premium. WhatsApp directo con los socios, sin intermediarios.",
                 },
               ].map((item, i) => (
                 <div key={i} className="glass-card p-7 bg-[#080808]/40 flex flex-col gap-5">
@@ -279,27 +271,19 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <BlurReveal className="text-center mb-20">
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-blue mb-4 block">
-              Precios
+              Inversión en Rendimiento
             </span>
             <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-6">
-              Propuesta clara. <br />
+              Sin cuotas ocultas. <br />
               <span className="gradient-text">Sin letra pequeña.</span>
             </h2>
             <p className="text-white/55 text-xl max-w-2xl mx-auto font-medium leading-relaxed">
-              Ejemplo real de propuesta para{" "}
-              <a
-                href="https://montes.vercel.app/propuesta"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-brand-teal hover:underline"
-              >
-                Café & Tortilla Montes
-              </a>
-              : carta online, ubicación, contacto y sistema de encargos.
+              Propuestas reales basadas en el ROI de tu negocio. No pagas por &ldquo;diseño&rdquo;,
+              pagas por eficiencia técnica y captación de clientes.
             </p>
             <p className="text-white/50 text-sm max-w-xl mx-auto mt-3 leading-relaxed">
-              Precios orientativos. Cada proyecto tiene sus propias necesidades y el presupuesto
-              final puede variar. Hablamos antes de cerrar nada.
+              Cada proyecto requiere una auditoría técnica previa para identificar cuellos de
+              botella. El objetivo no es que tu web se vea bien, es que tu negocio funcione mejor.
             </p>
           </BlurReveal>
 
@@ -451,30 +435,30 @@ export default function Home() {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {/* Mantenimiento mensual */}
+                {/* SAR - Suscripción Alto Rendimiento */}
                 <div className="glass-card p-8 bg-[#080808]/40 flex flex-col gap-4 border-brand-teal/20">
                   <div>
                     <p className="text-[10px] font-black uppercase tracking-widest text-brand-teal mb-2">
-                      Mantenimiento mensual
+                      Suscripción Alto Rendimiento (SAR)
                     </p>
                     <div className="flex items-end gap-1">
-                      <span className="text-4xl font-black tracking-tighter">80€</span>
+                      <span className="text-4xl font-black tracking-tighter">150€</span>
                       <span className="text-white/30 text-sm mb-1">/mes</span>
                     </div>
                     <p className="text-[10px] text-white/25 mt-0.5">
-                      + IVA · Solo para proyectos desarrollados por mí
+                      + IVA · Tranquilidad total y optimización constante
                     </p>
                     <p className="text-[11px] text-brand-teal/70 font-black mt-1">
-                      2 sesiones de ajustes de 2h incluidas al mes.
+                      Revisión trimestral de seguridad y velocidad incluida.
                     </p>
                   </div>
                   <ul className="space-y-2 flex-1">
                     {[
-                      "2 sesiones de ajustes de 2h al mes incluidas",
-                      "Actualización de dependencias",
-                      "Parcheado de vulnerabilidades (CVEs)",
-                      "Soporte prioritario por WhatsApp",
-                      "Cambios adicionales a solo 50€/modificación",
+                      "3 sesiones de ajustes al mes incluidas",
+                      "Optimización constante de Core Web Vitals",
+                      "Revisión trimestral de seguridad y velocidad",
+                      "Monitorización proactiva 24/7 de caídas",
+                      "Soporte prioritario por WhatsApp directo",
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-2 text-[11px] text-white/50">
                         <Check size={11} className="text-brand-teal shrink-0 mt-0.5" />
@@ -568,110 +552,128 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SOBRE MÍ ───────────────────────────────────────────────────────── */}
+      {/* ── EL EQUIPO ──────────────────────────────────────────────────────── */}
       <section id="sobre-mi" className="py-32 px-6 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-          <BlurReveal>
-            <div className="space-y-10">
-              <div>
-                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-blue mb-4 block">
-                  Quién hay detrás
-                </span>
-                <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9]">
-                  Hola, soy <span className="gradient-text">Alejandro.</span>
-                </h2>
-              </div>
-
-              <div className="space-y-5 text-lg text-white/50 leading-relaxed font-medium">
-                <p>
-                  Consultor IT independiente con base en el norte de Madrid. Trabajo con negocios
-                  locales — cafeterías, talleres, clínicas, inmobiliarias, tiendas— y con cualquier
-                  negocio que tenga un problema tecnológico que no sabe muy bien cómo atajar: estar
-                  en Google, automatizar procesos, recibir encargos online o simplemente tener una
-                  imagen profesional{" "}
-                  <strong className="text-white/80">sin pagar lo que cobra una agencia</strong>.
-                </p>
-                <p>
-                  Formación en electrónica, telecomunicaciones e informática. En la primera llamada
-                  ya sé lo que necesita tu negocio — sin reuniones de análisis interminables:{" "}
-                  <strong className="text-white/80">
-                    propuesta en 24h, publicado en una semana
-                  </strong>
-                  . Trabajo a diario como analista de ciberseguridad en entorno corporativo. Lo que
-                  construyo para ti tiene los mismos criterios: sin puertas traseras, accesos
-                  restringidos y protección activa contra bots y spam.
-                </p>
-                {/* Badges de credenciales */}
-                <div className="flex flex-wrap gap-3 pt-2">
-                  <div className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-brand-blue/10 border border-brand-blue/30">
-                    <Image
-                      src="/telefonica-tech.png"
-                      alt="Telefónica Tech"
-                      width={140}
-                      height={32}
-                      className="h-6 w-auto brightness-0 invert opacity-80"
-                    />
-                  </div>
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-brand-teal/10 border border-brand-teal/30 text-[11px] font-black uppercase tracking-widest text-brand-teal">
-                    <Zap size={12} /> CompTIA Certified
-                  </div>
-                </div>
-                <p className="flex items-center gap-2 text-white/40 text-sm">
-                  <MapPin size={14} className="text-brand-teal shrink-0" />
-                  San Agustín de Guadalix · Alcobendas · SSReyes · Las Tablas · Paracuellos · El
-                  Molar
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 pt-2">
-                {skills.map((skill, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-3 p-4 rounded-2xl bg-white/5 border border-white/5 group hover:border-brand-blue/30 transition-colors"
-                  >
-                    <skill.icon className={`${skill.color} shrink-0`} size={16} />
-                    <span className="text-[9px] font-black uppercase tracking-widest text-white/50 group-hover:text-white/80 transition-colors">
-                      {skill.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <a
-                href="https://es.linkedin.com/in/alejandromerle"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-4 px-10 py-5 bg-[#0077b5] text-white font-black uppercase text-xs tracking-[0.2em] rounded-full hover:shadow-[0_20px_40px_rgba(0,119,181,0.3)] transition-all hover:-translate-y-1 active:scale-95"
-              >
-                <Linkedin size={16} />
-                Ver perfil en LinkedIn
-              </a>
-            </div>
+        <div className="max-w-5xl mx-auto space-y-20">
+          {/* Intro */}
+          <BlurReveal className="text-center space-y-6">
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-blue block">
+              Resistencia Técnica
+            </span>
+            <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9]">
+              Doce años diagnosticando <br />
+              <span className="gradient-text">y reparando sistemas.</span>
+            </h2>
+            <p className="text-lg text-white/50 leading-relaxed font-medium max-w-2xl mx-auto">
+              La mayoría de las agencias rotan a su personal cada 6 meses. Nosotros llevamos
+              colaborando desde los <strong className="text-white/80">16 años</strong>. Venimos de
+              la electrónica y la reparación de equipos: sabemos lo que falla por dentro antes de
+              tocar una sola línea de código. Eso es lo que diferencia un diagnóstico real de un
+              presupuesto de agencia.
+            </p>
           </BlurReveal>
 
-          {/* Foto */}
-          <BlurReveal delay={0.15}>
-            <div className="relative max-w-sm mx-auto lg:ml-auto">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 rounded-3xl blur-[60px]" />
-              <div className="relative glass-card overflow-hidden border-white/10 rounded-3xl aspect-[4/5]">
-                <Image
-                  src="/alex.webp"
-                  alt="Alejandro Merle — Consultor IT Norte de Madrid"
-                  fill
-                  className="object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <p className="text-xs font-black uppercase tracking-widest text-white/60">
-                    Alejandro Merle
+          {/* Cards del equipo */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Alejandro */}
+            <BlurReveal>
+              <div className="glass-card overflow-hidden rounded-3xl flex flex-col">
+                <div className="relative aspect-4/3 overflow-hidden">
+                  <Image
+                    src="/alex.webp"
+                    alt="Alejandro Merle — Co-fundador WebPC"
+                    fill
+                    className="object-cover object-top grayscale"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-5 right-5">
+                    <p className="text-sm font-black uppercase tracking-widest text-white">
+                      Alejandro Merle
+                    </p>
+                    <p className="text-[10px] text-white/50 uppercase tracking-widest">
+                      Web · SEO · Seguridad · IA
+                    </p>
+                  </div>
+                </div>
+                <div className="p-6 space-y-4 flex-1 flex flex-col">
+                  <p className="text-sm text-white/50 leading-relaxed">
+                    Analista de ciberseguridad en entorno corporativo. Arquitectura web, SEO técnico
+                    y automatización con IA operativa.
                   </p>
-                  <p className="text-[10px] text-white/30 uppercase tracking-widest">
-                    Consultor IT · Norte de Madrid
-                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/30">
+                      <Image
+                        src="/telefonica-tech.png"
+                        alt="Telefónica Tech"
+                        width={120}
+                        height={28}
+                        className="h-5 w-auto brightness-0 invert opacity-80"
+                      />
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/30 text-[10px] font-black uppercase tracking-widest text-brand-teal">
+                      <Zap size={10} /> CompTIA Certified
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/30 text-[10px] font-black uppercase tracking-widest text-brand-teal">
+                      <Cpu size={10} /> Máster IA · Univ. Isabel I
+                    </div>
+                    <a
+                      href="https://es.linkedin.com/in/alejandromerle"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0077b5]/20 border border-[#0077b5]/40 text-[10px] font-black uppercase tracking-widest text-[#0077b5] hover:bg-[#0077b5]/30 transition-all active:scale-95"
+                    >
+                      <Linkedin size={10} /> LinkedIn
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          </BlurReveal>
+            </BlurReveal>
+
+            {/* Victor */}
+            <BlurReveal delay={0.15}>
+              <div className="glass-card overflow-hidden rounded-3xl flex flex-col">
+                <div className="relative aspect-4/3 overflow-hidden">
+                  <Image
+                    src="/victor.webp"
+                    alt="Victor Perlado — Co-fundador WebPC"
+                    fill
+                    className="object-cover scale-150 object-[50%_35%]"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-5 right-5">
+                    <p className="text-sm font-black uppercase tracking-widest text-white">
+                      Victor Perlado
+                    </p>
+                    <p className="text-[10px] text-white/50 uppercase tracking-widest">
+                      Electrónica · Hardware · Sistemas
+                    </p>
+                  </div>
+                </div>
+                <div className="p-6 space-y-4 flex-1 flex flex-col">
+                  <p className="text-sm text-white/50 leading-relaxed">
+                    Técnico especialista en electrónica y mantenimiento de sistemas. La capa física
+                    que garantiza que nada falla en producción.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-[10px] font-black uppercase tracking-widest text-brand-blue">
+                      <Cpu size={10} /> Hardware Specialist
+                    </div>
+                    <a
+                      href="https://www.linkedin.com/in/victor-perlado-09481554/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0077b5]/20 border border-[#0077b5]/40 text-[10px] font-black uppercase tracking-widest text-[#0077b5] hover:bg-[#0077b5]/30 transition-all active:scale-95"
+                    >
+                      <Linkedin size={10} /> LinkedIn
+                    </a>
+                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/30 text-[10px] font-black uppercase tracking-widest text-brand-teal">
+                      <Cpu size={10} /> Máster IA · Univ. Isabel I
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </BlurReveal>
+          </div>
         </div>
       </section>
 

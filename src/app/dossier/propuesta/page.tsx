@@ -3,14 +3,14 @@ import { DossierPrintButton } from "@/components/DossierPrintButton";
 import { DossierNav } from "@/components/DossierNav";
 
 const NAV_SECTIONS = [
-  { id: "quien",     label: "Quién soy"       },
-  { id: "problema",  label: "El problema"      },
-  { id: "cambio",    label: "Antes / Después"  },
-  { id: "etapas",    label: "Las 3 etapas"     },
-  { id: "proyectos", label: "Proyectos"        },
-  { id: "precios",        label: "Precios"          },
-  { id: "presupuestador", label: "Presupuestador"   },
-  { id: "contacto",       label: "Contacto"         },
+  { id: "quien", label: "Quién soy" },
+  { id: "problema", label: "El problema" },
+  { id: "cambio", label: "Antes / Después" },
+  { id: "etapas", label: "Las 3 etapas" },
+  { id: "proyectos", label: "Proyectos" },
+  { id: "precios", label: "Precios" },
+  { id: "presupuestador", label: "Presupuestador" },
+  { id: "contacto", label: "Contacto" },
 ];
 import {
   TrendingUp,
@@ -28,7 +28,8 @@ import { DossierPresupuestador } from "@/components/DossierPresupuestador";
 
 export const metadata: Metadata = {
   title: "Propuesta Comercial — Alex Merle",
-  description: "Servicios de consultoría digital para negocios locales: presencia online, agenda, automatización y captación de clientes. Norte de Madrid.",
+  description:
+    "Servicios de consultoría digital para negocios locales: presencia online, agenda, automatización y captación de clientes. Norte de Madrid.",
   robots: { index: true, follow: true },
 };
 
@@ -75,7 +76,8 @@ const stages = [
     title: "Ejecución",
     sub: "Montamos lo que hace falta",
     body: "Según lo que hayamos detectado: optimizamos tu ficha de Google, montamos la agenda online, ordenamos el buzón, mejoramos lo que tienes o construimos lo que falta. Nada genérico. Solo lo que tiene sentido para tu negocio.",
-    result: "En las primeras semanas el teléfono empieza a sonar más. Las consultas entran más ordenadas.",
+    result:
+      "En las primeras semanas el teléfono empieza a sonar más. Las consultas entran más ordenadas.",
     color: "brand-teal",
   },
   {
@@ -83,7 +85,8 @@ const stages = [
     title: "Crecimiento",
     sub: "Ahora sí, a por más",
     body: "Con la base puesta, tiene sentido ir a por más. Más visibilidad, más canales, más automatización. Esta etapa es la que más gusta porque los resultados se ven directamente en la cuenta.",
-    result: "Tomas decisiones de crecimiento sin vértigo porque tienes la estructura para responder.",
+    result:
+      "Tomas decisiones de crecimiento sin vértigo porque tienes la estructura para responder.",
     color: "brand-blue",
   },
 ];
@@ -97,7 +100,8 @@ const projects = [
     metricLabel: "Visitas orgánicas / mes",
     badge: "En 6 días",
     desc: "Empresa familiar desde 1993 sin presencia digital útil. Renovación completa de la web orientada a SEO local. Resultado: más de 1.500 visitas orgánicas al mes en 6 días desde el lanzamiento.",
-    quote: "Llevamos treinta años sin necesitar internet. Ahora nos llaman clientes que ni sabíamos que existían.",
+    quote:
+      "Llevamos treinta años sin necesitar internet. Ahora nos llaman clientes que ni sabíamos que existían.",
     color: "text-brand-blue",
     bg: "bg-brand-blue/10",
     border: "border-brand-blue/20",
@@ -223,7 +227,7 @@ export default function DossierPage() {
             margin: 18mm 15mm 22mm 15mm;
             size: A4;
             @bottom-center {
-              content: "Alex Merle  ·  alex@merle.es  ·  +34 600 367 217  ·  alexmerle.es";
+              content: "Alex Merle  ·  hola@webpc.es  ·  +34 600 367 217  ·  alexmerle.es";
               font-family: ui-sans-serif, system-ui, sans-serif;
               font-size: 8px;
               font-weight: 700;
@@ -250,7 +254,6 @@ export default function DossierPage() {
       `}</style>
 
       <main className="min-h-screen pb-32">
-
         {/* ── HERO / PORTADA ────────────────────────────────────────────── */}
         <section className="print-cover relative pt-32 pb-20 px-6 overflow-hidden">
           <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-blue/8 rounded-full blur-[150px] -z-10" />
@@ -266,12 +269,11 @@ export default function DossierPage() {
               Alex Merle · Consultor IT Norte de Madrid
             </span>
             <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 leading-[1.05]">
-              Tu negocio visible,{" "}
-              <span className="gradient-text">ordenado y creciendo.</span>
+              Tu negocio visible, <span className="gradient-text">ordenado y creciendo.</span>
             </h1>
             <p className="text-white/55 text-xl max-w-2xl font-medium leading-relaxed print-muted">
-              Detecto dónde pierdes clientes y facturación, y lo resuelvo con herramientas concretas.
-              Sin agencias, sin proyectos eternos, sin letra pequeña.
+              Detecto dónde pierdes clientes y facturación, y lo resuelvo con herramientas
+              concretas. Sin agencias, sin proyectos eternos, sin letra pequeña.
             </p>
           </div>
         </section>
@@ -294,9 +296,9 @@ export default function DossierPage() {
                 </div>
                 <p className="text-white/55 text-sm leading-relaxed font-medium print-muted">
                   Tengo formación en Informática, Telecomunicaciones y un máster en Inteligencia
-                  Artificial. Trabajo en Telefónica Tech en el área de Protección del Riesgo
-                  Digital (DRP), lo que me da una visión técnica poco habitual sobre cómo los
-                  negocios están expuestos en internet y dónde pierden oportunidades sin saberlo.
+                  Artificial. Trabajo en Telefónica Tech en el área de Protección del Riesgo Digital
+                  (DRP), lo que me da una visión técnica poco habitual sobre cómo los negocios están
+                  expuestos en internet y dónde pierden oportunidades sin saberlo.
                 </p>
                 <p className="text-white/55 text-sm leading-relaxed font-medium print-muted">
                   Trabajo como autónomo. Sin intermediarios. Quien te hace la propuesta es quien
@@ -311,7 +313,7 @@ export default function DossierPage() {
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Mail size={12} className="text-brand-teal" />
-                    alex@merle.es
+                    hola@webpc.es
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Phone size={12} className="text-brand-blue" />
@@ -338,12 +340,13 @@ export default function DossierPage() {
               cómo conseguir más clientes. Eres el director, el músico y el afinador a la vez.
             </p>
             <p className="text-white/70 text-lg font-bold leading-relaxed print-white">
-              Trabajas más horas que nadie, pero el negocio no crece al ritmo que debería.
-              No porque trabajes mal, sino porque nadie puede crecer mientras apaga fuegos todo el día.
+              Trabajas más horas que nadie, pero el negocio no crece al ritmo que debería. No porque
+              trabajes mal, sino porque nadie puede crecer mientras apaga fuegos todo el día.
             </p>
             <div className="mt-6 p-5 rounded-xl border border-white/8 bg-white/[0.03]">
               <p className="text-white/45 text-sm font-medium leading-relaxed print-muted">
-                Si pierdes 3 o 4 consultas a la semana por no contestar a tiempo —o porque no apareces cuando alguien te busca en Google— eso son entre{" "}
+                Si pierdes 3 o 4 consultas a la semana por no contestar a tiempo —o porque no
+                apareces cuando alguien te busca en Google— eso son entre{" "}
                 <span className="text-white/70 font-bold">300 y 600 € al mes que no llegan</span>.
                 No de golpe. Sin que nadie te avise. Simplemente, van a otro.
               </p>
@@ -459,7 +462,9 @@ export default function DossierPage() {
                     </div>
                   </div>
                   <div>
-                    <span className={`text-4xl font-black tracking-tighter leading-none ${p.color}`}>
+                    <span
+                      className={`text-4xl font-black tracking-tighter leading-none ${p.color}`}
+                    >
                       {p.metric}
                     </span>
                     <span className="text-[10px] font-black uppercase tracking-widest text-white/40 block mt-1 print-muted">
@@ -496,7 +501,8 @@ export default function DossierPage() {
               Sin letra pequeña, <span className="gradient-text">sin sorpresas.</span>
             </h2>
             <p className="text-white/50 text-base font-medium mb-10 print-muted">
-              Pago dividido: 50% al arrancar, 50% a la entrega. Sin cuotas mensuales. El código es tuyo desde el primer día.
+              Pago dividido: 50% al arrancar, 50% a la entrega. Sin cuotas mensuales. El código es
+              tuyo desde el primer día.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {plans.map((plan) => (
@@ -523,7 +529,10 @@ export default function DossierPage() {
                   </p>
                   <ul className="space-y-2 mt-auto">
                     {plan.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-[11px] text-white/50 print-muted">
+                      <li
+                        key={item}
+                        className="flex items-center gap-2 text-[11px] text-white/50 print-muted"
+                      >
                         <Check size={11} className="text-brand-teal shrink-0" />
                         {item}
                       </li>
@@ -533,7 +542,8 @@ export default function DossierPage() {
               ))}
             </div>
             <p className="text-white/35 text-xs mt-6 font-medium print-muted">
-              Los módulos individuales (Google Business, buzón, agenda) parten de 150 € + IVA. Los packs combinados se negocian a medida.
+              Los módulos individuales (Google Business, buzón, agenda) parten de 150 € + IVA. Los
+              packs combinados se negocian a medida.
             </p>
           </div>
         </section>
@@ -562,20 +572,16 @@ export default function DossierPage() {
                 El siguiente paso
               </span>
               <h2 className="text-4xl md:text-5xl font-black tracking-tighter">
-                30 minutos.{" "}
-                <span className="gradient-text">Sin compromiso.</span>
+                30 minutos. <span className="gradient-text">Sin compromiso.</span>
               </h2>
               <p className="text-white/50 max-w-xl mx-auto text-base font-medium leading-relaxed print-muted">
                 En media hora identificamos exactamente dónde se te escapan clientes y cuánto te
-                está costando. Si no hay nada que hacer, te lo digo sin rodeos. Sin presión,
-                sin letra pequeña.
+                está costando. Si no hay nada que hacer, te lo digo sin rodeos. Sin presión, sin
+                letra pequeña.
               </p>
               <div className="flex flex-wrap justify-center gap-4 pt-2">
-                <a
-                  href="mailto:alex@merle.es"
-                  className="btn-primary px-7 py-3 print-hide"
-                >
-                  Escribir a alex@merle.es
+                <a href="mailto:hola@webpc.es" className="btn-primary px-7 py-3 print-hide">
+                  Escribir a hola@webpc.es
                 </a>
                 <a
                   href="https://wa.me/34600367217"
@@ -586,7 +592,7 @@ export default function DossierPage() {
               </div>
               <div className="pt-4 print-white">
                 <p className="text-white/30 text-[11px] font-medium print-muted">
-                  alex@merle.es · +34 600 367 217 · alexmerle.es
+                  hola@webpc.es · +34 600 367 217 · alexmerle.es
                 </p>
               </div>
             </div>
@@ -597,7 +603,6 @@ export default function DossierPage() {
         <div className="flex justify-center pb-8 print-hide">
           <DossierPrintButton filename="Alex-Merle-Propuesta-Comercial" />
         </div>
-
       </main>
     </>
   );

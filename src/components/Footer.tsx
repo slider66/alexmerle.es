@@ -10,13 +10,12 @@ export default function Footer() {
             href="/"
             className="text-2xl font-black tracking-tighter block hover:opacity-80 transition-opacity"
           >
-            AM<span className="text-brand-blue">.</span>
+            WebPC<span className="text-brand-blue">.</span>
           </Link>
           <p className="text-white/20 text-xs font-black uppercase tracking-widest">
-            © {new Date().getFullYear()} Alejandro Merle. <br className="md:hidden" />
-            Consultor IT · Norte de Madrid.
+            © {new Date().getFullYear()} Web Performance Club. <br className="md:hidden" />
+            Rescate y Rendimiento TI.
           </p>
-
         </div>
 
         <div className="flex flex-wrap justify-center gap-12">
@@ -41,7 +40,9 @@ export default function Footer() {
           </div>
 
           <div className="space-y-3">
-            <p className="text-[9px] font-black uppercase tracking-widest text-white/20">Sectores</p>
+            <p className="text-[9px] font-black uppercase tracking-widest text-white/20">
+              Sectores
+            </p>
             {[
               { label: "Cafeterías", href: "/para/cafeterias" },
               { label: "Restaurantes", href: "/para/restaurantes" },
@@ -61,7 +62,9 @@ export default function Footer() {
           </div>
 
           <div className="space-y-3">
-            <p className="text-[9px] font-black uppercase tracking-widest text-white/20">Navegación</p>
+            <p className="text-[9px] font-black uppercase tracking-widest text-white/20">
+              Navegación
+            </p>
             {[
               { label: "Servicios", href: "/#servicios" },
               { label: "Precios", href: "/#precios" },
@@ -80,9 +83,24 @@ export default function Footer() {
 
         <div className="flex gap-4">
           {[
-            { icon: Zap, href: "https://wa.me/34600367217", color: "hover:bg-[#25D366]", label: "WhatsApp" },
-            { icon: Linkedin, href: "https://es.linkedin.com/in/alejandromerle", color: "hover:bg-brand-blue", label: "LinkedIn" },
-            { icon: Mail, href: "mailto:alex@merle.es", color: "hover:bg-brand-blue", label: "Email" },
+            {
+              icon: Zap,
+              href: "https://wa.me/34600367217",
+              color: "hover:bg-[#25D366]",
+              label: "WhatsApp",
+            },
+            {
+              icon: Linkedin,
+              href: "https://es.linkedin.com/in/alejandromerle",
+              color: "hover:bg-brand-blue",
+              label: "LinkedIn",
+            },
+            {
+              icon: Mail,
+              href: "mailto:hola@webpc.es",
+              color: "hover:bg-brand-blue",
+              label: "Email",
+            },
           ].map((social, i) => (
             <a
               key={i}

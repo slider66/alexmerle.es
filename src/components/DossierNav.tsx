@@ -25,7 +25,10 @@ export function DossierNav({ sections, title }: { sections: NavSection[]; title:
           let maxId = sections[0]?.id ?? "";
           let maxRatio = -1;
           ratios.forEach((r, sid) => {
-            if (r > maxRatio) { maxRatio = r; maxId = sid; }
+            if (r > maxRatio) {
+              maxRatio = r;
+              maxId = sid;
+            }
           });
           setActive(maxId);
         },
@@ -47,17 +50,24 @@ export function DossierNav({ sections, title }: { sections: NavSection[]; title:
   return (
     <>
       {/* ── ÍNDICE IMPRIMIBLE (solo aparece en PDF) ──────────────────── */}
-      <div className="hidden print:block mb-12 border border-gray-200 rounded-xl p-8 bg-gray-50" style={{ pageBreakAfter: "always" }}>
+      <div
+        className="hidden print:block mb-12 border border-gray-200 rounded-xl p-8 bg-gray-50"
+        style={{ pageBreakAfter: "always" }}
+      >
         <p className="text-[9px] font-black uppercase tracking-[0.3em] text-gray-400 mb-1">
           {title}
         </p>
-        <h2 className="text-xl font-black text-gray-900 mb-6 tracking-tight">Índice de contenidos</h2>
+        <h2 className="text-xl font-black text-gray-900 mb-6 tracking-tight">
+          Índice de contenidos
+        </h2>
         <ol className="space-y-2">
           {sections.map(({ label }, i) => (
             <li key={label} className="flex items-baseline gap-2">
               <span className="text-[11px] font-black text-gray-400 w-5 shrink-0">{i + 1}.</span>
               <span className="flex-1 border-b border-dotted border-gray-300" />
-              <span className="text-sm font-semibold text-gray-700 flex-[3] text-left pl-2">{label}</span>
+              <span className="text-sm font-semibold text-gray-700 flex-[3] text-left pl-2">
+                {label}
+              </span>
               <span className="text-[11px] font-black text-gray-400 w-8 text-right">
                 p. {i + 2}
               </span>
@@ -65,7 +75,7 @@ export function DossierNav({ sections, title }: { sections: NavSection[]; title:
           ))}
         </ol>
         <p className="text-[9px] text-gray-400 mt-6 font-medium">
-          alexmerle.es · alex@merle.es · +34 600 367 217
+          alexmerle.es · hola@webpc.es · +34 600 367 217
         </p>
       </div>
 

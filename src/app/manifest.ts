@@ -4,10 +4,9 @@ export const dynamic = "force-static";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Alejandro Merle · Consultor IT",
-    short_name: "Alex Merle",
-    description:
-      "Consultor IT en el Norte de Madrid. Webs profesionales, SEO local y automatización para pymes.",
+    name: "WebPC · Rendimiento y Rescate Web",
+    short_name: "WebPC",
+    description: "Especialistas en rendimiento web y digitalización para pymes. Norte de Madrid.",
     start_url: "/",
     display: "standalone",
     background_color: "#000000",

@@ -6,9 +6,9 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { label: "Servicios", href: "#servicios" },
-  { label: "Proceso", href: "#proceso" },
   { label: "Precios", href: "#precios" },
   { label: "Resultados", href: "#casos-de-exito" },
+  { label: "El Equipo", href: "#sobre-mi" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -36,7 +36,9 @@ export default function Navbar() {
   // Bloquea scroll del body cuando el menú está abierto
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   return (
@@ -53,10 +55,9 @@ export default function Navbar() {
         <nav className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <Link
             href="/"
-            className="text-2xl font-extrabold tracking-tighter"
-            aria-label="Volver al inicio"
+            className="text-2xl font-black tracking-tighter block hover:opacity-80 transition-opacity"
           >
-            AM<span className="text-brand-blue">.</span>
+            WebPC<span className="text-brand-blue">.</span>
           </Link>
 
           {/* Desktop */}
@@ -71,7 +72,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link href="#contacto" className="btn-primary px-5 py-2 text-sm">
-              Hablemos
+              Diagnóstico
             </Link>
           </div>
 
