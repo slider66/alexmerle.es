@@ -109,6 +109,23 @@ export default async function GeoNichePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
+      <nav className="pt-28 px-6 max-w-4xl mx-auto">
+        <ol className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white/25">
+          <li>
+            <Link href="/" className="hover:text-white/50 transition-colors">
+              Inicio
+            </Link>
+          </li>
+          <li className="text-white/15">·</li>
+          <li>
+            <Link href={`/${geo.slug}`} className="hover:text-white/50 transition-colors">
+              {geo.name}
+            </Link>
+          </li>
+          <li className="text-white/15">·</li>
+          <li className="text-white/40">{niche.name}</li>
+        </ol>
+      </nav>
       {/* ── HERO HÍBRIDO ─────────────────────────────────────────────── */}
       <section className="relative pt-40 pb-20 px-6 flex flex-col items-center justify-center min-h-[70vh] text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none opacity-20">
@@ -219,7 +236,6 @@ export default async function GeoNichePage({
           <div className="flex flex-wrap gap-3">
             {nichesData
               .filter((n) => n.slug !== niche.slug)
-              .slice(0, 6)
               .map((s) => (
                 <Link
                   key={s.slug}

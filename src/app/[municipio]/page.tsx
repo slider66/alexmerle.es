@@ -162,7 +162,7 @@ export default async function MunicipioPage({
             Sectores frecuentes en {geo.name}
           </p>
           <div className="flex flex-wrap gap-3">
-            {nichesData.slice(0, 8).map((s) => (
+            {nichesData.map((s) => (
               <Link
                 key={s.slug}
                 href={`/${geo.slug}/${s.slug}`}

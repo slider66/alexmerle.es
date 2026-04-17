@@ -163,7 +163,7 @@ export default async function NichePage({ params }: { params: Promise<{ nicho: s
             Zonas donde trabajo
           </p>
           <div className="flex flex-wrap gap-3">
-            {geoMunicipalities.slice(0, 8).map((m) => (
+            {geoMunicipalities.map((m) => (
               <Link
                 key={m.slug}
                 href={`/${m.slug}/${niche.slug}`}

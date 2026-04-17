@@ -8,7 +8,7 @@ import { SuccessStories } from "@/components/SuccessStories";
 import { ContactLinks } from "@/components/ContactLinks";
 import { FAQ } from "@/components/FAQ";
 import Image from "next/image";
-import { Linkedin, Shield, Globe, Cpu, Layers, Check, Zap } from "lucide-react";
+import { Linkedin, Shield, Globe, Cpu, Layers, Check, Zap, Share2, Database } from "lucide-react";
 
 // ─── Datos estáticos ─────────────────────────────────────────────────────────
 
@@ -201,6 +201,98 @@ export default function Home() {
               ))}
             </div>
           </BlurReveal>
+        </div>
+      </section>
+
+      {/* ── INTEGRACIONES SIN FRICCIÓN ──────────────────────────────────────────── */}
+      <section className="py-32 px-6 relative overflow-hidden">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-teal/5 rounded-full blur-[150px] -z-10" />
+
+        <div className="max-w-5xl mx-auto">
+          <BlurReveal className="text-center mb-20">
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-teal mb-4 block">
+              Tu negocio ya crea contenido
+            </span>
+            <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 leading-[1.1]">
+              La web lo muestra <span className="gradient-text">sola.</span>
+            </h2>
+            <p className="text-white/55 text-xl max-w-2xl mx-auto font-medium">
+              Conectamos tu web con las herramientas que ya usas. Sin paneles de administración, sin
+              ERP, sin fricción.
+            </p>
+          </BlurReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* RRSS → Web automático */}
+            <BlurReveal>
+              <div className="glass-card p-10 h-full flex flex-col gap-6 bg-[#080808]/40 border border-white/8 hover:border-brand-teal/30 transition-colors duration-500">
+                <div className="w-12 h-12 rounded-2xl bg-brand-teal/10 flex items-center justify-center">
+                  <Share2 size={20} className="text-brand-teal" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-brand-teal mb-2">
+                    Automatización RRSS
+                  </p>
+                  <h3 className="text-2xl font-black tracking-tight">
+                    Subes a Instagram, <br />
+                    aparece en tu web
+                  </h3>
+                </div>
+                <p className="text-white/55 text-sm leading-relaxed font-medium flex-1">
+                  Para negocios que publican a diario o semanalmente. Conectamos Instagram, TikTok o
+                  Facebook para que el contenido aparezca automáticamente — sin duplicar trabajo,
+                  sin entrar a ningún panel.
+                </p>
+                <ul className="space-y-2">
+                  {[
+                    "Feed de Instagram embebido en tiempo real",
+                    "Galería automática de tus trabajos",
+                    "Últimos posts como carousel destacado",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-[11px] text-white/50">
+                      <Check size={12} className="text-brand-teal shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </BlurReveal>
+
+            {/* Gestión sin backend */}
+            <BlurReveal delay={0.1}>
+              <div className="glass-card p-10 h-full flex flex-col gap-6 bg-[#080808]/40 border border-white/8 hover:border-brand-blue/30 transition-colors duration-500">
+                <div className="w-12 h-12 rounded-2xl bg-brand-blue/10 flex items-center justify-center">
+                  <Database size={20} className="text-brand-blue" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-brand-blue mb-2">
+                    Gestión sin panel
+                  </p>
+                  <h3 className="text-2xl font-black tracking-tight">
+                    Actualiza tu web desde <br />
+                    donde ya trabajas
+                  </h3>
+                </div>
+                <p className="text-white/55 text-sm leading-relaxed font-medium flex-1">
+                  Conectamos la web a Notion, Airtable, Google Sheets o WhatsApp. Actualiza menús,
+                  tarifas, horarios o blog desde una hoja de cálculo y la web se refleja en minutos
+                  — sin ERP, sin panel de administración.
+                </p>
+                <ul className="space-y-2">
+                  {[
+                    "Menú del día desde Google Sheets",
+                    "Tarifas y precios en Notion o Airtable",
+                    "Horarios y disponibilidad en tiempo real",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-[11px] text-white/50">
+                      <Check size={12} className="text-brand-blue shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </BlurReveal>
+          </div>
         </div>
       </section>
 
