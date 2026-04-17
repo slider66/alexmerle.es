@@ -1,4 +1,4 @@
-# FIXES — alexmerle.es
+# FIXES — webpc.es
 
 > Generado: 2026-04-05
 > Scope: issues técnicos accionables detectados en auditoría de código
@@ -12,6 +12,7 @@
 **Problema:** `public/favicon.ico` es un PNG 640×640 renombrado como `.ico`. Los navegadores descargan el favicon en cada visita — 314KB es 15× más de lo necesario.
 
 **Cómo arreglarlo:**
+
 1. Ir a [favicon.io/favicon-converter](https://favicon.io/favicon-converter) y subir `alex.webp` o el logo SVG
 2. Descargar el `.ico` generado (multi-tamaño: 16×16, 32×32, 48×48)
 3. Reemplazar `public/favicon.ico`
@@ -32,6 +33,7 @@
 **Archivo:** [src/lib/github.ts](src/lib/github.ts), líneas 135 y 145.
 
 **Fix:**
+
 ```ts
 // línea 135
 previewImage: "/previews/montes_v2.webp",
@@ -54,11 +56,11 @@ previewImage: "/previews/lolo-transportes.webp",
 | `metal_line_es.png` | 3.0MB |
 | `metal_line_es_v2.png` | 3.0MB |
 | `montes.png` | 7.4MB |
-| `montes_v2.png` | 7.4MB (*) |
+| `montes_v2.png` | 7.4MB (\*) |
 | `fotografia_aerea_madrid.png` | 2.2MB |
 | `ijornada.png` | 455KB |
 
-(*) `montes_v2.png` se usa actualmente (ver FIX-02), eliminar solo tras aplicar FIX-02.
+(\*) `montes_v2.png` se usa actualmente (ver FIX-02), eliminar solo tras aplicar FIX-02.
 
 **Fix:** eliminar todos los `.png` listados de `public/previews/` salvo que se quieran conservar como fuente de edición (en ese caso, moverlos fuera de `public/`).
 
@@ -72,9 +74,9 @@ previewImage: "/previews/lolo-transportes.webp",
 
 ```ts
 // layout.tsx líneas ~54, 65, 87
-url: "/alex.png"
-images: ["/alex.png"]
-image: "https://alexmerle.es/alex.png"
+url: "/alex.png";
+images: ["/alex.png"];
+image: "https://webpc.es/alex.png";
 ```
 
 WhatsApp y LinkedIn descargan esta imagen al generar la preview del enlace. `alex.webp` es 18× más ligero y ya existe.
@@ -88,12 +90,14 @@ WhatsApp y LinkedIn descargan esta imagen al generar la preview del enlace. `ale
 **Problema:** No existe ningún test (unitario, integración ni E2E). El smoke test del CI/CD solo verifica HTTP 200, no que el formulario funcione, las rutas dinámicas carguen o el JSON-LD sea válido.
 
 **Mínimo recomendado:** 1 test E2E con Playwright que cubra:
+
 - [ ] Home carga sin errores de consola
 - [ ] Formulario de contacto envía y muestra confirmación
 - [ ] Una ruta `/[municipio]` (ej. `/alcobendas`) carga con H1 correcto
 - [ ] Una ruta `/para/[nicho]` (ej. `/para/restaurantes`) carga con H1 correcto
 
 **Instalación:**
+
 ```bash
 pnpm add -D @playwright/test
 npx playwright install chromium
@@ -108,6 +112,7 @@ npx playwright install chromium
 **Referencia:** ROADMAP.md ítem 3 (Prioridad Alta, pendiente).
 
 **Fix:** añadir botón WhatsApp en Hero junto a los CTA existentes:
+
 ```tsx
 <a
   href="https://wa.me/34XXXXXXXXX?text=Hola%20Alex%2C%20me%20interesa%20tu%20servicio"
@@ -130,6 +135,7 @@ npx playwright install chromium
 **Referencia:** ROADMAP.md ítem 4.
 
 **Fix:** texto dinámico basado en el mes actual:
+
 ```tsx
 const badge = `Solo 2 plazas disponibles en ${new Intl.DateTimeFormat("es", { month: "long" }).format(new Date())}`;
 ```
@@ -151,6 +157,7 @@ const badge = `Solo 2 plazas disponibles en ${new Intl.DateTimeFormat("es", { mo
 **Referencia:** ROADMAP.md ítem 6.
 
 **Propuesta de datos:**
+
 - Negocios publicados: N
 - Municipios cubiertos: 16
 - Tiempo medio de entrega: X semanas
@@ -165,6 +172,7 @@ const badge = `Solo 2 plazas disponibles en ${new Intl.DateTimeFormat("es", { mo
 **Referencia:** ROADMAP.md ítem 7.
 
 **Fix:** añadir pregunta en el array de FAQs de `page.tsx` y en el JSON-LD de `layout.tsx`:
+
 ```
 Q: ¿Cómo se gestiona el pago?
 A: Se divide en dos partes: 50% al inicio del proyecto y 50% a la entrega. Sin sorpresas.
@@ -177,8 +185,9 @@ A: Se divide en dos partes: 50% al inicio del proyecto y 50% a la entrega. Sin s
 **Problema:** las imágenes de `PortfolioCards` usan el nombre del proyecto como `alt`. Google Images valora descripciones más ricas con contexto de servicio y ubicación.
 
 **Fix:** añadir campo `altText` en `projectOverrides` de [src/lib/github.ts](src/lib/github.ts):
+
 ```ts
-altText: "Web profesional para empresa de fotografía aérea en Madrid con dron DJI, imágenes HDR 4K"
+altText: "Web profesional para empresa de fotografía aérea en Madrid con dron DJI, imágenes HDR 4K";
 ```
 
 ---
@@ -190,6 +199,7 @@ altText: "Web profesional para empresa de fotografía aérea en Madrid con dron 
 **Referencia:** ROADMAP.md ítem 13 (Rich Snippets).
 
 **Fix:** añadir al bloque JSON-LD en `layout.tsx` cuando se tengan testimonios reales:
+
 ```json
 "aggregateRating": {
   "@type": "AggregateRating",
@@ -212,30 +222,30 @@ Los archivos `merle_es.png`, `montes.png` etc. (23MB) están en el repo git. Est
 
 **Referencia:** ROADMAP.md ítem 14.
 
-Verificar que el perfil de Google Business tenga la URL `https://alexmerle.es` configurada correctamente y que las reseñas sean visibles. Sin esto, el rich snippet de estrellas (FIX-12) no tiene base.
+Verificar que el perfil de Google Business tenga la URL `https://webpc.es` configurada correctamente y que las reseñas sean visibles. Sin esto, el rich snippet de estrellas (FIX-12) no tiene base.
 
 ---
 
 ## RESUMEN EJECUTIVO
 
-| Fix | Área | Esfuerzo | Impacto |
-|---|---|---|---|
-| FIX-01 | Performance | Bajo | Alto |
-| FIX-02 | Performance | Bajo | Alto |
-| FIX-03 | Limpieza repo | Bajo | Medio |
-| FIX-04 | Performance/SEO | Bajo | Medio |
-| FIX-05 | Calidad código | Alto | Alto |
-| FIX-06 | Conversión | Bajo | Alto |
-| FIX-07 | Conversión | Bajo | Medio |
-| FIX-08 | Conversión | Medio | Alto |
-| FIX-09 | Contenido | Bajo | Medio |
-| FIX-10 | Conversión | Bajo | Medio |
-| FIX-11 | SEO | Bajo | Bajo |
-| FIX-12 | SEO | Bajo | Alto (*) |
-| FIX-13 | Mantenimiento | Bajo | Bajo |
-| FIX-14 | SEO/Negocio | Bajo | Alto |
+| Fix    | Área            | Esfuerzo | Impacto   |
+| ------ | --------------- | -------- | --------- |
+| FIX-01 | Performance     | Bajo     | Alto      |
+| FIX-02 | Performance     | Bajo     | Alto      |
+| FIX-03 | Limpieza repo   | Bajo     | Medio     |
+| FIX-04 | Performance/SEO | Bajo     | Medio     |
+| FIX-05 | Calidad código  | Alto     | Alto      |
+| FIX-06 | Conversión      | Bajo     | Alto      |
+| FIX-07 | Conversión      | Bajo     | Medio     |
+| FIX-08 | Conversión      | Medio    | Alto      |
+| FIX-09 | Contenido       | Bajo     | Medio     |
+| FIX-10 | Conversión      | Bajo     | Medio     |
+| FIX-11 | SEO             | Bajo     | Bajo      |
+| FIX-12 | SEO             | Bajo     | Alto (\*) |
+| FIX-13 | Mantenimiento   | Bajo     | Bajo      |
+| FIX-14 | SEO/Negocio     | Bajo     | Alto      |
 
-(*) FIX-12 requiere FIX-08 como prerequisito (necesita testimonios reales).
+(\*) FIX-12 requiere FIX-08 como prerequisito (necesita testimonios reales).
 
 ---
 
@@ -275,9 +285,10 @@ Verificar que el perfil de Google Business tenga la URL `https://alexmerle.es` c
 **Archivo:** [src/app/[municipio]/page.tsx](src/app/[municipio]/page.tsx)
 **Problema:** la sección "Sectores frecuentes" lista links a `/para/cafeterias`, `/para/restaurantes`, etc. con URLs hardcodeadas. Si se añade o elimina un nicho de `nicheData.ts`, esta lista no se actualiza automáticamente.
 **Fix cuando proceda:**
+
 ```ts
 import { nichesData } from "@/lib/nicheData";
-nichesData.slice(0, 6).map(n => ({ label: n.name, href: `/para/${n.slug}` }))
+nichesData.slice(0, 6).map((n) => ({ label: n.name, href: `/para/${n.slug}` }));
 ```
 
 ---
@@ -303,11 +314,12 @@ nichesData.slice(0, 6).map(n => ({ label: n.name, href: `/para/${n.slug}` }))
 **Archivo:** [.github/workflows/deploy.yml](.github/workflows/deploy.yml)
 **Problema:** el smoke test solo verifica HTTP 200. Una página de error personalizada también devuelve 200. Además `sleep 20` puede no ser suficiente si el FTP tarda.
 **Mejora sugerida:**
+
 ```yaml
-HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://alexmerle.es)
-CONTENT=$(curl -s https://alexmerle.es | grep -c "Consultor IT")
+HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://webpc.es)
+CONTENT=$(curl -s https://webpc.es | grep -c "Consultor IT")
 if [ "$HTTP_STATUS" != "200" ] || [ "$CONTENT" -eq "0" ]; then
-  echo "⚠️ Deploy puede estar roto"
+echo "⚠️ Deploy puede estar roto"
 fi
 ```
 
@@ -323,27 +335,27 @@ fi
 
 ## RESUMEN ACTUALIZADO
 
-| ID | Área | Estado | Esfuerzo | Impacto |
-|---|---|---|---|---|
-| FIX-01 | Performance (favicon) | ⬜ Pendiente manual | Bajo | Alto |
-| FIX-02 | Performance (WebP) | ✅ Hecho | — | — |
-| FIX-03 | Limpieza repo (PNGs) | ⬜ Pendiente manual | Bajo | Medio |
-| FIX-04 | OG/JSON-LD WebP | ✅ Hecho | — | — |
-| FIX-05 | Tests E2E | ⬜ Pendiente | Alto | Alto |
-| FIX-06 | WhatsApp Hero | ✅ Hecho | — | — |
-| FIX-07 | Badge dinámico | ✅ Hecho | — | — |
-| FIX-08 | Testimonios reales | ⬜ Pendiente (contenido) | Medio | Alto |
-| FIX-09 | Sección métricas | ⬜ Pendiente (contenido) | Bajo | Medio |
-| FIX-10 | FAQ modelo pago | ✅ Hecho | — | — |
-| FIX-11 | Alt enriquecidos | ⬜ Pendiente | Bajo | Bajo |
-| FIX-12 | AggregateRating | ⬜ Bloqueado por FIX-08 | Bajo | Alto |
-| FIX-13 | PNGs en git | ⬜ Pendiente manual | Bajo | Bajo |
-| FIX-14 | Google Business | ⬜ Pendiente manual | Bajo | Alto |
-| DT-01 | Bug commits REST | ✅ Hecho | — | — |
-| DT-02 | Bug Tailwind hover | ✅ Hecho | — | — |
-| DT-03 | Hero duplicado | ⬜ Deuda futura | Medio | Bajo |
-| DT-04 | Nichos hardcoded | ⬜ Deuda futura | Bajo | Bajo |
-| DT-05 | Import Linkedin | ⬜ Pendiente | Bajo | Bajo |
-| DT-06 | CSS muerto | ⬜ Pendiente | Bajo | Bajo |
-| DT-07 | Smoke test débil | ⬜ Deuda futura | Bajo | Medio |
-| DT-08 | focus-visible nav | ⬜ Deuda futura | Bajo | Bajo |
+| ID     | Área                  | Estado                   | Esfuerzo | Impacto |
+| ------ | --------------------- | ------------------------ | -------- | ------- |
+| FIX-01 | Performance (favicon) | ⬜ Pendiente manual      | Bajo     | Alto    |
+| FIX-02 | Performance (WebP)    | ✅ Hecho                 | —        | —       |
+| FIX-03 | Limpieza repo (PNGs)  | ⬜ Pendiente manual      | Bajo     | Medio   |
+| FIX-04 | OG/JSON-LD WebP       | ✅ Hecho                 | —        | —       |
+| FIX-05 | Tests E2E             | ⬜ Pendiente             | Alto     | Alto    |
+| FIX-06 | WhatsApp Hero         | ✅ Hecho                 | —        | —       |
+| FIX-07 | Badge dinámico        | ✅ Hecho                 | —        | —       |
+| FIX-08 | Testimonios reales    | ⬜ Pendiente (contenido) | Medio    | Alto    |
+| FIX-09 | Sección métricas      | ⬜ Pendiente (contenido) | Bajo     | Medio   |
+| FIX-10 | FAQ modelo pago       | ✅ Hecho                 | —        | —       |
+| FIX-11 | Alt enriquecidos      | ⬜ Pendiente             | Bajo     | Bajo    |
+| FIX-12 | AggregateRating       | ⬜ Bloqueado por FIX-08  | Bajo     | Alto    |
+| FIX-13 | PNGs en git           | ⬜ Pendiente manual      | Bajo     | Bajo    |
+| FIX-14 | Google Business       | ⬜ Pendiente manual      | Bajo     | Alto    |
+| DT-01  | Bug commits REST      | ✅ Hecho                 | —        | —       |
+| DT-02  | Bug Tailwind hover    | ✅ Hecho                 | —        | —       |
+| DT-03  | Hero duplicado        | ⬜ Deuda futura          | Medio    | Bajo    |
+| DT-04  | Nichos hardcoded      | ⬜ Deuda futura          | Bajo     | Bajo    |
+| DT-05  | Import Linkedin       | ⬜ Pendiente             | Bajo     | Bajo    |
+| DT-06  | CSS muerto            | ⬜ Pendiente             | Bajo     | Bajo    |
+| DT-07  | Smoke test débil      | ⬜ Deuda futura          | Bajo     | Medio   |
+| DT-08  | focus-visible nav     | ⬜ Deuda futura          | Bajo     | Bajo    |

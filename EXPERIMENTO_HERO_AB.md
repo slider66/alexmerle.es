@@ -1,4 +1,4 @@
-# Experimento A/B — Hero Headline alexmerle.es
+# Experimento A/B — Hero Headline webpc.es
 
 > **Fecha de inicio:** 2026-04-02
 > **Estado:** ⏸️ Pausado — retomar cuando tráfico orgánico supere ~500 visitas/mes
@@ -33,11 +33,11 @@ de las 4 variantes consideradas.
 
 ## Variantes descartadas (para referencia futura)
 
-| variant_id | Headline | Por qué se descartó |
-|---|---|---|
-| `sin_esperas` | "Tu negocio online, sin esperas." | Demasiado neutro, no activa urgencia |
-| `meses_paralizado` | "¿Llevas meses sin publicar nada?" | Bueno para empatía, débil para conversión directa |
-| `propuesta_24h` | "Propuesta en 24h. Publicado cuanto antes." | Vende proceso, no consecuencia |
+| variant_id         | Headline                                    | Por qué se descartó                               |
+| ------------------ | ------------------------------------------- | ------------------------------------------------- |
+| `sin_esperas`      | "Tu negocio online, sin esperas."           | Demasiado neutro, no activa urgencia              |
+| `meses_paralizado` | "¿Llevas meses sin publicar nada?"          | Bueno para empatía, débil para conversión directa |
+| `propuesta_24h`    | "Propuesta en 24h. Publicado cuanto antes." | Vende proceso, no consecuencia                    |
 
 ---
 
@@ -57,6 +57,7 @@ o middleware (no useEffect), para que Google indexe siempre una versión real.
 ## Tracking activo actualmente
 
 El evento `cta_click` sigue activo en `src/components/HeroCtas.tsx`:
+
 - Parámetros: `from: "hero"`, `cta: "primary" | "secondary"`
 - GA4: Informes → Engagement → Eventos → cta_click
 
@@ -102,14 +103,17 @@ GA4 envía informes semanales por email. El MCP de Gmail ya está configurado
 en Claude Code, que puede leerlos directamente sin setup adicional.
 
 **Informes configurados en GA4:**
+
 - Informe semanal: usuarios, sesiones, tráfico orgánico vs directo
 - Informe semanal: eventos (cta_click, hero_variant_shown cuando aplique)
 
 **Cómo usar en una sesión futura:**
+
 ```
 "Lee los últimos informes de GA4 que llegaron por email y dime
-cómo está el tráfico de alexmerle.es"
+cómo está el tráfico de webpc.es"
 ```
+
 Claude buscará en Gmail los emails de Google Analytics y extraerá los datos.
 
 **Limitación:** solo contiene lo que GA4 incluye en el email, sin consultas custom.
@@ -123,6 +127,7 @@ y cruces de datos que los emails no incluyen. Necesario cuando el tráfico crezc
 y se retome el A/B test.
 
 **Setup (cuando se necesite):**
+
 1. Google Cloud Console → crear proyecto → activar "Google Analytics Data API"
 2. IAM → crear Service Account → descargar credenciales JSON
 3. GA4 → Admin → Gestión de acceso → añadir email de la service account como Viewer
@@ -130,6 +135,7 @@ y se retome el A/B test.
 5. Claude crea el script de consulta en Node.js usando `@google-analytics/data`
 
 **Prompt para implementarlo:**
+
 ```
 Quiero implementar acceso directo a GA4 desde Claude Code mediante la
 Data API. Lee EXPERIMENTO_HERO_AB.md para el contexto.
@@ -154,8 +160,8 @@ Retomar solo si Google publica un MCP oficial.
 
 ## Log
 
-| Fecha | Acción |
-|---|---|
-| 2026-04-02 | Experimento planificado, 4 variantes definidas |
-| 2026-04-02 | Pausado. H1 fijado como server component con variante `competencia` |
+| Fecha      | Acción                                                                     |
+| ---------- | -------------------------------------------------------------------------- |
+| 2026-04-02 | Experimento planificado, 4 variantes definidas                             |
+| 2026-04-02 | Pausado. H1 fijado como server component con variante `competencia`        |
 | 2026-04-02 | Opción A de monitorización GA4 activada (informes semanales por Gmail MCP) |

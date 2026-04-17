@@ -1,8 +1,8 @@
-# alexmerle.es
+# webpc.es
 
 Portfolio y web de servicios de **Alejandro Merle**, consultor IT independiente en el norte de Madrid. Webs profesionales, SEO local y sistemas de encargos online para negocios locales.
 
-🌐 [alexmerle.es](https://alexmerle.es)
+🌐 [webpc.es](https://webpc.es)
 
 ---
 
@@ -48,22 +48,25 @@ src/
 El portfolio se construye dinámicamente desde la **GitHub API** (`slider66`) combinado con `projectOverrides` en `src/lib/github.ts`.
 
 Cada proyecto puede tener:
-- `type: 'web'` → sección *Trabajos recientes*
-- `type: 'tool'` → sección *Herramientas*
+
+- `type: 'web'` → sección _Trabajos recientes_
+- `type: 'tool'` → sección _Herramientas_
 
 Las webs se ordenan por `order` manual. Las herramientas por `updated_at` descendente (más reciente primero).
 
 ### Proyectos web destacados
-| Proyecto | URL |
-|---|---|
-| Fotografía Aérea Madrid | fotografiaaereamadrid.vercel.app |
-| Hierros Merle | merle.es |
-| Metal Line | metal-line.es |
-| iJornada (SaaS, privado) | — |
-| Café & Tortilla Montes | montes.vercel.app |
-| Lolo Transportes | lt-wheat.vercel.app |
+
+| Proyecto                 | URL                              |
+| ------------------------ | -------------------------------- |
+| Fotografía Aérea Madrid  | fotografiaaereamadrid.vercel.app |
+| Hierros Merle            | merle.es                         |
+| Metal Line               | metal-line.es                    |
+| iJornada (SaaS, privado) | —                                |
+| Café & Tortilla Montes   | montes.vercel.app                |
+| Lolo Transportes         | lt-wheat.vercel.app              |
 
 ### Herramientas open source
+
 `Autodesk-Full-Cleaner` · `OrdenaFotos` · `Riot_force_uninstall` · `myCAD` · `FECU` · `wp-underconstruction` · `menu_contextual_W11_to_W10` · `Full_clean_adesk`
 
 ---

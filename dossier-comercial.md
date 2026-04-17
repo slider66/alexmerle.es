@@ -1,4 +1,4 @@
-# Dossier alexmerle.es — Propuesta Comercial
+# Dossier webpc.es — Propuesta Comercial
 
 ---
 
@@ -42,14 +42,14 @@ Agenda organizada, bandeja de entrada que no se desborda, respuestas automática
 
 ### Antes y después — así de claro
 
-| Lo que vives ahora | Lo que tendrás en pocas semanas |
-|---|---|
-| No apareces en Google cuando alguien te busca | Tus clientes potenciales te encuentran antes que a la competencia |
-| El teléfono suena con preguntas de siempre | Un sistema responde por ti fuera de horario y en festivos |
-| Las citas y reservas son un caos de llamadas | Una agenda online que el cliente reserva solo, sin que intervengas |
-| Tu web es una tarjeta de visita que nadie lee | Una herramienta que capta contactos y genera encargos |
-| Cada semana se te escapa algún cliente por no contestar a tiempo | Un buzón centralizado donde no se pierde nada |
-| Crecer te da miedo porque ya no puedes con lo que tienes | Con los procesos en orden, crecer es cuestión de decidirlo |
+| Lo que vives ahora                                               | Lo que tendrás en pocas semanas                                    |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------ |
+| No apareces en Google cuando alguien te busca                    | Tus clientes potenciales te encuentran antes que a la competencia  |
+| El teléfono suena con preguntas de siempre                       | Un sistema responde por ti fuera de horario y en festivos          |
+| Las citas y reservas son un caos de llamadas                     | Una agenda online que el cliente reserva solo, sin que intervengas |
+| Tu web es una tarjeta de visita que nadie lee                    | Una herramienta que capta contactos y genera encargos              |
+| Cada semana se te escapa algún cliente por no contestar a tiempo | Un buzón centralizado donde no se pierde nada                      |
+| Crecer te da miedo porque ya no puedes con lo que tienes         | Con los procesos en orden, crecer es cuestión de decidirlo         |
 
 ---
 
@@ -117,22 +117,22 @@ Stack: Next.js, Tailwind CSS, Vercel · [lt-wheat.vercel.app](https://lt-wheat.v
 
 ---
 
-**iJornada — SaaS de Gestión Laboral** *(privado)*
+**iJornada — SaaS de Gestión Laboral** _(privado)_
 Plataforma SaaS de gestión de asistencia y cumplimiento normativo laboral con panel de control avanzado. Proyecto confidencial, no público.
 Stack: Next.js, Prisma, PostgreSQL
 
 ---
 
-#### Herramientas y utilidades técnicas *(muestra de capacidad técnica)*
+#### Herramientas y utilidades técnicas _(muestra de capacidad técnica)_
 
-| Proyecto | Descripción | Stack |
-|---|---|---|
-| **myCAD** | Convierte fotos de piezas planas en archivos DXF para corte láser y CNC. Modo IA con Gemini Pro o modo rápido con OpenCV | Python, FastAPI, React, OpenCV, Gemini AI |
-| **FECU** | App web de recopilación compartida de fotos en eventos con galería lazy-load y panel de admin | Next.js 15, Prisma, Supabase, TypeScript |
-| **wp-underconstruction** | Plugin WordPress de página de mantenimiento con 503 + Retry-After para no penalizar SEO | PHP, WordPress |
-| **OrdenaFotos** | Organiza automáticamente colecciones de fotos caóticas en carpetas por fecha, cámara o evento | Python, EXIF, CLI |
-| **Autodesk Full Cleaner** | Desinstalador sistemático para productos Autodesk: elimina registro residual y licencias corruptas | PowerShell, Windows Registry |
-| **Riot Force Uninstall** | Elimina completamente Riot Games, Valorant y el anticheat Vanguard (drivers kernel) de Windows 10/11 | Batch, PowerShell, Kernel |
+| Proyecto                  | Descripción                                                                                                              | Stack                                     |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------- |
+| **myCAD**                 | Convierte fotos de piezas planas en archivos DXF para corte láser y CNC. Modo IA con Gemini Pro o modo rápido con OpenCV | Python, FastAPI, React, OpenCV, Gemini AI |
+| **FECU**                  | App web de recopilación compartida de fotos en eventos con galería lazy-load y panel de admin                            | Next.js 15, Prisma, Supabase, TypeScript  |
+| **wp-underconstruction**  | Plugin WordPress de página de mantenimiento con 503 + Retry-After para no penalizar SEO                                  | PHP, WordPress                            |
+| **OrdenaFotos**           | Organiza automáticamente colecciones de fotos caóticas en carpetas por fecha, cámara o evento                            | Python, EXIF, CLI                         |
+| **Autodesk Full Cleaner** | Desinstalador sistemático para productos Autodesk: elimina registro residual y licencias corruptas                       | PowerShell, Windows Registry              |
+| **Riot Force Uninstall**  | Elimina completamente Riot Games, Valorant y el anticheat Vanguard (drivers kernel) de Windows 10/11                     | Batch, PowerShell, Kernel                 |
 
 ---
 
@@ -182,44 +182,44 @@ Esto es relevante para ti como colaborador: saber qué puedo y qué no puedo mon
 
 #### Web moderna (lo que se hace hoy)
 
-| Tecnología | Para qué sirve en un proyecto |
-|---|---|
-| **React / Next.js** | Webs rápidas, posicionables y con lógica avanzada — el estándar actual para proyectos serios |
-| **TypeScript** | Código robusto que no falla en producción — menos bugs, más fiabilidad |
-| **Tailwind CSS** | Diseño responsive y consistente sin depender de plantillas |
-| **Framer Motion** | Animaciones e interacciones de nivel profesional sin coste adicional |
-| **Vercel / GitHub Actions** | Deploy automático, actualizaciones sin tiempo de inactividad, pipelines de publicación |
-| **Node.js** | Lógica de servidor, integraciones con APIs externas, automatizaciones |
+| Tecnología                  | Para qué sirve en un proyecto                                                                |
+| --------------------------- | -------------------------------------------------------------------------------------------- |
+| **React / Next.js**         | Webs rápidas, posicionables y con lógica avanzada — el estándar actual para proyectos serios |
+| **TypeScript**              | Código robusto que no falla en producción — menos bugs, más fiabilidad                       |
+| **Tailwind CSS**            | Diseño responsive y consistente sin depender de plantillas                                   |
+| **Framer Motion**           | Animaciones e interacciones de nivel profesional sin coste adicional                         |
+| **Vercel / GitHub Actions** | Deploy automático, actualizaciones sin tiempo de inactividad, pipelines de publicación       |
+| **Node.js**                 | Lógica de servidor, integraciones con APIs externas, automatizaciones                        |
 
 #### Web clásica y plataformas (lo de siempre, bien hecho)
 
-| Tecnología | Para qué sirve en un proyecto |
-|---|---|
-| **HTML / CSS / JavaScript** | Base de cualquier web — dominio completo sin dependencias de framework |
-| **WordPress** | Webs con panel de gestión para clientes que quieren editar su contenido solos |
-| **WooCommerce** | Tiendas online sobre WordPress sin coste de plataforma mensual |
-| **PHP** | Lógica de servidor en proyectos WordPress o webs heredadas |
+| Tecnología                  | Para qué sirve en un proyecto                                                 |
+| --------------------------- | ----------------------------------------------------------------------------- |
+| **HTML / CSS / JavaScript** | Base de cualquier web — dominio completo sin dependencias de framework        |
+| **WordPress**               | Webs con panel de gestión para clientes que quieren editar su contenido solos |
+| **WooCommerce**             | Tiendas online sobre WordPress sin coste de plataforma mensual                |
+| **PHP**                     | Lógica de servidor en proyectos WordPress o webs heredadas                    |
 
 #### Herramientas de captación y automatización
 
-| Tecnología / servicio | Para qué sirve en un proyecto |
-|---|---|
-| **Google Business Profile API** | Gestión y optimización programática de fichas de Google |
-| **Google Search Console** | Diagnóstico SEO real — qué buscan los usuarios, dónde falla la web |
-| **Resend / Nodemailer** | Sistemas de email transaccional: confirmaciones, recordatorios, leads |
-| **Calendly / Cal.com** | Agendas online integradas en la web del cliente |
-| **Make (Integromat) / Zapier** | Automatizaciones entre herramientas sin código personalizado |
-| **WhatsApp Business API** | Confirmaciones automáticas, encargos, notificaciones vía WhatsApp |
-| **Web3Forms / Formspree** | Formularios de contacto y captación de leads sin servidor |
+| Tecnología / servicio           | Para qué sirve en un proyecto                                         |
+| ------------------------------- | --------------------------------------------------------------------- |
+| **Google Business Profile API** | Gestión y optimización programática de fichas de Google               |
+| **Google Search Console**       | Diagnóstico SEO real — qué buscan los usuarios, dónde falla la web    |
+| **Resend / Nodemailer**         | Sistemas de email transaccional: confirmaciones, recordatorios, leads |
+| **Calendly / Cal.com**          | Agendas online integradas en la web del cliente                       |
+| **Make (Integromat) / Zapier**  | Automatizaciones entre herramientas sin código personalizado          |
+| **WhatsApp Business API**       | Confirmaciones automáticas, encargos, notificaciones vía WhatsApp     |
+| **Web3Forms / Formspree**       | Formularios de contacto y captación de leads sin servidor             |
 
 #### Infraestructura y despliegue
 
-| Tecnología | Para qué sirve en un proyecto |
-|---|---|
-| **Vercel / Netlify** | Hosting moderno con SSL, CDN global y deploy automático desde GitHub |
-| **Hostinger / cPanel** | Hosting tradicional para clientes con dominios y correos ya existentes |
-| **GitHub / Git** | Control de versiones — el cliente siempre tiene el código, nunca depende de mí |
-| **Cloudflare** | Rendimiento, caché y protección básica sin coste adicional |
+| Tecnología             | Para qué sirve en un proyecto                                                  |
+| ---------------------- | ------------------------------------------------------------------------------ |
+| **Vercel / Netlify**   | Hosting moderno con SSL, CDN global y deploy automático desde GitHub           |
+| **Hostinger / cPanel** | Hosting tradicional para clientes con dominios y correos ya existentes         |
+| **GitHub / Git**       | Control de versiones — el cliente siempre tiene el código, nunca depende de mí |
+| **Cloudflare**         | Rendimiento, caché y protección básica sin coste adicional                     |
 
 ---
 
@@ -247,12 +247,12 @@ Conoces el negocio, detectas las necesidades, acuerdas con el cliente qué hacer
 
 En este caso la comisión se calcula sobre el **margen del proyecto**, no sobre el total facturado. El margen es lo que queda una vez cubierto el coste de producción (horas de ejecución técnica). Sobre ese margen, la comisión puede llegar hasta el **50%** según el tipo de servicio:
 
-| Tipo de servicio | Margen habitual | Comisión orientativa |
-|---|---|---|
-| Auditoría, revisión de Google Business, buzón, agenda | Alto — ejecución ligera | Hasta el 50% del margen |
-| Landing page o web sencilla | Medio — más horas de producción | 25–35% del margen |
-| Web completa con integraciones | Bajo — proyecto intensivo en horas | 15–25% del margen |
-| Packs combinados | Variable | Se acuerda antes de arrancar |
+| Tipo de servicio                                      | Margen habitual                    | Comisión orientativa         |
+| ----------------------------------------------------- | ---------------------------------- | ---------------------------- |
+| Auditoría, revisión de Google Business, buzón, agenda | Alto — ejecución ligera            | Hasta el 50% del margen      |
+| Landing page o web sencilla                           | Medio — más horas de producción    | 25–35% del margen            |
+| Web completa con integraciones                        | Bajo — proyecto intensivo en horas | 15–25% del margen            |
+| Packs combinados                                      | Variable                           | Se acuerda antes de arrancar |
 
 El criterio siempre es el mismo: **primero se cubre el coste de producción, y sobre lo que queda se reparte**. En servicios de ejecución rápida el margen es alto y la comisión lo refleja. En proyectos que requieren muchas horas, el margen es más ajustado y el reparto también.
 
@@ -273,14 +273,15 @@ No hay un único guion. Cada colaborador tiene su propio punto de partida, su re
 Tú sabes lo que hace falta para posicionar. El problema es que muchos clientes no pueden pagarte una estrategia SEO completa —y tú solo no puedes abarcar también la parte técnica, el diseño y la implementación. Aquí es donde encajamos.
 
 **Tu pitch:**
-> *"Puedo auditarte la web y decirte exactamente por qué no apareces en Google. Y si necesitas que alguien lo implemente de forma técnica y a un precio que puedas pagar, tengo un colaborador que lo resuelve. Hacemos los dos juntos el diagnóstico y tú decides si quieres que tiremos."*
+
+> _"Puedo auditarte la web y decirte exactamente por qué no apareces en Google. Y si necesitas que alguien lo implemente de forma técnica y a un precio que puedas pagar, tengo un colaborador que lo resuelve. Hacemos los dos juntos el diagnóstico y tú decides si quieres que tiremos."_
 
 **Qué aportas tú:** el análisis de palabras clave, la estrategia de contenidos, el informe de competencia.
 **Qué aporto yo:** la implementación técnica, la arquitectura web, las meta etiquetas, el schema, la ficha de Google, los redirects.
 **Resultado para el cliente:** estrategia + ejecución en un solo proceso, sin tener que coordinar dos proveedores distintos.
 
 **Pregunta de apertura:**
-*"¿Sabes cuántas búsquedas hay en Google cada mes de gente buscando lo que tú ofreces en tu zona? ¿Y cuántas de esas llegan a tu web?"*
+_"¿Sabes cuántas búsquedas hay en Google cada mes de gente buscando lo que tú ofreces en tu zona? ¿Y cuántas de esas llegan a tu web?"_
 
 ---
 
@@ -289,14 +290,15 @@ Tú sabes lo que hace falta para posicionar. El problema es que muchos clientes 
 Tú generas contenido, gestionas perfiles, sabes lo que funciona en Instagram o Facebook. Pero tus clientes a menudo tienen un problema anterior: no tienen web, no tienen ficha de Google, no tienen sistema para convertir esos seguidores en clientes reales. Las redes atraen atención; lo demás la convierte.
 
 **Tu pitch:**
-> *"Las redes están bien para que te conozcan, pero si alguien busca tu negocio en Google y no apareces, o no puede reservar fácilmente, pierdes la venta. Yo me ocupo de la parte social y tengo un especialista que monta la parte técnica: la web, la ficha, el sistema de citas. Así el trabajo que hacemos en redes no se desperdicia."*
+
+> _"Las redes están bien para que te conozcan, pero si alguien busca tu negocio en Google y no apareces, o no puede reservar fácilmente, pierdes la venta. Yo me ocupo de la parte social y tengo un especialista que monta la parte técnica: la web, la ficha, el sistema de citas. Así el trabajo que hacemos en redes no se desperdicia."_
 
 **Qué aportas tú:** estrategia de contenido, gestión de perfiles, comunidad, publicidad social.
 **Qué aporto yo:** la web que recibe el tráfico de redes, la landing de captación, la agenda online, el buzón centralizado.
 **Resultado para el cliente:** los seguidores se convierten en clientes reales, no solo en likes.
 
 **Pregunta de apertura:**
-*"¿Cuánta gente que te sigue en Instagram acaba pidiendo cita o haciendo un encargo? ¿Sabes por qué no son más?"*
+_"¿Cuánta gente que te sigue en Instagram acaba pidiendo cita o haciendo un encargo? ¿Sabes por qué no son más?"_
 
 ---
 
@@ -305,14 +307,15 @@ Tú generas contenido, gestionas perfiles, sabes lo que funciona en Instagram o 
 Conoces dueños de bares, restaurantes, cafeterías. Sabes cómo hablan, qué les preocupa y cuándo tienen cinco minutos para escucharte. El dolor de este sector es universal: teléfono que no para, pedidos que se pierden, carta desactualizada, reservas caóticas.
 
 **Tu pitch:**
-> *"Tengo un servicio que monta en menos de una semana: carta digital en el móvil, sistema de encargos por WhatsApp con confirmación automática y ficha de Google actualizada. Sin cuotas mensuales, sin formación técnica. Lo usas desde el día uno. ¿Te cuento cómo le quedó a un bar de la zona?"*
+
+> _"Tengo un servicio que monta en menos de una semana: carta digital en el móvil, sistema de encargos por WhatsApp con confirmación automática y ficha de Google actualizada. Sin cuotas mensuales, sin formación técnica. Lo usas desde el día uno. ¿Te cuento cómo le quedó a un bar de la zona?"_
 
 **Qué aportas tú:** la relación, la confianza del sector, la capacidad de hablar su idioma.
 **Qué aporto yo:** la carta digital, el sistema de encargos automatizado, la integración con WhatsApp, la ficha de Google.
 **Referencia real:** Café & Tortilla Montes — digitalización completa en 7 días. [montes.vercel.app](https://montes.vercel.app)
 
 **Pregunta de apertura:**
-*"¿Cuántas veces al día coges el teléfono para confirmar reservas o encargos que podrían gestionarse solos?"*
+_"¿Cuántas veces al día coges el teléfono para confirmar reservas o encargos que podrían gestionarse solos?"_
 
 ---
 
@@ -321,12 +324,13 @@ Conoces dueños de bares, restaurantes, cafeterías. Sabes cómo hablan, qué le
 El sector sanitario privado sigue usando papel, llamadas y WhatsApp para gestionar citas. Eso tiene un coste enorme en horas y en clientes perdidos que llaman fuera de horario y no vuelven a intentarlo. Además, cualquier solución debe cumplir con la LOPD y el RGPD —y ahí es donde muchas opciones genéricas fallan.
 
 **Tu pitch:**
-> *"¿Cuántos pacientes perdéis porque llaman fuera de horario y no hay nadie que atienda? Un sistema de reservas online con confirmación automática, recordatorio previo a la cita y gestión de cancelaciones —todo dentro de la normativa española de protección de datos. Lo montamos en días y no requiere que el personal cambie su forma de trabajar."*
+
+> _"¿Cuántos pacientes perdéis porque llaman fuera de horario y no hay nadie que atienda? Un sistema de reservas online con confirmación automática, recordatorio previo a la cita y gestión de cancelaciones —todo dentro de la normativa española de protección de datos. Lo montamos en días y no requiere que el personal cambie su forma de trabajar."_
 
 **Qué aportas tú:** la relación con la clínica, el conocimiento del sector, la gestión del proceso de adopción.
 **Qué aporto yo:** el sistema de citas, la automatización de confirmaciones y recordatorios, la integración con el correo o el teléfono existente, siempre dentro de la legislación española.
 **Pregunta de apertura:**
-*"Si un paciente intenta pedir cita un sábado por la noche, ¿qué pasa? ¿Cuántos de esos no vuelven a intentarlo?"*
+_"Si un paciente intenta pedir cita un sábado por la noche, ¿qué pasa? ¿Cuántos de esos no vuelven a intentarlo?"_
 
 ---
 
@@ -335,14 +339,15 @@ El sector sanitario privado sigue usando papel, llamadas y WhatsApp para gestion
 Ya tienes la confianza de tus clientes. Ya sabes dónde tienen problemas. Muchas veces ves que el negocio pierde dinero por cosas que no tienen que ver con la fiscalidad ni con la contabilidad, sino con procesos o con visibilidad. Eso es exactamente lo que resuelvo.
 
 **Tu pitch:**
-> *"Cuando detectas que un cliente pierde clientes por no tener presencia online o por procesos manuales que le roban horas, puedo hacer el diagnóstico técnico y la propuesta de solución. Tú sigues siendo su referente de confianza; yo soy el especialista que resuelve esa parte concreta. Lo presentamos juntos si quieres."*
+
+> _"Cuando detectas que un cliente pierde clientes por no tener presencia online o por procesos manuales que le roban horas, puedo hacer el diagnóstico técnico y la propuesta de solución. Tú sigues siendo su referente de confianza; yo soy el especialista que resuelve esa parte concreta. Lo presentamos juntos si quieres."_
 
 **Qué aportas tú:** la relación de confianza ya construida, el conocimiento del negocio, la capacidad de identificar dónde se escapa el dinero.
 **Qué aporto yo:** el diagnóstico de presencia digital, la propuesta técnica, la ejecución y el soporte.
 **Resultado para el cliente:** su consultor de siempre le ofrece ahora una capa más de valor sin que tenga que buscar a nadie nuevo.
 
 **Pregunta de apertura:**
-*"¿Alguno de tus clientes te ha preguntado alguna vez por qué no le llegan más clientes, más allá de lo que puedes resolverle tú?"*
+_"¿Alguno de tus clientes te ha preguntado alguna vez por qué no le llegan más clientes, más allá de lo que puedes resolverle tú?"_
 
 ---
 
@@ -351,14 +356,15 @@ Ya tienes la confianza de tus clientes. Ya sabes dónde tienen problemas. Muchas
 No hace falta saber de tecnología ni de marketing. Si conoces negocios de tu zona y puedes tener una conversación honesta, tienes todo lo que necesitas.
 
 **Tu pitch:**
-> *"Trabajo con alguien que ayuda a negocios locales a aparecer mejor en internet y a no perder clientes por no contestar a tiempo. Sin proyectos eternos ni presupuestos de agencia. ¿Quieres que os cuente en qué consiste? No compromete a nada."*
+
+> _"Trabajo con alguien que ayuda a negocios locales a aparecer mejor en internet y a no perder clientes por no contestar a tiempo. Sin proyectos eternos ni presupuestos de agencia. ¿Quieres que os cuente en qué consiste? No compromete a nada."_
 
 **Qué aportas tú:** el acceso, la confianza local, la capacidad de abrir la puerta.
 **Qué aporto yo:** todo lo técnico, el diagnóstico, la propuesta y la ejecución.
 **Tu único trabajo:** conseguir que haya una primera conversación.
 
 **Pregunta de apertura:**
-*"¿Sabes si [nombre del negocio] aparece bien en Google cuando alguien busca lo que hacen?"*
+_"¿Sabes si [nombre del negocio] aparece bien en Google cuando alguien busca lo que hacen?"_
 
 ---
 
@@ -368,30 +374,30 @@ La clave es no vender lo que ya tienen, sino mejorar lo que les falta —o revis
 
 #### Presencia online
 
-| El cliente tiene... | Lo que tiene sentido ofrecer |
-|---|---|
-| Nada en internet | Ficha de Google Business + web de aterrizaje básica desde 449 € |
-| Google Business sin optimizar | Revisión y puesta a punto: fotos, categorías, respuestas, reseñas — desde 150 € |
-| Google Business activo | Análisis de rendimiento + estrategia de reseñas — desde 150 € |
-| Web propia | Auditoría SEO + informe de mejoras concretas — desde 150 € |
-| Web con visitas pero sin contactos | Análisis de página de contacto/servicios + propuesta de mejora — desde 150 € |
-| Redes activas pero sin web | Landing page de captación enlazada desde perfil — desde 150 € |
+| El cliente tiene...                | Lo que tiene sentido ofrecer                                                    |
+| ---------------------------------- | ------------------------------------------------------------------------------- |
+| Nada en internet                   | Ficha de Google Business + web de aterrizaje básica desde 449 €                 |
+| Google Business sin optimizar      | Revisión y puesta a punto: fotos, categorías, respuestas, reseñas — desde 150 € |
+| Google Business activo             | Análisis de rendimiento + estrategia de reseñas — desde 150 €                   |
+| Web propia                         | Auditoría SEO + informe de mejoras concretas — desde 150 €                      |
+| Web con visitas pero sin contactos | Análisis de página de contacto/servicios + propuesta de mejora — desde 150 €    |
+| Redes activas pero sin web         | Landing page de captación enlazada desde perfil — desde 150 €                   |
 
 #### Comunicación y captación
 
-| El cliente tiene... | Lo que tiene sentido ofrecer |
-|---|---|
-| Email caótico, nada se sigue | Buzón centralizado con etiquetas y flujo de respuesta — desde 150 € |
-| Consultas repetidas por WhatsApp | Respuestas automáticas para las preguntas frecuentes — desde 150 € |
-| Reservas y citas por teléfono | Sistema de agenda online (el cliente reserva solo, sin llamar) — desde 150 € |
-| Sin presencia en directorios del sector | Alta y optimización en los 2-3 directorios clave — desde 150 € |
+| El cliente tiene...                     | Lo que tiene sentido ofrecer                                                 |
+| --------------------------------------- | ---------------------------------------------------------------------------- |
+| Email caótico, nada se sigue            | Buzón centralizado con etiquetas y flujo de respuesta — desde 150 €          |
+| Consultas repetidas por WhatsApp        | Respuestas automáticas para las preguntas frecuentes — desde 150 €           |
+| Reservas y citas por teléfono           | Sistema de agenda online (el cliente reserva solo, sin llamar) — desde 150 € |
+| Sin presencia en directorios del sector | Alta y optimización en los 2-3 directorios clave — desde 150 €               |
 
 #### Procesos internos
 
-| El cliente tiene... | Lo que tiene sentido ofrecer |
-|---|---|
-| Mucho tiempo en tareas repetitivas | Mapeo de los 3 procesos que más tiempo roban + automatización simple — desde 150 € |
-| Información dispersa entre WhatsApp, email y papel | Sistema centralizado básico — desde 150 € |
+| El cliente tiene...                                            | Lo que tiene sentido ofrecer                                                         |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Mucho tiempo en tareas repetitivas                             | Mapeo de los 3 procesos que más tiempo roban + automatización simple — desde 150 €   |
+| Información dispersa entre WhatsApp, email y papel             | Sistema centralizado básico — desde 150 €                                            |
 | Clínica o consulta que aún gestiona citas por teléfono o papel | Sistema de reservas online con confirmación automática y recordatorios — desde 299 € |
 
 > Los módulos combinados se negocian en pack. Cuanto más completo, más ajustado.
@@ -419,14 +425,14 @@ No hay mínimos, no hay volúmenes. El primer cliente que traes ya genera comisi
 
 ### El cliente ideal (para que no pierdas el tiempo)
 
-| Perfil que SÍ convierte | Perfil que NO es para nosotros |
-|---|---|
-| Negocio local: bar, restaurante, clínica, comercio, servicio de barrio | Grandes empresas con marketing propio |
-| El dueño gestiona él mismo su comunicación | Negocios con todo externalizado y funcionando bien |
-| No aparece en Google o aparece mal | Quien busca soluciones mágicas sin cambiar nada |
-| Se queja de que no le llegan clientes nuevos | El que no tiene tiempo ni ganas de implicarse |
-| Usa papel o WhatsApp para gestionar citas y reservas | El que ya tiene un informático de confianza para todo |
-| Factura pero no tiene presencia online consistente | — |
+| Perfil que SÍ convierte                                                | Perfil que NO es para nosotros                        |
+| ---------------------------------------------------------------------- | ----------------------------------------------------- |
+| Negocio local: bar, restaurante, clínica, comercio, servicio de barrio | Grandes empresas con marketing propio                 |
+| El dueño gestiona él mismo su comunicación                             | Negocios con todo externalizado y funcionando bien    |
+| No aparece en Google o aparece mal                                     | Quien busca soluciones mágicas sin cambiar nada       |
+| Se queja de que no le llegan clientes nuevos                           | El que no tiene tiempo ni ganas de implicarse         |
+| Usa papel o WhatsApp para gestionar citas y reservas                   | El que ya tiene un informático de confianza para todo |
+| Factura pero no tiene presencia online consistente                     | —                                                     |
 
 ---
 
@@ -434,9 +440,9 @@ No hay mínimos, no hay volúmenes. El primer cliente que traes ya genera comisi
 
 No hace falta ninguna presentación formal. Basta con una pregunta natural en el contexto adecuado:
 
-- *"Oye, ¿cómo tenéis lo de Google? ¿Os llegan clientes por ahí?"*
-- *"¿Tenéis sistema de reservas online o todavía lo hacéis por teléfono?"*
-- *"¿Podría encontraros fácilmente si busco lo que hacéis en Google Maps?"*
+- _"Oye, ¿cómo tenéis lo de Google? ¿Os llegan clientes por ahí?"_
+- _"¿Tenéis sistema de reservas online o todavía lo hacéis por teléfono?"_
+- _"¿Podría encontraros fácilmente si busco lo que hacéis en Google Maps?"_
 
 Si hay interés, me lo cuentas. Yo preparo la propuesta.
 
@@ -452,7 +458,7 @@ Nada de catálogos que memorizar. Nada de presentaciones formales. Una conversac
 
 ---
 
-*¿Quieres empezar? Escribe a alex@alexmerle.es o deja tus datos en alexmerle.es y hablamos esta semana.*
+_¿Quieres empezar? Escribe a alex@webpc.es o deja tus datos en webpc.es y hablamos esta semana._
 
 ---
 
@@ -462,7 +468,7 @@ Nada de catálogos que memorizar. Nada de presentaciones formales. Una conversac
 
 > Esta sección es solo para la implementación técnica del dossier como página web. No forma parte del dossier visible.
 
-### Página oculta en alexmerle.es
+### Página oculta en webpc.es
 
 El dossier se publica como una ruta privada dentro de la web, accesible únicamente mediante enlace directo. No aparece en el menú, no se indexa en Google y no hay forma de llegar a ella sin el link.
 
@@ -471,9 +477,11 @@ Ejemplo: `/dossier/colaboradores-2025` o `/dossier/am-privado`
 Usar un slug no obvio evita accesos accidentales sin necesidad de contraseña.
 
 **Noindexar la ruta** añadiendo en el `<head>` de esa página:
+
 ```html
 <meta name="robots" content="noindex, nofollow" />
 ```
+
 Y excluirla del `sitemap.ts`.
 
 ### Diseño: presentación en formato A4
@@ -487,6 +495,7 @@ Y excluirla del `sitemap.ts`.
 ### Botón "Descargar PDF"
 
 Usar `window.print()` con una hoja de estilos `@media print` que:
+
 - Oculte el botón de descarga en sí.
 - Oculte el Navbar y el Footer.
 - Mantenga los colores de marca si se imprime en color, o degrade limpiamente en blanco y negro.

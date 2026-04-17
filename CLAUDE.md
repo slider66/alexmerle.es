@@ -1,4 +1,4 @@
-# alexmerle.es — Guía para Claude Code
+# webpc.es — Guía para Claude Code
 
 ## ⚠️ REGLA DE ORO: Todo cambio se despliega vía GitHub Actions + FTP a Hostinger
 
@@ -85,7 +85,7 @@ git push main → GitHub Actions → pnpm build → ./out/ → FTP → public_ht
 
 ### ⚠️ Hostinger CI/CD debe estar DESACTIVADO
 
-> Panel de Hostinger → alexmerle.es → Deployments → "Ajustes y reimplementación" → desactiva "La autoimplementación"
+> Panel de Hostinger → webpc.es → Deployments → "Ajustes y reimplementación" → desactiva "La autoimplementación"
 
 Si Hostinger CI/CD está activo a la vez que GitHub Actions FTP, se pisan mutuamente y dejan la web sin CSS o con JS roto.
 
@@ -136,6 +136,7 @@ const availabilityBadge = `Solo 2 plazas disponibles en ${currentMonth}`;
 **No editar el texto a mano** — se actualiza solo con cada deploy. Si quieres cambiar el número de plazas o el mensaje, edita la plantilla en `Hero.tsx`.
 
 Los tres CTAs del Hero están en `src/components/HeroCtas.tsx`:
+
 1. **Hablamos esta semana** → ancla `#contacto`
 2. **WhatsApp directo** → `https://wa.me/34600367217` (mismo número que Footer y BackToTop)
 3. **Ver planes y precios** → ancla `#precios`
